@@ -23,18 +23,18 @@ import (
 // StagesAPIService StagesAPI service
 type StagesAPIService service
 
-type ApiAddStageRequest struct {
+type StagesAPIAddStageRequest struct {
 	ctx context.Context
 	ApiService *StagesAPIService
 	addStageRequest *AddStageRequest
 }
 
-func (r ApiAddStageRequest) AddStageRequest(addStageRequest AddStageRequest) ApiAddStageRequest {
+func (r StagesAPIAddStageRequest) AddStageRequest(addStageRequest AddStageRequest) StagesAPIAddStageRequest {
 	r.addStageRequest = &addStageRequest
 	return r
 }
 
-func (r ApiAddStageRequest) Execute() (*UpsertStageResponse, *http.Response, error) {
+func (r StagesAPIAddStageRequest) Execute() (*UpsertStageResponse, *http.Response, error) {
 	return r.ApiService.AddStageExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddStage Add a new stage
 Adds a new stage, returns the ID upon success.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddStageRequest
+ @return StagesAPIAddStageRequest
 */
-func (a *StagesAPIService) AddStage(ctx context.Context) ApiAddStageRequest {
-	return ApiAddStageRequest{
+func (a *StagesAPIService) AddStage(ctx context.Context) StagesAPIAddStageRequest {
+	return StagesAPIAddStageRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *StagesAPIService) AddStage(ctx context.Context) ApiAddStageRequest {
 
 // Execute executes the request
 //  @return UpsertStageResponse
-func (a *StagesAPIService) AddStageExecute(r ApiAddStageRequest) (*UpsertStageResponse, *http.Response, error) {
+func (a *StagesAPIService) AddStageExecute(r StagesAPIAddStageRequest) (*UpsertStageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -144,13 +144,13 @@ func (a *StagesAPIService) AddStageExecute(r ApiAddStageRequest) (*UpsertStageRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteStageRequest struct {
+type StagesAPIDeleteStageRequest struct {
 	ctx context.Context
 	ApiService *StagesAPIService
 	id int32
 }
 
-func (r ApiDeleteStageRequest) Execute() (*DeleteStageResponse, *http.Response, error) {
+func (r StagesAPIDeleteStageRequest) Execute() (*DeleteStageResponse, *http.Response, error) {
 	return r.ApiService.DeleteStageExecute(r)
 }
 
@@ -161,10 +161,10 @@ Marks a stage as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the stage
- @return ApiDeleteStageRequest
+ @return StagesAPIDeleteStageRequest
 */
-func (a *StagesAPIService) DeleteStage(ctx context.Context, id int32) ApiDeleteStageRequest {
-	return ApiDeleteStageRequest{
+func (a *StagesAPIService) DeleteStage(ctx context.Context, id int32) StagesAPIDeleteStageRequest {
+	return StagesAPIDeleteStageRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -173,7 +173,7 @@ func (a *StagesAPIService) DeleteStage(ctx context.Context, id int32) ApiDeleteS
 
 // Execute executes the request
 //  @return DeleteStageResponse
-func (a *StagesAPIService) DeleteStageExecute(r ApiDeleteStageRequest) (*DeleteStageResponse, *http.Response, error) {
+func (a *StagesAPIService) DeleteStageExecute(r StagesAPIDeleteStageRequest) (*DeleteStageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -261,13 +261,13 @@ func (a *StagesAPIService) DeleteStageExecute(r ApiDeleteStageRequest) (*DeleteS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetStageRequest struct {
+type StagesAPIGetStageRequest struct {
 	ctx context.Context
 	ApiService *StagesAPIService
 	id int32
 }
 
-func (r ApiGetStageRequest) Execute() (*UpsertStageResponse, *http.Response, error) {
+func (r StagesAPIGetStageRequest) Execute() (*UpsertStageResponse, *http.Response, error) {
 	return r.ApiService.GetStageExecute(r)
 }
 
@@ -278,10 +278,10 @@ Returns data about a specific stage.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the stage
- @return ApiGetStageRequest
+ @return StagesAPIGetStageRequest
 */
-func (a *StagesAPIService) GetStage(ctx context.Context, id int32) ApiGetStageRequest {
-	return ApiGetStageRequest{
+func (a *StagesAPIService) GetStage(ctx context.Context, id int32) StagesAPIGetStageRequest {
+	return StagesAPIGetStageRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -290,7 +290,7 @@ func (a *StagesAPIService) GetStage(ctx context.Context, id int32) ApiGetStageRe
 
 // Execute executes the request
 //  @return UpsertStageResponse
-func (a *StagesAPIService) GetStageExecute(r ApiGetStageRequest) (*UpsertStageResponse, *http.Response, error) {
+func (a *StagesAPIService) GetStageExecute(r StagesAPIGetStageRequest) (*UpsertStageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -378,7 +378,7 @@ func (a *StagesAPIService) GetStageExecute(r ApiGetStageRequest) (*UpsertStageRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetStagesRequest struct {
+type StagesAPIGetStagesRequest struct {
 	ctx context.Context
 	ApiService *StagesAPIService
 	pipelineId *int32
@@ -389,36 +389,36 @@ type ApiGetStagesRequest struct {
 }
 
 // The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
-func (r ApiGetStagesRequest) PipelineId(pipelineId int32) ApiGetStagesRequest {
+func (r StagesAPIGetStagesRequest) PipelineId(pipelineId int32) StagesAPIGetStagesRequest {
 	r.pipelineId = &pipelineId
 	return r
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;order_nr&#x60;.
-func (r ApiGetStagesRequest) SortBy(sortBy string) ApiGetStagesRequest {
+func (r StagesAPIGetStagesRequest) SortBy(sortBy string) StagesAPIGetStagesRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetStagesRequest) SortDirection(sortDirection string) ApiGetStagesRequest {
+func (r StagesAPIGetStagesRequest) SortDirection(sortDirection string) StagesAPIGetStagesRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetStagesRequest) Limit(limit int32) ApiGetStagesRequest {
+func (r StagesAPIGetStagesRequest) Limit(limit int32) StagesAPIGetStagesRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetStagesRequest) Cursor(cursor string) ApiGetStagesRequest {
+func (r StagesAPIGetStagesRequest) Cursor(cursor string) StagesAPIGetStagesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetStagesRequest) Execute() (*GetStagesResponse, *http.Response, error) {
+func (r StagesAPIGetStagesRequest) Execute() (*GetStagesResponse, *http.Response, error) {
 	return r.ApiService.GetStagesExecute(r)
 }
 
@@ -428,10 +428,10 @@ GetStages Get all stages
 Returns data about all stages.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetStagesRequest
+ @return StagesAPIGetStagesRequest
 */
-func (a *StagesAPIService) GetStages(ctx context.Context) ApiGetStagesRequest {
-	return ApiGetStagesRequest{
+func (a *StagesAPIService) GetStages(ctx context.Context) StagesAPIGetStagesRequest {
+	return StagesAPIGetStagesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -439,7 +439,7 @@ func (a *StagesAPIService) GetStages(ctx context.Context) ApiGetStagesRequest {
 
 // Execute executes the request
 //  @return GetStagesResponse
-func (a *StagesAPIService) GetStagesExecute(r ApiGetStagesRequest) (*GetStagesResponse, *http.Response, error) {
+func (a *StagesAPIService) GetStagesExecute(r StagesAPIGetStagesRequest) (*GetStagesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -549,19 +549,19 @@ func (a *StagesAPIService) GetStagesExecute(r ApiGetStagesRequest) (*GetStagesRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateStageRequest struct {
+type StagesAPIUpdateStageRequest struct {
 	ctx context.Context
 	ApiService *StagesAPIService
 	id int32
 	updateStageRequest *UpdateStageRequest
 }
 
-func (r ApiUpdateStageRequest) UpdateStageRequest(updateStageRequest UpdateStageRequest) ApiUpdateStageRequest {
+func (r StagesAPIUpdateStageRequest) UpdateStageRequest(updateStageRequest UpdateStageRequest) StagesAPIUpdateStageRequest {
 	r.updateStageRequest = &updateStageRequest
 	return r
 }
 
-func (r ApiUpdateStageRequest) Execute() (*UpsertStageResponse, *http.Response, error) {
+func (r StagesAPIUpdateStageRequest) Execute() (*UpsertStageResponse, *http.Response, error) {
 	return r.ApiService.UpdateStageExecute(r)
 }
 
@@ -572,10 +572,10 @@ Updates the properties of a stage.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the stage
- @return ApiUpdateStageRequest
+ @return StagesAPIUpdateStageRequest
 */
-func (a *StagesAPIService) UpdateStage(ctx context.Context, id int32) ApiUpdateStageRequest {
-	return ApiUpdateStageRequest{
+func (a *StagesAPIService) UpdateStage(ctx context.Context, id int32) StagesAPIUpdateStageRequest {
+	return StagesAPIUpdateStageRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -584,7 +584,7 @@ func (a *StagesAPIService) UpdateStage(ctx context.Context, id int32) ApiUpdateS
 
 // Execute executes the request
 //  @return UpsertStageResponse
-func (a *StagesAPIService) UpdateStageExecute(r ApiUpdateStageRequest) (*UpsertStageResponse, *http.Response, error) {
+func (a *StagesAPIService) UpdateStageExecute(r StagesAPIUpdateStageRequest) (*UpsertStageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

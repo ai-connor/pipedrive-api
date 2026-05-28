@@ -23,18 +23,18 @@ import (
 // ActivitiesAPIService ActivitiesAPI service
 type ActivitiesAPIService service
 
-type ApiAddActivityRequest struct {
+type ActivitiesAPIAddActivityRequest struct {
 	ctx context.Context
 	ApiService *ActivitiesAPIService
 	addActivityRequest *AddActivityRequest
 }
 
-func (r ApiAddActivityRequest) AddActivityRequest(addActivityRequest AddActivityRequest) ApiAddActivityRequest {
+func (r ActivitiesAPIAddActivityRequest) AddActivityRequest(addActivityRequest AddActivityRequest) ActivitiesAPIAddActivityRequest {
 	r.addActivityRequest = &addActivityRequest
 	return r
 }
 
-func (r ApiAddActivityRequest) Execute() (*UpsertActivityResponse, *http.Response, error) {
+func (r ActivitiesAPIAddActivityRequest) Execute() (*UpsertActivityResponse, *http.Response, error) {
 	return r.ApiService.AddActivityExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddActivity Add a new activity
 Adds a new activity.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddActivityRequest
+ @return ActivitiesAPIAddActivityRequest
 */
-func (a *ActivitiesAPIService) AddActivity(ctx context.Context) ApiAddActivityRequest {
-	return ApiAddActivityRequest{
+func (a *ActivitiesAPIService) AddActivity(ctx context.Context) ActivitiesAPIAddActivityRequest {
+	return ActivitiesAPIAddActivityRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *ActivitiesAPIService) AddActivity(ctx context.Context) ApiAddActivityRe
 
 // Execute executes the request
 //  @return UpsertActivityResponse
-func (a *ActivitiesAPIService) AddActivityExecute(r ApiAddActivityRequest) (*UpsertActivityResponse, *http.Response, error) {
+func (a *ActivitiesAPIService) AddActivityExecute(r ActivitiesAPIAddActivityRequest) (*UpsertActivityResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -144,13 +144,13 @@ func (a *ActivitiesAPIService) AddActivityExecute(r ApiAddActivityRequest) (*Ups
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteActivityRequest struct {
+type ActivitiesAPIDeleteActivityRequest struct {
 	ctx context.Context
 	ApiService *ActivitiesAPIService
 	id int32
 }
 
-func (r ApiDeleteActivityRequest) Execute() (*DeleteActivityResponse, *http.Response, error) {
+func (r ActivitiesAPIDeleteActivityRequest) Execute() (*DeleteActivityResponse, *http.Response, error) {
 	return r.ApiService.DeleteActivityExecute(r)
 }
 
@@ -161,10 +161,10 @@ Marks an activity as deleted. After 30 days, the activity will be permanently de
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the activity
- @return ApiDeleteActivityRequest
+ @return ActivitiesAPIDeleteActivityRequest
 */
-func (a *ActivitiesAPIService) DeleteActivity(ctx context.Context, id int32) ApiDeleteActivityRequest {
-	return ApiDeleteActivityRequest{
+func (a *ActivitiesAPIService) DeleteActivity(ctx context.Context, id int32) ActivitiesAPIDeleteActivityRequest {
+	return ActivitiesAPIDeleteActivityRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -173,7 +173,7 @@ func (a *ActivitiesAPIService) DeleteActivity(ctx context.Context, id int32) Api
 
 // Execute executes the request
 //  @return DeleteActivityResponse
-func (a *ActivitiesAPIService) DeleteActivityExecute(r ApiDeleteActivityRequest) (*DeleteActivityResponse, *http.Response, error) {
+func (a *ActivitiesAPIService) DeleteActivityExecute(r ActivitiesAPIDeleteActivityRequest) (*DeleteActivityResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -261,7 +261,7 @@ func (a *ActivitiesAPIService) DeleteActivityExecute(r ApiDeleteActivityRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetActivitiesRequest struct {
+type ActivitiesAPIGetActivitiesRequest struct {
 	ctx context.Context
 	ApiService *ActivitiesAPIService
 	filterId *int32
@@ -282,96 +282,96 @@ type ApiGetActivitiesRequest struct {
 }
 
 // If supplied, only activities matching the specified filter are returned
-func (r ApiGetActivitiesRequest) FilterId(filterId int32) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) FilterId(filterId int32) ActivitiesAPIGetActivitiesRequest {
 	r.filterId = &filterId
 	return r
 }
 
 // Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-func (r ApiGetActivitiesRequest) Ids(ids string) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) Ids(ids string) ActivitiesAPIGetActivitiesRequest {
 	r.ids = &ids
 	return r
 }
 
 // If supplied, only activities owned by the specified user are returned. If filter_id is provided, this is ignored.
-func (r ApiGetActivitiesRequest) OwnerId(ownerId int32) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) OwnerId(ownerId int32) ActivitiesAPIGetActivitiesRequest {
 	r.ownerId = &ownerId
 	return r
 }
 
 // If supplied, only activities linked to the specified deal are returned. If filter_id is provided, this is ignored.
-func (r ApiGetActivitiesRequest) DealId(dealId int32) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) DealId(dealId int32) ActivitiesAPIGetActivitiesRequest {
 	r.dealId = &dealId
 	return r
 }
 
 // If supplied, only activities linked to the specified lead are returned. If filter_id is provided, this is ignored.
-func (r ApiGetActivitiesRequest) LeadId(leadId string) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) LeadId(leadId string) ActivitiesAPIGetActivitiesRequest {
 	r.leadId = &leadId
 	return r
 }
 
 // If supplied, only activities whose primary participant is the given person are returned. If filter_id is provided, this is ignored.
-func (r ApiGetActivitiesRequest) PersonId(personId int32) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) PersonId(personId int32) ActivitiesAPIGetActivitiesRequest {
 	r.personId = &personId
 	return r
 }
 
 // If supplied, only activities linked to the specified organization are returned. If filter_id is provided, this is ignored.
-func (r ApiGetActivitiesRequest) OrgId(orgId int32) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) OrgId(orgId int32) ActivitiesAPIGetActivitiesRequest {
 	r.orgId = &orgId
 	return r
 }
 
 // If supplied, only activities with specified &#39;done&#39; flag value are returned
-func (r ApiGetActivitiesRequest) Done(done bool) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) Done(done bool) ActivitiesAPIGetActivitiesRequest {
 	r.done = &done
 	return r
 }
 
 // If set, only activities with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-func (r ApiGetActivitiesRequest) UpdatedSince(updatedSince string) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) UpdatedSince(updatedSince string) ActivitiesAPIGetActivitiesRequest {
 	r.updatedSince = &updatedSince
 	return r
 }
 
 // If set, only activities with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-func (r ApiGetActivitiesRequest) UpdatedUntil(updatedUntil string) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) UpdatedUntil(updatedUntil string) ActivitiesAPIGetActivitiesRequest {
 	r.updatedUntil = &updatedUntil
 	return r
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;, &#x60;due_date&#x60;.
-func (r ApiGetActivitiesRequest) SortBy(sortBy string) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) SortBy(sortBy string) ActivitiesAPIGetActivitiesRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetActivitiesRequest) SortDirection(sortDirection string) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) SortDirection(sortDirection string) ActivitiesAPIGetActivitiesRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
 // Optional comma separated string array of additional fields to include
-func (r ApiGetActivitiesRequest) IncludeFields(includeFields string) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) IncludeFields(includeFields string) ActivitiesAPIGetActivitiesRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetActivitiesRequest) Limit(limit int32) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) Limit(limit int32) ActivitiesAPIGetActivitiesRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetActivitiesRequest) Cursor(cursor string) ApiGetActivitiesRequest {
+func (r ActivitiesAPIGetActivitiesRequest) Cursor(cursor string) ActivitiesAPIGetActivitiesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetActivitiesRequest) Execute() (*GetActivitiesResponse, *http.Response, error) {
+func (r ActivitiesAPIGetActivitiesRequest) Execute() (*GetActivitiesResponse, *http.Response, error) {
 	return r.ApiService.GetActivitiesExecute(r)
 }
 
@@ -381,10 +381,10 @@ GetActivities Get all activities
 Returns data about all activities.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetActivitiesRequest
+ @return ActivitiesAPIGetActivitiesRequest
 */
-func (a *ActivitiesAPIService) GetActivities(ctx context.Context) ApiGetActivitiesRequest {
-	return ApiGetActivitiesRequest{
+func (a *ActivitiesAPIService) GetActivities(ctx context.Context) ActivitiesAPIGetActivitiesRequest {
+	return ActivitiesAPIGetActivitiesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -392,7 +392,7 @@ func (a *ActivitiesAPIService) GetActivities(ctx context.Context) ApiGetActiviti
 
 // Execute executes the request
 //  @return GetActivitiesResponse
-func (a *ActivitiesAPIService) GetActivitiesExecute(r ApiGetActivitiesRequest) (*GetActivitiesResponse, *http.Response, error) {
+func (a *ActivitiesAPIService) GetActivitiesExecute(r ActivitiesAPIGetActivitiesRequest) (*GetActivitiesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -532,7 +532,7 @@ func (a *ActivitiesAPIService) GetActivitiesExecute(r ApiGetActivitiesRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetActivityRequest struct {
+type ActivitiesAPIGetActivityRequest struct {
 	ctx context.Context
 	ApiService *ActivitiesAPIService
 	id int32
@@ -540,12 +540,12 @@ type ApiGetActivityRequest struct {
 }
 
 // Optional comma separated string array of additional fields to include
-func (r ApiGetActivityRequest) IncludeFields(includeFields string) ApiGetActivityRequest {
+func (r ActivitiesAPIGetActivityRequest) IncludeFields(includeFields string) ActivitiesAPIGetActivityRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
-func (r ApiGetActivityRequest) Execute() (*UpsertActivityResponse, *http.Response, error) {
+func (r ActivitiesAPIGetActivityRequest) Execute() (*UpsertActivityResponse, *http.Response, error) {
 	return r.ApiService.GetActivityExecute(r)
 }
 
@@ -556,10 +556,10 @@ Returns the details of a specific activity.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the activity
- @return ApiGetActivityRequest
+ @return ActivitiesAPIGetActivityRequest
 */
-func (a *ActivitiesAPIService) GetActivity(ctx context.Context, id int32) ApiGetActivityRequest {
-	return ApiGetActivityRequest{
+func (a *ActivitiesAPIService) GetActivity(ctx context.Context, id int32) ActivitiesAPIGetActivityRequest {
+	return ActivitiesAPIGetActivityRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -568,7 +568,7 @@ func (a *ActivitiesAPIService) GetActivity(ctx context.Context, id int32) ApiGet
 
 // Execute executes the request
 //  @return UpsertActivityResponse
-func (a *ActivitiesAPIService) GetActivityExecute(r ApiGetActivityRequest) (*UpsertActivityResponse, *http.Response, error) {
+func (a *ActivitiesAPIService) GetActivityExecute(r ActivitiesAPIGetActivityRequest) (*UpsertActivityResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -659,19 +659,19 @@ func (a *ActivitiesAPIService) GetActivityExecute(r ApiGetActivityRequest) (*Ups
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateActivityRequest struct {
+type ActivitiesAPIUpdateActivityRequest struct {
 	ctx context.Context
 	ApiService *ActivitiesAPIService
 	id int32
 	addActivityRequest *AddActivityRequest
 }
 
-func (r ApiUpdateActivityRequest) AddActivityRequest(addActivityRequest AddActivityRequest) ApiUpdateActivityRequest {
+func (r ActivitiesAPIUpdateActivityRequest) AddActivityRequest(addActivityRequest AddActivityRequest) ActivitiesAPIUpdateActivityRequest {
 	r.addActivityRequest = &addActivityRequest
 	return r
 }
 
-func (r ApiUpdateActivityRequest) Execute() (*UpsertActivityResponse, *http.Response, error) {
+func (r ActivitiesAPIUpdateActivityRequest) Execute() (*UpsertActivityResponse, *http.Response, error) {
 	return r.ApiService.UpdateActivityExecute(r)
 }
 
@@ -682,10 +682,10 @@ Updates the properties of an activity.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the activity
- @return ApiUpdateActivityRequest
+ @return ActivitiesAPIUpdateActivityRequest
 */
-func (a *ActivitiesAPIService) UpdateActivity(ctx context.Context, id int32) ApiUpdateActivityRequest {
-	return ApiUpdateActivityRequest{
+func (a *ActivitiesAPIService) UpdateActivity(ctx context.Context, id int32) ActivitiesAPIUpdateActivityRequest {
+	return ActivitiesAPIUpdateActivityRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -694,7 +694,7 @@ func (a *ActivitiesAPIService) UpdateActivity(ctx context.Context, id int32) Api
 
 // Execute executes the request
 //  @return UpsertActivityResponse
-func (a *ActivitiesAPIService) UpdateActivityExecute(r ApiUpdateActivityRequest) (*UpsertActivityResponse, *http.Response, error) {
+func (a *ActivitiesAPIService) UpdateActivityExecute(r ActivitiesAPIUpdateActivityRequest) (*UpsertActivityResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

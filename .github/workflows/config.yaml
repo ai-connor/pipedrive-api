@@ -4,6 +4,7 @@ globalProperties:
   apiDocs: false
   modelDocs: false
 additionalProperties:
+  structPrefix: true
   hideGenerationTimestamp: true
   packageName: pipedriveapi
   disallowAdditionalPropertiesIfNotPresent: false

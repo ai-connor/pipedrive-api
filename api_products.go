@@ -24,18 +24,18 @@ import (
 // ProductsAPIService ProductsAPI service
 type ProductsAPIService service
 
-type ApiAddProductRequest struct {
+type ProductsAPIAddProductRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	addProductRequest *AddProductRequest
 }
 
-func (r ApiAddProductRequest) AddProductRequest(addProductRequest AddProductRequest) ApiAddProductRequest {
+func (r ProductsAPIAddProductRequest) AddProductRequest(addProductRequest AddProductRequest) ProductsAPIAddProductRequest {
 	r.addProductRequest = &addProductRequest
 	return r
 }
 
-func (r ApiAddProductRequest) Execute() (*GetProductResponse, *http.Response, error) {
+func (r ProductsAPIAddProductRequest) Execute() (*GetProductResponse, *http.Response, error) {
 	return r.ApiService.AddProductExecute(r)
 }
 
@@ -45,10 +45,10 @@ AddProduct Add a product
 Adds a new product to the Products inventory. For more information, see the tutorial for <a href="https://pipedrive.readme.io/docs/adding-a-product" target="_blank" rel="noopener noreferrer">adding a product</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddProductRequest
+ @return ProductsAPIAddProductRequest
 */
-func (a *ProductsAPIService) AddProduct(ctx context.Context) ApiAddProductRequest {
-	return ApiAddProductRequest{
+func (a *ProductsAPIService) AddProduct(ctx context.Context) ProductsAPIAddProductRequest {
+	return ProductsAPIAddProductRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -56,7 +56,7 @@ func (a *ProductsAPIService) AddProduct(ctx context.Context) ApiAddProductReques
 
 // Execute executes the request
 //  @return GetProductResponse
-func (a *ProductsAPIService) AddProductExecute(r ApiAddProductRequest) (*GetProductResponse, *http.Response, error) {
+func (a *ProductsAPIService) AddProductExecute(r ProductsAPIAddProductRequest) (*GetProductResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -145,19 +145,19 @@ func (a *ProductsAPIService) AddProductExecute(r ApiAddProductRequest) (*GetProd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddProductFollowerRequest struct {
+type ProductsAPIAddProductFollowerRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
 	addDealFollowerRequest *AddDealFollowerRequest
 }
 
-func (r ApiAddProductFollowerRequest) AddDealFollowerRequest(addDealFollowerRequest AddDealFollowerRequest) ApiAddProductFollowerRequest {
+func (r ProductsAPIAddProductFollowerRequest) AddDealFollowerRequest(addDealFollowerRequest AddDealFollowerRequest) ProductsAPIAddProductFollowerRequest {
 	r.addDealFollowerRequest = &addDealFollowerRequest
 	return r
 }
 
-func (r ApiAddProductFollowerRequest) Execute() (*AddFollowerResponse, *http.Response, error) {
+func (r ProductsAPIAddProductFollowerRequest) Execute() (*AddFollowerResponse, *http.Response, error) {
 	return r.ApiService.AddProductFollowerExecute(r)
 }
 
@@ -168,10 +168,10 @@ Adds a user as a follower to the product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiAddProductFollowerRequest
+ @return ProductsAPIAddProductFollowerRequest
 */
-func (a *ProductsAPIService) AddProductFollower(ctx context.Context, id int32) ApiAddProductFollowerRequest {
-	return ApiAddProductFollowerRequest{
+func (a *ProductsAPIService) AddProductFollower(ctx context.Context, id int32) ProductsAPIAddProductFollowerRequest {
+	return ProductsAPIAddProductFollowerRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -180,7 +180,7 @@ func (a *ProductsAPIService) AddProductFollower(ctx context.Context, id int32) A
 
 // Execute executes the request
 //  @return AddFollowerResponse
-func (a *ProductsAPIService) AddProductFollowerExecute(r ApiAddProductFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
+func (a *ProductsAPIService) AddProductFollowerExecute(r ProductsAPIAddProductFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -270,19 +270,19 @@ func (a *ProductsAPIService) AddProductFollowerExecute(r ApiAddProductFollowerRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddProductVariationRequest struct {
+type ProductsAPIAddProductVariationRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
 	addProductVariationRequest *AddProductVariationRequest
 }
 
-func (r ApiAddProductVariationRequest) AddProductVariationRequest(addProductVariationRequest AddProductVariationRequest) ApiAddProductVariationRequest {
+func (r ProductsAPIAddProductVariationRequest) AddProductVariationRequest(addProductVariationRequest AddProductVariationRequest) ProductsAPIAddProductVariationRequest {
 	r.addProductVariationRequest = &addProductVariationRequest
 	return r
 }
 
-func (r ApiAddProductVariationRequest) Execute() (*GetProductVariationResponse, *http.Response, error) {
+func (r ProductsAPIAddProductVariationRequest) Execute() (*GetProductVariationResponse, *http.Response, error) {
 	return r.ApiService.AddProductVariationExecute(r)
 }
 
@@ -293,10 +293,10 @@ Adds a new product variation.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiAddProductVariationRequest
+ @return ProductsAPIAddProductVariationRequest
 */
-func (a *ProductsAPIService) AddProductVariation(ctx context.Context, id int32) ApiAddProductVariationRequest {
-	return ApiAddProductVariationRequest{
+func (a *ProductsAPIService) AddProductVariation(ctx context.Context, id int32) ProductsAPIAddProductVariationRequest {
+	return ProductsAPIAddProductVariationRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -305,7 +305,7 @@ func (a *ProductsAPIService) AddProductVariation(ctx context.Context, id int32) 
 
 // Execute executes the request
 //  @return GetProductVariationResponse
-func (a *ProductsAPIService) AddProductVariationExecute(r ApiAddProductVariationRequest) (*GetProductVariationResponse, *http.Response, error) {
+func (a *ProductsAPIService) AddProductVariationExecute(r ProductsAPIAddProductVariationRequest) (*GetProductVariationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -395,13 +395,13 @@ func (a *ProductsAPIService) AddProductVariationExecute(r ApiAddProductVariation
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProductRequest struct {
+type ProductsAPIDeleteProductRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
 }
 
-func (r ApiDeleteProductRequest) Execute() (*DeleteProductResponse, *http.Response, error) {
+func (r ProductsAPIDeleteProductRequest) Execute() (*DeleteProductResponse, *http.Response, error) {
 	return r.ApiService.DeleteProductExecute(r)
 }
 
@@ -412,10 +412,10 @@ Marks a product as deleted. After 30 days, the product will be permanently delet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiDeleteProductRequest
+ @return ProductsAPIDeleteProductRequest
 */
-func (a *ProductsAPIService) DeleteProduct(ctx context.Context, id int32) ApiDeleteProductRequest {
-	return ApiDeleteProductRequest{
+func (a *ProductsAPIService) DeleteProduct(ctx context.Context, id int32) ProductsAPIDeleteProductRequest {
+	return ProductsAPIDeleteProductRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -424,7 +424,7 @@ func (a *ProductsAPIService) DeleteProduct(ctx context.Context, id int32) ApiDel
 
 // Execute executes the request
 //  @return DeleteProductResponse
-func (a *ProductsAPIService) DeleteProductExecute(r ApiDeleteProductRequest) (*DeleteProductResponse, *http.Response, error) {
+func (a *ProductsAPIService) DeleteProductExecute(r ProductsAPIDeleteProductRequest) (*DeleteProductResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -512,14 +512,14 @@ func (a *ProductsAPIService) DeleteProductExecute(r ApiDeleteProductRequest) (*D
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProductFollowerRequest struct {
+type ProductsAPIDeleteProductFollowerRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
 	followerId int32
 }
 
-func (r ApiDeleteProductFollowerRequest) Execute() (*DeleteFollowerResponse, *http.Response, error) {
+func (r ProductsAPIDeleteProductFollowerRequest) Execute() (*DeleteFollowerResponse, *http.Response, error) {
 	return r.ApiService.DeleteProductFollowerExecute(r)
 }
 
@@ -531,10 +531,10 @@ Deletes a user follower from the product.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
  @param followerId The ID of the following user
- @return ApiDeleteProductFollowerRequest
+ @return ProductsAPIDeleteProductFollowerRequest
 */
-func (a *ProductsAPIService) DeleteProductFollower(ctx context.Context, id int32, followerId int32) ApiDeleteProductFollowerRequest {
-	return ApiDeleteProductFollowerRequest{
+func (a *ProductsAPIService) DeleteProductFollower(ctx context.Context, id int32, followerId int32) ProductsAPIDeleteProductFollowerRequest {
+	return ProductsAPIDeleteProductFollowerRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -544,7 +544,7 @@ func (a *ProductsAPIService) DeleteProductFollower(ctx context.Context, id int32
 
 // Execute executes the request
 //  @return DeleteFollowerResponse
-func (a *ProductsAPIService) DeleteProductFollowerExecute(r ApiDeleteProductFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
+func (a *ProductsAPIService) DeleteProductFollowerExecute(r ProductsAPIDeleteProductFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -633,13 +633,13 @@ func (a *ProductsAPIService) DeleteProductFollowerExecute(r ApiDeleteProductFoll
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProductImageRequest struct {
+type ProductsAPIDeleteProductImageRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
 }
 
-func (r ApiDeleteProductImageRequest) Execute() (*DeleteProductImageResponse, *http.Response, error) {
+func (r ProductsAPIDeleteProductImageRequest) Execute() (*DeleteProductImageResponse, *http.Response, error) {
 	return r.ApiService.DeleteProductImageExecute(r)
 }
 
@@ -650,10 +650,10 @@ Deletes the image of a product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiDeleteProductImageRequest
+ @return ProductsAPIDeleteProductImageRequest
 */
-func (a *ProductsAPIService) DeleteProductImage(ctx context.Context, id int32) ApiDeleteProductImageRequest {
-	return ApiDeleteProductImageRequest{
+func (a *ProductsAPIService) DeleteProductImage(ctx context.Context, id int32) ProductsAPIDeleteProductImageRequest {
+	return ProductsAPIDeleteProductImageRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -662,7 +662,7 @@ func (a *ProductsAPIService) DeleteProductImage(ctx context.Context, id int32) A
 
 // Execute executes the request
 //  @return DeleteProductImageResponse
-func (a *ProductsAPIService) DeleteProductImageExecute(r ApiDeleteProductImageRequest) (*DeleteProductImageResponse, *http.Response, error) {
+func (a *ProductsAPIService) DeleteProductImageExecute(r ProductsAPIDeleteProductImageRequest) (*DeleteProductImageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -750,14 +750,14 @@ func (a *ProductsAPIService) DeleteProductImageExecute(r ApiDeleteProductImageRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProductVariationRequest struct {
+type ProductsAPIDeleteProductVariationRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
 	productVariationId int32
 }
 
-func (r ApiDeleteProductVariationRequest) Execute() (*DeleteProductVariationResponse, *http.Response, error) {
+func (r ProductsAPIDeleteProductVariationRequest) Execute() (*DeleteProductVariationResponse, *http.Response, error) {
 	return r.ApiService.DeleteProductVariationExecute(r)
 }
 
@@ -769,10 +769,10 @@ Deletes a product variation.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
  @param productVariationId The ID of the product variation
- @return ApiDeleteProductVariationRequest
+ @return ProductsAPIDeleteProductVariationRequest
 */
-func (a *ProductsAPIService) DeleteProductVariation(ctx context.Context, id int32, productVariationId int32) ApiDeleteProductVariationRequest {
-	return ApiDeleteProductVariationRequest{
+func (a *ProductsAPIService) DeleteProductVariation(ctx context.Context, id int32, productVariationId int32) ProductsAPIDeleteProductVariationRequest {
+	return ProductsAPIDeleteProductVariationRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -782,7 +782,7 @@ func (a *ProductsAPIService) DeleteProductVariation(ctx context.Context, id int3
 
 // Execute executes the request
 //  @return DeleteProductVariationResponse
-func (a *ProductsAPIService) DeleteProductVariationExecute(r ApiDeleteProductVariationRequest) (*DeleteProductVariationResponse, *http.Response, error) {
+func (a *ProductsAPIService) DeleteProductVariationExecute(r ProductsAPIDeleteProductVariationRequest) (*DeleteProductVariationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -871,13 +871,13 @@ func (a *ProductsAPIService) DeleteProductVariationExecute(r ApiDeleteProductVar
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDuplicateProductRequest struct {
+type ProductsAPIDuplicateProductRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
 }
 
-func (r ApiDuplicateProductRequest) Execute() (*GetProductResponse, *http.Response, error) {
+func (r ProductsAPIDuplicateProductRequest) Execute() (*GetProductResponse, *http.Response, error) {
 	return r.ApiService.DuplicateProductExecute(r)
 }
 
@@ -888,10 +888,10 @@ Creates a duplicate of an existing product including all variations, prices, and
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiDuplicateProductRequest
+ @return ProductsAPIDuplicateProductRequest
 */
-func (a *ProductsAPIService) DuplicateProduct(ctx context.Context, id int32) ApiDuplicateProductRequest {
-	return ApiDuplicateProductRequest{
+func (a *ProductsAPIService) DuplicateProduct(ctx context.Context, id int32) ProductsAPIDuplicateProductRequest {
+	return ProductsAPIDuplicateProductRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -900,7 +900,7 @@ func (a *ProductsAPIService) DuplicateProduct(ctx context.Context, id int32) Api
 
 // Execute executes the request
 //  @return GetProductResponse
-func (a *ProductsAPIService) DuplicateProductExecute(r ApiDuplicateProductRequest) (*GetProductResponse, *http.Response, error) {
+func (a *ProductsAPIService) DuplicateProductExecute(r ProductsAPIDuplicateProductRequest) (*GetProductResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -988,13 +988,13 @@ func (a *ProductsAPIService) DuplicateProductExecute(r ApiDuplicateProductReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProductRequest struct {
+type ProductsAPIGetProductRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
 }
 
-func (r ApiGetProductRequest) Execute() (*GetProductResponse, *http.Response, error) {
+func (r ProductsAPIGetProductRequest) Execute() (*GetProductResponse, *http.Response, error) {
 	return r.ApiService.GetProductExecute(r)
 }
 
@@ -1005,10 +1005,10 @@ Returns data about a specific product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiGetProductRequest
+ @return ProductsAPIGetProductRequest
 */
-func (a *ProductsAPIService) GetProduct(ctx context.Context, id int32) ApiGetProductRequest {
-	return ApiGetProductRequest{
+func (a *ProductsAPIService) GetProduct(ctx context.Context, id int32) ProductsAPIGetProductRequest {
+	return ProductsAPIGetProductRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1017,7 +1017,7 @@ func (a *ProductsAPIService) GetProduct(ctx context.Context, id int32) ApiGetPro
 
 // Execute executes the request
 //  @return GetProductResponse
-func (a *ProductsAPIService) GetProductExecute(r ApiGetProductRequest) (*GetProductResponse, *http.Response, error) {
+func (a *ProductsAPIService) GetProductExecute(r ProductsAPIGetProductRequest) (*GetProductResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1105,7 +1105,7 @@ func (a *ProductsAPIService) GetProductExecute(r ApiGetProductRequest) (*GetProd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProductFollowersRequest struct {
+type ProductsAPIGetProductFollowersRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
@@ -1114,18 +1114,18 @@ type ApiGetProductFollowersRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetProductFollowersRequest) Limit(limit int32) ApiGetProductFollowersRequest {
+func (r ProductsAPIGetProductFollowersRequest) Limit(limit int32) ProductsAPIGetProductFollowersRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetProductFollowersRequest) Cursor(cursor string) ApiGetProductFollowersRequest {
+func (r ProductsAPIGetProductFollowersRequest) Cursor(cursor string) ProductsAPIGetProductFollowersRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetProductFollowersRequest) Execute() (*GetFollowersResponse, *http.Response, error) {
+func (r ProductsAPIGetProductFollowersRequest) Execute() (*GetFollowersResponse, *http.Response, error) {
 	return r.ApiService.GetProductFollowersExecute(r)
 }
 
@@ -1136,10 +1136,10 @@ Lists users who are following the product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiGetProductFollowersRequest
+ @return ProductsAPIGetProductFollowersRequest
 */
-func (a *ProductsAPIService) GetProductFollowers(ctx context.Context, id int32) ApiGetProductFollowersRequest {
-	return ApiGetProductFollowersRequest{
+func (a *ProductsAPIService) GetProductFollowers(ctx context.Context, id int32) ProductsAPIGetProductFollowersRequest {
+	return ProductsAPIGetProductFollowersRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1148,7 +1148,7 @@ func (a *ProductsAPIService) GetProductFollowers(ctx context.Context, id int32) 
 
 // Execute executes the request
 //  @return GetFollowersResponse
-func (a *ProductsAPIService) GetProductFollowersExecute(r ApiGetProductFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
+func (a *ProductsAPIService) GetProductFollowersExecute(r ProductsAPIGetProductFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1242,7 +1242,7 @@ func (a *ProductsAPIService) GetProductFollowersExecute(r ApiGetProductFollowers
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProductFollowersChangelogRequest struct {
+type ProductsAPIGetProductFollowersChangelogRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
@@ -1251,18 +1251,18 @@ type ApiGetProductFollowersChangelogRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetProductFollowersChangelogRequest) Limit(limit int32) ApiGetProductFollowersChangelogRequest {
+func (r ProductsAPIGetProductFollowersChangelogRequest) Limit(limit int32) ProductsAPIGetProductFollowersChangelogRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetProductFollowersChangelogRequest) Cursor(cursor string) ApiGetProductFollowersChangelogRequest {
+func (r ProductsAPIGetProductFollowersChangelogRequest) Cursor(cursor string) ProductsAPIGetProductFollowersChangelogRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetProductFollowersChangelogRequest) Execute() (*GetFollowerChangelogsResponse, *http.Response, error) {
+func (r ProductsAPIGetProductFollowersChangelogRequest) Execute() (*GetFollowerChangelogsResponse, *http.Response, error) {
 	return r.ApiService.GetProductFollowersChangelogExecute(r)
 }
 
@@ -1273,10 +1273,10 @@ Lists changelogs about users have followed the product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiGetProductFollowersChangelogRequest
+ @return ProductsAPIGetProductFollowersChangelogRequest
 */
-func (a *ProductsAPIService) GetProductFollowersChangelog(ctx context.Context, id int32) ApiGetProductFollowersChangelogRequest {
-	return ApiGetProductFollowersChangelogRequest{
+func (a *ProductsAPIService) GetProductFollowersChangelog(ctx context.Context, id int32) ProductsAPIGetProductFollowersChangelogRequest {
+	return ProductsAPIGetProductFollowersChangelogRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1285,7 +1285,7 @@ func (a *ProductsAPIService) GetProductFollowersChangelog(ctx context.Context, i
 
 // Execute executes the request
 //  @return GetFollowerChangelogsResponse
-func (a *ProductsAPIService) GetProductFollowersChangelogExecute(r ApiGetProductFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
+func (a *ProductsAPIService) GetProductFollowersChangelogExecute(r ProductsAPIGetProductFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1379,13 +1379,13 @@ func (a *ProductsAPIService) GetProductFollowersChangelogExecute(r ApiGetProduct
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProductImageRequest struct {
+type ProductsAPIGetProductImageRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
 }
 
-func (r ApiGetProductImageRequest) Execute() (*GetProductImageResponse, *http.Response, error) {
+func (r ProductsAPIGetProductImageRequest) Execute() (*GetProductImageResponse, *http.Response, error) {
 	return r.ApiService.GetProductImageExecute(r)
 }
 
@@ -1396,10 +1396,10 @@ Retrieves the image of a product. The public URL has a limited lifetime of 7 day
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiGetProductImageRequest
+ @return ProductsAPIGetProductImageRequest
 */
-func (a *ProductsAPIService) GetProductImage(ctx context.Context, id int32) ApiGetProductImageRequest {
-	return ApiGetProductImageRequest{
+func (a *ProductsAPIService) GetProductImage(ctx context.Context, id int32) ProductsAPIGetProductImageRequest {
+	return ProductsAPIGetProductImageRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1408,7 +1408,7 @@ func (a *ProductsAPIService) GetProductImage(ctx context.Context, id int32) ApiG
 
 // Execute executes the request
 //  @return GetProductImageResponse
-func (a *ProductsAPIService) GetProductImageExecute(r ApiGetProductImageRequest) (*GetProductImageResponse, *http.Response, error) {
+func (a *ProductsAPIService) GetProductImageExecute(r ProductsAPIGetProductImageRequest) (*GetProductImageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1496,7 +1496,7 @@ func (a *ProductsAPIService) GetProductImageExecute(r ApiGetProductImageRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProductVariationsRequest struct {
+type ProductsAPIGetProductVariationsRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
@@ -1505,18 +1505,18 @@ type ApiGetProductVariationsRequest struct {
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetProductVariationsRequest) Cursor(cursor string) ApiGetProductVariationsRequest {
+func (r ProductsAPIGetProductVariationsRequest) Cursor(cursor string) ProductsAPIGetProductVariationsRequest {
 	r.cursor = &cursor
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetProductVariationsRequest) Limit(limit int32) ApiGetProductVariationsRequest {
+func (r ProductsAPIGetProductVariationsRequest) Limit(limit int32) ProductsAPIGetProductVariationsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetProductVariationsRequest) Execute() (*GetProductVariationsResponse, *http.Response, error) {
+func (r ProductsAPIGetProductVariationsRequest) Execute() (*GetProductVariationsResponse, *http.Response, error) {
 	return r.ApiService.GetProductVariationsExecute(r)
 }
 
@@ -1527,10 +1527,10 @@ Returns data about all product variations.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiGetProductVariationsRequest
+ @return ProductsAPIGetProductVariationsRequest
 */
-func (a *ProductsAPIService) GetProductVariations(ctx context.Context, id int32) ApiGetProductVariationsRequest {
-	return ApiGetProductVariationsRequest{
+func (a *ProductsAPIService) GetProductVariations(ctx context.Context, id int32) ProductsAPIGetProductVariationsRequest {
+	return ProductsAPIGetProductVariationsRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1539,7 +1539,7 @@ func (a *ProductsAPIService) GetProductVariations(ctx context.Context, id int32)
 
 // Execute executes the request
 //  @return GetProductVariationsResponse
-func (a *ProductsAPIService) GetProductVariationsExecute(r ApiGetProductVariationsRequest) (*GetProductVariationsResponse, *http.Response, error) {
+func (a *ProductsAPIService) GetProductVariationsExecute(r ProductsAPIGetProductVariationsRequest) (*GetProductVariationsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1633,7 +1633,7 @@ func (a *ProductsAPIService) GetProductVariationsExecute(r ApiGetProductVariatio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProductsRequest struct {
+type ProductsAPIGetProductsRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	ownerId *int32
@@ -1647,54 +1647,54 @@ type ApiGetProductsRequest struct {
 }
 
 // If supplied, only products owned by the given user will be returned
-func (r ApiGetProductsRequest) OwnerId(ownerId int32) ApiGetProductsRequest {
+func (r ProductsAPIGetProductsRequest) OwnerId(ownerId int32) ProductsAPIGetProductsRequest {
 	r.ownerId = &ownerId
 	return r
 }
 
 // Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-func (r ApiGetProductsRequest) Ids(ids string) ApiGetProductsRequest {
+func (r ProductsAPIGetProductsRequest) Ids(ids string) ProductsAPIGetProductsRequest {
 	r.ids = &ids
 	return r
 }
 
 // The ID of the filter to use
-func (r ApiGetProductsRequest) FilterId(filterId int32) ApiGetProductsRequest {
+func (r ProductsAPIGetProductsRequest) FilterId(filterId int32) ProductsAPIGetProductsRequest {
 	r.filterId = &filterId
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetProductsRequest) Cursor(cursor string) ApiGetProductsRequest {
+func (r ProductsAPIGetProductsRequest) Cursor(cursor string) ProductsAPIGetProductsRequest {
 	r.cursor = &cursor
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetProductsRequest) Limit(limit int32) ApiGetProductsRequest {
+func (r ProductsAPIGetProductsRequest) Limit(limit int32) ProductsAPIGetProductsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;name&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;.
-func (r ApiGetProductsRequest) SortBy(sortBy string) ApiGetProductsRequest {
+func (r ProductsAPIGetProductsRequest) SortBy(sortBy string) ProductsAPIGetProductsRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetProductsRequest) SortDirection(sortDirection string) ApiGetProductsRequest {
+func (r ProductsAPIGetProductsRequest) SortDirection(sortDirection string) ProductsAPIGetProductsRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
 // Comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for a smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-func (r ApiGetProductsRequest) CustomFields(customFields string) ApiGetProductsRequest {
+func (r ProductsAPIGetProductsRequest) CustomFields(customFields string) ProductsAPIGetProductsRequest {
 	r.customFields = &customFields
 	return r
 }
 
-func (r ApiGetProductsRequest) Execute() (*GetProductsResponse, *http.Response, error) {
+func (r ProductsAPIGetProductsRequest) Execute() (*GetProductsResponse, *http.Response, error) {
 	return r.ApiService.GetProductsExecute(r)
 }
 
@@ -1704,10 +1704,10 @@ GetProducts Get all products
 Returns data about all products.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProductsRequest
+ @return ProductsAPIGetProductsRequest
 */
-func (a *ProductsAPIService) GetProducts(ctx context.Context) ApiGetProductsRequest {
-	return ApiGetProductsRequest{
+func (a *ProductsAPIService) GetProducts(ctx context.Context) ProductsAPIGetProductsRequest {
+	return ProductsAPIGetProductsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1715,7 +1715,7 @@ func (a *ProductsAPIService) GetProducts(ctx context.Context) ApiGetProductsRequ
 
 // Execute executes the request
 //  @return GetProductsResponse
-func (a *ProductsAPIService) GetProductsExecute(r ApiGetProductsRequest) (*GetProductsResponse, *http.Response, error) {
+func (a *ProductsAPIService) GetProductsExecute(r ProductsAPIGetProductsRequest) (*GetProductsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1834,7 +1834,7 @@ func (a *ProductsAPIService) GetProductsExecute(r ApiGetProductsRequest) (*GetPr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchProductsRequest struct {
+type ProductsAPISearchProductsRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	term *string
@@ -1846,42 +1846,42 @@ type ApiSearchProductsRequest struct {
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-func (r ApiSearchProductsRequest) Term(term string) ApiSearchProductsRequest {
+func (r ProductsAPISearchProductsRequest) Term(term string) ProductsAPISearchProductsRequest {
 	r.term = &term
 	return r
 }
 
 // A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-func (r ApiSearchProductsRequest) Fields(fields string) ApiSearchProductsRequest {
+func (r ProductsAPISearchProductsRequest) Fields(fields string) ProductsAPISearchProductsRequest {
 	r.fields = &fields
 	return r
 }
 
 // When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-func (r ApiSearchProductsRequest) ExactMatch(exactMatch bool) ApiSearchProductsRequest {
+func (r ProductsAPISearchProductsRequest) ExactMatch(exactMatch bool) ProductsAPISearchProductsRequest {
 	r.exactMatch = &exactMatch
 	return r
 }
 
 // Supports including optional fields in the results which are not provided by default
-func (r ApiSearchProductsRequest) IncludeFields(includeFields string) ApiSearchProductsRequest {
+func (r ProductsAPISearchProductsRequest) IncludeFields(includeFields string) ProductsAPISearchProductsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiSearchProductsRequest) Limit(limit int32) ApiSearchProductsRequest {
+func (r ProductsAPISearchProductsRequest) Limit(limit int32) ProductsAPISearchProductsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiSearchProductsRequest) Cursor(cursor string) ApiSearchProductsRequest {
+func (r ProductsAPISearchProductsRequest) Cursor(cursor string) ProductsAPISearchProductsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiSearchProductsRequest) Execute() (*GetProductSearchResponse, *http.Response, error) {
+func (r ProductsAPISearchProductsRequest) Execute() (*GetProductSearchResponse, *http.Response, error) {
 	return r.ApiService.SearchProductsExecute(r)
 }
 
@@ -1891,10 +1891,10 @@ SearchProducts Search products
 Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchProductsRequest
+ @return ProductsAPISearchProductsRequest
 */
-func (a *ProductsAPIService) SearchProducts(ctx context.Context) ApiSearchProductsRequest {
-	return ApiSearchProductsRequest{
+func (a *ProductsAPIService) SearchProducts(ctx context.Context) ProductsAPISearchProductsRequest {
+	return ProductsAPISearchProductsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1902,7 +1902,7 @@ func (a *ProductsAPIService) SearchProducts(ctx context.Context) ApiSearchProduc
 
 // Execute executes the request
 //  @return GetProductSearchResponse
-func (a *ProductsAPIService) SearchProductsExecute(r ApiSearchProductsRequest) (*GetProductSearchResponse, *http.Response, error) {
+func (a *ProductsAPIService) SearchProductsExecute(r ProductsAPISearchProductsRequest) (*GetProductSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2008,19 +2008,19 @@ func (a *ProductsAPIService) SearchProductsExecute(r ApiSearchProductsRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProductRequest struct {
+type ProductsAPIUpdateProductRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
 	updateProductRequest *UpdateProductRequest
 }
 
-func (r ApiUpdateProductRequest) UpdateProductRequest(updateProductRequest UpdateProductRequest) ApiUpdateProductRequest {
+func (r ProductsAPIUpdateProductRequest) UpdateProductRequest(updateProductRequest UpdateProductRequest) ProductsAPIUpdateProductRequest {
 	r.updateProductRequest = &updateProductRequest
 	return r
 }
 
-func (r ApiUpdateProductRequest) Execute() (*UpdateProductResponse, *http.Response, error) {
+func (r ProductsAPIUpdateProductRequest) Execute() (*UpdateProductResponse, *http.Response, error) {
 	return r.ApiService.UpdateProductExecute(r)
 }
 
@@ -2031,10 +2031,10 @@ Updates product data.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiUpdateProductRequest
+ @return ProductsAPIUpdateProductRequest
 */
-func (a *ProductsAPIService) UpdateProduct(ctx context.Context, id int32) ApiUpdateProductRequest {
-	return ApiUpdateProductRequest{
+func (a *ProductsAPIService) UpdateProduct(ctx context.Context, id int32) ProductsAPIUpdateProductRequest {
+	return ProductsAPIUpdateProductRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -2043,7 +2043,7 @@ func (a *ProductsAPIService) UpdateProduct(ctx context.Context, id int32) ApiUpd
 
 // Execute executes the request
 //  @return UpdateProductResponse
-func (a *ProductsAPIService) UpdateProductExecute(r ApiUpdateProductRequest) (*UpdateProductResponse, *http.Response, error) {
+func (a *ProductsAPIService) UpdateProductExecute(r ProductsAPIUpdateProductRequest) (*UpdateProductResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -2133,7 +2133,7 @@ func (a *ProductsAPIService) UpdateProductExecute(r ApiUpdateProductRequest) (*U
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProductImageRequest struct {
+type ProductsAPIUpdateProductImageRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
@@ -2141,12 +2141,12 @@ type ApiUpdateProductImageRequest struct {
 }
 
 // One image supplied in the multipart/form-data encoding
-func (r ApiUpdateProductImageRequest) Data(data *os.File) ApiUpdateProductImageRequest {
+func (r ProductsAPIUpdateProductImageRequest) Data(data *os.File) ProductsAPIUpdateProductImageRequest {
 	r.data = data
 	return r
 }
 
-func (r ApiUpdateProductImageRequest) Execute() (*UpdateProductImageResponse, *http.Response, error) {
+func (r ProductsAPIUpdateProductImageRequest) Execute() (*UpdateProductImageResponse, *http.Response, error) {
 	return r.ApiService.UpdateProductImageExecute(r)
 }
 
@@ -2157,10 +2157,10 @@ Updates the image of a product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiUpdateProductImageRequest
+ @return ProductsAPIUpdateProductImageRequest
 */
-func (a *ProductsAPIService) UpdateProductImage(ctx context.Context, id int32) ApiUpdateProductImageRequest {
-	return ApiUpdateProductImageRequest{
+func (a *ProductsAPIService) UpdateProductImage(ctx context.Context, id int32) ProductsAPIUpdateProductImageRequest {
+	return ProductsAPIUpdateProductImageRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -2169,7 +2169,7 @@ func (a *ProductsAPIService) UpdateProductImage(ctx context.Context, id int32) A
 
 // Execute executes the request
 //  @return UpdateProductImageResponse
-func (a *ProductsAPIService) UpdateProductImageExecute(r ApiUpdateProductImageRequest) (*UpdateProductImageResponse, *http.Response, error) {
+func (a *ProductsAPIService) UpdateProductImageExecute(r ProductsAPIUpdateProductImageRequest) (*UpdateProductImageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -2275,7 +2275,7 @@ func (a *ProductsAPIService) UpdateProductImageExecute(r ApiUpdateProductImageRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProductVariationRequest struct {
+type ProductsAPIUpdateProductVariationRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
@@ -2283,12 +2283,12 @@ type ApiUpdateProductVariationRequest struct {
 	updateProductVariationRequest *UpdateProductVariationRequest
 }
 
-func (r ApiUpdateProductVariationRequest) UpdateProductVariationRequest(updateProductVariationRequest UpdateProductVariationRequest) ApiUpdateProductVariationRequest {
+func (r ProductsAPIUpdateProductVariationRequest) UpdateProductVariationRequest(updateProductVariationRequest UpdateProductVariationRequest) ProductsAPIUpdateProductVariationRequest {
 	r.updateProductVariationRequest = &updateProductVariationRequest
 	return r
 }
 
-func (r ApiUpdateProductVariationRequest) Execute() (*GetProductVariationResponse, *http.Response, error) {
+func (r ProductsAPIUpdateProductVariationRequest) Execute() (*GetProductVariationResponse, *http.Response, error) {
 	return r.ApiService.UpdateProductVariationExecute(r)
 }
 
@@ -2300,10 +2300,10 @@ Updates product variation data.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
  @param productVariationId The ID of the product variation
- @return ApiUpdateProductVariationRequest
+ @return ProductsAPIUpdateProductVariationRequest
 */
-func (a *ProductsAPIService) UpdateProductVariation(ctx context.Context, id int32, productVariationId int32) ApiUpdateProductVariationRequest {
-	return ApiUpdateProductVariationRequest{
+func (a *ProductsAPIService) UpdateProductVariation(ctx context.Context, id int32, productVariationId int32) ProductsAPIUpdateProductVariationRequest {
+	return ProductsAPIUpdateProductVariationRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -2313,7 +2313,7 @@ func (a *ProductsAPIService) UpdateProductVariation(ctx context.Context, id int3
 
 // Execute executes the request
 //  @return GetProductVariationResponse
-func (a *ProductsAPIService) UpdateProductVariationExecute(r ApiUpdateProductVariationRequest) (*GetProductVariationResponse, *http.Response, error) {
+func (a *ProductsAPIService) UpdateProductVariationExecute(r ProductsAPIUpdateProductVariationRequest) (*GetProductVariationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -2404,7 +2404,7 @@ func (a *ProductsAPIService) UpdateProductVariationExecute(r ApiUpdateProductVar
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUploadProductImageRequest struct {
+type ProductsAPIUploadProductImageRequest struct {
 	ctx context.Context
 	ApiService *ProductsAPIService
 	id int32
@@ -2412,12 +2412,12 @@ type ApiUploadProductImageRequest struct {
 }
 
 // One image supplied in the multipart/form-data encoding
-func (r ApiUploadProductImageRequest) Data(data *os.File) ApiUploadProductImageRequest {
+func (r ProductsAPIUploadProductImageRequest) Data(data *os.File) ProductsAPIUploadProductImageRequest {
 	r.data = data
 	return r
 }
 
-func (r ApiUploadProductImageRequest) Execute() (*AddProductImageResponse, *http.Response, error) {
+func (r ProductsAPIUploadProductImageRequest) Execute() (*AddProductImageResponse, *http.Response, error) {
 	return r.ApiService.UploadProductImageExecute(r)
 }
 
@@ -2428,10 +2428,10 @@ Uploads an image for a product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the product
- @return ApiUploadProductImageRequest
+ @return ProductsAPIUploadProductImageRequest
 */
-func (a *ProductsAPIService) UploadProductImage(ctx context.Context, id int32) ApiUploadProductImageRequest {
-	return ApiUploadProductImageRequest{
+func (a *ProductsAPIService) UploadProductImage(ctx context.Context, id int32) ProductsAPIUploadProductImageRequest {
+	return ProductsAPIUploadProductImageRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -2440,7 +2440,7 @@ func (a *ProductsAPIService) UploadProductImage(ctx context.Context, id int32) A
 
 // Execute executes the request
 //  @return AddProductImageResponse
-func (a *ProductsAPIService) UploadProductImageExecute(r ApiUploadProductImageRequest) (*AddProductImageResponse, *http.Response, error) {
+func (a *ProductsAPIService) UploadProductImageExecute(r ProductsAPIUploadProductImageRequest) (*AddProductImageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}

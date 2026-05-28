@@ -23,18 +23,18 @@ import (
 // ProductFieldsAPIService ProductFieldsAPI service
 type ProductFieldsAPIService service
 
-type ApiAddProductFieldRequest struct {
+type ProductFieldsAPIAddProductFieldRequest struct {
 	ctx context.Context
 	ApiService *ProductFieldsAPIService
 	addProductFieldRequest *AddProductFieldRequest
 }
 
-func (r ApiAddProductFieldRequest) AddProductFieldRequest(addProductFieldRequest AddProductFieldRequest) ApiAddProductFieldRequest {
+func (r ProductFieldsAPIAddProductFieldRequest) AddProductFieldRequest(addProductFieldRequest AddProductFieldRequest) ProductFieldsAPIAddProductFieldRequest {
 	r.addProductFieldRequest = &addProductFieldRequest
 	return r
 }
 
-func (r ApiAddProductFieldRequest) Execute() (*GetActivityField200Response, *http.Response, error) {
+func (r ProductFieldsAPIAddProductFieldRequest) Execute() (*GetActivityField200Response, *http.Response, error) {
 	return r.ApiService.AddProductFieldExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddProductField Create one product field
 Creates a new product custom field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddProductFieldRequest
+ @return ProductFieldsAPIAddProductFieldRequest
 */
-func (a *ProductFieldsAPIService) AddProductField(ctx context.Context) ApiAddProductFieldRequest {
-	return ApiAddProductFieldRequest{
+func (a *ProductFieldsAPIService) AddProductField(ctx context.Context) ProductFieldsAPIAddProductFieldRequest {
+	return ProductFieldsAPIAddProductFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *ProductFieldsAPIService) AddProductField(ctx context.Context) ApiAddPro
 
 // Execute executes the request
 //  @return GetActivityField200Response
-func (a *ProductFieldsAPIService) AddProductFieldExecute(r ApiAddProductFieldRequest) (*GetActivityField200Response, *http.Response, error) {
+func (a *ProductFieldsAPIService) AddProductFieldExecute(r ProductFieldsAPIAddProductFieldRequest) (*GetActivityField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -147,19 +147,19 @@ func (a *ProductFieldsAPIService) AddProductFieldExecute(r ApiAddProductFieldReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddProductFieldOptionsRequest struct {
+type ProductFieldsAPIAddProductFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *ProductFieldsAPIService
 	fieldCode string
 	addDealFieldOptionsRequestInner *[]AddDealFieldOptionsRequestInner
 }
 
-func (r ApiAddProductFieldOptionsRequest) AddDealFieldOptionsRequestInner(addDealFieldOptionsRequestInner []AddDealFieldOptionsRequestInner) ApiAddProductFieldOptionsRequest {
+func (r ProductFieldsAPIAddProductFieldOptionsRequest) AddDealFieldOptionsRequestInner(addDealFieldOptionsRequestInner []AddDealFieldOptionsRequestInner) ProductFieldsAPIAddProductFieldOptionsRequest {
 	r.addDealFieldOptionsRequestInner = &addDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiAddProductFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r ProductFieldsAPIAddProductFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.AddProductFieldOptionsExecute(r)
 }
 
@@ -170,10 +170,10 @@ Adds new options to a product custom field that supports options (enum or set fi
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiAddProductFieldOptionsRequest
+ @return ProductFieldsAPIAddProductFieldOptionsRequest
 */
-func (a *ProductFieldsAPIService) AddProductFieldOptions(ctx context.Context, fieldCode string) ApiAddProductFieldOptionsRequest {
-	return ApiAddProductFieldOptionsRequest{
+func (a *ProductFieldsAPIService) AddProductFieldOptions(ctx context.Context, fieldCode string) ProductFieldsAPIAddProductFieldOptionsRequest {
+	return ProductFieldsAPIAddProductFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -182,7 +182,7 @@ func (a *ProductFieldsAPIService) AddProductFieldOptions(ctx context.Context, fi
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *ProductFieldsAPIService) AddProductFieldOptionsExecute(r ApiAddProductFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *ProductFieldsAPIService) AddProductFieldOptionsExecute(r ProductFieldsAPIAddProductFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -275,13 +275,13 @@ func (a *ProductFieldsAPIService) AddProductFieldOptionsExecute(r ApiAddProductF
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProductFieldRequest struct {
+type ProductFieldsAPIDeleteProductFieldRequest struct {
 	ctx context.Context
 	ApiService *ProductFieldsAPIService
 	fieldCode string
 }
 
-func (r ApiDeleteProductFieldRequest) Execute() (*DeletePersonField200Response, *http.Response, error) {
+func (r ProductFieldsAPIDeleteProductFieldRequest) Execute() (*DeletePersonField200Response, *http.Response, error) {
 	return r.ApiService.DeleteProductFieldExecute(r)
 }
 
@@ -292,10 +292,10 @@ Marks a custom field as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiDeleteProductFieldRequest
+ @return ProductFieldsAPIDeleteProductFieldRequest
 */
-func (a *ProductFieldsAPIService) DeleteProductField(ctx context.Context, fieldCode string) ApiDeleteProductFieldRequest {
-	return ApiDeleteProductFieldRequest{
+func (a *ProductFieldsAPIService) DeleteProductField(ctx context.Context, fieldCode string) ProductFieldsAPIDeleteProductFieldRequest {
+	return ProductFieldsAPIDeleteProductFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -304,7 +304,7 @@ func (a *ProductFieldsAPIService) DeleteProductField(ctx context.Context, fieldC
 
 // Execute executes the request
 //  @return DeletePersonField200Response
-func (a *ProductFieldsAPIService) DeleteProductFieldExecute(r ApiDeleteProductFieldRequest) (*DeletePersonField200Response, *http.Response, error) {
+func (a *ProductFieldsAPIService) DeleteProductFieldExecute(r ProductFieldsAPIDeleteProductFieldRequest) (*DeletePersonField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -392,19 +392,19 @@ func (a *ProductFieldsAPIService) DeleteProductFieldExecute(r ApiDeleteProductFi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProductFieldOptionsRequest struct {
+type ProductFieldsAPIDeleteProductFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *ProductFieldsAPIService
 	fieldCode string
 	deleteDealFieldOptionsRequestInner *[]DeleteDealFieldOptionsRequestInner
 }
 
-func (r ApiDeleteProductFieldOptionsRequest) DeleteDealFieldOptionsRequestInner(deleteDealFieldOptionsRequestInner []DeleteDealFieldOptionsRequestInner) ApiDeleteProductFieldOptionsRequest {
+func (r ProductFieldsAPIDeleteProductFieldOptionsRequest) DeleteDealFieldOptionsRequestInner(deleteDealFieldOptionsRequestInner []DeleteDealFieldOptionsRequestInner) ProductFieldsAPIDeleteProductFieldOptionsRequest {
 	r.deleteDealFieldOptionsRequestInner = &deleteDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiDeleteProductFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r ProductFieldsAPIDeleteProductFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.DeleteProductFieldOptionsExecute(r)
 }
 
@@ -415,10 +415,10 @@ Removes existing options from a product custom field. This operation is atomic a
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiDeleteProductFieldOptionsRequest
+ @return ProductFieldsAPIDeleteProductFieldOptionsRequest
 */
-func (a *ProductFieldsAPIService) DeleteProductFieldOptions(ctx context.Context, fieldCode string) ApiDeleteProductFieldOptionsRequest {
-	return ApiDeleteProductFieldOptionsRequest{
+func (a *ProductFieldsAPIService) DeleteProductFieldOptions(ctx context.Context, fieldCode string) ProductFieldsAPIDeleteProductFieldOptionsRequest {
+	return ProductFieldsAPIDeleteProductFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -427,7 +427,7 @@ func (a *ProductFieldsAPIService) DeleteProductFieldOptions(ctx context.Context,
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *ProductFieldsAPIService) DeleteProductFieldOptionsExecute(r ApiDeleteProductFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *ProductFieldsAPIService) DeleteProductFieldOptionsExecute(r ProductFieldsAPIDeleteProductFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -520,7 +520,7 @@ func (a *ProductFieldsAPIService) DeleteProductFieldOptionsExecute(r ApiDeletePr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProductFieldRequest struct {
+type ProductFieldsAPIGetProductFieldRequest struct {
 	ctx context.Context
 	ApiService *ProductFieldsAPIService
 	fieldCode string
@@ -528,12 +528,12 @@ type ApiGetProductFieldRequest struct {
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
-func (r ApiGetProductFieldRequest) IncludeFields(includeFields string) ApiGetProductFieldRequest {
+func (r ProductFieldsAPIGetProductFieldRequest) IncludeFields(includeFields string) ProductFieldsAPIGetProductFieldRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
-func (r ApiGetProductFieldRequest) Execute() (*GetActivityField200Response, *http.Response, error) {
+func (r ProductFieldsAPIGetProductFieldRequest) Execute() (*GetActivityField200Response, *http.Response, error) {
 	return r.ApiService.GetProductFieldExecute(r)
 }
 
@@ -544,10 +544,10 @@ Returns metadata about a specific product field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiGetProductFieldRequest
+ @return ProductFieldsAPIGetProductFieldRequest
 */
-func (a *ProductFieldsAPIService) GetProductField(ctx context.Context, fieldCode string) ApiGetProductFieldRequest {
-	return ApiGetProductFieldRequest{
+func (a *ProductFieldsAPIService) GetProductField(ctx context.Context, fieldCode string) ProductFieldsAPIGetProductFieldRequest {
+	return ProductFieldsAPIGetProductFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -556,7 +556,7 @@ func (a *ProductFieldsAPIService) GetProductField(ctx context.Context, fieldCode
 
 // Execute executes the request
 //  @return GetActivityField200Response
-func (a *ProductFieldsAPIService) GetProductFieldExecute(r ApiGetProductFieldRequest) (*GetActivityField200Response, *http.Response, error) {
+func (a *ProductFieldsAPIService) GetProductFieldExecute(r ProductFieldsAPIGetProductFieldRequest) (*GetActivityField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -647,7 +647,7 @@ func (a *ProductFieldsAPIService) GetProductFieldExecute(r ApiGetProductFieldReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProductFieldsRequest struct {
+type ProductFieldsAPIGetProductFieldsRequest struct {
 	ctx context.Context
 	ApiService *ProductFieldsAPIService
 	includeFields *string
@@ -656,24 +656,24 @@ type ApiGetProductFieldsRequest struct {
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
-func (r ApiGetProductFieldsRequest) IncludeFields(includeFields string) ApiGetProductFieldsRequest {
+func (r ProductFieldsAPIGetProductFieldsRequest) IncludeFields(includeFields string) ProductFieldsAPIGetProductFieldsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetProductFieldsRequest) Limit(limit int32) ApiGetProductFieldsRequest {
+func (r ProductFieldsAPIGetProductFieldsRequest) Limit(limit int32) ProductFieldsAPIGetProductFieldsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetProductFieldsRequest) Cursor(cursor string) ApiGetProductFieldsRequest {
+func (r ProductFieldsAPIGetProductFieldsRequest) Cursor(cursor string) ProductFieldsAPIGetProductFieldsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetProductFieldsRequest) Execute() (*GetActivityFields200Response, *http.Response, error) {
+func (r ProductFieldsAPIGetProductFieldsRequest) Execute() (*GetActivityFields200Response, *http.Response, error) {
 	return r.ApiService.GetProductFieldsExecute(r)
 }
 
@@ -683,10 +683,10 @@ GetProductFields Get all product fields
 Returns metadata about all product fields in the company.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProductFieldsRequest
+ @return ProductFieldsAPIGetProductFieldsRequest
 */
-func (a *ProductFieldsAPIService) GetProductFields(ctx context.Context) ApiGetProductFieldsRequest {
-	return ApiGetProductFieldsRequest{
+func (a *ProductFieldsAPIService) GetProductFields(ctx context.Context) ProductFieldsAPIGetProductFieldsRequest {
+	return ProductFieldsAPIGetProductFieldsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -694,7 +694,7 @@ func (a *ProductFieldsAPIService) GetProductFields(ctx context.Context) ApiGetPr
 
 // Execute executes the request
 //  @return GetActivityFields200Response
-func (a *ProductFieldsAPIService) GetProductFieldsExecute(r ApiGetProductFieldsRequest) (*GetActivityFields200Response, *http.Response, error) {
+func (a *ProductFieldsAPIService) GetProductFieldsExecute(r ProductFieldsAPIGetProductFieldsRequest) (*GetActivityFields200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -790,19 +790,19 @@ func (a *ProductFieldsAPIService) GetProductFieldsExecute(r ApiGetProductFieldsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProductFieldRequest struct {
+type ProductFieldsAPIUpdateProductFieldRequest struct {
 	ctx context.Context
 	ApiService *ProductFieldsAPIService
 	fieldCode string
 	updateProductFieldRequest *UpdateProductFieldRequest
 }
 
-func (r ApiUpdateProductFieldRequest) UpdateProductFieldRequest(updateProductFieldRequest UpdateProductFieldRequest) ApiUpdateProductFieldRequest {
+func (r ProductFieldsAPIUpdateProductFieldRequest) UpdateProductFieldRequest(updateProductFieldRequest UpdateProductFieldRequest) ProductFieldsAPIUpdateProductFieldRequest {
 	r.updateProductFieldRequest = &updateProductFieldRequest
 	return r
 }
 
-func (r ApiUpdateProductFieldRequest) Execute() (*GetActivityField200Response, *http.Response, error) {
+func (r ProductFieldsAPIUpdateProductFieldRequest) Execute() (*GetActivityField200Response, *http.Response, error) {
 	return r.ApiService.UpdateProductFieldExecute(r)
 }
 
@@ -813,10 +813,10 @@ Updates a product custom field. The field_code and field_type cannot be changed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiUpdateProductFieldRequest
+ @return ProductFieldsAPIUpdateProductFieldRequest
 */
-func (a *ProductFieldsAPIService) UpdateProductField(ctx context.Context, fieldCode string) ApiUpdateProductFieldRequest {
-	return ApiUpdateProductFieldRequest{
+func (a *ProductFieldsAPIService) UpdateProductField(ctx context.Context, fieldCode string) ProductFieldsAPIUpdateProductFieldRequest {
+	return ProductFieldsAPIUpdateProductFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -825,7 +825,7 @@ func (a *ProductFieldsAPIService) UpdateProductField(ctx context.Context, fieldC
 
 // Execute executes the request
 //  @return GetActivityField200Response
-func (a *ProductFieldsAPIService) UpdateProductFieldExecute(r ApiUpdateProductFieldRequest) (*GetActivityField200Response, *http.Response, error) {
+func (a *ProductFieldsAPIService) UpdateProductFieldExecute(r ProductFieldsAPIUpdateProductFieldRequest) (*GetActivityField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -918,19 +918,19 @@ func (a *ProductFieldsAPIService) UpdateProductFieldExecute(r ApiUpdateProductFi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProductFieldOptionsRequest struct {
+type ProductFieldsAPIUpdateProductFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *ProductFieldsAPIService
 	fieldCode string
 	updateDealFieldOptionsRequestInner *[]UpdateDealFieldOptionsRequestInner
 }
 
-func (r ApiUpdateProductFieldOptionsRequest) UpdateDealFieldOptionsRequestInner(updateDealFieldOptionsRequestInner []UpdateDealFieldOptionsRequestInner) ApiUpdateProductFieldOptionsRequest {
+func (r ProductFieldsAPIUpdateProductFieldOptionsRequest) UpdateDealFieldOptionsRequestInner(updateDealFieldOptionsRequestInner []UpdateDealFieldOptionsRequestInner) ProductFieldsAPIUpdateProductFieldOptionsRequest {
 	r.updateDealFieldOptionsRequestInner = &updateDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiUpdateProductFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r ProductFieldsAPIUpdateProductFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.UpdateProductFieldOptionsExecute(r)
 }
 
@@ -941,10 +941,10 @@ Updates existing options for a product custom field. This operation is atomic an
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiUpdateProductFieldOptionsRequest
+ @return ProductFieldsAPIUpdateProductFieldOptionsRequest
 */
-func (a *ProductFieldsAPIService) UpdateProductFieldOptions(ctx context.Context, fieldCode string) ApiUpdateProductFieldOptionsRequest {
-	return ApiUpdateProductFieldOptionsRequest{
+func (a *ProductFieldsAPIService) UpdateProductFieldOptions(ctx context.Context, fieldCode string) ProductFieldsAPIUpdateProductFieldOptionsRequest {
+	return ProductFieldsAPIUpdateProductFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -953,7 +953,7 @@ func (a *ProductFieldsAPIService) UpdateProductFieldOptions(ctx context.Context,
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *ProductFieldsAPIService) UpdateProductFieldOptionsExecute(r ApiUpdateProductFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *ProductFieldsAPIService) UpdateProductFieldOptionsExecute(r ProductFieldsAPIUpdateProductFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

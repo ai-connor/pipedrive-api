@@ -23,7 +23,7 @@ import (
 // ActivityFieldsAPIService ActivityFieldsAPI service
 type ActivityFieldsAPIService service
 
-type ApiGetActivityFieldRequest struct {
+type ActivityFieldsAPIGetActivityFieldRequest struct {
 	ctx context.Context
 	ApiService *ActivityFieldsAPIService
 	fieldCode string
@@ -31,12 +31,12 @@ type ApiGetActivityFieldRequest struct {
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
-func (r ApiGetActivityFieldRequest) IncludeFields(includeFields string) ApiGetActivityFieldRequest {
+func (r ActivityFieldsAPIGetActivityFieldRequest) IncludeFields(includeFields string) ActivityFieldsAPIGetActivityFieldRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
-func (r ApiGetActivityFieldRequest) Execute() (*GetActivityField200Response, *http.Response, error) {
+func (r ActivityFieldsAPIGetActivityFieldRequest) Execute() (*GetActivityField200Response, *http.Response, error) {
 	return r.ApiService.GetActivityFieldExecute(r)
 }
 
@@ -47,10 +47,10 @@ Returns metadata about a specific activity field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiGetActivityFieldRequest
+ @return ActivityFieldsAPIGetActivityFieldRequest
 */
-func (a *ActivityFieldsAPIService) GetActivityField(ctx context.Context, fieldCode string) ApiGetActivityFieldRequest {
-	return ApiGetActivityFieldRequest{
+func (a *ActivityFieldsAPIService) GetActivityField(ctx context.Context, fieldCode string) ActivityFieldsAPIGetActivityFieldRequest {
+	return ActivityFieldsAPIGetActivityFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -59,7 +59,7 @@ func (a *ActivityFieldsAPIService) GetActivityField(ctx context.Context, fieldCo
 
 // Execute executes the request
 //  @return GetActivityField200Response
-func (a *ActivityFieldsAPIService) GetActivityFieldExecute(r ApiGetActivityFieldRequest) (*GetActivityField200Response, *http.Response, error) {
+func (a *ActivityFieldsAPIService) GetActivityFieldExecute(r ActivityFieldsAPIGetActivityFieldRequest) (*GetActivityField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -150,7 +150,7 @@ func (a *ActivityFieldsAPIService) GetActivityFieldExecute(r ApiGetActivityField
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetActivityFieldsRequest struct {
+type ActivityFieldsAPIGetActivityFieldsRequest struct {
 	ctx context.Context
 	ApiService *ActivityFieldsAPIService
 	includeFields *string
@@ -159,24 +159,24 @@ type ApiGetActivityFieldsRequest struct {
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
-func (r ApiGetActivityFieldsRequest) IncludeFields(includeFields string) ApiGetActivityFieldsRequest {
+func (r ActivityFieldsAPIGetActivityFieldsRequest) IncludeFields(includeFields string) ActivityFieldsAPIGetActivityFieldsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetActivityFieldsRequest) Limit(limit int32) ApiGetActivityFieldsRequest {
+func (r ActivityFieldsAPIGetActivityFieldsRequest) Limit(limit int32) ActivityFieldsAPIGetActivityFieldsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetActivityFieldsRequest) Cursor(cursor string) ApiGetActivityFieldsRequest {
+func (r ActivityFieldsAPIGetActivityFieldsRequest) Cursor(cursor string) ActivityFieldsAPIGetActivityFieldsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetActivityFieldsRequest) Execute() (*GetActivityFields200Response, *http.Response, error) {
+func (r ActivityFieldsAPIGetActivityFieldsRequest) Execute() (*GetActivityFields200Response, *http.Response, error) {
 	return r.ApiService.GetActivityFieldsExecute(r)
 }
 
@@ -186,10 +186,10 @@ GetActivityFields Get all activity fields
 Returns metadata about all activity fields in the company.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetActivityFieldsRequest
+ @return ActivityFieldsAPIGetActivityFieldsRequest
 */
-func (a *ActivityFieldsAPIService) GetActivityFields(ctx context.Context) ApiGetActivityFieldsRequest {
-	return ApiGetActivityFieldsRequest{
+func (a *ActivityFieldsAPIService) GetActivityFields(ctx context.Context) ActivityFieldsAPIGetActivityFieldsRequest {
+	return ActivityFieldsAPIGetActivityFieldsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -197,7 +197,7 @@ func (a *ActivityFieldsAPIService) GetActivityFields(ctx context.Context) ApiGet
 
 // Execute executes the request
 //  @return GetActivityFields200Response
-func (a *ActivityFieldsAPIService) GetActivityFieldsExecute(r ApiGetActivityFieldsRequest) (*GetActivityFields200Response, *http.Response, error) {
+func (a *ActivityFieldsAPIService) GetActivityFieldsExecute(r ActivityFieldsAPIGetActivityFieldsRequest) (*GetActivityFields200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

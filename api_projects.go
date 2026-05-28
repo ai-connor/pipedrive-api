@@ -23,18 +23,18 @@ import (
 // ProjectsAPIService ProjectsAPI service
 type ProjectsAPIService service
 
-type ApiAddProjectRequest struct {
+type ProjectsAPIAddProjectRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	addProjectRequest *AddProjectRequest
 }
 
-func (r ApiAddProjectRequest) AddProjectRequest(addProjectRequest AddProjectRequest) ApiAddProjectRequest {
+func (r ProjectsAPIAddProjectRequest) AddProjectRequest(addProjectRequest AddProjectRequest) ProjectsAPIAddProjectRequest {
 	r.addProjectRequest = &addProjectRequest
 	return r
 }
 
-func (r ApiAddProjectRequest) Execute() (*UpsertProjectResponse, *http.Response, error) {
+func (r ProjectsAPIAddProjectRequest) Execute() (*UpsertProjectResponse, *http.Response, error) {
 	return r.ApiService.AddProjectExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddProject Add a project
 Adds a new project. Custom fields should be wrapped in the `custom_fields` object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddProjectRequest
+ @return ProjectsAPIAddProjectRequest
 */
-func (a *ProjectsAPIService) AddProject(ctx context.Context) ApiAddProjectRequest {
-	return ApiAddProjectRequest{
+func (a *ProjectsAPIService) AddProject(ctx context.Context) ProjectsAPIAddProjectRequest {
+	return ProjectsAPIAddProjectRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *ProjectsAPIService) AddProject(ctx context.Context) ApiAddProjectReques
 
 // Execute executes the request
 //  @return UpsertProjectResponse
-func (a *ProjectsAPIService) AddProjectExecute(r ApiAddProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
+func (a *ProjectsAPIService) AddProjectExecute(r ProjectsAPIAddProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -147,13 +147,13 @@ func (a *ProjectsAPIService) AddProjectExecute(r ApiAddProjectRequest) (*UpsertP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiArchiveProjectRequest struct {
+type ProjectsAPIArchiveProjectRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	id int32
 }
 
-func (r ApiArchiveProjectRequest) Execute() (*UpsertProjectResponse, *http.Response, error) {
+func (r ProjectsAPIArchiveProjectRequest) Execute() (*UpsertProjectResponse, *http.Response, error) {
 	return r.ApiService.ArchiveProjectExecute(r)
 }
 
@@ -164,10 +164,10 @@ Archives a project.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project
- @return ApiArchiveProjectRequest
+ @return ProjectsAPIArchiveProjectRequest
 */
-func (a *ProjectsAPIService) ArchiveProject(ctx context.Context, id int32) ApiArchiveProjectRequest {
-	return ApiArchiveProjectRequest{
+func (a *ProjectsAPIService) ArchiveProject(ctx context.Context, id int32) ProjectsAPIArchiveProjectRequest {
+	return ProjectsAPIArchiveProjectRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -176,7 +176,7 @@ func (a *ProjectsAPIService) ArchiveProject(ctx context.Context, id int32) ApiAr
 
 // Execute executes the request
 //  @return UpsertProjectResponse
-func (a *ProjectsAPIService) ArchiveProjectExecute(r ApiArchiveProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
+func (a *ProjectsAPIService) ArchiveProjectExecute(r ProjectsAPIArchiveProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -264,13 +264,13 @@ func (a *ProjectsAPIService) ArchiveProjectExecute(r ApiArchiveProjectRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProjectRequest struct {
+type ProjectsAPIDeleteProjectRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	id int32
 }
 
-func (r ApiDeleteProjectRequest) Execute() (*DeleteProjectResponse, *http.Response, error) {
+func (r ProjectsAPIDeleteProjectRequest) Execute() (*DeleteProjectResponse, *http.Response, error) {
 	return r.ApiService.DeleteProjectExecute(r)
 }
 
@@ -281,10 +281,10 @@ Marks a project as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project
- @return ApiDeleteProjectRequest
+ @return ProjectsAPIDeleteProjectRequest
 */
-func (a *ProjectsAPIService) DeleteProject(ctx context.Context, id int32) ApiDeleteProjectRequest {
-	return ApiDeleteProjectRequest{
+func (a *ProjectsAPIService) DeleteProject(ctx context.Context, id int32) ProjectsAPIDeleteProjectRequest {
+	return ProjectsAPIDeleteProjectRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -293,7 +293,7 @@ func (a *ProjectsAPIService) DeleteProject(ctx context.Context, id int32) ApiDel
 
 // Execute executes the request
 //  @return DeleteProjectResponse
-func (a *ProjectsAPIService) DeleteProjectExecute(r ApiDeleteProjectRequest) (*DeleteProjectResponse, *http.Response, error) {
+func (a *ProjectsAPIService) DeleteProjectExecute(r ProjectsAPIDeleteProjectRequest) (*DeleteProjectResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -381,7 +381,7 @@ func (a *ProjectsAPIService) DeleteProjectExecute(r ApiDeleteProjectRequest) (*D
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetArchivedProjectsRequest struct {
+type ProjectsAPIGetArchivedProjectsRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	filterId *int32
@@ -392,36 +392,36 @@ type ApiGetArchivedProjectsRequest struct {
 }
 
 // If supplied, only projects matching the specified filter are returned
-func (r ApiGetArchivedProjectsRequest) FilterId(filterId int32) ApiGetArchivedProjectsRequest {
+func (r ProjectsAPIGetArchivedProjectsRequest) FilterId(filterId int32) ProjectsAPIGetArchivedProjectsRequest {
 	r.filterId = &filterId
 	return r
 }
 
 // If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned.
-func (r ApiGetArchivedProjectsRequest) Status(status string) ApiGetArchivedProjectsRequest {
+func (r ProjectsAPIGetArchivedProjectsRequest) Status(status string) ProjectsAPIGetArchivedProjectsRequest {
 	r.status = &status
 	return r
 }
 
 // If supplied, only projects in the specified phase are returned
-func (r ApiGetArchivedProjectsRequest) PhaseId(phaseId int32) ApiGetArchivedProjectsRequest {
+func (r ProjectsAPIGetArchivedProjectsRequest) PhaseId(phaseId int32) ProjectsAPIGetArchivedProjectsRequest {
 	r.phaseId = &phaseId
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetArchivedProjectsRequest) Limit(limit int32) ApiGetArchivedProjectsRequest {
+func (r ProjectsAPIGetArchivedProjectsRequest) Limit(limit int32) ProjectsAPIGetArchivedProjectsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetArchivedProjectsRequest) Cursor(cursor string) ApiGetArchivedProjectsRequest {
+func (r ProjectsAPIGetArchivedProjectsRequest) Cursor(cursor string) ProjectsAPIGetArchivedProjectsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetArchivedProjectsRequest) Execute() (*GetProjectsResponse, *http.Response, error) {
+func (r ProjectsAPIGetArchivedProjectsRequest) Execute() (*GetProjectsResponse, *http.Response, error) {
 	return r.ApiService.GetArchivedProjectsExecute(r)
 }
 
@@ -431,10 +431,10 @@ GetArchivedProjects Get all archived projects
 Returns all archived projects.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetArchivedProjectsRequest
+ @return ProjectsAPIGetArchivedProjectsRequest
 */
-func (a *ProjectsAPIService) GetArchivedProjects(ctx context.Context) ApiGetArchivedProjectsRequest {
-	return ApiGetArchivedProjectsRequest{
+func (a *ProjectsAPIService) GetArchivedProjects(ctx context.Context) ProjectsAPIGetArchivedProjectsRequest {
+	return ProjectsAPIGetArchivedProjectsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -442,7 +442,7 @@ func (a *ProjectsAPIService) GetArchivedProjects(ctx context.Context) ApiGetArch
 
 // Execute executes the request
 //  @return GetProjectsResponse
-func (a *ProjectsAPIService) GetArchivedProjectsExecute(r ApiGetArchivedProjectsRequest) (*GetProjectsResponse, *http.Response, error) {
+func (a *ProjectsAPIService) GetArchivedProjectsExecute(r ProjectsAPIGetArchivedProjectsRequest) (*GetProjectsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -544,13 +544,13 @@ func (a *ProjectsAPIService) GetArchivedProjectsExecute(r ApiGetArchivedProjects
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectRequest struct {
+type ProjectsAPIGetProjectRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	id int32
 }
 
-func (r ApiGetProjectRequest) Execute() (*UpsertProjectResponse, *http.Response, error) {
+func (r ProjectsAPIGetProjectRequest) Execute() (*UpsertProjectResponse, *http.Response, error) {
 	return r.ApiService.GetProjectExecute(r)
 }
 
@@ -561,10 +561,10 @@ Returns the details of a specific project. Custom fields appear as keys inside t
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project
- @return ApiGetProjectRequest
+ @return ProjectsAPIGetProjectRequest
 */
-func (a *ProjectsAPIService) GetProject(ctx context.Context, id int32) ApiGetProjectRequest {
-	return ApiGetProjectRequest{
+func (a *ProjectsAPIService) GetProject(ctx context.Context, id int32) ProjectsAPIGetProjectRequest {
+	return ProjectsAPIGetProjectRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -573,7 +573,7 @@ func (a *ProjectsAPIService) GetProject(ctx context.Context, id int32) ApiGetPro
 
 // Execute executes the request
 //  @return UpsertProjectResponse
-func (a *ProjectsAPIService) GetProjectExecute(r ApiGetProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
+func (a *ProjectsAPIService) GetProjectExecute(r ProjectsAPIGetProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -661,7 +661,7 @@ func (a *ProjectsAPIService) GetProjectExecute(r ApiGetProjectRequest) (*UpsertP
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectChangelogRequest struct {
+type ProjectsAPIGetProjectChangelogRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	id int32
@@ -670,18 +670,18 @@ type ApiGetProjectChangelogRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetProjectChangelogRequest) Limit(limit int32) ApiGetProjectChangelogRequest {
+func (r ProjectsAPIGetProjectChangelogRequest) Limit(limit int32) ProjectsAPIGetProjectChangelogRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetProjectChangelogRequest) Cursor(cursor string) ApiGetProjectChangelogRequest {
+func (r ProjectsAPIGetProjectChangelogRequest) Cursor(cursor string) ProjectsAPIGetProjectChangelogRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetProjectChangelogRequest) Execute() (*GetProjectChangelogResponse, *http.Response, error) {
+func (r ProjectsAPIGetProjectChangelogRequest) Execute() (*GetProjectChangelogResponse, *http.Response, error) {
 	return r.ApiService.GetProjectChangelogExecute(r)
 }
 
@@ -692,10 +692,10 @@ Lists updates about field values of a project.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project
- @return ApiGetProjectChangelogRequest
+ @return ProjectsAPIGetProjectChangelogRequest
 */
-func (a *ProjectsAPIService) GetProjectChangelog(ctx context.Context, id int32) ApiGetProjectChangelogRequest {
-	return ApiGetProjectChangelogRequest{
+func (a *ProjectsAPIService) GetProjectChangelog(ctx context.Context, id int32) ProjectsAPIGetProjectChangelogRequest {
+	return ProjectsAPIGetProjectChangelogRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -704,7 +704,7 @@ func (a *ProjectsAPIService) GetProjectChangelog(ctx context.Context, id int32) 
 
 // Execute executes the request
 //  @return GetProjectChangelogResponse
-func (a *ProjectsAPIService) GetProjectChangelogExecute(r ApiGetProjectChangelogRequest) (*GetProjectChangelogResponse, *http.Response, error) {
+func (a *ProjectsAPIService) GetProjectChangelogExecute(r ProjectsAPIGetProjectChangelogRequest) (*GetProjectChangelogResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -798,13 +798,13 @@ func (a *ProjectsAPIService) GetProjectChangelogExecute(r ApiGetProjectChangelog
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectUsersRequest struct {
+type ProjectsAPIGetProjectUsersRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	id int32
 }
 
-func (r ApiGetProjectUsersRequest) Execute() (*GetProjectPermittedUsersResponse, *http.Response, error) {
+func (r ProjectsAPIGetProjectUsersRequest) Execute() (*GetProjectPermittedUsersResponse, *http.Response, error) {
 	return r.ApiService.GetProjectUsersExecute(r)
 }
 
@@ -815,10 +815,10 @@ Lists the users permitted to access a project.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project
- @return ApiGetProjectUsersRequest
+ @return ProjectsAPIGetProjectUsersRequest
 */
-func (a *ProjectsAPIService) GetProjectUsers(ctx context.Context, id int32) ApiGetProjectUsersRequest {
-	return ApiGetProjectUsersRequest{
+func (a *ProjectsAPIService) GetProjectUsers(ctx context.Context, id int32) ProjectsAPIGetProjectUsersRequest {
+	return ProjectsAPIGetProjectUsersRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -827,7 +827,7 @@ func (a *ProjectsAPIService) GetProjectUsers(ctx context.Context, id int32) ApiG
 
 // Execute executes the request
 //  @return GetProjectPermittedUsersResponse
-func (a *ProjectsAPIService) GetProjectUsersExecute(r ApiGetProjectUsersRequest) (*GetProjectPermittedUsersResponse, *http.Response, error) {
+func (a *ProjectsAPIService) GetProjectUsersExecute(r ProjectsAPIGetProjectUsersRequest) (*GetProjectPermittedUsersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -915,7 +915,7 @@ func (a *ProjectsAPIService) GetProjectUsersExecute(r ApiGetProjectUsersRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectsRequest struct {
+type ProjectsAPIGetProjectsRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	filterId *int32
@@ -929,54 +929,54 @@ type ApiGetProjectsRequest struct {
 }
 
 // If supplied, only projects matching the specified filter are returned
-func (r ApiGetProjectsRequest) FilterId(filterId int32) ApiGetProjectsRequest {
+func (r ProjectsAPIGetProjectsRequest) FilterId(filterId int32) ProjectsAPIGetProjectsRequest {
 	r.filterId = &filterId
 	return r
 }
 
 // If supplied, includes only projects with the specified statuses. Possible values are &#x60;open&#x60;, &#x60;completed&#x60;, &#x60;canceled&#x60; and &#x60;deleted&#x60;. By default &#x60;deleted&#x60; projects are not returned.
-func (r ApiGetProjectsRequest) Status(status string) ApiGetProjectsRequest {
+func (r ProjectsAPIGetProjectsRequest) Status(status string) ProjectsAPIGetProjectsRequest {
 	r.status = &status
 	return r
 }
 
 // If supplied, only projects in the specified phase are returned
-func (r ApiGetProjectsRequest) PhaseId(phaseId int32) ApiGetProjectsRequest {
+func (r ProjectsAPIGetProjectsRequest) PhaseId(phaseId int32) ProjectsAPIGetProjectsRequest {
 	r.phaseId = &phaseId
 	return r
 }
 
 // If supplied, only projects associated with the specified deal are returned
-func (r ApiGetProjectsRequest) DealId(dealId int32) ApiGetProjectsRequest {
+func (r ProjectsAPIGetProjectsRequest) DealId(dealId int32) ProjectsAPIGetProjectsRequest {
 	r.dealId = &dealId
 	return r
 }
 
 // If supplied, only projects associated with the specified person are returned
-func (r ApiGetProjectsRequest) PersonId(personId int32) ApiGetProjectsRequest {
+func (r ProjectsAPIGetProjectsRequest) PersonId(personId int32) ProjectsAPIGetProjectsRequest {
 	r.personId = &personId
 	return r
 }
 
 // If supplied, only projects associated with the specified organization are returned
-func (r ApiGetProjectsRequest) OrgId(orgId int32) ApiGetProjectsRequest {
+func (r ProjectsAPIGetProjectsRequest) OrgId(orgId int32) ProjectsAPIGetProjectsRequest {
 	r.orgId = &orgId
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetProjectsRequest) Limit(limit int32) ApiGetProjectsRequest {
+func (r ProjectsAPIGetProjectsRequest) Limit(limit int32) ProjectsAPIGetProjectsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetProjectsRequest) Cursor(cursor string) ApiGetProjectsRequest {
+func (r ProjectsAPIGetProjectsRequest) Cursor(cursor string) ProjectsAPIGetProjectsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetProjectsRequest) Execute() (*GetProjectsResponse, *http.Response, error) {
+func (r ProjectsAPIGetProjectsRequest) Execute() (*GetProjectsResponse, *http.Response, error) {
 	return r.ApiService.GetProjectsExecute(r)
 }
 
@@ -986,10 +986,10 @@ GetProjects Get all projects
 Returns all non-archived projects.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProjectsRequest
+ @return ProjectsAPIGetProjectsRequest
 */
-func (a *ProjectsAPIService) GetProjects(ctx context.Context) ApiGetProjectsRequest {
-	return ApiGetProjectsRequest{
+func (a *ProjectsAPIService) GetProjects(ctx context.Context) ProjectsAPIGetProjectsRequest {
+	return ProjectsAPIGetProjectsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -997,7 +997,7 @@ func (a *ProjectsAPIService) GetProjects(ctx context.Context) ApiGetProjectsRequ
 
 // Execute executes the request
 //  @return GetProjectsResponse
-func (a *ProjectsAPIService) GetProjectsExecute(r ApiGetProjectsRequest) (*GetProjectsResponse, *http.Response, error) {
+func (a *ProjectsAPIService) GetProjectsExecute(r ProjectsAPIGetProjectsRequest) (*GetProjectsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1108,7 +1108,7 @@ func (a *ProjectsAPIService) GetProjectsExecute(r ApiGetProjectsRequest) (*GetPr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchProjectsRequest struct {
+type ProjectsAPISearchProjectsRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	term *string
@@ -1121,48 +1121,48 @@ type ApiSearchProjectsRequest struct {
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-func (r ApiSearchProjectsRequest) Term(term string) ApiSearchProjectsRequest {
+func (r ProjectsAPISearchProjectsRequest) Term(term string) ProjectsAPISearchProjectsRequest {
 	r.term = &term
 	return r
 }
 
 // A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-func (r ApiSearchProjectsRequest) Fields(fields string) ApiSearchProjectsRequest {
+func (r ProjectsAPISearchProjectsRequest) Fields(fields string) ProjectsAPISearchProjectsRequest {
 	r.fields = &fields
 	return r
 }
 
 // When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-func (r ApiSearchProjectsRequest) ExactMatch(exactMatch bool) ApiSearchProjectsRequest {
+func (r ProjectsAPISearchProjectsRequest) ExactMatch(exactMatch bool) ProjectsAPISearchProjectsRequest {
 	r.exactMatch = &exactMatch
 	return r
 }
 
 // Will filter projects by the provided person ID
-func (r ApiSearchProjectsRequest) PersonId(personId int32) ApiSearchProjectsRequest {
+func (r ProjectsAPISearchProjectsRequest) PersonId(personId int32) ProjectsAPISearchProjectsRequest {
 	r.personId = &personId
 	return r
 }
 
 // Will filter projects by the provided organization ID
-func (r ApiSearchProjectsRequest) OrganizationId(organizationId int32) ApiSearchProjectsRequest {
+func (r ProjectsAPISearchProjectsRequest) OrganizationId(organizationId int32) ProjectsAPISearchProjectsRequest {
 	r.organizationId = &organizationId
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiSearchProjectsRequest) Limit(limit int32) ApiSearchProjectsRequest {
+func (r ProjectsAPISearchProjectsRequest) Limit(limit int32) ProjectsAPISearchProjectsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiSearchProjectsRequest) Cursor(cursor string) ApiSearchProjectsRequest {
+func (r ProjectsAPISearchProjectsRequest) Cursor(cursor string) ProjectsAPISearchProjectsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiSearchProjectsRequest) Execute() (*GetProjectSearchResponse, *http.Response, error) {
+func (r ProjectsAPISearchProjectsRequest) Execute() (*GetProjectSearchResponse, *http.Response, error) {
 	return r.ApiService.SearchProjectsExecute(r)
 }
 
@@ -1172,10 +1172,10 @@ SearchProjects Search projects
 Searches all projects by title, description, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope. Found projects can be filtered by person ID or organization ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchProjectsRequest
+ @return ProjectsAPISearchProjectsRequest
 */
-func (a *ProjectsAPIService) SearchProjects(ctx context.Context) ApiSearchProjectsRequest {
-	return ApiSearchProjectsRequest{
+func (a *ProjectsAPIService) SearchProjects(ctx context.Context) ProjectsAPISearchProjectsRequest {
+	return ProjectsAPISearchProjectsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1183,7 +1183,7 @@ func (a *ProjectsAPIService) SearchProjects(ctx context.Context) ApiSearchProjec
 
 // Execute executes the request
 //  @return GetProjectSearchResponse
-func (a *ProjectsAPIService) SearchProjectsExecute(r ApiSearchProjectsRequest) (*GetProjectSearchResponse, *http.Response, error) {
+func (a *ProjectsAPIService) SearchProjectsExecute(r ProjectsAPISearchProjectsRequest) (*GetProjectSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1292,19 +1292,19 @@ func (a *ProjectsAPIService) SearchProjectsExecute(r ApiSearchProjectsRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProjectRequest struct {
+type ProjectsAPIUpdateProjectRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	id int32
 	updateProjectRequest *UpdateProjectRequest
 }
 
-func (r ApiUpdateProjectRequest) UpdateProjectRequest(updateProjectRequest UpdateProjectRequest) ApiUpdateProjectRequest {
+func (r ProjectsAPIUpdateProjectRequest) UpdateProjectRequest(updateProjectRequest UpdateProjectRequest) ProjectsAPIUpdateProjectRequest {
 	r.updateProjectRequest = &updateProjectRequest
 	return r
 }
 
-func (r ApiUpdateProjectRequest) Execute() (*UpsertProjectResponse, *http.Response, error) {
+func (r ProjectsAPIUpdateProjectRequest) Execute() (*UpsertProjectResponse, *http.Response, error) {
 	return r.ApiService.UpdateProjectExecute(r)
 }
 
@@ -1315,10 +1315,10 @@ Updates the properties of a project.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project
- @return ApiUpdateProjectRequest
+ @return ProjectsAPIUpdateProjectRequest
 */
-func (a *ProjectsAPIService) UpdateProject(ctx context.Context, id int32) ApiUpdateProjectRequest {
-	return ApiUpdateProjectRequest{
+func (a *ProjectsAPIService) UpdateProject(ctx context.Context, id int32) ProjectsAPIUpdateProjectRequest {
+	return ProjectsAPIUpdateProjectRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1327,7 +1327,7 @@ func (a *ProjectsAPIService) UpdateProject(ctx context.Context, id int32) ApiUpd
 
 // Execute executes the request
 //  @return UpsertProjectResponse
-func (a *ProjectsAPIService) UpdateProjectExecute(r ApiUpdateProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
+func (a *ProjectsAPIService) UpdateProjectExecute(r ProjectsAPIUpdateProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

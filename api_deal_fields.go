@@ -23,18 +23,18 @@ import (
 // DealFieldsAPIService DealFieldsAPI service
 type DealFieldsAPIService service
 
-type ApiAddDealFieldRequest struct {
+type DealFieldsAPIAddDealFieldRequest struct {
 	ctx context.Context
 	ApiService *DealFieldsAPIService
 	addDealFieldRequest *AddDealFieldRequest
 }
 
-func (r ApiAddDealFieldRequest) AddDealFieldRequest(addDealFieldRequest AddDealFieldRequest) ApiAddDealFieldRequest {
+func (r DealFieldsAPIAddDealFieldRequest) AddDealFieldRequest(addDealFieldRequest AddDealFieldRequest) DealFieldsAPIAddDealFieldRequest {
 	r.addDealFieldRequest = &addDealFieldRequest
 	return r
 }
 
-func (r ApiAddDealFieldRequest) Execute() (*AddDealField200Response, *http.Response, error) {
+func (r DealFieldsAPIAddDealFieldRequest) Execute() (*AddDealField200Response, *http.Response, error) {
 	return r.ApiService.AddDealFieldExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddDealField Create one deal field
 Creates a new deal custom field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddDealFieldRequest
+ @return DealFieldsAPIAddDealFieldRequest
 */
-func (a *DealFieldsAPIService) AddDealField(ctx context.Context) ApiAddDealFieldRequest {
-	return ApiAddDealFieldRequest{
+func (a *DealFieldsAPIService) AddDealField(ctx context.Context) DealFieldsAPIAddDealFieldRequest {
+	return DealFieldsAPIAddDealFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *DealFieldsAPIService) AddDealField(ctx context.Context) ApiAddDealField
 
 // Execute executes the request
 //  @return AddDealField200Response
-func (a *DealFieldsAPIService) AddDealFieldExecute(r ApiAddDealFieldRequest) (*AddDealField200Response, *http.Response, error) {
+func (a *DealFieldsAPIService) AddDealFieldExecute(r DealFieldsAPIAddDealFieldRequest) (*AddDealField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -147,19 +147,19 @@ func (a *DealFieldsAPIService) AddDealFieldExecute(r ApiAddDealFieldRequest) (*A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddDealFieldOptionsRequest struct {
+type DealFieldsAPIAddDealFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *DealFieldsAPIService
 	fieldCode string
 	addDealFieldOptionsRequestInner *[]AddDealFieldOptionsRequestInner
 }
 
-func (r ApiAddDealFieldOptionsRequest) AddDealFieldOptionsRequestInner(addDealFieldOptionsRequestInner []AddDealFieldOptionsRequestInner) ApiAddDealFieldOptionsRequest {
+func (r DealFieldsAPIAddDealFieldOptionsRequest) AddDealFieldOptionsRequestInner(addDealFieldOptionsRequestInner []AddDealFieldOptionsRequestInner) DealFieldsAPIAddDealFieldOptionsRequest {
 	r.addDealFieldOptionsRequestInner = &addDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiAddDealFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r DealFieldsAPIAddDealFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.AddDealFieldOptionsExecute(r)
 }
 
@@ -170,10 +170,10 @@ Adds new options to a deal custom field that supports options (enum or set field
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiAddDealFieldOptionsRequest
+ @return DealFieldsAPIAddDealFieldOptionsRequest
 */
-func (a *DealFieldsAPIService) AddDealFieldOptions(ctx context.Context, fieldCode string) ApiAddDealFieldOptionsRequest {
-	return ApiAddDealFieldOptionsRequest{
+func (a *DealFieldsAPIService) AddDealFieldOptions(ctx context.Context, fieldCode string) DealFieldsAPIAddDealFieldOptionsRequest {
+	return DealFieldsAPIAddDealFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -182,7 +182,7 @@ func (a *DealFieldsAPIService) AddDealFieldOptions(ctx context.Context, fieldCod
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *DealFieldsAPIService) AddDealFieldOptionsExecute(r ApiAddDealFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *DealFieldsAPIService) AddDealFieldOptionsExecute(r DealFieldsAPIAddDealFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -275,13 +275,13 @@ func (a *DealFieldsAPIService) AddDealFieldOptionsExecute(r ApiAddDealFieldOptio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteDealFieldRequest struct {
+type DealFieldsAPIDeleteDealFieldRequest struct {
 	ctx context.Context
 	ApiService *DealFieldsAPIService
 	fieldCode string
 }
 
-func (r ApiDeleteDealFieldRequest) Execute() (*DeleteDealField200Response, *http.Response, error) {
+func (r DealFieldsAPIDeleteDealFieldRequest) Execute() (*DeleteDealField200Response, *http.Response, error) {
 	return r.ApiService.DeleteDealFieldExecute(r)
 }
 
@@ -292,10 +292,10 @@ Marks a custom field as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiDeleteDealFieldRequest
+ @return DealFieldsAPIDeleteDealFieldRequest
 */
-func (a *DealFieldsAPIService) DeleteDealField(ctx context.Context, fieldCode string) ApiDeleteDealFieldRequest {
-	return ApiDeleteDealFieldRequest{
+func (a *DealFieldsAPIService) DeleteDealField(ctx context.Context, fieldCode string) DealFieldsAPIDeleteDealFieldRequest {
+	return DealFieldsAPIDeleteDealFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -304,7 +304,7 @@ func (a *DealFieldsAPIService) DeleteDealField(ctx context.Context, fieldCode st
 
 // Execute executes the request
 //  @return DeleteDealField200Response
-func (a *DealFieldsAPIService) DeleteDealFieldExecute(r ApiDeleteDealFieldRequest) (*DeleteDealField200Response, *http.Response, error) {
+func (a *DealFieldsAPIService) DeleteDealFieldExecute(r DealFieldsAPIDeleteDealFieldRequest) (*DeleteDealField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -392,19 +392,19 @@ func (a *DealFieldsAPIService) DeleteDealFieldExecute(r ApiDeleteDealFieldReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteDealFieldOptionsRequest struct {
+type DealFieldsAPIDeleteDealFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *DealFieldsAPIService
 	fieldCode string
 	deleteDealFieldOptionsRequestInner *[]DeleteDealFieldOptionsRequestInner
 }
 
-func (r ApiDeleteDealFieldOptionsRequest) DeleteDealFieldOptionsRequestInner(deleteDealFieldOptionsRequestInner []DeleteDealFieldOptionsRequestInner) ApiDeleteDealFieldOptionsRequest {
+func (r DealFieldsAPIDeleteDealFieldOptionsRequest) DeleteDealFieldOptionsRequestInner(deleteDealFieldOptionsRequestInner []DeleteDealFieldOptionsRequestInner) DealFieldsAPIDeleteDealFieldOptionsRequest {
 	r.deleteDealFieldOptionsRequestInner = &deleteDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiDeleteDealFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r DealFieldsAPIDeleteDealFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.DeleteDealFieldOptionsExecute(r)
 }
 
@@ -415,10 +415,10 @@ Removes existing options from a deal custom field. This operation is atomic and 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiDeleteDealFieldOptionsRequest
+ @return DealFieldsAPIDeleteDealFieldOptionsRequest
 */
-func (a *DealFieldsAPIService) DeleteDealFieldOptions(ctx context.Context, fieldCode string) ApiDeleteDealFieldOptionsRequest {
-	return ApiDeleteDealFieldOptionsRequest{
+func (a *DealFieldsAPIService) DeleteDealFieldOptions(ctx context.Context, fieldCode string) DealFieldsAPIDeleteDealFieldOptionsRequest {
+	return DealFieldsAPIDeleteDealFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -427,7 +427,7 @@ func (a *DealFieldsAPIService) DeleteDealFieldOptions(ctx context.Context, field
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *DealFieldsAPIService) DeleteDealFieldOptionsExecute(r ApiDeleteDealFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *DealFieldsAPIService) DeleteDealFieldOptionsExecute(r DealFieldsAPIDeleteDealFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -520,7 +520,7 @@ func (a *DealFieldsAPIService) DeleteDealFieldOptionsExecute(r ApiDeleteDealFiel
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDealFieldRequest struct {
+type DealFieldsAPIGetDealFieldRequest struct {
 	ctx context.Context
 	ApiService *DealFieldsAPIService
 	fieldCode string
@@ -528,12 +528,12 @@ type ApiGetDealFieldRequest struct {
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
-func (r ApiGetDealFieldRequest) IncludeFields(includeFields string) ApiGetDealFieldRequest {
+func (r DealFieldsAPIGetDealFieldRequest) IncludeFields(includeFields string) DealFieldsAPIGetDealFieldRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
-func (r ApiGetDealFieldRequest) Execute() (*AddDealField200Response, *http.Response, error) {
+func (r DealFieldsAPIGetDealFieldRequest) Execute() (*AddDealField200Response, *http.Response, error) {
 	return r.ApiService.GetDealFieldExecute(r)
 }
 
@@ -544,10 +544,10 @@ Returns metadata about a specific deal field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiGetDealFieldRequest
+ @return DealFieldsAPIGetDealFieldRequest
 */
-func (a *DealFieldsAPIService) GetDealField(ctx context.Context, fieldCode string) ApiGetDealFieldRequest {
-	return ApiGetDealFieldRequest{
+func (a *DealFieldsAPIService) GetDealField(ctx context.Context, fieldCode string) DealFieldsAPIGetDealFieldRequest {
+	return DealFieldsAPIGetDealFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -556,7 +556,7 @@ func (a *DealFieldsAPIService) GetDealField(ctx context.Context, fieldCode strin
 
 // Execute executes the request
 //  @return AddDealField200Response
-func (a *DealFieldsAPIService) GetDealFieldExecute(r ApiGetDealFieldRequest) (*AddDealField200Response, *http.Response, error) {
+func (a *DealFieldsAPIService) GetDealFieldExecute(r DealFieldsAPIGetDealFieldRequest) (*AddDealField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -647,7 +647,7 @@ func (a *DealFieldsAPIService) GetDealFieldExecute(r ApiGetDealFieldRequest) (*A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDealFieldsRequest struct {
+type DealFieldsAPIGetDealFieldsRequest struct {
 	ctx context.Context
 	ApiService *DealFieldsAPIService
 	includeFields *string
@@ -656,24 +656,24 @@ type ApiGetDealFieldsRequest struct {
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
-func (r ApiGetDealFieldsRequest) IncludeFields(includeFields string) ApiGetDealFieldsRequest {
+func (r DealFieldsAPIGetDealFieldsRequest) IncludeFields(includeFields string) DealFieldsAPIGetDealFieldsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetDealFieldsRequest) Limit(limit int32) ApiGetDealFieldsRequest {
+func (r DealFieldsAPIGetDealFieldsRequest) Limit(limit int32) DealFieldsAPIGetDealFieldsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetDealFieldsRequest) Cursor(cursor string) ApiGetDealFieldsRequest {
+func (r DealFieldsAPIGetDealFieldsRequest) Cursor(cursor string) DealFieldsAPIGetDealFieldsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetDealFieldsRequest) Execute() (*GetDealFields200Response, *http.Response, error) {
+func (r DealFieldsAPIGetDealFieldsRequest) Execute() (*GetDealFields200Response, *http.Response, error) {
 	return r.ApiService.GetDealFieldsExecute(r)
 }
 
@@ -683,10 +683,10 @@ GetDealFields Get all deal fields
 Returns metadata about all deal fields in the company.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetDealFieldsRequest
+ @return DealFieldsAPIGetDealFieldsRequest
 */
-func (a *DealFieldsAPIService) GetDealFields(ctx context.Context) ApiGetDealFieldsRequest {
-	return ApiGetDealFieldsRequest{
+func (a *DealFieldsAPIService) GetDealFields(ctx context.Context) DealFieldsAPIGetDealFieldsRequest {
+	return DealFieldsAPIGetDealFieldsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -694,7 +694,7 @@ func (a *DealFieldsAPIService) GetDealFields(ctx context.Context) ApiGetDealFiel
 
 // Execute executes the request
 //  @return GetDealFields200Response
-func (a *DealFieldsAPIService) GetDealFieldsExecute(r ApiGetDealFieldsRequest) (*GetDealFields200Response, *http.Response, error) {
+func (a *DealFieldsAPIService) GetDealFieldsExecute(r DealFieldsAPIGetDealFieldsRequest) (*GetDealFields200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -790,19 +790,19 @@ func (a *DealFieldsAPIService) GetDealFieldsExecute(r ApiGetDealFieldsRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateDealFieldRequest struct {
+type DealFieldsAPIUpdateDealFieldRequest struct {
 	ctx context.Context
 	ApiService *DealFieldsAPIService
 	fieldCode string
 	updateDealFieldRequest *UpdateDealFieldRequest
 }
 
-func (r ApiUpdateDealFieldRequest) UpdateDealFieldRequest(updateDealFieldRequest UpdateDealFieldRequest) ApiUpdateDealFieldRequest {
+func (r DealFieldsAPIUpdateDealFieldRequest) UpdateDealFieldRequest(updateDealFieldRequest UpdateDealFieldRequest) DealFieldsAPIUpdateDealFieldRequest {
 	r.updateDealFieldRequest = &updateDealFieldRequest
 	return r
 }
 
-func (r ApiUpdateDealFieldRequest) Execute() (*AddDealField200Response, *http.Response, error) {
+func (r DealFieldsAPIUpdateDealFieldRequest) Execute() (*AddDealField200Response, *http.Response, error) {
 	return r.ApiService.UpdateDealFieldExecute(r)
 }
 
@@ -813,10 +813,10 @@ Updates a deal custom field. The field_code and field_type cannot be changed. At
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiUpdateDealFieldRequest
+ @return DealFieldsAPIUpdateDealFieldRequest
 */
-func (a *DealFieldsAPIService) UpdateDealField(ctx context.Context, fieldCode string) ApiUpdateDealFieldRequest {
-	return ApiUpdateDealFieldRequest{
+func (a *DealFieldsAPIService) UpdateDealField(ctx context.Context, fieldCode string) DealFieldsAPIUpdateDealFieldRequest {
+	return DealFieldsAPIUpdateDealFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -825,7 +825,7 @@ func (a *DealFieldsAPIService) UpdateDealField(ctx context.Context, fieldCode st
 
 // Execute executes the request
 //  @return AddDealField200Response
-func (a *DealFieldsAPIService) UpdateDealFieldExecute(r ApiUpdateDealFieldRequest) (*AddDealField200Response, *http.Response, error) {
+func (a *DealFieldsAPIService) UpdateDealFieldExecute(r DealFieldsAPIUpdateDealFieldRequest) (*AddDealField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -918,19 +918,19 @@ func (a *DealFieldsAPIService) UpdateDealFieldExecute(r ApiUpdateDealFieldReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateDealFieldOptionsRequest struct {
+type DealFieldsAPIUpdateDealFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *DealFieldsAPIService
 	fieldCode string
 	updateDealFieldOptionsRequestInner *[]UpdateDealFieldOptionsRequestInner
 }
 
-func (r ApiUpdateDealFieldOptionsRequest) UpdateDealFieldOptionsRequestInner(updateDealFieldOptionsRequestInner []UpdateDealFieldOptionsRequestInner) ApiUpdateDealFieldOptionsRequest {
+func (r DealFieldsAPIUpdateDealFieldOptionsRequest) UpdateDealFieldOptionsRequestInner(updateDealFieldOptionsRequestInner []UpdateDealFieldOptionsRequestInner) DealFieldsAPIUpdateDealFieldOptionsRequest {
 	r.updateDealFieldOptionsRequestInner = &updateDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiUpdateDealFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r DealFieldsAPIUpdateDealFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.UpdateDealFieldOptionsExecute(r)
 }
 
@@ -941,10 +941,10 @@ Updates existing options for a deal custom field. This operation is atomic and f
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiUpdateDealFieldOptionsRequest
+ @return DealFieldsAPIUpdateDealFieldOptionsRequest
 */
-func (a *DealFieldsAPIService) UpdateDealFieldOptions(ctx context.Context, fieldCode string) ApiUpdateDealFieldOptionsRequest {
-	return ApiUpdateDealFieldOptionsRequest{
+func (a *DealFieldsAPIService) UpdateDealFieldOptions(ctx context.Context, fieldCode string) DealFieldsAPIUpdateDealFieldOptionsRequest {
+	return DealFieldsAPIUpdateDealFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -953,7 +953,7 @@ func (a *DealFieldsAPIService) UpdateDealFieldOptions(ctx context.Context, field
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *DealFieldsAPIService) UpdateDealFieldOptionsExecute(r ApiUpdateDealFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *DealFieldsAPIService) UpdateDealFieldOptionsExecute(r DealFieldsAPIUpdateDealFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

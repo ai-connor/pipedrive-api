@@ -23,18 +23,18 @@ import (
 // BetaAPIService BetaAPI service
 type BetaAPIService service
 
-type ApiAddProjectBoardRequest struct {
+type BetaAPIAddProjectBoardRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	addProjectBoardRequest *AddProjectBoardRequest
 }
 
-func (r ApiAddProjectBoardRequest) AddProjectBoardRequest(addProjectBoardRequest AddProjectBoardRequest) ApiAddProjectBoardRequest {
+func (r BetaAPIAddProjectBoardRequest) AddProjectBoardRequest(addProjectBoardRequest AddProjectBoardRequest) BetaAPIAddProjectBoardRequest {
 	r.addProjectBoardRequest = &addProjectBoardRequest
 	return r
 }
 
-func (r ApiAddProjectBoardRequest) Execute() (*UpsertProjectBoardResponse, *http.Response, error) {
+func (r BetaAPIAddProjectBoardRequest) Execute() (*UpsertProjectBoardResponse, *http.Response, error) {
 	return r.ApiService.AddProjectBoardExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddProjectBoard Add a project board
 Adds a new project board.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddProjectBoardRequest
+ @return BetaAPIAddProjectBoardRequest
 */
-func (a *BetaAPIService) AddProjectBoard(ctx context.Context) ApiAddProjectBoardRequest {
-	return ApiAddProjectBoardRequest{
+func (a *BetaAPIService) AddProjectBoard(ctx context.Context) BetaAPIAddProjectBoardRequest {
+	return BetaAPIAddProjectBoardRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *BetaAPIService) AddProjectBoard(ctx context.Context) ApiAddProjectBoard
 
 // Execute executes the request
 //  @return UpsertProjectBoardResponse
-func (a *BetaAPIService) AddProjectBoardExecute(r ApiAddProjectBoardRequest) (*UpsertProjectBoardResponse, *http.Response, error) {
+func (a *BetaAPIService) AddProjectBoardExecute(r BetaAPIAddProjectBoardRequest) (*UpsertProjectBoardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -147,18 +147,18 @@ func (a *BetaAPIService) AddProjectBoardExecute(r ApiAddProjectBoardRequest) (*U
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddProjectFieldRequest struct {
+type BetaAPIAddProjectFieldRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	addProjectFieldRequest *AddProjectFieldRequest
 }
 
-func (r ApiAddProjectFieldRequest) AddProjectFieldRequest(addProjectFieldRequest AddProjectFieldRequest) ApiAddProjectFieldRequest {
+func (r BetaAPIAddProjectFieldRequest) AddProjectFieldRequest(addProjectFieldRequest AddProjectFieldRequest) BetaAPIAddProjectFieldRequest {
 	r.addProjectFieldRequest = &addProjectFieldRequest
 	return r
 }
 
-func (r ApiAddProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
+func (r BetaAPIAddProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
 	return r.ApiService.AddProjectFieldExecute(r)
 }
 
@@ -168,10 +168,10 @@ AddProjectField Create one project field
 Creates a new project custom field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddProjectFieldRequest
+ @return BetaAPIAddProjectFieldRequest
 */
-func (a *BetaAPIService) AddProjectField(ctx context.Context) ApiAddProjectFieldRequest {
-	return ApiAddProjectFieldRequest{
+func (a *BetaAPIService) AddProjectField(ctx context.Context) BetaAPIAddProjectFieldRequest {
+	return BetaAPIAddProjectFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -179,7 +179,7 @@ func (a *BetaAPIService) AddProjectField(ctx context.Context) ApiAddProjectField
 
 // Execute executes the request
 //  @return AddProjectField200Response
-func (a *BetaAPIService) AddProjectFieldExecute(r ApiAddProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
+func (a *BetaAPIService) AddProjectFieldExecute(r BetaAPIAddProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -271,19 +271,19 @@ func (a *BetaAPIService) AddProjectFieldExecute(r ApiAddProjectFieldRequest) (*A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddProjectFieldOptionsRequest struct {
+type BetaAPIAddProjectFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	fieldCode string
 	addDealFieldOptionsRequestInner *[]AddDealFieldOptionsRequestInner
 }
 
-func (r ApiAddProjectFieldOptionsRequest) AddDealFieldOptionsRequestInner(addDealFieldOptionsRequestInner []AddDealFieldOptionsRequestInner) ApiAddProjectFieldOptionsRequest {
+func (r BetaAPIAddProjectFieldOptionsRequest) AddDealFieldOptionsRequestInner(addDealFieldOptionsRequestInner []AddDealFieldOptionsRequestInner) BetaAPIAddProjectFieldOptionsRequest {
 	r.addDealFieldOptionsRequestInner = &addDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiAddProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r BetaAPIAddProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.AddProjectFieldOptionsExecute(r)
 }
 
@@ -294,10 +294,10 @@ Adds new options to a project custom field that supports options (enum or set fi
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiAddProjectFieldOptionsRequest
+ @return BetaAPIAddProjectFieldOptionsRequest
 */
-func (a *BetaAPIService) AddProjectFieldOptions(ctx context.Context, fieldCode string) ApiAddProjectFieldOptionsRequest {
-	return ApiAddProjectFieldOptionsRequest{
+func (a *BetaAPIService) AddProjectFieldOptions(ctx context.Context, fieldCode string) BetaAPIAddProjectFieldOptionsRequest {
+	return BetaAPIAddProjectFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -306,7 +306,7 @@ func (a *BetaAPIService) AddProjectFieldOptions(ctx context.Context, fieldCode s
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *BetaAPIService) AddProjectFieldOptionsExecute(r ApiAddProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *BetaAPIService) AddProjectFieldOptionsExecute(r BetaAPIAddProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -399,18 +399,18 @@ func (a *BetaAPIService) AddProjectFieldOptionsExecute(r ApiAddProjectFieldOptio
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddProjectPhaseRequest struct {
+type BetaAPIAddProjectPhaseRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	addProjectPhaseRequest *AddProjectPhaseRequest
 }
 
-func (r ApiAddProjectPhaseRequest) AddProjectPhaseRequest(addProjectPhaseRequest AddProjectPhaseRequest) ApiAddProjectPhaseRequest {
+func (r BetaAPIAddProjectPhaseRequest) AddProjectPhaseRequest(addProjectPhaseRequest AddProjectPhaseRequest) BetaAPIAddProjectPhaseRequest {
 	r.addProjectPhaseRequest = &addProjectPhaseRequest
 	return r
 }
 
-func (r ApiAddProjectPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (r BetaAPIAddProjectPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
 	return r.ApiService.AddProjectPhaseExecute(r)
 }
 
@@ -420,10 +420,10 @@ AddProjectPhase Add a project phase
 Adds a new project phase to a board.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddProjectPhaseRequest
+ @return BetaAPIAddProjectPhaseRequest
 */
-func (a *BetaAPIService) AddProjectPhase(ctx context.Context) ApiAddProjectPhaseRequest {
-	return ApiAddProjectPhaseRequest{
+func (a *BetaAPIService) AddProjectPhase(ctx context.Context) BetaAPIAddProjectPhaseRequest {
+	return BetaAPIAddProjectPhaseRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -431,7 +431,7 @@ func (a *BetaAPIService) AddProjectPhase(ctx context.Context) ApiAddProjectPhase
 
 // Execute executes the request
 //  @return UpsertProjectPhaseResponse
-func (a *BetaAPIService) AddProjectPhaseExecute(r ApiAddProjectPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (a *BetaAPIService) AddProjectPhaseExecute(r BetaAPIAddProjectPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -523,18 +523,18 @@ func (a *BetaAPIService) AddProjectPhaseExecute(r ApiAddProjectPhaseRequest) (*U
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddTaskRequest struct {
+type BetaAPIAddTaskRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	addTaskRequest *AddTaskRequest
 }
 
-func (r ApiAddTaskRequest) AddTaskRequest(addTaskRequest AddTaskRequest) ApiAddTaskRequest {
+func (r BetaAPIAddTaskRequest) AddTaskRequest(addTaskRequest AddTaskRequest) BetaAPIAddTaskRequest {
 	r.addTaskRequest = &addTaskRequest
 	return r
 }
 
-func (r ApiAddTaskRequest) Execute() (*AddTaskResponse, *http.Response, error) {
+func (r BetaAPIAddTaskRequest) Execute() (*AddTaskResponse, *http.Response, error) {
 	return r.ApiService.AddTaskExecute(r)
 }
 
@@ -544,10 +544,10 @@ AddTask Add a task
 Adds a new task.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddTaskRequest
+ @return BetaAPIAddTaskRequest
 */
-func (a *BetaAPIService) AddTask(ctx context.Context) ApiAddTaskRequest {
-	return ApiAddTaskRequest{
+func (a *BetaAPIService) AddTask(ctx context.Context) BetaAPIAddTaskRequest {
+	return BetaAPIAddTaskRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -555,7 +555,7 @@ func (a *BetaAPIService) AddTask(ctx context.Context) ApiAddTaskRequest {
 
 // Execute executes the request
 //  @return AddTaskResponse
-func (a *BetaAPIService) AddTaskExecute(r ApiAddTaskRequest) (*AddTaskResponse, *http.Response, error) {
+func (a *BetaAPIService) AddTaskExecute(r BetaAPIAddTaskRequest) (*AddTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -647,13 +647,13 @@ func (a *BetaAPIService) AddTaskExecute(r ApiAddTaskRequest) (*AddTaskResponse, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProjectBoardRequest struct {
+type BetaAPIDeleteProjectBoardRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	id int32
 }
 
-func (r ApiDeleteProjectBoardRequest) Execute() (*DeleteProjectBoardResponse, *http.Response, error) {
+func (r BetaAPIDeleteProjectBoardRequest) Execute() (*DeleteProjectBoardResponse, *http.Response, error) {
 	return r.ApiService.DeleteProjectBoardExecute(r)
 }
 
@@ -664,10 +664,10 @@ Marks a project board as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project board
- @return ApiDeleteProjectBoardRequest
+ @return BetaAPIDeleteProjectBoardRequest
 */
-func (a *BetaAPIService) DeleteProjectBoard(ctx context.Context, id int32) ApiDeleteProjectBoardRequest {
-	return ApiDeleteProjectBoardRequest{
+func (a *BetaAPIService) DeleteProjectBoard(ctx context.Context, id int32) BetaAPIDeleteProjectBoardRequest {
+	return BetaAPIDeleteProjectBoardRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -676,7 +676,7 @@ func (a *BetaAPIService) DeleteProjectBoard(ctx context.Context, id int32) ApiDe
 
 // Execute executes the request
 //  @return DeleteProjectBoardResponse
-func (a *BetaAPIService) DeleteProjectBoardExecute(r ApiDeleteProjectBoardRequest) (*DeleteProjectBoardResponse, *http.Response, error) {
+func (a *BetaAPIService) DeleteProjectBoardExecute(r BetaAPIDeleteProjectBoardRequest) (*DeleteProjectBoardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -764,13 +764,13 @@ func (a *BetaAPIService) DeleteProjectBoardExecute(r ApiDeleteProjectBoardReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProjectFieldRequest struct {
+type BetaAPIDeleteProjectFieldRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	fieldCode string
 }
 
-func (r ApiDeleteProjectFieldRequest) Execute() (*DeleteProjectField200Response, *http.Response, error) {
+func (r BetaAPIDeleteProjectFieldRequest) Execute() (*DeleteProjectField200Response, *http.Response, error) {
 	return r.ApiService.DeleteProjectFieldExecute(r)
 }
 
@@ -781,10 +781,10 @@ Marks a custom field as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiDeleteProjectFieldRequest
+ @return BetaAPIDeleteProjectFieldRequest
 */
-func (a *BetaAPIService) DeleteProjectField(ctx context.Context, fieldCode string) ApiDeleteProjectFieldRequest {
-	return ApiDeleteProjectFieldRequest{
+func (a *BetaAPIService) DeleteProjectField(ctx context.Context, fieldCode string) BetaAPIDeleteProjectFieldRequest {
+	return BetaAPIDeleteProjectFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -793,7 +793,7 @@ func (a *BetaAPIService) DeleteProjectField(ctx context.Context, fieldCode strin
 
 // Execute executes the request
 //  @return DeleteProjectField200Response
-func (a *BetaAPIService) DeleteProjectFieldExecute(r ApiDeleteProjectFieldRequest) (*DeleteProjectField200Response, *http.Response, error) {
+func (a *BetaAPIService) DeleteProjectFieldExecute(r BetaAPIDeleteProjectFieldRequest) (*DeleteProjectField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -881,19 +881,19 @@ func (a *BetaAPIService) DeleteProjectFieldExecute(r ApiDeleteProjectFieldReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProjectFieldOptionsRequest struct {
+type BetaAPIDeleteProjectFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	fieldCode string
 	deleteDealFieldOptionsRequestInner *[]DeleteDealFieldOptionsRequestInner
 }
 
-func (r ApiDeleteProjectFieldOptionsRequest) DeleteDealFieldOptionsRequestInner(deleteDealFieldOptionsRequestInner []DeleteDealFieldOptionsRequestInner) ApiDeleteProjectFieldOptionsRequest {
+func (r BetaAPIDeleteProjectFieldOptionsRequest) DeleteDealFieldOptionsRequestInner(deleteDealFieldOptionsRequestInner []DeleteDealFieldOptionsRequestInner) BetaAPIDeleteProjectFieldOptionsRequest {
 	r.deleteDealFieldOptionsRequestInner = &deleteDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiDeleteProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r BetaAPIDeleteProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.DeleteProjectFieldOptionsExecute(r)
 }
 
@@ -904,10 +904,10 @@ Removes existing options from a project custom field. This operation is atomic a
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiDeleteProjectFieldOptionsRequest
+ @return BetaAPIDeleteProjectFieldOptionsRequest
 */
-func (a *BetaAPIService) DeleteProjectFieldOptions(ctx context.Context, fieldCode string) ApiDeleteProjectFieldOptionsRequest {
-	return ApiDeleteProjectFieldOptionsRequest{
+func (a *BetaAPIService) DeleteProjectFieldOptions(ctx context.Context, fieldCode string) BetaAPIDeleteProjectFieldOptionsRequest {
+	return BetaAPIDeleteProjectFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -916,7 +916,7 @@ func (a *BetaAPIService) DeleteProjectFieldOptions(ctx context.Context, fieldCod
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *BetaAPIService) DeleteProjectFieldOptionsExecute(r ApiDeleteProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *BetaAPIService) DeleteProjectFieldOptionsExecute(r BetaAPIDeleteProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -1009,13 +1009,13 @@ func (a *BetaAPIService) DeleteProjectFieldOptionsExecute(r ApiDeleteProjectFiel
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProjectPhaseRequest struct {
+type BetaAPIDeleteProjectPhaseRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	id int32
 }
 
-func (r ApiDeleteProjectPhaseRequest) Execute() (*DeleteProjectPhaseResponse, *http.Response, error) {
+func (r BetaAPIDeleteProjectPhaseRequest) Execute() (*DeleteProjectPhaseResponse, *http.Response, error) {
 	return r.ApiService.DeleteProjectPhaseExecute(r)
 }
 
@@ -1026,10 +1026,10 @@ Marks a project phase as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project phase
- @return ApiDeleteProjectPhaseRequest
+ @return BetaAPIDeleteProjectPhaseRequest
 */
-func (a *BetaAPIService) DeleteProjectPhase(ctx context.Context, id int32) ApiDeleteProjectPhaseRequest {
-	return ApiDeleteProjectPhaseRequest{
+func (a *BetaAPIService) DeleteProjectPhase(ctx context.Context, id int32) BetaAPIDeleteProjectPhaseRequest {
+	return BetaAPIDeleteProjectPhaseRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1038,7 +1038,7 @@ func (a *BetaAPIService) DeleteProjectPhase(ctx context.Context, id int32) ApiDe
 
 // Execute executes the request
 //  @return DeleteProjectPhaseResponse
-func (a *BetaAPIService) DeleteProjectPhaseExecute(r ApiDeleteProjectPhaseRequest) (*DeleteProjectPhaseResponse, *http.Response, error) {
+func (a *BetaAPIService) DeleteProjectPhaseExecute(r BetaAPIDeleteProjectPhaseRequest) (*DeleteProjectPhaseResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -1126,13 +1126,13 @@ func (a *BetaAPIService) DeleteProjectPhaseExecute(r ApiDeleteProjectPhaseReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteTaskRequest struct {
+type BetaAPIDeleteTaskRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	id int32
 }
 
-func (r ApiDeleteTaskRequest) Execute() (*DeleteTaskResponse, *http.Response, error) {
+func (r BetaAPIDeleteTaskRequest) Execute() (*DeleteTaskResponse, *http.Response, error) {
 	return r.ApiService.DeleteTaskExecute(r)
 }
 
@@ -1143,10 +1143,10 @@ Marks a task as deleted. If the task has subtasks, those will also be deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the task
- @return ApiDeleteTaskRequest
+ @return BetaAPIDeleteTaskRequest
 */
-func (a *BetaAPIService) DeleteTask(ctx context.Context, id int32) ApiDeleteTaskRequest {
-	return ApiDeleteTaskRequest{
+func (a *BetaAPIService) DeleteTask(ctx context.Context, id int32) BetaAPIDeleteTaskRequest {
+	return BetaAPIDeleteTaskRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1155,7 +1155,7 @@ func (a *BetaAPIService) DeleteTask(ctx context.Context, id int32) ApiDeleteTask
 
 // Execute executes the request
 //  @return DeleteTaskResponse
-func (a *BetaAPIService) DeleteTaskExecute(r ApiDeleteTaskRequest) (*DeleteTaskResponse, *http.Response, error) {
+func (a *BetaAPIService) DeleteTaskExecute(r BetaAPIDeleteTaskRequest) (*DeleteTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -1243,13 +1243,13 @@ func (a *BetaAPIService) DeleteTaskExecute(r ApiDeleteTaskRequest) (*DeleteTaskR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectFieldRequest struct {
+type BetaAPIGetProjectFieldRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	fieldCode string
 }
 
-func (r ApiGetProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
+func (r BetaAPIGetProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
 	return r.ApiService.GetProjectFieldExecute(r)
 }
 
@@ -1260,10 +1260,10 @@ Returns metadata about a specific project field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiGetProjectFieldRequest
+ @return BetaAPIGetProjectFieldRequest
 */
-func (a *BetaAPIService) GetProjectField(ctx context.Context, fieldCode string) ApiGetProjectFieldRequest {
-	return ApiGetProjectFieldRequest{
+func (a *BetaAPIService) GetProjectField(ctx context.Context, fieldCode string) BetaAPIGetProjectFieldRequest {
+	return BetaAPIGetProjectFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -1272,7 +1272,7 @@ func (a *BetaAPIService) GetProjectField(ctx context.Context, fieldCode string) 
 
 // Execute executes the request
 //  @return AddProjectField200Response
-func (a *BetaAPIService) GetProjectFieldExecute(r ApiGetProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
+func (a *BetaAPIService) GetProjectFieldExecute(r BetaAPIGetProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1360,7 +1360,7 @@ func (a *BetaAPIService) GetProjectFieldExecute(r ApiGetProjectFieldRequest) (*A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectFieldsRequest struct {
+type BetaAPIGetProjectFieldsRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	limit *int32
@@ -1368,18 +1368,18 @@ type ApiGetProjectFieldsRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetProjectFieldsRequest) Limit(limit int32) ApiGetProjectFieldsRequest {
+func (r BetaAPIGetProjectFieldsRequest) Limit(limit int32) BetaAPIGetProjectFieldsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetProjectFieldsRequest) Cursor(cursor string) ApiGetProjectFieldsRequest {
+func (r BetaAPIGetProjectFieldsRequest) Cursor(cursor string) BetaAPIGetProjectFieldsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetProjectFieldsRequest) Execute() (*GetProjectFields200Response, *http.Response, error) {
+func (r BetaAPIGetProjectFieldsRequest) Execute() (*GetProjectFields200Response, *http.Response, error) {
 	return r.ApiService.GetProjectFieldsExecute(r)
 }
 
@@ -1389,10 +1389,10 @@ GetProjectFields Get all project fields
 Returns metadata about all project fields in the company.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProjectFieldsRequest
+ @return BetaAPIGetProjectFieldsRequest
 */
-func (a *BetaAPIService) GetProjectFields(ctx context.Context) ApiGetProjectFieldsRequest {
-	return ApiGetProjectFieldsRequest{
+func (a *BetaAPIService) GetProjectFields(ctx context.Context) BetaAPIGetProjectFieldsRequest {
+	return BetaAPIGetProjectFieldsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1400,7 +1400,7 @@ func (a *BetaAPIService) GetProjectFields(ctx context.Context) ApiGetProjectFiel
 
 // Execute executes the request
 //  @return GetProjectFields200Response
-func (a *BetaAPIService) GetProjectFieldsExecute(r ApiGetProjectFieldsRequest) (*GetProjectFields200Response, *http.Response, error) {
+func (a *BetaAPIService) GetProjectFieldsExecute(r BetaAPIGetProjectFieldsRequest) (*GetProjectFields200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1493,13 +1493,13 @@ func (a *BetaAPIService) GetProjectFieldsExecute(r ApiGetProjectFieldsRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectsBoardRequest struct {
+type BetaAPIGetProjectsBoardRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	id int32
 }
 
-func (r ApiGetProjectsBoardRequest) Execute() (*UpsertProjectBoardResponse, *http.Response, error) {
+func (r BetaAPIGetProjectsBoardRequest) Execute() (*UpsertProjectBoardResponse, *http.Response, error) {
 	return r.ApiService.GetProjectsBoardExecute(r)
 }
 
@@ -1510,10 +1510,10 @@ Returns the details of a specific project board.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project board
- @return ApiGetProjectsBoardRequest
+ @return BetaAPIGetProjectsBoardRequest
 */
-func (a *BetaAPIService) GetProjectsBoard(ctx context.Context, id int32) ApiGetProjectsBoardRequest {
-	return ApiGetProjectsBoardRequest{
+func (a *BetaAPIService) GetProjectsBoard(ctx context.Context, id int32) BetaAPIGetProjectsBoardRequest {
+	return BetaAPIGetProjectsBoardRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1522,7 +1522,7 @@ func (a *BetaAPIService) GetProjectsBoard(ctx context.Context, id int32) ApiGetP
 
 // Execute executes the request
 //  @return UpsertProjectBoardResponse
-func (a *BetaAPIService) GetProjectsBoardExecute(r ApiGetProjectsBoardRequest) (*UpsertProjectBoardResponse, *http.Response, error) {
+func (a *BetaAPIService) GetProjectsBoardExecute(r BetaAPIGetProjectsBoardRequest) (*UpsertProjectBoardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1610,12 +1610,12 @@ func (a *BetaAPIService) GetProjectsBoardExecute(r ApiGetProjectsBoardRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectsBoardsRequest struct {
+type BetaAPIGetProjectsBoardsRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 }
 
-func (r ApiGetProjectsBoardsRequest) Execute() (*GetProjectBoardsResponse, *http.Response, error) {
+func (r BetaAPIGetProjectsBoardsRequest) Execute() (*GetProjectBoardsResponse, *http.Response, error) {
 	return r.ApiService.GetProjectsBoardsExecute(r)
 }
 
@@ -1625,10 +1625,10 @@ GetProjectsBoards Get all project boards
 Returns all active project boards.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProjectsBoardsRequest
+ @return BetaAPIGetProjectsBoardsRequest
 */
-func (a *BetaAPIService) GetProjectsBoards(ctx context.Context) ApiGetProjectsBoardsRequest {
-	return ApiGetProjectsBoardsRequest{
+func (a *BetaAPIService) GetProjectsBoards(ctx context.Context) BetaAPIGetProjectsBoardsRequest {
+	return BetaAPIGetProjectsBoardsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1636,7 +1636,7 @@ func (a *BetaAPIService) GetProjectsBoards(ctx context.Context) ApiGetProjectsBo
 
 // Execute executes the request
 //  @return GetProjectBoardsResponse
-func (a *BetaAPIService) GetProjectsBoardsExecute(r ApiGetProjectsBoardsRequest) (*GetProjectBoardsResponse, *http.Response, error) {
+func (a *BetaAPIService) GetProjectsBoardsExecute(r BetaAPIGetProjectsBoardsRequest) (*GetProjectBoardsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1723,13 +1723,13 @@ func (a *BetaAPIService) GetProjectsBoardsExecute(r ApiGetProjectsBoardsRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectsPhaseRequest struct {
+type BetaAPIGetProjectsPhaseRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	id int32
 }
 
-func (r ApiGetProjectsPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (r BetaAPIGetProjectsPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
 	return r.ApiService.GetProjectsPhaseExecute(r)
 }
 
@@ -1740,10 +1740,10 @@ Returns the details of a specific project phase.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project phase
- @return ApiGetProjectsPhaseRequest
+ @return BetaAPIGetProjectsPhaseRequest
 */
-func (a *BetaAPIService) GetProjectsPhase(ctx context.Context, id int32) ApiGetProjectsPhaseRequest {
-	return ApiGetProjectsPhaseRequest{
+func (a *BetaAPIService) GetProjectsPhase(ctx context.Context, id int32) BetaAPIGetProjectsPhaseRequest {
+	return BetaAPIGetProjectsPhaseRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1752,7 +1752,7 @@ func (a *BetaAPIService) GetProjectsPhase(ctx context.Context, id int32) ApiGetP
 
 // Execute executes the request
 //  @return UpsertProjectPhaseResponse
-func (a *BetaAPIService) GetProjectsPhaseExecute(r ApiGetProjectsPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (a *BetaAPIService) GetProjectsPhaseExecute(r BetaAPIGetProjectsPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1840,19 +1840,19 @@ func (a *BetaAPIService) GetProjectsPhaseExecute(r ApiGetProjectsPhaseRequest) (
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectsPhasesRequest struct {
+type BetaAPIGetProjectsPhasesRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	boardId *int32
 }
 
 // The ID of the board for which phases are requested
-func (r ApiGetProjectsPhasesRequest) BoardId(boardId int32) ApiGetProjectsPhasesRequest {
+func (r BetaAPIGetProjectsPhasesRequest) BoardId(boardId int32) BetaAPIGetProjectsPhasesRequest {
 	r.boardId = &boardId
 	return r
 }
 
-func (r ApiGetProjectsPhasesRequest) Execute() (*GetProjectPhasesResponse, *http.Response, error) {
+func (r BetaAPIGetProjectsPhasesRequest) Execute() (*GetProjectPhasesResponse, *http.Response, error) {
 	return r.ApiService.GetProjectsPhasesExecute(r)
 }
 
@@ -1862,10 +1862,10 @@ GetProjectsPhases Get project phases
 Returns all active project phases under a specific board.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProjectsPhasesRequest
+ @return BetaAPIGetProjectsPhasesRequest
 */
-func (a *BetaAPIService) GetProjectsPhases(ctx context.Context) ApiGetProjectsPhasesRequest {
-	return ApiGetProjectsPhasesRequest{
+func (a *BetaAPIService) GetProjectsPhases(ctx context.Context) BetaAPIGetProjectsPhasesRequest {
+	return BetaAPIGetProjectsPhasesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1873,7 +1873,7 @@ func (a *BetaAPIService) GetProjectsPhases(ctx context.Context) ApiGetProjectsPh
 
 // Execute executes the request
 //  @return GetProjectPhasesResponse
-func (a *BetaAPIService) GetProjectsPhasesExecute(r ApiGetProjectsPhasesRequest) (*GetProjectPhasesResponse, *http.Response, error) {
+func (a *BetaAPIService) GetProjectsPhasesExecute(r BetaAPIGetProjectsPhasesRequest) (*GetProjectPhasesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1964,13 +1964,13 @@ func (a *BetaAPIService) GetProjectsPhasesExecute(r ApiGetProjectsPhasesRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTaskRequest struct {
+type BetaAPIGetTaskRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	id int32
 }
 
-func (r ApiGetTaskRequest) Execute() (*GetTaskResponse, *http.Response, error) {
+func (r BetaAPIGetTaskRequest) Execute() (*GetTaskResponse, *http.Response, error) {
 	return r.ApiService.GetTaskExecute(r)
 }
 
@@ -1981,10 +1981,10 @@ Returns the details of a specific task.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the task
- @return ApiGetTaskRequest
+ @return BetaAPIGetTaskRequest
 */
-func (a *BetaAPIService) GetTask(ctx context.Context, id int32) ApiGetTaskRequest {
-	return ApiGetTaskRequest{
+func (a *BetaAPIService) GetTask(ctx context.Context, id int32) BetaAPIGetTaskRequest {
+	return BetaAPIGetTaskRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1993,7 +1993,7 @@ func (a *BetaAPIService) GetTask(ctx context.Context, id int32) ApiGetTaskReques
 
 // Execute executes the request
 //  @return GetTaskResponse
-func (a *BetaAPIService) GetTaskExecute(r ApiGetTaskRequest) (*GetTaskResponse, *http.Response, error) {
+func (a *BetaAPIService) GetTaskExecute(r BetaAPIGetTaskRequest) (*GetTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2081,7 +2081,7 @@ func (a *BetaAPIService) GetTaskExecute(r ApiGetTaskRequest) (*GetTaskResponse, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTasksRequest struct {
+type BetaAPIGetTasksRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	cursor *string
@@ -2094,48 +2094,48 @@ type ApiGetTasksRequest struct {
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetTasksRequest) Cursor(cursor string) ApiGetTasksRequest {
+func (r BetaAPIGetTasksRequest) Cursor(cursor string) BetaAPIGetTasksRequest {
 	r.cursor = &cursor
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetTasksRequest) Limit(limit int32) ApiGetTasksRequest {
+func (r BetaAPIGetTasksRequest) Limit(limit int32) BetaAPIGetTasksRequest {
 	r.limit = &limit
 	return r
 }
 
 // Whether the task is done or not. If omitted, both done and not done tasks are returned.
-func (r ApiGetTasksRequest) IsDone(isDone bool) ApiGetTasksRequest {
+func (r BetaAPIGetTasksRequest) IsDone(isDone bool) BetaAPIGetTasksRequest {
 	r.isDone = &isDone
 	return r
 }
 
 // Whether the task is a milestone or not. If omitted, both milestone and non-milestone tasks are returned.
-func (r ApiGetTasksRequest) IsMilestone(isMilestone bool) ApiGetTasksRequest {
+func (r BetaAPIGetTasksRequest) IsMilestone(isMilestone bool) BetaAPIGetTasksRequest {
 	r.isMilestone = &isMilestone
 	return r
 }
 
 // If supplied, only tasks assigned to this user are returned
-func (r ApiGetTasksRequest) AssigneeId(assigneeId int32) ApiGetTasksRequest {
+func (r BetaAPIGetTasksRequest) AssigneeId(assigneeId int32) BetaAPIGetTasksRequest {
 	r.assigneeId = &assigneeId
 	return r
 }
 
 // If supplied, only tasks belonging to this project are returned
-func (r ApiGetTasksRequest) ProjectId(projectId int32) ApiGetTasksRequest {
+func (r BetaAPIGetTasksRequest) ProjectId(projectId int32) BetaAPIGetTasksRequest {
 	r.projectId = &projectId
 	return r
 }
 
 // If &#x60;null&#x60; is supplied, only root-level tasks (without a parent) are returned. If an integer is supplied, only subtasks of that specific task are returned. By default all tasks are returned.
-func (r ApiGetTasksRequest) ParentTaskId(parentTaskId string) ApiGetTasksRequest {
+func (r BetaAPIGetTasksRequest) ParentTaskId(parentTaskId string) BetaAPIGetTasksRequest {
 	r.parentTaskId = &parentTaskId
 	return r
 }
 
-func (r ApiGetTasksRequest) Execute() (*GetTasksResponse, *http.Response, error) {
+func (r BetaAPIGetTasksRequest) Execute() (*GetTasksResponse, *http.Response, error) {
 	return r.ApiService.GetTasksExecute(r)
 }
 
@@ -2145,10 +2145,10 @@ GetTasks Get all tasks
 Returns all tasks.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetTasksRequest
+ @return BetaAPIGetTasksRequest
 */
-func (a *BetaAPIService) GetTasks(ctx context.Context) ApiGetTasksRequest {
-	return ApiGetTasksRequest{
+func (a *BetaAPIService) GetTasks(ctx context.Context) BetaAPIGetTasksRequest {
+	return BetaAPIGetTasksRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2156,7 +2156,7 @@ func (a *BetaAPIService) GetTasks(ctx context.Context) ApiGetTasksRequest {
 
 // Execute executes the request
 //  @return GetTasksResponse
-func (a *BetaAPIService) GetTasksExecute(r ApiGetTasksRequest) (*GetTasksResponse, *http.Response, error) {
+func (a *BetaAPIService) GetTasksExecute(r BetaAPIGetTasksRequest) (*GetTasksResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2264,7 +2264,7 @@ func (a *BetaAPIService) GetTasksExecute(r ApiGetTasksRequest) (*GetTasksRespons
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchProjectsRequest struct {
+type BetaAPISearchProjectsRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	term *string
@@ -2277,48 +2277,48 @@ type ApiSearchProjectsRequest struct {
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-func (r ApiSearchProjectsRequest) Term(term string) ApiSearchProjectsRequest {
+func (r BetaAPISearchProjectsRequest) Term(term string) BetaAPISearchProjectsRequest {
 	r.term = &term
 	return r
 }
 
 // A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-func (r ApiSearchProjectsRequest) Fields(fields string) ApiSearchProjectsRequest {
+func (r BetaAPISearchProjectsRequest) Fields(fields string) BetaAPISearchProjectsRequest {
 	r.fields = &fields
 	return r
 }
 
 // When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-func (r ApiSearchProjectsRequest) ExactMatch(exactMatch bool) ApiSearchProjectsRequest {
+func (r BetaAPISearchProjectsRequest) ExactMatch(exactMatch bool) BetaAPISearchProjectsRequest {
 	r.exactMatch = &exactMatch
 	return r
 }
 
 // Will filter projects by the provided person ID
-func (r ApiSearchProjectsRequest) PersonId(personId int32) ApiSearchProjectsRequest {
+func (r BetaAPISearchProjectsRequest) PersonId(personId int32) BetaAPISearchProjectsRequest {
 	r.personId = &personId
 	return r
 }
 
 // Will filter projects by the provided organization ID
-func (r ApiSearchProjectsRequest) OrganizationId(organizationId int32) ApiSearchProjectsRequest {
+func (r BetaAPISearchProjectsRequest) OrganizationId(organizationId int32) BetaAPISearchProjectsRequest {
 	r.organizationId = &organizationId
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiSearchProjectsRequest) Limit(limit int32) ApiSearchProjectsRequest {
+func (r BetaAPISearchProjectsRequest) Limit(limit int32) BetaAPISearchProjectsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiSearchProjectsRequest) Cursor(cursor string) ApiSearchProjectsRequest {
+func (r BetaAPISearchProjectsRequest) Cursor(cursor string) BetaAPISearchProjectsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiSearchProjectsRequest) Execute() (*GetProjectSearchResponse, *http.Response, error) {
+func (r BetaAPISearchProjectsRequest) Execute() (*GetProjectSearchResponse, *http.Response, error) {
 	return r.ApiService.SearchProjectsExecute(r)
 }
 
@@ -2328,10 +2328,10 @@ SearchProjects Search projects
 Searches all projects by title, description, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope. Found projects can be filtered by person ID or organization ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchProjectsRequest
+ @return BetaAPISearchProjectsRequest
 */
-func (a *BetaAPIService) SearchProjects(ctx context.Context) ApiSearchProjectsRequest {
-	return ApiSearchProjectsRequest{
+func (a *BetaAPIService) SearchProjects(ctx context.Context) BetaAPISearchProjectsRequest {
+	return BetaAPISearchProjectsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2339,7 +2339,7 @@ func (a *BetaAPIService) SearchProjects(ctx context.Context) ApiSearchProjectsRe
 
 // Execute executes the request
 //  @return GetProjectSearchResponse
-func (a *BetaAPIService) SearchProjectsExecute(r ApiSearchProjectsRequest) (*GetProjectSearchResponse, *http.Response, error) {
+func (a *BetaAPIService) SearchProjectsExecute(r BetaAPISearchProjectsRequest) (*GetProjectSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2448,19 +2448,19 @@ func (a *BetaAPIService) SearchProjectsExecute(r ApiSearchProjectsRequest) (*Get
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProjectBoardRequest struct {
+type BetaAPIUpdateProjectBoardRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	id int32
 	updateProjectBoardRequest *UpdateProjectBoardRequest
 }
 
-func (r ApiUpdateProjectBoardRequest) UpdateProjectBoardRequest(updateProjectBoardRequest UpdateProjectBoardRequest) ApiUpdateProjectBoardRequest {
+func (r BetaAPIUpdateProjectBoardRequest) UpdateProjectBoardRequest(updateProjectBoardRequest UpdateProjectBoardRequest) BetaAPIUpdateProjectBoardRequest {
 	r.updateProjectBoardRequest = &updateProjectBoardRequest
 	return r
 }
 
-func (r ApiUpdateProjectBoardRequest) Execute() (*UpsertProjectBoardResponse, *http.Response, error) {
+func (r BetaAPIUpdateProjectBoardRequest) Execute() (*UpsertProjectBoardResponse, *http.Response, error) {
 	return r.ApiService.UpdateProjectBoardExecute(r)
 }
 
@@ -2471,10 +2471,10 @@ Updates the properties of a project board.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project board
- @return ApiUpdateProjectBoardRequest
+ @return BetaAPIUpdateProjectBoardRequest
 */
-func (a *BetaAPIService) UpdateProjectBoard(ctx context.Context, id int32) ApiUpdateProjectBoardRequest {
-	return ApiUpdateProjectBoardRequest{
+func (a *BetaAPIService) UpdateProjectBoard(ctx context.Context, id int32) BetaAPIUpdateProjectBoardRequest {
+	return BetaAPIUpdateProjectBoardRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -2483,7 +2483,7 @@ func (a *BetaAPIService) UpdateProjectBoard(ctx context.Context, id int32) ApiUp
 
 // Execute executes the request
 //  @return UpsertProjectBoardResponse
-func (a *BetaAPIService) UpdateProjectBoardExecute(r ApiUpdateProjectBoardRequest) (*UpsertProjectBoardResponse, *http.Response, error) {
+func (a *BetaAPIService) UpdateProjectBoardExecute(r BetaAPIUpdateProjectBoardRequest) (*UpsertProjectBoardResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -2573,19 +2573,19 @@ func (a *BetaAPIService) UpdateProjectBoardExecute(r ApiUpdateProjectBoardReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProjectFieldRequest struct {
+type BetaAPIUpdateProjectFieldRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	fieldCode string
 	updateProjectFieldRequest *UpdateProjectFieldRequest
 }
 
-func (r ApiUpdateProjectFieldRequest) UpdateProjectFieldRequest(updateProjectFieldRequest UpdateProjectFieldRequest) ApiUpdateProjectFieldRequest {
+func (r BetaAPIUpdateProjectFieldRequest) UpdateProjectFieldRequest(updateProjectFieldRequest UpdateProjectFieldRequest) BetaAPIUpdateProjectFieldRequest {
 	r.updateProjectFieldRequest = &updateProjectFieldRequest
 	return r
 }
 
-func (r ApiUpdateProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
+func (r BetaAPIUpdateProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
 	return r.ApiService.UpdateProjectFieldExecute(r)
 }
 
@@ -2596,10 +2596,10 @@ Updates a project custom field. The field_code and field_type cannot be changed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiUpdateProjectFieldRequest
+ @return BetaAPIUpdateProjectFieldRequest
 */
-func (a *BetaAPIService) UpdateProjectField(ctx context.Context, fieldCode string) ApiUpdateProjectFieldRequest {
-	return ApiUpdateProjectFieldRequest{
+func (a *BetaAPIService) UpdateProjectField(ctx context.Context, fieldCode string) BetaAPIUpdateProjectFieldRequest {
+	return BetaAPIUpdateProjectFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -2608,7 +2608,7 @@ func (a *BetaAPIService) UpdateProjectField(ctx context.Context, fieldCode strin
 
 // Execute executes the request
 //  @return AddProjectField200Response
-func (a *BetaAPIService) UpdateProjectFieldExecute(r ApiUpdateProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
+func (a *BetaAPIService) UpdateProjectFieldExecute(r BetaAPIUpdateProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -2701,19 +2701,19 @@ func (a *BetaAPIService) UpdateProjectFieldExecute(r ApiUpdateProjectFieldReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProjectFieldOptionsRequest struct {
+type BetaAPIUpdateProjectFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	fieldCode string
 	updateDealFieldOptionsRequestInner *[]UpdateDealFieldOptionsRequestInner
 }
 
-func (r ApiUpdateProjectFieldOptionsRequest) UpdateDealFieldOptionsRequestInner(updateDealFieldOptionsRequestInner []UpdateDealFieldOptionsRequestInner) ApiUpdateProjectFieldOptionsRequest {
+func (r BetaAPIUpdateProjectFieldOptionsRequest) UpdateDealFieldOptionsRequestInner(updateDealFieldOptionsRequestInner []UpdateDealFieldOptionsRequestInner) BetaAPIUpdateProjectFieldOptionsRequest {
 	r.updateDealFieldOptionsRequestInner = &updateDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiUpdateProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r BetaAPIUpdateProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.UpdateProjectFieldOptionsExecute(r)
 }
 
@@ -2724,10 +2724,10 @@ Updates existing options for a project custom field. This operation is atomic an
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiUpdateProjectFieldOptionsRequest
+ @return BetaAPIUpdateProjectFieldOptionsRequest
 */
-func (a *BetaAPIService) UpdateProjectFieldOptions(ctx context.Context, fieldCode string) ApiUpdateProjectFieldOptionsRequest {
-	return ApiUpdateProjectFieldOptionsRequest{
+func (a *BetaAPIService) UpdateProjectFieldOptions(ctx context.Context, fieldCode string) BetaAPIUpdateProjectFieldOptionsRequest {
+	return BetaAPIUpdateProjectFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -2736,7 +2736,7 @@ func (a *BetaAPIService) UpdateProjectFieldOptions(ctx context.Context, fieldCod
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *BetaAPIService) UpdateProjectFieldOptionsExecute(r ApiUpdateProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *BetaAPIService) UpdateProjectFieldOptionsExecute(r BetaAPIUpdateProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -2829,19 +2829,19 @@ func (a *BetaAPIService) UpdateProjectFieldOptionsExecute(r ApiUpdateProjectFiel
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProjectPhaseRequest struct {
+type BetaAPIUpdateProjectPhaseRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	id int32
 	updateProjectPhaseRequest *UpdateProjectPhaseRequest
 }
 
-func (r ApiUpdateProjectPhaseRequest) UpdateProjectPhaseRequest(updateProjectPhaseRequest UpdateProjectPhaseRequest) ApiUpdateProjectPhaseRequest {
+func (r BetaAPIUpdateProjectPhaseRequest) UpdateProjectPhaseRequest(updateProjectPhaseRequest UpdateProjectPhaseRequest) BetaAPIUpdateProjectPhaseRequest {
 	r.updateProjectPhaseRequest = &updateProjectPhaseRequest
 	return r
 }
 
-func (r ApiUpdateProjectPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (r BetaAPIUpdateProjectPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
 	return r.ApiService.UpdateProjectPhaseExecute(r)
 }
 
@@ -2852,10 +2852,10 @@ Updates the properties of a project phase.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project phase
- @return ApiUpdateProjectPhaseRequest
+ @return BetaAPIUpdateProjectPhaseRequest
 */
-func (a *BetaAPIService) UpdateProjectPhase(ctx context.Context, id int32) ApiUpdateProjectPhaseRequest {
-	return ApiUpdateProjectPhaseRequest{
+func (a *BetaAPIService) UpdateProjectPhase(ctx context.Context, id int32) BetaAPIUpdateProjectPhaseRequest {
+	return BetaAPIUpdateProjectPhaseRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -2864,7 +2864,7 @@ func (a *BetaAPIService) UpdateProjectPhase(ctx context.Context, id int32) ApiUp
 
 // Execute executes the request
 //  @return UpsertProjectPhaseResponse
-func (a *BetaAPIService) UpdateProjectPhaseExecute(r ApiUpdateProjectPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (a *BetaAPIService) UpdateProjectPhaseExecute(r BetaAPIUpdateProjectPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -2954,19 +2954,19 @@ func (a *BetaAPIService) UpdateProjectPhaseExecute(r ApiUpdateProjectPhaseReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateTaskRequest struct {
+type BetaAPIUpdateTaskRequest struct {
 	ctx context.Context
 	ApiService *BetaAPIService
 	id int32
 	updateTaskRequest *UpdateTaskRequest
 }
 
-func (r ApiUpdateTaskRequest) UpdateTaskRequest(updateTaskRequest UpdateTaskRequest) ApiUpdateTaskRequest {
+func (r BetaAPIUpdateTaskRequest) UpdateTaskRequest(updateTaskRequest UpdateTaskRequest) BetaAPIUpdateTaskRequest {
 	r.updateTaskRequest = &updateTaskRequest
 	return r
 }
 
-func (r ApiUpdateTaskRequest) Execute() (*UpdateTaskResponse, *http.Response, error) {
+func (r BetaAPIUpdateTaskRequest) Execute() (*UpdateTaskResponse, *http.Response, error) {
 	return r.ApiService.UpdateTaskExecute(r)
 }
 
@@ -2977,10 +2977,10 @@ Updates a task.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the task
- @return ApiUpdateTaskRequest
+ @return BetaAPIUpdateTaskRequest
 */
-func (a *BetaAPIService) UpdateTask(ctx context.Context, id int32) ApiUpdateTaskRequest {
-	return ApiUpdateTaskRequest{
+func (a *BetaAPIService) UpdateTask(ctx context.Context, id int32) BetaAPIUpdateTaskRequest {
+	return BetaAPIUpdateTaskRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -2989,7 +2989,7 @@ func (a *BetaAPIService) UpdateTask(ctx context.Context, id int32) ApiUpdateTask
 
 // Execute executes the request
 //  @return UpdateTaskResponse
-func (a *BetaAPIService) UpdateTaskExecute(r ApiUpdateTaskRequest) (*UpdateTaskResponse, *http.Response, error) {
+func (a *BetaAPIService) UpdateTaskExecute(r BetaAPIUpdateTaskRequest) (*UpdateTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

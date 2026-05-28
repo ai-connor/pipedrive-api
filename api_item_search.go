@@ -22,7 +22,7 @@ import (
 // ItemSearchAPIService ItemSearchAPI service
 type ItemSearchAPIService service
 
-type ApiSearchItemRequest struct {
+type ItemSearchAPISearchItemRequest struct {
 	ctx context.Context
 	ApiService *ItemSearchAPIService
 	term *string
@@ -36,54 +36,54 @@ type ApiSearchItemRequest struct {
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-func (r ApiSearchItemRequest) Term(term string) ApiSearchItemRequest {
+func (r ItemSearchAPISearchItemRequest) Term(term string) ItemSearchAPISearchItemRequest {
 	r.term = &term
 	return r
 }
 
 // A comma-separated string array. The type of items to perform the search from. Defaults to all.
-func (r ApiSearchItemRequest) ItemTypes(itemTypes string) ApiSearchItemRequest {
+func (r ItemSearchAPISearchItemRequest) ItemTypes(itemTypes string) ItemSearchAPISearchItemRequest {
 	r.itemTypes = &itemTypes
 	return r
 }
 
 // A comma-separated string array. The fields to perform the search from. Defaults to all. Relevant for each item type are:&lt;br&gt; &lt;table&gt; &lt;tr&gt;&lt;th&gt;&lt;b&gt;Item type&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;b&gt;Field&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Deal&lt;/td&gt;&lt;td&gt;&#x60;custom_fields&#x60;, &#x60;notes&#x60;, &#x60;title&#x60;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Person&lt;/td&gt;&lt;td&gt;&#x60;custom_fields&#x60;, &#x60;email&#x60;, &#x60;name&#x60;, &#x60;notes&#x60;, &#x60;phone&#x60;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Organization&lt;/td&gt;&lt;td&gt;&#x60;address&#x60;, &#x60;custom_fields&#x60;, &#x60;name&#x60;, &#x60;notes&#x60;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Product&lt;/td&gt;&lt;td&gt;&#x60;code&#x60;, &#x60;custom_fields&#x60;, &#x60;name&#x60;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Lead&lt;/td&gt;&lt;td&gt;&#x60;custom_fields&#x60;, &#x60;notes&#x60;, &#x60;title&#x60;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;File&lt;/td&gt;&lt;td&gt;&#x60;name&#x60;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Mail attachment&lt;/td&gt;&lt;td&gt;&#x60;name&#x60;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;Project&lt;/td&gt;&lt;td&gt; &#x60;custom_fields&#x60;, &#x60;notes&#x60;, &#x60;title&#x60;, &#x60;description&#x60; &lt;/td&gt;&lt;/tr&gt; &lt;/table&gt; &lt;br&gt; Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-func (r ApiSearchItemRequest) Fields(fields string) ApiSearchItemRequest {
+func (r ItemSearchAPISearchItemRequest) Fields(fields string) ItemSearchAPISearchItemRequest {
 	r.fields = &fields
 	return r
 }
 
 // When enabled, the response will include up to 100 newest related leads and 100 newest related deals for each found person and organization and up to 100 newest related persons for each found organization
-func (r ApiSearchItemRequest) SearchForRelatedItems(searchForRelatedItems bool) ApiSearchItemRequest {
+func (r ItemSearchAPISearchItemRequest) SearchForRelatedItems(searchForRelatedItems bool) ItemSearchAPISearchItemRequest {
 	r.searchForRelatedItems = &searchForRelatedItems
 	return r
 }
 
 // When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-func (r ApiSearchItemRequest) ExactMatch(exactMatch bool) ApiSearchItemRequest {
+func (r ItemSearchAPISearchItemRequest) ExactMatch(exactMatch bool) ItemSearchAPISearchItemRequest {
 	r.exactMatch = &exactMatch
 	return r
 }
 
 // A comma-separated string array. Supports including optional fields in the results which are not provided by default.
-func (r ApiSearchItemRequest) IncludeFields(includeFields string) ApiSearchItemRequest {
+func (r ItemSearchAPISearchItemRequest) IncludeFields(includeFields string) ItemSearchAPISearchItemRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 100 is allowed.
-func (r ApiSearchItemRequest) Limit(limit int32) ApiSearchItemRequest {
+func (r ItemSearchAPISearchItemRequest) Limit(limit int32) ItemSearchAPISearchItemRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiSearchItemRequest) Cursor(cursor string) ApiSearchItemRequest {
+func (r ItemSearchAPISearchItemRequest) Cursor(cursor string) ItemSearchAPISearchItemRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiSearchItemRequest) Execute() (*GetItemSearchResponse, *http.Response, error) {
+func (r ItemSearchAPISearchItemRequest) Execute() (*GetItemSearchResponse, *http.Response, error) {
 	return r.ApiService.SearchItemExecute(r)
 }
 
@@ -93,10 +93,10 @@ SearchItem Perform a search from multiple item types
 Performs a search from your choice of item types and fields.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchItemRequest
+ @return ItemSearchAPISearchItemRequest
 */
-func (a *ItemSearchAPIService) SearchItem(ctx context.Context) ApiSearchItemRequest {
-	return ApiSearchItemRequest{
+func (a *ItemSearchAPIService) SearchItem(ctx context.Context) ItemSearchAPISearchItemRequest {
+	return ItemSearchAPISearchItemRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -104,7 +104,7 @@ func (a *ItemSearchAPIService) SearchItem(ctx context.Context) ApiSearchItemRequ
 
 // Execute executes the request
 //  @return GetItemSearchResponse
-func (a *ItemSearchAPIService) SearchItemExecute(r ApiSearchItemRequest) (*GetItemSearchResponse, *http.Response, error) {
+func (a *ItemSearchAPIService) SearchItemExecute(r ItemSearchAPISearchItemRequest) (*GetItemSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -216,7 +216,7 @@ func (a *ItemSearchAPIService) SearchItemExecute(r ApiSearchItemRequest) (*GetIt
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchItemByFieldRequest struct {
+type ItemSearchAPISearchItemByFieldRequest struct {
 	ctx context.Context
 	ApiService *ItemSearchAPIService
 	term *string
@@ -228,42 +228,42 @@ type ApiSearchItemByFieldRequest struct {
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if &#x60;match&#x60; is &#x60;exact&#x60;). Please note that the search term has to be URL encoded.
-func (r ApiSearchItemByFieldRequest) Term(term string) ApiSearchItemByFieldRequest {
+func (r ItemSearchAPISearchItemByFieldRequest) Term(term string) ItemSearchAPISearchItemByFieldRequest {
 	r.term = &term
 	return r
 }
 
 // The type of the field to perform the search from
-func (r ApiSearchItemByFieldRequest) EntityType(entityType string) ApiSearchItemByFieldRequest {
+func (r ItemSearchAPISearchItemByFieldRequest) EntityType(entityType string) ItemSearchAPISearchItemByFieldRequest {
 	r.entityType = &entityType
 	return r
 }
 
 // The key of the field to search from. The field key can be obtained by fetching the list of the fields using any of the fields&#39; API GET methods (dealFields, personFields, etc.). Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-func (r ApiSearchItemByFieldRequest) Field(field string) ApiSearchItemByFieldRequest {
+func (r ItemSearchAPISearchItemByFieldRequest) Field(field string) ItemSearchAPISearchItemByFieldRequest {
 	r.field = &field
 	return r
 }
 
 // The type of match used against the term. The search &lt;b&gt;is&lt;/b&gt; case sensitive.&lt;br/&gt;&lt;br/&gt; E.g. in case of searching for a value &#x60;monkey&#x60;, &lt;ul&gt; &lt;li&gt;with &#x60;exact&#x60; match, you will only find it if term is &#x60;monkey&#x60;&lt;/li&gt; &lt;li&gt;with &#x60;beginning&#x60; match, you will only find it if the term matches the beginning or the whole string, e.g. &#x60;monk&#x60; and &#x60;monkey&#x60;&lt;/li&gt; &lt;li&gt;with &#x60;middle&#x60; match, you will find the it if the term matches any substring of the value, e.g. &#x60;onk&#x60; and &#x60;ke&#x60;&lt;/li&gt; &lt;/ul&gt;.
-func (r ApiSearchItemByFieldRequest) Match(match string) ApiSearchItemByFieldRequest {
+func (r ItemSearchAPISearchItemByFieldRequest) Match(match string) ItemSearchAPISearchItemByFieldRequest {
 	r.match = &match
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiSearchItemByFieldRequest) Limit(limit int32) ApiSearchItemByFieldRequest {
+func (r ItemSearchAPISearchItemByFieldRequest) Limit(limit int32) ItemSearchAPISearchItemByFieldRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiSearchItemByFieldRequest) Cursor(cursor string) ApiSearchItemByFieldRequest {
+func (r ItemSearchAPISearchItemByFieldRequest) Cursor(cursor string) ItemSearchAPISearchItemByFieldRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiSearchItemByFieldRequest) Execute() (*GetItemSearchFieldResponse, *http.Response, error) {
+func (r ItemSearchAPISearchItemByFieldRequest) Execute() (*GetItemSearchFieldResponse, *http.Response, error) {
 	return r.ApiService.SearchItemByFieldExecute(r)
 }
 
@@ -273,10 +273,10 @@ SearchItemByField Perform a search using a specific field from an item type
 Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (deals, leads, persons, organizations or products).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchItemByFieldRequest
+ @return ItemSearchAPISearchItemByFieldRequest
 */
-func (a *ItemSearchAPIService) SearchItemByField(ctx context.Context) ApiSearchItemByFieldRequest {
-	return ApiSearchItemByFieldRequest{
+func (a *ItemSearchAPIService) SearchItemByField(ctx context.Context) ItemSearchAPISearchItemByFieldRequest {
+	return ItemSearchAPISearchItemByFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -284,7 +284,7 @@ func (a *ItemSearchAPIService) SearchItemByField(ctx context.Context) ApiSearchI
 
 // Execute executes the request
 //  @return GetItemSearchFieldResponse
-func (a *ItemSearchAPIService) SearchItemByFieldExecute(r ApiSearchItemByFieldRequest) (*GetItemSearchFieldResponse, *http.Response, error) {
+func (a *ItemSearchAPIService) SearchItemByFieldExecute(r ItemSearchAPISearchItemByFieldRequest) (*GetItemSearchFieldResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

@@ -23,18 +23,18 @@ import (
 // PipelinesAPIService PipelinesAPI service
 type PipelinesAPIService service
 
-type ApiAddPipelineRequest struct {
+type PipelinesAPIAddPipelineRequest struct {
 	ctx context.Context
 	ApiService *PipelinesAPIService
 	addPipelineRequest *AddPipelineRequest
 }
 
-func (r ApiAddPipelineRequest) AddPipelineRequest(addPipelineRequest AddPipelineRequest) ApiAddPipelineRequest {
+func (r PipelinesAPIAddPipelineRequest) AddPipelineRequest(addPipelineRequest AddPipelineRequest) PipelinesAPIAddPipelineRequest {
 	r.addPipelineRequest = &addPipelineRequest
 	return r
 }
 
-func (r ApiAddPipelineRequest) Execute() (*UpsertPipelineResponse, *http.Response, error) {
+func (r PipelinesAPIAddPipelineRequest) Execute() (*UpsertPipelineResponse, *http.Response, error) {
 	return r.ApiService.AddPipelineExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddPipeline Add a new pipeline
 Adds a new pipeline.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddPipelineRequest
+ @return PipelinesAPIAddPipelineRequest
 */
-func (a *PipelinesAPIService) AddPipeline(ctx context.Context) ApiAddPipelineRequest {
-	return ApiAddPipelineRequest{
+func (a *PipelinesAPIService) AddPipeline(ctx context.Context) PipelinesAPIAddPipelineRequest {
+	return PipelinesAPIAddPipelineRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *PipelinesAPIService) AddPipeline(ctx context.Context) ApiAddPipelineReq
 
 // Execute executes the request
 //  @return UpsertPipelineResponse
-func (a *PipelinesAPIService) AddPipelineExecute(r ApiAddPipelineRequest) (*UpsertPipelineResponse, *http.Response, error) {
+func (a *PipelinesAPIService) AddPipelineExecute(r PipelinesAPIAddPipelineRequest) (*UpsertPipelineResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -144,13 +144,13 @@ func (a *PipelinesAPIService) AddPipelineExecute(r ApiAddPipelineRequest) (*Upse
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeletePipelineRequest struct {
+type PipelinesAPIDeletePipelineRequest struct {
 	ctx context.Context
 	ApiService *PipelinesAPIService
 	id int32
 }
 
-func (r ApiDeletePipelineRequest) Execute() (*DeletePipelineResponse, *http.Response, error) {
+func (r PipelinesAPIDeletePipelineRequest) Execute() (*DeletePipelineResponse, *http.Response, error) {
 	return r.ApiService.DeletePipelineExecute(r)
 }
 
@@ -161,10 +161,10 @@ Marks a pipeline as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the pipeline
- @return ApiDeletePipelineRequest
+ @return PipelinesAPIDeletePipelineRequest
 */
-func (a *PipelinesAPIService) DeletePipeline(ctx context.Context, id int32) ApiDeletePipelineRequest {
-	return ApiDeletePipelineRequest{
+func (a *PipelinesAPIService) DeletePipeline(ctx context.Context, id int32) PipelinesAPIDeletePipelineRequest {
+	return PipelinesAPIDeletePipelineRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -173,7 +173,7 @@ func (a *PipelinesAPIService) DeletePipeline(ctx context.Context, id int32) ApiD
 
 // Execute executes the request
 //  @return DeletePipelineResponse
-func (a *PipelinesAPIService) DeletePipelineExecute(r ApiDeletePipelineRequest) (*DeletePipelineResponse, *http.Response, error) {
+func (a *PipelinesAPIService) DeletePipelineExecute(r PipelinesAPIDeletePipelineRequest) (*DeletePipelineResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -261,13 +261,13 @@ func (a *PipelinesAPIService) DeletePipelineExecute(r ApiDeletePipelineRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPipelineRequest struct {
+type PipelinesAPIGetPipelineRequest struct {
 	ctx context.Context
 	ApiService *PipelinesAPIService
 	id int32
 }
 
-func (r ApiGetPipelineRequest) Execute() (*UpsertPipelineResponse, *http.Response, error) {
+func (r PipelinesAPIGetPipelineRequest) Execute() (*UpsertPipelineResponse, *http.Response, error) {
 	return r.ApiService.GetPipelineExecute(r)
 }
 
@@ -278,10 +278,10 @@ Returns data about a specific pipeline.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the pipeline
- @return ApiGetPipelineRequest
+ @return PipelinesAPIGetPipelineRequest
 */
-func (a *PipelinesAPIService) GetPipeline(ctx context.Context, id int32) ApiGetPipelineRequest {
-	return ApiGetPipelineRequest{
+func (a *PipelinesAPIService) GetPipeline(ctx context.Context, id int32) PipelinesAPIGetPipelineRequest {
+	return PipelinesAPIGetPipelineRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -290,7 +290,7 @@ func (a *PipelinesAPIService) GetPipeline(ctx context.Context, id int32) ApiGetP
 
 // Execute executes the request
 //  @return UpsertPipelineResponse
-func (a *PipelinesAPIService) GetPipelineExecute(r ApiGetPipelineRequest) (*UpsertPipelineResponse, *http.Response, error) {
+func (a *PipelinesAPIService) GetPipelineExecute(r PipelinesAPIGetPipelineRequest) (*UpsertPipelineResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -378,7 +378,7 @@ func (a *PipelinesAPIService) GetPipelineExecute(r ApiGetPipelineRequest) (*Upse
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPipelinesRequest struct {
+type PipelinesAPIGetPipelinesRequest struct {
 	ctx context.Context
 	ApiService *PipelinesAPIService
 	sortBy *string
@@ -388,30 +388,30 @@ type ApiGetPipelinesRequest struct {
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
-func (r ApiGetPipelinesRequest) SortBy(sortBy string) ApiGetPipelinesRequest {
+func (r PipelinesAPIGetPipelinesRequest) SortBy(sortBy string) PipelinesAPIGetPipelinesRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetPipelinesRequest) SortDirection(sortDirection string) ApiGetPipelinesRequest {
+func (r PipelinesAPIGetPipelinesRequest) SortDirection(sortDirection string) PipelinesAPIGetPipelinesRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetPipelinesRequest) Limit(limit int32) ApiGetPipelinesRequest {
+func (r PipelinesAPIGetPipelinesRequest) Limit(limit int32) PipelinesAPIGetPipelinesRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetPipelinesRequest) Cursor(cursor string) ApiGetPipelinesRequest {
+func (r PipelinesAPIGetPipelinesRequest) Cursor(cursor string) PipelinesAPIGetPipelinesRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetPipelinesRequest) Execute() (*GetPipelinesResponse, *http.Response, error) {
+func (r PipelinesAPIGetPipelinesRequest) Execute() (*GetPipelinesResponse, *http.Response, error) {
 	return r.ApiService.GetPipelinesExecute(r)
 }
 
@@ -421,10 +421,10 @@ GetPipelines Get all pipelines
 Returns data about all pipelines.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPipelinesRequest
+ @return PipelinesAPIGetPipelinesRequest
 */
-func (a *PipelinesAPIService) GetPipelines(ctx context.Context) ApiGetPipelinesRequest {
-	return ApiGetPipelinesRequest{
+func (a *PipelinesAPIService) GetPipelines(ctx context.Context) PipelinesAPIGetPipelinesRequest {
+	return PipelinesAPIGetPipelinesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -432,7 +432,7 @@ func (a *PipelinesAPIService) GetPipelines(ctx context.Context) ApiGetPipelinesR
 
 // Execute executes the request
 //  @return GetPipelinesResponse
-func (a *PipelinesAPIService) GetPipelinesExecute(r ApiGetPipelinesRequest) (*GetPipelinesResponse, *http.Response, error) {
+func (a *PipelinesAPIService) GetPipelinesExecute(r PipelinesAPIGetPipelinesRequest) (*GetPipelinesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -539,19 +539,19 @@ func (a *PipelinesAPIService) GetPipelinesExecute(r ApiGetPipelinesRequest) (*Ge
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdatePipelineRequest struct {
+type PipelinesAPIUpdatePipelineRequest struct {
 	ctx context.Context
 	ApiService *PipelinesAPIService
 	id int32
 	updatePipelineRequest *UpdatePipelineRequest
 }
 
-func (r ApiUpdatePipelineRequest) UpdatePipelineRequest(updatePipelineRequest UpdatePipelineRequest) ApiUpdatePipelineRequest {
+func (r PipelinesAPIUpdatePipelineRequest) UpdatePipelineRequest(updatePipelineRequest UpdatePipelineRequest) PipelinesAPIUpdatePipelineRequest {
 	r.updatePipelineRequest = &updatePipelineRequest
 	return r
 }
 
-func (r ApiUpdatePipelineRequest) Execute() (*UpsertPipelineResponse, *http.Response, error) {
+func (r PipelinesAPIUpdatePipelineRequest) Execute() (*UpsertPipelineResponse, *http.Response, error) {
 	return r.ApiService.UpdatePipelineExecute(r)
 }
 
@@ -562,10 +562,10 @@ Updates the properties of a pipeline.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the pipeline
- @return ApiUpdatePipelineRequest
+ @return PipelinesAPIUpdatePipelineRequest
 */
-func (a *PipelinesAPIService) UpdatePipeline(ctx context.Context, id int32) ApiUpdatePipelineRequest {
-	return ApiUpdatePipelineRequest{
+func (a *PipelinesAPIService) UpdatePipeline(ctx context.Context, id int32) PipelinesAPIUpdatePipelineRequest {
+	return PipelinesAPIUpdatePipelineRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -574,7 +574,7 @@ func (a *PipelinesAPIService) UpdatePipeline(ctx context.Context, id int32) ApiU
 
 // Execute executes the request
 //  @return UpsertPipelineResponse
-func (a *PipelinesAPIService) UpdatePipelineExecute(r ApiUpdatePipelineRequest) (*UpsertPipelineResponse, *http.Response, error) {
+func (a *PipelinesAPIService) UpdatePipelineExecute(r PipelinesAPIUpdatePipelineRequest) (*UpsertPipelineResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

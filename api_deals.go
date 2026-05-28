@@ -23,18 +23,18 @@ import (
 // DealsAPIService DealsAPI service
 type DealsAPIService service
 
-type ApiAddDealRequest struct {
+type DealsAPIAddDealRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	addDealRequest *AddDealRequest
 }
 
-func (r ApiAddDealRequest) AddDealRequest(addDealRequest AddDealRequest) ApiAddDealRequest {
+func (r DealsAPIAddDealRequest) AddDealRequest(addDealRequest AddDealRequest) DealsAPIAddDealRequest {
 	r.addDealRequest = &addDealRequest
 	return r
 }
 
-func (r ApiAddDealRequest) Execute() (*UpsertDealResponse, *http.Response, error) {
+func (r DealsAPIAddDealRequest) Execute() (*UpsertDealResponse, *http.Response, error) {
 	return r.ApiService.AddDealExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddDeal Add a new deal
 Adds a new deal.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddDealRequest
+ @return DealsAPIAddDealRequest
 */
-func (a *DealsAPIService) AddDeal(ctx context.Context) ApiAddDealRequest {
-	return ApiAddDealRequest{
+func (a *DealsAPIService) AddDeal(ctx context.Context) DealsAPIAddDealRequest {
+	return DealsAPIAddDealRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *DealsAPIService) AddDeal(ctx context.Context) ApiAddDealRequest {
 
 // Execute executes the request
 //  @return UpsertDealResponse
-func (a *DealsAPIService) AddDealExecute(r ApiAddDealRequest) (*UpsertDealResponse, *http.Response, error) {
+func (a *DealsAPIService) AddDealExecute(r DealsAPIAddDealRequest) (*UpsertDealResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -144,19 +144,19 @@ func (a *DealsAPIService) AddDealExecute(r ApiAddDealRequest) (*UpsertDealRespon
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddDealFollowerRequest struct {
+type DealsAPIAddDealFollowerRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
 	addDealFollowerRequest *AddDealFollowerRequest
 }
 
-func (r ApiAddDealFollowerRequest) AddDealFollowerRequest(addDealFollowerRequest AddDealFollowerRequest) ApiAddDealFollowerRequest {
+func (r DealsAPIAddDealFollowerRequest) AddDealFollowerRequest(addDealFollowerRequest AddDealFollowerRequest) DealsAPIAddDealFollowerRequest {
 	r.addDealFollowerRequest = &addDealFollowerRequest
 	return r
 }
 
-func (r ApiAddDealFollowerRequest) Execute() (*AddFollowerResponse, *http.Response, error) {
+func (r DealsAPIAddDealFollowerRequest) Execute() (*AddFollowerResponse, *http.Response, error) {
 	return r.ApiService.AddDealFollowerExecute(r)
 }
 
@@ -167,10 +167,10 @@ Adds a user as a follower to the deal.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiAddDealFollowerRequest
+ @return DealsAPIAddDealFollowerRequest
 */
-func (a *DealsAPIService) AddDealFollower(ctx context.Context, id int32) ApiAddDealFollowerRequest {
-	return ApiAddDealFollowerRequest{
+func (a *DealsAPIService) AddDealFollower(ctx context.Context, id int32) DealsAPIAddDealFollowerRequest {
+	return DealsAPIAddDealFollowerRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -179,7 +179,7 @@ func (a *DealsAPIService) AddDealFollower(ctx context.Context, id int32) ApiAddD
 
 // Execute executes the request
 //  @return AddFollowerResponse
-func (a *DealsAPIService) AddDealFollowerExecute(r ApiAddDealFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
+func (a *DealsAPIService) AddDealFollowerExecute(r DealsAPIAddDealFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -269,13 +269,13 @@ func (a *DealsAPIService) AddDealFollowerExecute(r ApiAddDealFollowerRequest) (*
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiConvertDealToLeadRequest struct {
+type DealsAPIConvertDealToLeadRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
 }
 
-func (r ApiConvertDealToLeadRequest) Execute() (*AddConvertDealToLeadResponse, *http.Response, error) {
+func (r DealsAPIConvertDealToLeadRequest) Execute() (*AddConvertDealToLeadResponse, *http.Response, error) {
 	return r.ApiService.ConvertDealToLeadExecute(r)
 }
 
@@ -286,10 +286,10 @@ Initiates a conversion of a deal to a lead. The return value is an ID of a job t
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal to convert
- @return ApiConvertDealToLeadRequest
+ @return DealsAPIConvertDealToLeadRequest
 */
-func (a *DealsAPIService) ConvertDealToLead(ctx context.Context, id int32) ApiConvertDealToLeadRequest {
-	return ApiConvertDealToLeadRequest{
+func (a *DealsAPIService) ConvertDealToLead(ctx context.Context, id int32) DealsAPIConvertDealToLeadRequest {
+	return DealsAPIConvertDealToLeadRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -298,7 +298,7 @@ func (a *DealsAPIService) ConvertDealToLead(ctx context.Context, id int32) ApiCo
 
 // Execute executes the request
 //  @return AddConvertDealToLeadResponse
-func (a *DealsAPIService) ConvertDealToLeadExecute(r ApiConvertDealToLeadRequest) (*AddConvertDealToLeadResponse, *http.Response, error) {
+func (a *DealsAPIService) ConvertDealToLeadExecute(r DealsAPIConvertDealToLeadRequest) (*AddConvertDealToLeadResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -396,14 +396,14 @@ func (a *DealsAPIService) ConvertDealToLeadExecute(r ApiConvertDealToLeadRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteAdditionalDiscountRequest struct {
+type DealsAPIDeleteAdditionalDiscountRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
 	discountId string
 }
 
-func (r ApiDeleteAdditionalDiscountRequest) Execute() (*DeleteAdditionalDiscountResponse, *http.Response, error) {
+func (r DealsAPIDeleteAdditionalDiscountRequest) Execute() (*DeleteAdditionalDiscountResponse, *http.Response, error) {
 	return r.ApiService.DeleteAdditionalDiscountExecute(r)
 }
 
@@ -415,10 +415,10 @@ Removes a discount from a deal, changing the deal value if the deal has one-time
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
  @param discountId The ID of the discount
- @return ApiDeleteAdditionalDiscountRequest
+ @return DealsAPIDeleteAdditionalDiscountRequest
 */
-func (a *DealsAPIService) DeleteAdditionalDiscount(ctx context.Context, id int32, discountId string) ApiDeleteAdditionalDiscountRequest {
-	return ApiDeleteAdditionalDiscountRequest{
+func (a *DealsAPIService) DeleteAdditionalDiscount(ctx context.Context, id int32, discountId string) DealsAPIDeleteAdditionalDiscountRequest {
+	return DealsAPIDeleteAdditionalDiscountRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -428,7 +428,7 @@ func (a *DealsAPIService) DeleteAdditionalDiscount(ctx context.Context, id int32
 
 // Execute executes the request
 //  @return DeleteAdditionalDiscountResponse
-func (a *DealsAPIService) DeleteAdditionalDiscountExecute(r ApiDeleteAdditionalDiscountRequest) (*DeleteAdditionalDiscountResponse, *http.Response, error) {
+func (a *DealsAPIService) DeleteAdditionalDiscountExecute(r DealsAPIDeleteAdditionalDiscountRequest) (*DeleteAdditionalDiscountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -517,13 +517,13 @@ func (a *DealsAPIService) DeleteAdditionalDiscountExecute(r ApiDeleteAdditionalD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteDealRequest struct {
+type DealsAPIDeleteDealRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
 }
 
-func (r ApiDeleteDealRequest) Execute() (*DeleteDealResponse, *http.Response, error) {
+func (r DealsAPIDeleteDealRequest) Execute() (*DeleteDealResponse, *http.Response, error) {
 	return r.ApiService.DeleteDealExecute(r)
 }
 
@@ -534,10 +534,10 @@ Marks a deal as deleted. After 30 days, the deal will be permanently deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiDeleteDealRequest
+ @return DealsAPIDeleteDealRequest
 */
-func (a *DealsAPIService) DeleteDeal(ctx context.Context, id int32) ApiDeleteDealRequest {
-	return ApiDeleteDealRequest{
+func (a *DealsAPIService) DeleteDeal(ctx context.Context, id int32) DealsAPIDeleteDealRequest {
+	return DealsAPIDeleteDealRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -546,7 +546,7 @@ func (a *DealsAPIService) DeleteDeal(ctx context.Context, id int32) ApiDeleteDea
 
 // Execute executes the request
 //  @return DeleteDealResponse
-func (a *DealsAPIService) DeleteDealExecute(r ApiDeleteDealRequest) (*DeleteDealResponse, *http.Response, error) {
+func (a *DealsAPIService) DeleteDealExecute(r DealsAPIDeleteDealRequest) (*DeleteDealResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -634,14 +634,14 @@ func (a *DealsAPIService) DeleteDealExecute(r ApiDeleteDealRequest) (*DeleteDeal
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteDealFollowerRequest struct {
+type DealsAPIDeleteDealFollowerRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
 	followerId int32
 }
 
-func (r ApiDeleteDealFollowerRequest) Execute() (*DeleteFollowerResponse, *http.Response, error) {
+func (r DealsAPIDeleteDealFollowerRequest) Execute() (*DeleteFollowerResponse, *http.Response, error) {
 	return r.ApiService.DeleteDealFollowerExecute(r)
 }
 
@@ -653,10 +653,10 @@ Deletes a user follower from the deal.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
  @param followerId The ID of the following user
- @return ApiDeleteDealFollowerRequest
+ @return DealsAPIDeleteDealFollowerRequest
 */
-func (a *DealsAPIService) DeleteDealFollower(ctx context.Context, id int32, followerId int32) ApiDeleteDealFollowerRequest {
-	return ApiDeleteDealFollowerRequest{
+func (a *DealsAPIService) DeleteDealFollower(ctx context.Context, id int32, followerId int32) DealsAPIDeleteDealFollowerRequest {
+	return DealsAPIDeleteDealFollowerRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -666,7 +666,7 @@ func (a *DealsAPIService) DeleteDealFollower(ctx context.Context, id int32, foll
 
 // Execute executes the request
 //  @return DeleteFollowerResponse
-func (a *DealsAPIService) DeleteDealFollowerExecute(r ApiDeleteDealFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
+func (a *DealsAPIService) DeleteDealFollowerExecute(r DealsAPIDeleteDealFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -755,13 +755,13 @@ func (a *DealsAPIService) DeleteDealFollowerExecute(r ApiDeleteDealFollowerReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetAdditionalDiscountsRequest struct {
+type DealsAPIGetAdditionalDiscountsRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
 }
 
-func (r ApiGetAdditionalDiscountsRequest) Execute() (*GetAdditionalDiscountsResponse, *http.Response, error) {
+func (r DealsAPIGetAdditionalDiscountsRequest) Execute() (*GetAdditionalDiscountsResponse, *http.Response, error) {
 	return r.ApiService.GetAdditionalDiscountsExecute(r)
 }
 
@@ -772,10 +772,10 @@ Lists discounts attached to a deal.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiGetAdditionalDiscountsRequest
+ @return DealsAPIGetAdditionalDiscountsRequest
 */
-func (a *DealsAPIService) GetAdditionalDiscounts(ctx context.Context, id int32) ApiGetAdditionalDiscountsRequest {
-	return ApiGetAdditionalDiscountsRequest{
+func (a *DealsAPIService) GetAdditionalDiscounts(ctx context.Context, id int32) DealsAPIGetAdditionalDiscountsRequest {
+	return DealsAPIGetAdditionalDiscountsRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -784,7 +784,7 @@ func (a *DealsAPIService) GetAdditionalDiscounts(ctx context.Context, id int32) 
 
 // Execute executes the request
 //  @return GetAdditionalDiscountsResponse
-func (a *DealsAPIService) GetAdditionalDiscountsExecute(r ApiGetAdditionalDiscountsRequest) (*GetAdditionalDiscountsResponse, *http.Response, error) {
+func (a *DealsAPIService) GetAdditionalDiscountsExecute(r DealsAPIGetAdditionalDiscountsRequest) (*GetAdditionalDiscountsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -872,7 +872,7 @@ func (a *DealsAPIService) GetAdditionalDiscountsExecute(r ApiGetAdditionalDiscou
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetArchivedDealsRequest struct {
+type DealsAPIGetArchivedDealsRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	filterId *int32
@@ -894,102 +894,102 @@ type ApiGetArchivedDealsRequest struct {
 }
 
 // If supplied, only deals matching the specified filter are returned
-func (r ApiGetArchivedDealsRequest) FilterId(filterId int32) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) FilterId(filterId int32) DealsAPIGetArchivedDealsRequest {
 	r.filterId = &filterId
 	return r
 }
 
 // Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-func (r ApiGetArchivedDealsRequest) Ids(ids string) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) Ids(ids string) DealsAPIGetArchivedDealsRequest {
 	r.ids = &ids
 	return r
 }
 
 // If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
-func (r ApiGetArchivedDealsRequest) OwnerId(ownerId int32) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) OwnerId(ownerId int32) DealsAPIGetArchivedDealsRequest {
 	r.ownerId = &ownerId
 	return r
 }
 
 // If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
-func (r ApiGetArchivedDealsRequest) PersonId(personId int32) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) PersonId(personId int32) DealsAPIGetArchivedDealsRequest {
 	r.personId = &personId
 	return r
 }
 
 // If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
-func (r ApiGetArchivedDealsRequest) OrgId(orgId int32) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) OrgId(orgId int32) DealsAPIGetArchivedDealsRequest {
 	r.orgId = &orgId
 	return r
 }
 
 // If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
-func (r ApiGetArchivedDealsRequest) PipelineId(pipelineId int32) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) PipelineId(pipelineId int32) DealsAPIGetArchivedDealsRequest {
 	r.pipelineId = &pipelineId
 	return r
 }
 
 // If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
-func (r ApiGetArchivedDealsRequest) StageId(stageId int32) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) StageId(stageId int32) DealsAPIGetArchivedDealsRequest {
 	r.stageId = &stageId
 	return r
 }
 
 // Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
-func (r ApiGetArchivedDealsRequest) Status(status string) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) Status(status string) DealsAPIGetArchivedDealsRequest {
 	r.status = &status
 	return r
 }
 
 // If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-func (r ApiGetArchivedDealsRequest) UpdatedSince(updatedSince string) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) UpdatedSince(updatedSince string) DealsAPIGetArchivedDealsRequest {
 	r.updatedSince = &updatedSince
 	return r
 }
 
 // If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-func (r ApiGetArchivedDealsRequest) UpdatedUntil(updatedUntil string) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) UpdatedUntil(updatedUntil string) DealsAPIGetArchivedDealsRequest {
 	r.updatedUntil = &updatedUntil
 	return r
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
-func (r ApiGetArchivedDealsRequest) SortBy(sortBy string) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) SortBy(sortBy string) DealsAPIGetArchivedDealsRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetArchivedDealsRequest) SortDirection(sortDirection string) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) SortDirection(sortDirection string) DealsAPIGetArchivedDealsRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
 // Optional comma separated string array of additional fields to include
-func (r ApiGetArchivedDealsRequest) IncludeFields(includeFields string) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) IncludeFields(includeFields string) DealsAPIGetArchivedDealsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-func (r ApiGetArchivedDealsRequest) CustomFields(customFields string) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) CustomFields(customFields string) DealsAPIGetArchivedDealsRequest {
 	r.customFields = &customFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetArchivedDealsRequest) Limit(limit int32) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) Limit(limit int32) DealsAPIGetArchivedDealsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetArchivedDealsRequest) Cursor(cursor string) ApiGetArchivedDealsRequest {
+func (r DealsAPIGetArchivedDealsRequest) Cursor(cursor string) DealsAPIGetArchivedDealsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetArchivedDealsRequest) Execute() (*GetDealsResponse, *http.Response, error) {
+func (r DealsAPIGetArchivedDealsRequest) Execute() (*GetDealsResponse, *http.Response, error) {
 	return r.ApiService.GetArchivedDealsExecute(r)
 }
 
@@ -999,10 +999,10 @@ GetArchivedDeals Get all archived deals
 Returns data about all archived deals.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetArchivedDealsRequest
+ @return DealsAPIGetArchivedDealsRequest
 */
-func (a *DealsAPIService) GetArchivedDeals(ctx context.Context) ApiGetArchivedDealsRequest {
-	return ApiGetArchivedDealsRequest{
+func (a *DealsAPIService) GetArchivedDeals(ctx context.Context) DealsAPIGetArchivedDealsRequest {
+	return DealsAPIGetArchivedDealsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1010,7 +1010,7 @@ func (a *DealsAPIService) GetArchivedDeals(ctx context.Context) ApiGetArchivedDe
 
 // Execute executes the request
 //  @return GetDealsResponse
-func (a *DealsAPIService) GetArchivedDealsExecute(r ApiGetArchivedDealsRequest) (*GetDealsResponse, *http.Response, error) {
+func (a *DealsAPIService) GetArchivedDealsExecute(r DealsAPIGetArchivedDealsRequest) (*GetDealsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1153,7 +1153,7 @@ func (a *DealsAPIService) GetArchivedDealsExecute(r ApiGetArchivedDealsRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDealRequest struct {
+type DealsAPIGetDealRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
@@ -1164,30 +1164,30 @@ type ApiGetDealRequest struct {
 }
 
 // Optional comma separated string array of additional fields to include
-func (r ApiGetDealRequest) IncludeFields(includeFields string) ApiGetDealRequest {
+func (r DealsAPIGetDealRequest) IncludeFields(includeFields string) DealsAPIGetDealRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-func (r ApiGetDealRequest) CustomFields(customFields string) ApiGetDealRequest {
+func (r DealsAPIGetDealRequest) CustomFields(customFields string) DealsAPIGetDealRequest {
 	r.customFields = &customFields
 	return r
 }
 
 // When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id
-func (r ApiGetDealRequest) IncludeOptionLabels(includeOptionLabels bool) ApiGetDealRequest {
+func (r DealsAPIGetDealRequest) IncludeOptionLabels(includeOptionLabels bool) DealsAPIGetDealRequest {
 	r.includeOptionLabels = &includeOptionLabels
 	return r
 }
 
 // When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39;
-func (r ApiGetDealRequest) IncludeLabels(includeLabels bool) ApiGetDealRequest {
+func (r DealsAPIGetDealRequest) IncludeLabels(includeLabels bool) DealsAPIGetDealRequest {
 	r.includeLabels = &includeLabels
 	return r
 }
 
-func (r ApiGetDealRequest) Execute() (*UpsertDealResponse, *http.Response, error) {
+func (r DealsAPIGetDealRequest) Execute() (*UpsertDealResponse, *http.Response, error) {
 	return r.ApiService.GetDealExecute(r)
 }
 
@@ -1198,10 +1198,10 @@ Returns the details of a specific deal.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiGetDealRequest
+ @return DealsAPIGetDealRequest
 */
-func (a *DealsAPIService) GetDeal(ctx context.Context, id int32) ApiGetDealRequest {
-	return ApiGetDealRequest{
+func (a *DealsAPIService) GetDeal(ctx context.Context, id int32) DealsAPIGetDealRequest {
+	return DealsAPIGetDealRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1210,7 +1210,7 @@ func (a *DealsAPIService) GetDeal(ctx context.Context, id int32) ApiGetDealReque
 
 // Execute executes the request
 //  @return UpsertDealResponse
-func (a *DealsAPIService) GetDealExecute(r ApiGetDealRequest) (*UpsertDealResponse, *http.Response, error) {
+func (a *DealsAPIService) GetDealExecute(r DealsAPIGetDealRequest) (*UpsertDealResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1310,14 +1310,14 @@ func (a *DealsAPIService) GetDealExecute(r ApiGetDealRequest) (*UpsertDealRespon
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDealConversionStatusRequest struct {
+type DealsAPIGetDealConversionStatusRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
 	conversionId string
 }
 
-func (r ApiGetDealConversionStatusRequest) Execute() (*GetConvertResponse1, *http.Response, error) {
+func (r DealsAPIGetDealConversionStatusRequest) Execute() (*GetConvertResponse1, *http.Response, error) {
 	return r.ApiService.GetDealConversionStatusExecute(r)
 }
 
@@ -1329,10 +1329,10 @@ Returns information about the conversion. Status is always present and its value
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of a deal
  @param conversionId The ID of the conversion
- @return ApiGetDealConversionStatusRequest
+ @return DealsAPIGetDealConversionStatusRequest
 */
-func (a *DealsAPIService) GetDealConversionStatus(ctx context.Context, id int32, conversionId string) ApiGetDealConversionStatusRequest {
-	return ApiGetDealConversionStatusRequest{
+func (a *DealsAPIService) GetDealConversionStatus(ctx context.Context, id int32, conversionId string) DealsAPIGetDealConversionStatusRequest {
+	return DealsAPIGetDealConversionStatusRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1342,7 +1342,7 @@ func (a *DealsAPIService) GetDealConversionStatus(ctx context.Context, id int32,
 
 // Execute executes the request
 //  @return GetConvertResponse1
-func (a *DealsAPIService) GetDealConversionStatusExecute(r ApiGetDealConversionStatusRequest) (*GetConvertResponse1, *http.Response, error) {
+func (a *DealsAPIService) GetDealConversionStatusExecute(r DealsAPIGetDealConversionStatusRequest) (*GetConvertResponse1, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1441,7 +1441,7 @@ func (a *DealsAPIService) GetDealConversionStatusExecute(r ApiGetDealConversionS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDealFollowersRequest struct {
+type DealsAPIGetDealFollowersRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
@@ -1450,18 +1450,18 @@ type ApiGetDealFollowersRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetDealFollowersRequest) Limit(limit int32) ApiGetDealFollowersRequest {
+func (r DealsAPIGetDealFollowersRequest) Limit(limit int32) DealsAPIGetDealFollowersRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetDealFollowersRequest) Cursor(cursor string) ApiGetDealFollowersRequest {
+func (r DealsAPIGetDealFollowersRequest) Cursor(cursor string) DealsAPIGetDealFollowersRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetDealFollowersRequest) Execute() (*GetFollowersResponse, *http.Response, error) {
+func (r DealsAPIGetDealFollowersRequest) Execute() (*GetFollowersResponse, *http.Response, error) {
 	return r.ApiService.GetDealFollowersExecute(r)
 }
 
@@ -1472,10 +1472,10 @@ Lists users who are following the deal.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiGetDealFollowersRequest
+ @return DealsAPIGetDealFollowersRequest
 */
-func (a *DealsAPIService) GetDealFollowers(ctx context.Context, id int32) ApiGetDealFollowersRequest {
-	return ApiGetDealFollowersRequest{
+func (a *DealsAPIService) GetDealFollowers(ctx context.Context, id int32) DealsAPIGetDealFollowersRequest {
+	return DealsAPIGetDealFollowersRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1484,7 +1484,7 @@ func (a *DealsAPIService) GetDealFollowers(ctx context.Context, id int32) ApiGet
 
 // Execute executes the request
 //  @return GetFollowersResponse
-func (a *DealsAPIService) GetDealFollowersExecute(r ApiGetDealFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
+func (a *DealsAPIService) GetDealFollowersExecute(r DealsAPIGetDealFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1578,7 +1578,7 @@ func (a *DealsAPIService) GetDealFollowersExecute(r ApiGetDealFollowersRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDealFollowersChangelogRequest struct {
+type DealsAPIGetDealFollowersChangelogRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
@@ -1587,18 +1587,18 @@ type ApiGetDealFollowersChangelogRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetDealFollowersChangelogRequest) Limit(limit int32) ApiGetDealFollowersChangelogRequest {
+func (r DealsAPIGetDealFollowersChangelogRequest) Limit(limit int32) DealsAPIGetDealFollowersChangelogRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetDealFollowersChangelogRequest) Cursor(cursor string) ApiGetDealFollowersChangelogRequest {
+func (r DealsAPIGetDealFollowersChangelogRequest) Cursor(cursor string) DealsAPIGetDealFollowersChangelogRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetDealFollowersChangelogRequest) Execute() (*GetFollowerChangelogsResponse, *http.Response, error) {
+func (r DealsAPIGetDealFollowersChangelogRequest) Execute() (*GetFollowerChangelogsResponse, *http.Response, error) {
 	return r.ApiService.GetDealFollowersChangelogExecute(r)
 }
 
@@ -1609,10 +1609,10 @@ Lists changelogs about users have followed the deal.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiGetDealFollowersChangelogRequest
+ @return DealsAPIGetDealFollowersChangelogRequest
 */
-func (a *DealsAPIService) GetDealFollowersChangelog(ctx context.Context, id int32) ApiGetDealFollowersChangelogRequest {
-	return ApiGetDealFollowersChangelogRequest{
+func (a *DealsAPIService) GetDealFollowersChangelog(ctx context.Context, id int32) DealsAPIGetDealFollowersChangelogRequest {
+	return DealsAPIGetDealFollowersChangelogRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1621,7 +1621,7 @@ func (a *DealsAPIService) GetDealFollowersChangelog(ctx context.Context, id int3
 
 // Execute executes the request
 //  @return GetFollowerChangelogsResponse
-func (a *DealsAPIService) GetDealFollowersChangelogExecute(r ApiGetDealFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
+func (a *DealsAPIService) GetDealFollowersChangelogExecute(r DealsAPIGetDealFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1715,7 +1715,7 @@ func (a *DealsAPIService) GetDealFollowersChangelogExecute(r ApiGetDealFollowers
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDealsRequest struct {
+type DealsAPIGetDealsRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	filterId *int32
@@ -1739,114 +1739,114 @@ type ApiGetDealsRequest struct {
 }
 
 // If supplied, only deals matching the specified filter are returned
-func (r ApiGetDealsRequest) FilterId(filterId int32) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) FilterId(filterId int32) DealsAPIGetDealsRequest {
 	r.filterId = &filterId
 	return r
 }
 
 // Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-func (r ApiGetDealsRequest) Ids(ids string) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) Ids(ids string) DealsAPIGetDealsRequest {
 	r.ids = &ids
 	return r
 }
 
 // If supplied, only deals owned by the specified user are returned. If filter_id is provided, this is ignored.
-func (r ApiGetDealsRequest) OwnerId(ownerId int32) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) OwnerId(ownerId int32) DealsAPIGetDealsRequest {
 	r.ownerId = &ownerId
 	return r
 }
 
 // If supplied, only deals linked to the specified person are returned. If filter_id is provided, this is ignored.
-func (r ApiGetDealsRequest) PersonId(personId int32) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) PersonId(personId int32) DealsAPIGetDealsRequest {
 	r.personId = &personId
 	return r
 }
 
 // If supplied, only deals linked to the specified organization are returned. If filter_id is provided, this is ignored.
-func (r ApiGetDealsRequest) OrgId(orgId int32) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) OrgId(orgId int32) DealsAPIGetDealsRequest {
 	r.orgId = &orgId
 	return r
 }
 
 // If supplied, only deals in the specified pipeline are returned. If filter_id is provided, this is ignored.
-func (r ApiGetDealsRequest) PipelineId(pipelineId int32) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) PipelineId(pipelineId int32) DealsAPIGetDealsRequest {
 	r.pipelineId = &pipelineId
 	return r
 }
 
 // If supplied, only deals in the specified stage are returned. If filter_id is provided, this is ignored.
-func (r ApiGetDealsRequest) StageId(stageId int32) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) StageId(stageId int32) DealsAPIGetDealsRequest {
 	r.stageId = &stageId
 	return r
 }
 
 // Only fetch deals with a specific status. If omitted, all not deleted deals are returned. If set to deleted, deals that have been deleted up to 30 days ago will be included. Multiple statuses can be included as a comma separated array. If filter_id is provided, this is ignored.
-func (r ApiGetDealsRequest) Status(status string) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) Status(status string) DealsAPIGetDealsRequest {
 	r.status = &status
 	return r
 }
 
 // If set, only deals with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-func (r ApiGetDealsRequest) UpdatedSince(updatedSince string) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) UpdatedSince(updatedSince string) DealsAPIGetDealsRequest {
 	r.updatedSince = &updatedSince
 	return r
 }
 
 // If set, only deals with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-func (r ApiGetDealsRequest) UpdatedUntil(updatedUntil string) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) UpdatedUntil(updatedUntil string) DealsAPIGetDealsRequest {
 	r.updatedUntil = &updatedUntil
 	return r
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
-func (r ApiGetDealsRequest) SortBy(sortBy string) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) SortBy(sortBy string) DealsAPIGetDealsRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetDealsRequest) SortDirection(sortDirection string) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) SortDirection(sortDirection string) DealsAPIGetDealsRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
 // Optional comma separated string array of additional fields to include
-func (r ApiGetDealsRequest) IncludeFields(includeFields string) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) IncludeFields(includeFields string) DealsAPIGetDealsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-func (r ApiGetDealsRequest) CustomFields(customFields string) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) CustomFields(customFields string) DealsAPIGetDealsRequest {
 	r.customFields = &customFields
 	return r
 }
 
 // When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id
-func (r ApiGetDealsRequest) IncludeOptionLabels(includeOptionLabels bool) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) IncludeOptionLabels(includeOptionLabels bool) DealsAPIGetDealsRequest {
 	r.includeOptionLabels = &includeOptionLabels
 	return r
 }
 
 // When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39;
-func (r ApiGetDealsRequest) IncludeLabels(includeLabels bool) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) IncludeLabels(includeLabels bool) DealsAPIGetDealsRequest {
 	r.includeLabels = &includeLabels
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetDealsRequest) Limit(limit int32) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) Limit(limit int32) DealsAPIGetDealsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetDealsRequest) Cursor(cursor string) ApiGetDealsRequest {
+func (r DealsAPIGetDealsRequest) Cursor(cursor string) DealsAPIGetDealsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetDealsRequest) Execute() (*GetDealsResponse, *http.Response, error) {
+func (r DealsAPIGetDealsRequest) Execute() (*GetDealsResponse, *http.Response, error) {
 	return r.ApiService.GetDealsExecute(r)
 }
 
@@ -1856,10 +1856,10 @@ GetDeals Get all deals
 Returns data about all not archived deals.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetDealsRequest
+ @return DealsAPIGetDealsRequest
 */
-func (a *DealsAPIService) GetDeals(ctx context.Context) ApiGetDealsRequest {
-	return ApiGetDealsRequest{
+func (a *DealsAPIService) GetDeals(ctx context.Context) DealsAPIGetDealsRequest {
+	return DealsAPIGetDealsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1867,7 +1867,7 @@ func (a *DealsAPIService) GetDeals(ctx context.Context) ApiGetDealsRequest {
 
 // Execute executes the request
 //  @return GetDealsResponse
-func (a *DealsAPIService) GetDealsExecute(r ApiGetDealsRequest) (*GetDealsResponse, *http.Response, error) {
+func (a *DealsAPIService) GetDealsExecute(r DealsAPIGetDealsRequest) (*GetDealsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2016,19 +2016,19 @@ func (a *DealsAPIService) GetDealsExecute(r ApiGetDealsRequest) (*GetDealsRespon
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostAdditionalDiscountRequest struct {
+type DealsAPIPostAdditionalDiscountRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
 	addAdditionalDiscountRequestBody *AddAdditionalDiscountRequestBody
 }
 
-func (r ApiPostAdditionalDiscountRequest) AddAdditionalDiscountRequestBody(addAdditionalDiscountRequestBody AddAdditionalDiscountRequestBody) ApiPostAdditionalDiscountRequest {
+func (r DealsAPIPostAdditionalDiscountRequest) AddAdditionalDiscountRequestBody(addAdditionalDiscountRequestBody AddAdditionalDiscountRequestBody) DealsAPIPostAdditionalDiscountRequest {
 	r.addAdditionalDiscountRequestBody = &addAdditionalDiscountRequestBody
 	return r
 }
 
-func (r ApiPostAdditionalDiscountRequest) Execute() (*AddAdditionalDiscountResponse, *http.Response, error) {
+func (r DealsAPIPostAdditionalDiscountRequest) Execute() (*AddAdditionalDiscountResponse, *http.Response, error) {
 	return r.ApiService.PostAdditionalDiscountExecute(r)
 }
 
@@ -2039,10 +2039,10 @@ Adds a discount to a deal, changing the deal value if the deal has one-time prod
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiPostAdditionalDiscountRequest
+ @return DealsAPIPostAdditionalDiscountRequest
 */
-func (a *DealsAPIService) PostAdditionalDiscount(ctx context.Context, id int32) ApiPostAdditionalDiscountRequest {
-	return ApiPostAdditionalDiscountRequest{
+func (a *DealsAPIService) PostAdditionalDiscount(ctx context.Context, id int32) DealsAPIPostAdditionalDiscountRequest {
+	return DealsAPIPostAdditionalDiscountRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -2051,7 +2051,7 @@ func (a *DealsAPIService) PostAdditionalDiscount(ctx context.Context, id int32) 
 
 // Execute executes the request
 //  @return AddAdditionalDiscountResponse
-func (a *DealsAPIService) PostAdditionalDiscountExecute(r ApiPostAdditionalDiscountRequest) (*AddAdditionalDiscountResponse, *http.Response, error) {
+func (a *DealsAPIService) PostAdditionalDiscountExecute(r DealsAPIPostAdditionalDiscountRequest) (*AddAdditionalDiscountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2141,7 +2141,7 @@ func (a *DealsAPIService) PostAdditionalDiscountExecute(r ApiPostAdditionalDisco
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchDealsRequest struct {
+type DealsAPISearchDealsRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	term *string
@@ -2156,60 +2156,60 @@ type ApiSearchDealsRequest struct {
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-func (r ApiSearchDealsRequest) Term(term string) ApiSearchDealsRequest {
+func (r DealsAPISearchDealsRequest) Term(term string) DealsAPISearchDealsRequest {
 	r.term = &term
 	return r
 }
 
 // A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-func (r ApiSearchDealsRequest) Fields(fields string) ApiSearchDealsRequest {
+func (r DealsAPISearchDealsRequest) Fields(fields string) DealsAPISearchDealsRequest {
 	r.fields = &fields
 	return r
 }
 
 // When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-func (r ApiSearchDealsRequest) ExactMatch(exactMatch bool) ApiSearchDealsRequest {
+func (r DealsAPISearchDealsRequest) ExactMatch(exactMatch bool) DealsAPISearchDealsRequest {
 	r.exactMatch = &exactMatch
 	return r
 }
 
 // Will filter deals by the provided person ID. The upper limit of found deals associated with the person is 2000.
-func (r ApiSearchDealsRequest) PersonId(personId int32) ApiSearchDealsRequest {
+func (r DealsAPISearchDealsRequest) PersonId(personId int32) DealsAPISearchDealsRequest {
 	r.personId = &personId
 	return r
 }
 
 // Will filter deals by the provided organization ID. The upper limit of found deals associated with the organization is 2000.
-func (r ApiSearchDealsRequest) OrganizationId(organizationId int32) ApiSearchDealsRequest {
+func (r DealsAPISearchDealsRequest) OrganizationId(organizationId int32) DealsAPISearchDealsRequest {
 	r.organizationId = &organizationId
 	return r
 }
 
 // Will filter deals by the provided specific status. open &#x3D; Open, won &#x3D; Won, lost &#x3D; Lost. The upper limit of found deals associated with the status is 2000.
-func (r ApiSearchDealsRequest) Status(status string) ApiSearchDealsRequest {
+func (r DealsAPISearchDealsRequest) Status(status string) DealsAPISearchDealsRequest {
 	r.status = &status
 	return r
 }
 
 // Supports including optional fields in the results which are not provided by default
-func (r ApiSearchDealsRequest) IncludeFields(includeFields string) ApiSearchDealsRequest {
+func (r DealsAPISearchDealsRequest) IncludeFields(includeFields string) DealsAPISearchDealsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiSearchDealsRequest) Limit(limit int32) ApiSearchDealsRequest {
+func (r DealsAPISearchDealsRequest) Limit(limit int32) DealsAPISearchDealsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiSearchDealsRequest) Cursor(cursor string) ApiSearchDealsRequest {
+func (r DealsAPISearchDealsRequest) Cursor(cursor string) DealsAPISearchDealsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiSearchDealsRequest) Execute() (*GetDealSearchResponse, *http.Response, error) {
+func (r DealsAPISearchDealsRequest) Execute() (*GetDealSearchResponse, *http.Response, error) {
 	return r.ApiService.SearchDealsExecute(r)
 }
 
@@ -2219,10 +2219,10 @@ SearchDeals Search deals
 Searches all deals by title, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope. Found deals can be filtered by the person ID and the organization ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchDealsRequest
+ @return DealsAPISearchDealsRequest
 */
-func (a *DealsAPIService) SearchDeals(ctx context.Context) ApiSearchDealsRequest {
-	return ApiSearchDealsRequest{
+func (a *DealsAPIService) SearchDeals(ctx context.Context) DealsAPISearchDealsRequest {
+	return DealsAPISearchDealsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -2230,7 +2230,7 @@ func (a *DealsAPIService) SearchDeals(ctx context.Context) ApiSearchDealsRequest
 
 // Execute executes the request
 //  @return GetDealSearchResponse
-func (a *DealsAPIService) SearchDealsExecute(r ApiSearchDealsRequest) (*GetDealSearchResponse, *http.Response, error) {
+func (a *DealsAPIService) SearchDealsExecute(r DealsAPISearchDealsRequest) (*GetDealSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2345,7 +2345,7 @@ func (a *DealsAPIService) SearchDealsExecute(r ApiSearchDealsRequest) (*GetDealS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateAdditionalDiscountRequest struct {
+type DealsAPIUpdateAdditionalDiscountRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
@@ -2353,12 +2353,12 @@ type ApiUpdateAdditionalDiscountRequest struct {
 	updateAdditionalDiscountRequestBody *UpdateAdditionalDiscountRequestBody
 }
 
-func (r ApiUpdateAdditionalDiscountRequest) UpdateAdditionalDiscountRequestBody(updateAdditionalDiscountRequestBody UpdateAdditionalDiscountRequestBody) ApiUpdateAdditionalDiscountRequest {
+func (r DealsAPIUpdateAdditionalDiscountRequest) UpdateAdditionalDiscountRequestBody(updateAdditionalDiscountRequestBody UpdateAdditionalDiscountRequestBody) DealsAPIUpdateAdditionalDiscountRequest {
 	r.updateAdditionalDiscountRequestBody = &updateAdditionalDiscountRequestBody
 	return r
 }
 
-func (r ApiUpdateAdditionalDiscountRequest) Execute() (*UpdateAdditionalDiscountResponse, *http.Response, error) {
+func (r DealsAPIUpdateAdditionalDiscountRequest) Execute() (*UpdateAdditionalDiscountResponse, *http.Response, error) {
 	return r.ApiService.UpdateAdditionalDiscountExecute(r)
 }
 
@@ -2370,10 +2370,10 @@ Edits a discount added to a deal, changing the deal value if the deal has one-ti
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
  @param discountId The ID of the discount
- @return ApiUpdateAdditionalDiscountRequest
+ @return DealsAPIUpdateAdditionalDiscountRequest
 */
-func (a *DealsAPIService) UpdateAdditionalDiscount(ctx context.Context, id int32, discountId string) ApiUpdateAdditionalDiscountRequest {
-	return ApiUpdateAdditionalDiscountRequest{
+func (a *DealsAPIService) UpdateAdditionalDiscount(ctx context.Context, id int32, discountId string) DealsAPIUpdateAdditionalDiscountRequest {
+	return DealsAPIUpdateAdditionalDiscountRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -2383,7 +2383,7 @@ func (a *DealsAPIService) UpdateAdditionalDiscount(ctx context.Context, id int32
 
 // Execute executes the request
 //  @return UpdateAdditionalDiscountResponse
-func (a *DealsAPIService) UpdateAdditionalDiscountExecute(r ApiUpdateAdditionalDiscountRequest) (*UpdateAdditionalDiscountResponse, *http.Response, error) {
+func (a *DealsAPIService) UpdateAdditionalDiscountExecute(r DealsAPIUpdateAdditionalDiscountRequest) (*UpdateAdditionalDiscountResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -2474,19 +2474,19 @@ func (a *DealsAPIService) UpdateAdditionalDiscountExecute(r ApiUpdateAdditionalD
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateDealRequest struct {
+type DealsAPIUpdateDealRequest struct {
 	ctx context.Context
 	ApiService *DealsAPIService
 	id int32
 	updateDealRequest *UpdateDealRequest
 }
 
-func (r ApiUpdateDealRequest) UpdateDealRequest(updateDealRequest UpdateDealRequest) ApiUpdateDealRequest {
+func (r DealsAPIUpdateDealRequest) UpdateDealRequest(updateDealRequest UpdateDealRequest) DealsAPIUpdateDealRequest {
 	r.updateDealRequest = &updateDealRequest
 	return r
 }
 
-func (r ApiUpdateDealRequest) Execute() (*UpsertDealResponse, *http.Response, error) {
+func (r DealsAPIUpdateDealRequest) Execute() (*UpsertDealResponse, *http.Response, error) {
 	return r.ApiService.UpdateDealExecute(r)
 }
 
@@ -2497,10 +2497,10 @@ Updates the properties of a deal.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiUpdateDealRequest
+ @return DealsAPIUpdateDealRequest
 */
-func (a *DealsAPIService) UpdateDeal(ctx context.Context, id int32) ApiUpdateDealRequest {
-	return ApiUpdateDealRequest{
+func (a *DealsAPIService) UpdateDeal(ctx context.Context, id int32) DealsAPIUpdateDealRequest {
+	return DealsAPIUpdateDealRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -2509,7 +2509,7 @@ func (a *DealsAPIService) UpdateDeal(ctx context.Context, id int32) ApiUpdateDea
 
 // Execute executes the request
 //  @return UpsertDealResponse
-func (a *DealsAPIService) UpdateDealExecute(r ApiUpdateDealRequest) (*UpsertDealResponse, *http.Response, error) {
+func (a *DealsAPIService) UpdateDealExecute(r DealsAPIUpdateDealRequest) (*UpsertDealResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

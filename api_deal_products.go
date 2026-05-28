@@ -23,19 +23,19 @@ import (
 // DealProductsAPIService DealProductsAPI service
 type DealProductsAPIService service
 
-type ApiAddDealProductRequest struct {
+type DealProductsAPIAddDealProductRequest struct {
 	ctx context.Context
 	ApiService *DealProductsAPIService
 	id int32
 	addDealProductRequest *AddDealProductRequest
 }
 
-func (r ApiAddDealProductRequest) AddDealProductRequest(addDealProductRequest AddDealProductRequest) ApiAddDealProductRequest {
+func (r DealProductsAPIAddDealProductRequest) AddDealProductRequest(addDealProductRequest AddDealProductRequest) DealProductsAPIAddDealProductRequest {
 	r.addDealProductRequest = &addDealProductRequest
 	return r
 }
 
-func (r ApiAddDealProductRequest) Execute() (*AddDealProductResponse, *http.Response, error) {
+func (r DealProductsAPIAddDealProductRequest) Execute() (*AddDealProductResponse, *http.Response, error) {
 	return r.ApiService.AddDealProductExecute(r)
 }
 
@@ -46,10 +46,10 @@ Adds a product to a deal, creating a new item called a deal-product.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiAddDealProductRequest
+ @return DealProductsAPIAddDealProductRequest
 */
-func (a *DealProductsAPIService) AddDealProduct(ctx context.Context, id int32) ApiAddDealProductRequest {
-	return ApiAddDealProductRequest{
+func (a *DealProductsAPIService) AddDealProduct(ctx context.Context, id int32) DealProductsAPIAddDealProductRequest {
+	return DealProductsAPIAddDealProductRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -58,7 +58,7 @@ func (a *DealProductsAPIService) AddDealProduct(ctx context.Context, id int32) A
 
 // Execute executes the request
 //  @return AddDealProductResponse
-func (a *DealProductsAPIService) AddDealProductExecute(r ApiAddDealProductRequest) (*AddDealProductResponse, *http.Response, error) {
+func (a *DealProductsAPIService) AddDealProductExecute(r DealProductsAPIAddDealProductRequest) (*AddDealProductResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -148,19 +148,19 @@ func (a *DealProductsAPIService) AddDealProductExecute(r ApiAddDealProductReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddManyDealProductsRequest struct {
+type DealProductsAPIAddManyDealProductsRequest struct {
 	ctx context.Context
 	ApiService *DealProductsAPIService
 	id int32
 	createManyDealProductRequest *CreateManyDealProductRequest
 }
 
-func (r ApiAddManyDealProductsRequest) CreateManyDealProductRequest(createManyDealProductRequest CreateManyDealProductRequest) ApiAddManyDealProductsRequest {
+func (r DealProductsAPIAddManyDealProductsRequest) CreateManyDealProductRequest(createManyDealProductRequest CreateManyDealProductRequest) DealProductsAPIAddManyDealProductsRequest {
 	r.createManyDealProductRequest = &createManyDealProductRequest
 	return r
 }
 
-func (r ApiAddManyDealProductsRequest) Execute() (*AddManyDealProductResponse, *http.Response, error) {
+func (r DealProductsAPIAddManyDealProductsRequest) Execute() (*AddManyDealProductResponse, *http.Response, error) {
 	return r.ApiService.AddManyDealProductsExecute(r)
 }
 
@@ -171,10 +171,10 @@ Adds multiple products to a deal in a single request. Maximum of 100 products al
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiAddManyDealProductsRequest
+ @return DealProductsAPIAddManyDealProductsRequest
 */
-func (a *DealProductsAPIService) AddManyDealProducts(ctx context.Context, id int32) ApiAddManyDealProductsRequest {
-	return ApiAddManyDealProductsRequest{
+func (a *DealProductsAPIService) AddManyDealProducts(ctx context.Context, id int32) DealProductsAPIAddManyDealProductsRequest {
+	return DealProductsAPIAddManyDealProductsRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -183,7 +183,7 @@ func (a *DealProductsAPIService) AddManyDealProducts(ctx context.Context, id int
 
 // Execute executes the request
 //  @return AddManyDealProductResponse
-func (a *DealProductsAPIService) AddManyDealProductsExecute(r ApiAddManyDealProductsRequest) (*AddManyDealProductResponse, *http.Response, error) {
+func (a *DealProductsAPIService) AddManyDealProductsExecute(r DealProductsAPIAddManyDealProductsRequest) (*AddManyDealProductResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -273,14 +273,14 @@ func (a *DealProductsAPIService) AddManyDealProductsExecute(r ApiAddManyDealProd
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteDealProductRequest struct {
+type DealProductsAPIDeleteDealProductRequest struct {
 	ctx context.Context
 	ApiService *DealProductsAPIService
 	id int32
 	productAttachmentId int32
 }
 
-func (r ApiDeleteDealProductRequest) Execute() (*DeleteDealProductResponse, *http.Response, error) {
+func (r DealProductsAPIDeleteDealProductRequest) Execute() (*DeleteDealProductResponse, *http.Response, error) {
 	return r.ApiService.DeleteDealProductExecute(r)
 }
 
@@ -292,10 +292,10 @@ Deletes a product attachment from a deal, using the `product_attachment_id`.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
  @param productAttachmentId The product attachment ID
- @return ApiDeleteDealProductRequest
+ @return DealProductsAPIDeleteDealProductRequest
 */
-func (a *DealProductsAPIService) DeleteDealProduct(ctx context.Context, id int32, productAttachmentId int32) ApiDeleteDealProductRequest {
-	return ApiDeleteDealProductRequest{
+func (a *DealProductsAPIService) DeleteDealProduct(ctx context.Context, id int32, productAttachmentId int32) DealProductsAPIDeleteDealProductRequest {
+	return DealProductsAPIDeleteDealProductRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -305,7 +305,7 @@ func (a *DealProductsAPIService) DeleteDealProduct(ctx context.Context, id int32
 
 // Execute executes the request
 //  @return DeleteDealProductResponse
-func (a *DealProductsAPIService) DeleteDealProductExecute(r ApiDeleteDealProductRequest) (*DeleteDealProductResponse, *http.Response, error) {
+func (a *DealProductsAPIService) DeleteDealProductExecute(r DealProductsAPIDeleteDealProductRequest) (*DeleteDealProductResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -394,7 +394,7 @@ func (a *DealProductsAPIService) DeleteDealProductExecute(r ApiDeleteDealProduct
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteManyDealProductsRequest struct {
+type DealProductsAPIDeleteManyDealProductsRequest struct {
 	ctx context.Context
 	ApiService *DealProductsAPIService
 	id int32
@@ -402,12 +402,12 @@ type ApiDeleteManyDealProductsRequest struct {
 }
 
 // Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
-func (r ApiDeleteManyDealProductsRequest) Ids(ids string) ApiDeleteManyDealProductsRequest {
+func (r DealProductsAPIDeleteManyDealProductsRequest) Ids(ids string) DealProductsAPIDeleteManyDealProductsRequest {
 	r.ids = &ids
 	return r
 }
 
-func (r ApiDeleteManyDealProductsRequest) Execute() (*DeleteManyDealProductResponse, *http.Response, error) {
+func (r DealProductsAPIDeleteManyDealProductsRequest) Execute() (*DeleteManyDealProductResponse, *http.Response, error) {
 	return r.ApiService.DeleteManyDealProductsExecute(r)
 }
 
@@ -418,10 +418,10 @@ Deletes multiple products from a deal. If no product IDs are specified, up to 10
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiDeleteManyDealProductsRequest
+ @return DealProductsAPIDeleteManyDealProductsRequest
 */
-func (a *DealProductsAPIService) DeleteManyDealProducts(ctx context.Context, id int32) ApiDeleteManyDealProductsRequest {
-	return ApiDeleteManyDealProductsRequest{
+func (a *DealProductsAPIService) DeleteManyDealProducts(ctx context.Context, id int32) DealProductsAPIDeleteManyDealProductsRequest {
+	return DealProductsAPIDeleteManyDealProductsRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -430,7 +430,7 @@ func (a *DealProductsAPIService) DeleteManyDealProducts(ctx context.Context, id 
 
 // Execute executes the request
 //  @return DeleteManyDealProductResponse
-func (a *DealProductsAPIService) DeleteManyDealProductsExecute(r ApiDeleteManyDealProductsRequest) (*DeleteManyDealProductResponse, *http.Response, error) {
+func (a *DealProductsAPIService) DeleteManyDealProductsExecute(r DealProductsAPIDeleteManyDealProductsRequest) (*DeleteManyDealProductResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -521,7 +521,7 @@ func (a *DealProductsAPIService) DeleteManyDealProductsExecute(r ApiDeleteManyDe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDealProductsRequest struct {
+type DealProductsAPIGetDealProductsRequest struct {
 	ctx context.Context
 	ApiService *DealProductsAPIService
 	id int32
@@ -532,30 +532,30 @@ type ApiGetDealProductsRequest struct {
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetDealProductsRequest) Cursor(cursor string) ApiGetDealProductsRequest {
+func (r DealProductsAPIGetDealProductsRequest) Cursor(cursor string) DealProductsAPIGetDealProductsRequest {
 	r.cursor = &cursor
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetDealProductsRequest) Limit(limit int32) ApiGetDealProductsRequest {
+func (r DealProductsAPIGetDealProductsRequest) Limit(limit int32) DealProductsAPIGetDealProductsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
-func (r ApiGetDealProductsRequest) SortBy(sortBy string) ApiGetDealProductsRequest {
+func (r DealProductsAPIGetDealProductsRequest) SortBy(sortBy string) DealProductsAPIGetDealProductsRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetDealProductsRequest) SortDirection(sortDirection string) ApiGetDealProductsRequest {
+func (r DealProductsAPIGetDealProductsRequest) SortDirection(sortDirection string) DealProductsAPIGetDealProductsRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
-func (r ApiGetDealProductsRequest) Execute() (*GetDealsProductsResponse, *http.Response, error) {
+func (r DealProductsAPIGetDealProductsRequest) Execute() (*GetDealsProductsResponse, *http.Response, error) {
 	return r.ApiService.GetDealProductsExecute(r)
 }
 
@@ -566,10 +566,10 @@ Lists products attached to a deal.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiGetDealProductsRequest
+ @return DealProductsAPIGetDealProductsRequest
 */
-func (a *DealProductsAPIService) GetDealProducts(ctx context.Context, id int32) ApiGetDealProductsRequest {
-	return ApiGetDealProductsRequest{
+func (a *DealProductsAPIService) GetDealProducts(ctx context.Context, id int32) DealProductsAPIGetDealProductsRequest {
+	return DealProductsAPIGetDealProductsRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -578,7 +578,7 @@ func (a *DealProductsAPIService) GetDealProducts(ctx context.Context, id int32) 
 
 // Execute executes the request
 //  @return GetDealsProductsResponse
-func (a *DealProductsAPIService) GetDealProductsExecute(r ApiGetDealProductsRequest) (*GetDealsProductsResponse, *http.Response, error) {
+func (a *DealProductsAPIService) GetDealProductsExecute(r DealProductsAPIGetDealProductsRequest) (*GetDealsProductsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -686,7 +686,7 @@ func (a *DealProductsAPIService) GetDealProductsExecute(r ApiGetDealProductsRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetDealsProductsRequest struct {
+type DealProductsAPIGetDealsProductsRequest struct {
 	ctx context.Context
 	ApiService *DealProductsAPIService
 	dealIds *[]int32
@@ -697,36 +697,36 @@ type ApiGetDealsProductsRequest struct {
 }
 
 // An array of integers with the IDs of the deals for which the attached products will be returned. A maximum of 100 deal IDs can be provided.
-func (r ApiGetDealsProductsRequest) DealIds(dealIds []int32) ApiGetDealsProductsRequest {
+func (r DealProductsAPIGetDealsProductsRequest) DealIds(dealIds []int32) DealProductsAPIGetDealsProductsRequest {
 	r.dealIds = &dealIds
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetDealsProductsRequest) Cursor(cursor string) ApiGetDealsProductsRequest {
+func (r DealProductsAPIGetDealsProductsRequest) Cursor(cursor string) DealProductsAPIGetDealsProductsRequest {
 	r.cursor = &cursor
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetDealsProductsRequest) Limit(limit int32) ApiGetDealsProductsRequest {
+func (r DealProductsAPIGetDealsProductsRequest) Limit(limit int32) DealProductsAPIGetDealsProductsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;deal_id&#x60;, &#x60;add_time&#x60;, &#x60;update_time&#x60;, &#x60;order_nr&#x60;.
-func (r ApiGetDealsProductsRequest) SortBy(sortBy string) ApiGetDealsProductsRequest {
+func (r DealProductsAPIGetDealsProductsRequest) SortBy(sortBy string) DealProductsAPIGetDealsProductsRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetDealsProductsRequest) SortDirection(sortDirection string) ApiGetDealsProductsRequest {
+func (r DealProductsAPIGetDealsProductsRequest) SortDirection(sortDirection string) DealProductsAPIGetDealsProductsRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
-func (r ApiGetDealsProductsRequest) Execute() (*GetDealsProductsResponse, *http.Response, error) {
+func (r DealProductsAPIGetDealsProductsRequest) Execute() (*GetDealsProductsResponse, *http.Response, error) {
 	return r.ApiService.GetDealsProductsExecute(r)
 }
 
@@ -736,10 +736,10 @@ GetDealsProducts Get deal products of several deals
 Returns data about products attached to deals
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetDealsProductsRequest
+ @return DealProductsAPIGetDealsProductsRequest
 */
-func (a *DealProductsAPIService) GetDealsProducts(ctx context.Context) ApiGetDealsProductsRequest {
-	return ApiGetDealsProductsRequest{
+func (a *DealProductsAPIService) GetDealsProducts(ctx context.Context) DealProductsAPIGetDealsProductsRequest {
+	return DealProductsAPIGetDealsProductsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -747,7 +747,7 @@ func (a *DealProductsAPIService) GetDealsProducts(ctx context.Context) ApiGetDea
 
 // Execute executes the request
 //  @return GetDealsProductsResponse
-func (a *DealProductsAPIService) GetDealsProductsExecute(r ApiGetDealsProductsRequest) (*GetDealsProductsResponse, *http.Response, error) {
+func (a *DealProductsAPIService) GetDealsProductsExecute(r DealProductsAPIGetDealsProductsRequest) (*GetDealsProductsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -858,7 +858,7 @@ func (a *DealProductsAPIService) GetDealsProductsExecute(r ApiGetDealsProductsRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateDealProductRequest struct {
+type DealProductsAPIUpdateDealProductRequest struct {
 	ctx context.Context
 	ApiService *DealProductsAPIService
 	id int32
@@ -866,12 +866,12 @@ type ApiUpdateDealProductRequest struct {
 	updateDealProductRequest *UpdateDealProductRequest
 }
 
-func (r ApiUpdateDealProductRequest) UpdateDealProductRequest(updateDealProductRequest UpdateDealProductRequest) ApiUpdateDealProductRequest {
+func (r DealProductsAPIUpdateDealProductRequest) UpdateDealProductRequest(updateDealProductRequest UpdateDealProductRequest) DealProductsAPIUpdateDealProductRequest {
 	r.updateDealProductRequest = &updateDealProductRequest
 	return r
 }
 
-func (r ApiUpdateDealProductRequest) Execute() (*AddDealProductResponse, *http.Response, error) {
+func (r DealProductsAPIUpdateDealProductRequest) Execute() (*AddDealProductResponse, *http.Response, error) {
 	return r.ApiService.UpdateDealProductExecute(r)
 }
 
@@ -883,10 +883,10 @@ Updates the details of the product that has been attached to a deal.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
  @param productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
- @return ApiUpdateDealProductRequest
+ @return DealProductsAPIUpdateDealProductRequest
 */
-func (a *DealProductsAPIService) UpdateDealProduct(ctx context.Context, id int32, productAttachmentId int32) ApiUpdateDealProductRequest {
-	return ApiUpdateDealProductRequest{
+func (a *DealProductsAPIService) UpdateDealProduct(ctx context.Context, id int32, productAttachmentId int32) DealProductsAPIUpdateDealProductRequest {
+	return DealProductsAPIUpdateDealProductRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -896,7 +896,7 @@ func (a *DealProductsAPIService) UpdateDealProduct(ctx context.Context, id int32
 
 // Execute executes the request
 //  @return AddDealProductResponse
-func (a *DealProductsAPIService) UpdateDealProductExecute(r ApiUpdateDealProductRequest) (*AddDealProductResponse, *http.Response, error) {
+func (a *DealProductsAPIService) UpdateDealProductExecute(r DealProductsAPIUpdateDealProductRequest) (*AddDealProductResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

@@ -23,18 +23,18 @@ import (
 // ProjectPhasesAPIService ProjectPhasesAPI service
 type ProjectPhasesAPIService service
 
-type ApiAddProjectPhaseRequest struct {
+type ProjectPhasesAPIAddProjectPhaseRequest struct {
 	ctx context.Context
 	ApiService *ProjectPhasesAPIService
 	addProjectPhaseRequest *AddProjectPhaseRequest
 }
 
-func (r ApiAddProjectPhaseRequest) AddProjectPhaseRequest(addProjectPhaseRequest AddProjectPhaseRequest) ApiAddProjectPhaseRequest {
+func (r ProjectPhasesAPIAddProjectPhaseRequest) AddProjectPhaseRequest(addProjectPhaseRequest AddProjectPhaseRequest) ProjectPhasesAPIAddProjectPhaseRequest {
 	r.addProjectPhaseRequest = &addProjectPhaseRequest
 	return r
 }
 
-func (r ApiAddProjectPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (r ProjectPhasesAPIAddProjectPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
 	return r.ApiService.AddProjectPhaseExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddProjectPhase Add a project phase
 Adds a new project phase to a board.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddProjectPhaseRequest
+ @return ProjectPhasesAPIAddProjectPhaseRequest
 */
-func (a *ProjectPhasesAPIService) AddProjectPhase(ctx context.Context) ApiAddProjectPhaseRequest {
-	return ApiAddProjectPhaseRequest{
+func (a *ProjectPhasesAPIService) AddProjectPhase(ctx context.Context) ProjectPhasesAPIAddProjectPhaseRequest {
+	return ProjectPhasesAPIAddProjectPhaseRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *ProjectPhasesAPIService) AddProjectPhase(ctx context.Context) ApiAddPro
 
 // Execute executes the request
 //  @return UpsertProjectPhaseResponse
-func (a *ProjectPhasesAPIService) AddProjectPhaseExecute(r ApiAddProjectPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (a *ProjectPhasesAPIService) AddProjectPhaseExecute(r ProjectPhasesAPIAddProjectPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -147,13 +147,13 @@ func (a *ProjectPhasesAPIService) AddProjectPhaseExecute(r ApiAddProjectPhaseReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProjectPhaseRequest struct {
+type ProjectPhasesAPIDeleteProjectPhaseRequest struct {
 	ctx context.Context
 	ApiService *ProjectPhasesAPIService
 	id int32
 }
 
-func (r ApiDeleteProjectPhaseRequest) Execute() (*DeleteProjectPhaseResponse, *http.Response, error) {
+func (r ProjectPhasesAPIDeleteProjectPhaseRequest) Execute() (*DeleteProjectPhaseResponse, *http.Response, error) {
 	return r.ApiService.DeleteProjectPhaseExecute(r)
 }
 
@@ -164,10 +164,10 @@ Marks a project phase as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project phase
- @return ApiDeleteProjectPhaseRequest
+ @return ProjectPhasesAPIDeleteProjectPhaseRequest
 */
-func (a *ProjectPhasesAPIService) DeleteProjectPhase(ctx context.Context, id int32) ApiDeleteProjectPhaseRequest {
-	return ApiDeleteProjectPhaseRequest{
+func (a *ProjectPhasesAPIService) DeleteProjectPhase(ctx context.Context, id int32) ProjectPhasesAPIDeleteProjectPhaseRequest {
+	return ProjectPhasesAPIDeleteProjectPhaseRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -176,7 +176,7 @@ func (a *ProjectPhasesAPIService) DeleteProjectPhase(ctx context.Context, id int
 
 // Execute executes the request
 //  @return DeleteProjectPhaseResponse
-func (a *ProjectPhasesAPIService) DeleteProjectPhaseExecute(r ApiDeleteProjectPhaseRequest) (*DeleteProjectPhaseResponse, *http.Response, error) {
+func (a *ProjectPhasesAPIService) DeleteProjectPhaseExecute(r ProjectPhasesAPIDeleteProjectPhaseRequest) (*DeleteProjectPhaseResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -264,13 +264,13 @@ func (a *ProjectPhasesAPIService) DeleteProjectPhaseExecute(r ApiDeleteProjectPh
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectsPhaseRequest struct {
+type ProjectPhasesAPIGetProjectsPhaseRequest struct {
 	ctx context.Context
 	ApiService *ProjectPhasesAPIService
 	id int32
 }
 
-func (r ApiGetProjectsPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (r ProjectPhasesAPIGetProjectsPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
 	return r.ApiService.GetProjectsPhaseExecute(r)
 }
 
@@ -281,10 +281,10 @@ Returns the details of a specific project phase.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project phase
- @return ApiGetProjectsPhaseRequest
+ @return ProjectPhasesAPIGetProjectsPhaseRequest
 */
-func (a *ProjectPhasesAPIService) GetProjectsPhase(ctx context.Context, id int32) ApiGetProjectsPhaseRequest {
-	return ApiGetProjectsPhaseRequest{
+func (a *ProjectPhasesAPIService) GetProjectsPhase(ctx context.Context, id int32) ProjectPhasesAPIGetProjectsPhaseRequest {
+	return ProjectPhasesAPIGetProjectsPhaseRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -293,7 +293,7 @@ func (a *ProjectPhasesAPIService) GetProjectsPhase(ctx context.Context, id int32
 
 // Execute executes the request
 //  @return UpsertProjectPhaseResponse
-func (a *ProjectPhasesAPIService) GetProjectsPhaseExecute(r ApiGetProjectsPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (a *ProjectPhasesAPIService) GetProjectsPhaseExecute(r ProjectPhasesAPIGetProjectsPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -381,19 +381,19 @@ func (a *ProjectPhasesAPIService) GetProjectsPhaseExecute(r ApiGetProjectsPhaseR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectsPhasesRequest struct {
+type ProjectPhasesAPIGetProjectsPhasesRequest struct {
 	ctx context.Context
 	ApiService *ProjectPhasesAPIService
 	boardId *int32
 }
 
 // The ID of the board for which phases are requested
-func (r ApiGetProjectsPhasesRequest) BoardId(boardId int32) ApiGetProjectsPhasesRequest {
+func (r ProjectPhasesAPIGetProjectsPhasesRequest) BoardId(boardId int32) ProjectPhasesAPIGetProjectsPhasesRequest {
 	r.boardId = &boardId
 	return r
 }
 
-func (r ApiGetProjectsPhasesRequest) Execute() (*GetProjectPhasesResponse, *http.Response, error) {
+func (r ProjectPhasesAPIGetProjectsPhasesRequest) Execute() (*GetProjectPhasesResponse, *http.Response, error) {
 	return r.ApiService.GetProjectsPhasesExecute(r)
 }
 
@@ -403,10 +403,10 @@ GetProjectsPhases Get project phases
 Returns all active project phases under a specific board.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProjectsPhasesRequest
+ @return ProjectPhasesAPIGetProjectsPhasesRequest
 */
-func (a *ProjectPhasesAPIService) GetProjectsPhases(ctx context.Context) ApiGetProjectsPhasesRequest {
-	return ApiGetProjectsPhasesRequest{
+func (a *ProjectPhasesAPIService) GetProjectsPhases(ctx context.Context) ProjectPhasesAPIGetProjectsPhasesRequest {
+	return ProjectPhasesAPIGetProjectsPhasesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -414,7 +414,7 @@ func (a *ProjectPhasesAPIService) GetProjectsPhases(ctx context.Context) ApiGetP
 
 // Execute executes the request
 //  @return GetProjectPhasesResponse
-func (a *ProjectPhasesAPIService) GetProjectsPhasesExecute(r ApiGetProjectsPhasesRequest) (*GetProjectPhasesResponse, *http.Response, error) {
+func (a *ProjectPhasesAPIService) GetProjectsPhasesExecute(r ProjectPhasesAPIGetProjectsPhasesRequest) (*GetProjectPhasesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -505,19 +505,19 @@ func (a *ProjectPhasesAPIService) GetProjectsPhasesExecute(r ApiGetProjectsPhase
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProjectPhaseRequest struct {
+type ProjectPhasesAPIUpdateProjectPhaseRequest struct {
 	ctx context.Context
 	ApiService *ProjectPhasesAPIService
 	id int32
 	updateProjectPhaseRequest *UpdateProjectPhaseRequest
 }
 
-func (r ApiUpdateProjectPhaseRequest) UpdateProjectPhaseRequest(updateProjectPhaseRequest UpdateProjectPhaseRequest) ApiUpdateProjectPhaseRequest {
+func (r ProjectPhasesAPIUpdateProjectPhaseRequest) UpdateProjectPhaseRequest(updateProjectPhaseRequest UpdateProjectPhaseRequest) ProjectPhasesAPIUpdateProjectPhaseRequest {
 	r.updateProjectPhaseRequest = &updateProjectPhaseRequest
 	return r
 }
 
-func (r ApiUpdateProjectPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (r ProjectPhasesAPIUpdateProjectPhaseRequest) Execute() (*UpsertProjectPhaseResponse, *http.Response, error) {
 	return r.ApiService.UpdateProjectPhaseExecute(r)
 }
 
@@ -528,10 +528,10 @@ Updates the properties of a project phase.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project phase
- @return ApiUpdateProjectPhaseRequest
+ @return ProjectPhasesAPIUpdateProjectPhaseRequest
 */
-func (a *ProjectPhasesAPIService) UpdateProjectPhase(ctx context.Context, id int32) ApiUpdateProjectPhaseRequest {
-	return ApiUpdateProjectPhaseRequest{
+func (a *ProjectPhasesAPIService) UpdateProjectPhase(ctx context.Context, id int32) ProjectPhasesAPIUpdateProjectPhaseRequest {
+	return ProjectPhasesAPIUpdateProjectPhaseRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -540,7 +540,7 @@ func (a *ProjectPhasesAPIService) UpdateProjectPhase(ctx context.Context, id int
 
 // Execute executes the request
 //  @return UpsertProjectPhaseResponse
-func (a *ProjectPhasesAPIService) UpdateProjectPhaseExecute(r ApiUpdateProjectPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
+func (a *ProjectPhasesAPIService) UpdateProjectPhaseExecute(r ProjectPhasesAPIUpdateProjectPhaseRequest) (*UpsertProjectPhaseResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

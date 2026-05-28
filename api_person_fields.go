@@ -23,18 +23,18 @@ import (
 // PersonFieldsAPIService PersonFieldsAPI service
 type PersonFieldsAPIService service
 
-type ApiAddPersonFieldRequest struct {
+type PersonFieldsAPIAddPersonFieldRequest struct {
 	ctx context.Context
 	ApiService *PersonFieldsAPIService
 	addPersonFieldRequest *AddPersonFieldRequest
 }
 
-func (r ApiAddPersonFieldRequest) AddPersonFieldRequest(addPersonFieldRequest AddPersonFieldRequest) ApiAddPersonFieldRequest {
+func (r PersonFieldsAPIAddPersonFieldRequest) AddPersonFieldRequest(addPersonFieldRequest AddPersonFieldRequest) PersonFieldsAPIAddPersonFieldRequest {
 	r.addPersonFieldRequest = &addPersonFieldRequest
 	return r
 }
 
-func (r ApiAddPersonFieldRequest) Execute() (*AddPersonField200Response, *http.Response, error) {
+func (r PersonFieldsAPIAddPersonFieldRequest) Execute() (*AddPersonField200Response, *http.Response, error) {
 	return r.ApiService.AddPersonFieldExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddPersonField Create one person field
 Creates a new person custom field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddPersonFieldRequest
+ @return PersonFieldsAPIAddPersonFieldRequest
 */
-func (a *PersonFieldsAPIService) AddPersonField(ctx context.Context) ApiAddPersonFieldRequest {
-	return ApiAddPersonFieldRequest{
+func (a *PersonFieldsAPIService) AddPersonField(ctx context.Context) PersonFieldsAPIAddPersonFieldRequest {
+	return PersonFieldsAPIAddPersonFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *PersonFieldsAPIService) AddPersonField(ctx context.Context) ApiAddPerso
 
 // Execute executes the request
 //  @return AddPersonField200Response
-func (a *PersonFieldsAPIService) AddPersonFieldExecute(r ApiAddPersonFieldRequest) (*AddPersonField200Response, *http.Response, error) {
+func (a *PersonFieldsAPIService) AddPersonFieldExecute(r PersonFieldsAPIAddPersonFieldRequest) (*AddPersonField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -147,19 +147,19 @@ func (a *PersonFieldsAPIService) AddPersonFieldExecute(r ApiAddPersonFieldReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddPersonFieldOptionsRequest struct {
+type PersonFieldsAPIAddPersonFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *PersonFieldsAPIService
 	fieldCode string
 	addDealFieldOptionsRequestInner *[]AddDealFieldOptionsRequestInner
 }
 
-func (r ApiAddPersonFieldOptionsRequest) AddDealFieldOptionsRequestInner(addDealFieldOptionsRequestInner []AddDealFieldOptionsRequestInner) ApiAddPersonFieldOptionsRequest {
+func (r PersonFieldsAPIAddPersonFieldOptionsRequest) AddDealFieldOptionsRequestInner(addDealFieldOptionsRequestInner []AddDealFieldOptionsRequestInner) PersonFieldsAPIAddPersonFieldOptionsRequest {
 	r.addDealFieldOptionsRequestInner = &addDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiAddPersonFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r PersonFieldsAPIAddPersonFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.AddPersonFieldOptionsExecute(r)
 }
 
@@ -170,10 +170,10 @@ Adds new options to a person custom field that supports options (enum or set fie
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiAddPersonFieldOptionsRequest
+ @return PersonFieldsAPIAddPersonFieldOptionsRequest
 */
-func (a *PersonFieldsAPIService) AddPersonFieldOptions(ctx context.Context, fieldCode string) ApiAddPersonFieldOptionsRequest {
-	return ApiAddPersonFieldOptionsRequest{
+func (a *PersonFieldsAPIService) AddPersonFieldOptions(ctx context.Context, fieldCode string) PersonFieldsAPIAddPersonFieldOptionsRequest {
+	return PersonFieldsAPIAddPersonFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -182,7 +182,7 @@ func (a *PersonFieldsAPIService) AddPersonFieldOptions(ctx context.Context, fiel
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *PersonFieldsAPIService) AddPersonFieldOptionsExecute(r ApiAddPersonFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *PersonFieldsAPIService) AddPersonFieldOptionsExecute(r PersonFieldsAPIAddPersonFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -275,13 +275,13 @@ func (a *PersonFieldsAPIService) AddPersonFieldOptionsExecute(r ApiAddPersonFiel
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeletePersonFieldRequest struct {
+type PersonFieldsAPIDeletePersonFieldRequest struct {
 	ctx context.Context
 	ApiService *PersonFieldsAPIService
 	fieldCode string
 }
 
-func (r ApiDeletePersonFieldRequest) Execute() (*DeletePersonField200Response, *http.Response, error) {
+func (r PersonFieldsAPIDeletePersonFieldRequest) Execute() (*DeletePersonField200Response, *http.Response, error) {
 	return r.ApiService.DeletePersonFieldExecute(r)
 }
 
@@ -292,10 +292,10 @@ Marks a custom field as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiDeletePersonFieldRequest
+ @return PersonFieldsAPIDeletePersonFieldRequest
 */
-func (a *PersonFieldsAPIService) DeletePersonField(ctx context.Context, fieldCode string) ApiDeletePersonFieldRequest {
-	return ApiDeletePersonFieldRequest{
+func (a *PersonFieldsAPIService) DeletePersonField(ctx context.Context, fieldCode string) PersonFieldsAPIDeletePersonFieldRequest {
+	return PersonFieldsAPIDeletePersonFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -304,7 +304,7 @@ func (a *PersonFieldsAPIService) DeletePersonField(ctx context.Context, fieldCod
 
 // Execute executes the request
 //  @return DeletePersonField200Response
-func (a *PersonFieldsAPIService) DeletePersonFieldExecute(r ApiDeletePersonFieldRequest) (*DeletePersonField200Response, *http.Response, error) {
+func (a *PersonFieldsAPIService) DeletePersonFieldExecute(r PersonFieldsAPIDeletePersonFieldRequest) (*DeletePersonField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -392,19 +392,19 @@ func (a *PersonFieldsAPIService) DeletePersonFieldExecute(r ApiDeletePersonField
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeletePersonFieldOptionsRequest struct {
+type PersonFieldsAPIDeletePersonFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *PersonFieldsAPIService
 	fieldCode string
 	deleteDealFieldOptionsRequestInner *[]DeleteDealFieldOptionsRequestInner
 }
 
-func (r ApiDeletePersonFieldOptionsRequest) DeleteDealFieldOptionsRequestInner(deleteDealFieldOptionsRequestInner []DeleteDealFieldOptionsRequestInner) ApiDeletePersonFieldOptionsRequest {
+func (r PersonFieldsAPIDeletePersonFieldOptionsRequest) DeleteDealFieldOptionsRequestInner(deleteDealFieldOptionsRequestInner []DeleteDealFieldOptionsRequestInner) PersonFieldsAPIDeletePersonFieldOptionsRequest {
 	r.deleteDealFieldOptionsRequestInner = &deleteDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiDeletePersonFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r PersonFieldsAPIDeletePersonFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.DeletePersonFieldOptionsExecute(r)
 }
 
@@ -415,10 +415,10 @@ Removes existing options from a person custom field. This operation is atomic an
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiDeletePersonFieldOptionsRequest
+ @return PersonFieldsAPIDeletePersonFieldOptionsRequest
 */
-func (a *PersonFieldsAPIService) DeletePersonFieldOptions(ctx context.Context, fieldCode string) ApiDeletePersonFieldOptionsRequest {
-	return ApiDeletePersonFieldOptionsRequest{
+func (a *PersonFieldsAPIService) DeletePersonFieldOptions(ctx context.Context, fieldCode string) PersonFieldsAPIDeletePersonFieldOptionsRequest {
+	return PersonFieldsAPIDeletePersonFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -427,7 +427,7 @@ func (a *PersonFieldsAPIService) DeletePersonFieldOptions(ctx context.Context, f
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *PersonFieldsAPIService) DeletePersonFieldOptionsExecute(r ApiDeletePersonFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *PersonFieldsAPIService) DeletePersonFieldOptionsExecute(r PersonFieldsAPIDeletePersonFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -520,7 +520,7 @@ func (a *PersonFieldsAPIService) DeletePersonFieldOptionsExecute(r ApiDeletePers
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPersonFieldRequest struct {
+type PersonFieldsAPIGetPersonFieldRequest struct {
 	ctx context.Context
 	ApiService *PersonFieldsAPIService
 	fieldCode string
@@ -528,12 +528,12 @@ type ApiGetPersonFieldRequest struct {
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
-func (r ApiGetPersonFieldRequest) IncludeFields(includeFields string) ApiGetPersonFieldRequest {
+func (r PersonFieldsAPIGetPersonFieldRequest) IncludeFields(includeFields string) PersonFieldsAPIGetPersonFieldRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
-func (r ApiGetPersonFieldRequest) Execute() (*AddPersonField200Response, *http.Response, error) {
+func (r PersonFieldsAPIGetPersonFieldRequest) Execute() (*AddPersonField200Response, *http.Response, error) {
 	return r.ApiService.GetPersonFieldExecute(r)
 }
 
@@ -544,10 +544,10 @@ Returns metadata about a specific person field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiGetPersonFieldRequest
+ @return PersonFieldsAPIGetPersonFieldRequest
 */
-func (a *PersonFieldsAPIService) GetPersonField(ctx context.Context, fieldCode string) ApiGetPersonFieldRequest {
-	return ApiGetPersonFieldRequest{
+func (a *PersonFieldsAPIService) GetPersonField(ctx context.Context, fieldCode string) PersonFieldsAPIGetPersonFieldRequest {
+	return PersonFieldsAPIGetPersonFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -556,7 +556,7 @@ func (a *PersonFieldsAPIService) GetPersonField(ctx context.Context, fieldCode s
 
 // Execute executes the request
 //  @return AddPersonField200Response
-func (a *PersonFieldsAPIService) GetPersonFieldExecute(r ApiGetPersonFieldRequest) (*AddPersonField200Response, *http.Response, error) {
+func (a *PersonFieldsAPIService) GetPersonFieldExecute(r PersonFieldsAPIGetPersonFieldRequest) (*AddPersonField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -647,7 +647,7 @@ func (a *PersonFieldsAPIService) GetPersonFieldExecute(r ApiGetPersonFieldReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPersonFieldsRequest struct {
+type PersonFieldsAPIGetPersonFieldsRequest struct {
 	ctx context.Context
 	ApiService *PersonFieldsAPIService
 	includeFields *string
@@ -656,24 +656,24 @@ type ApiGetPersonFieldsRequest struct {
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
-func (r ApiGetPersonFieldsRequest) IncludeFields(includeFields string) ApiGetPersonFieldsRequest {
+func (r PersonFieldsAPIGetPersonFieldsRequest) IncludeFields(includeFields string) PersonFieldsAPIGetPersonFieldsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetPersonFieldsRequest) Limit(limit int32) ApiGetPersonFieldsRequest {
+func (r PersonFieldsAPIGetPersonFieldsRequest) Limit(limit int32) PersonFieldsAPIGetPersonFieldsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetPersonFieldsRequest) Cursor(cursor string) ApiGetPersonFieldsRequest {
+func (r PersonFieldsAPIGetPersonFieldsRequest) Cursor(cursor string) PersonFieldsAPIGetPersonFieldsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetPersonFieldsRequest) Execute() (*GetPersonFields200Response, *http.Response, error) {
+func (r PersonFieldsAPIGetPersonFieldsRequest) Execute() (*GetPersonFields200Response, *http.Response, error) {
 	return r.ApiService.GetPersonFieldsExecute(r)
 }
 
@@ -683,10 +683,10 @@ GetPersonFields Get all person fields
 Returns metadata about all person fields in the company.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPersonFieldsRequest
+ @return PersonFieldsAPIGetPersonFieldsRequest
 */
-func (a *PersonFieldsAPIService) GetPersonFields(ctx context.Context) ApiGetPersonFieldsRequest {
-	return ApiGetPersonFieldsRequest{
+func (a *PersonFieldsAPIService) GetPersonFields(ctx context.Context) PersonFieldsAPIGetPersonFieldsRequest {
+	return PersonFieldsAPIGetPersonFieldsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -694,7 +694,7 @@ func (a *PersonFieldsAPIService) GetPersonFields(ctx context.Context) ApiGetPers
 
 // Execute executes the request
 //  @return GetPersonFields200Response
-func (a *PersonFieldsAPIService) GetPersonFieldsExecute(r ApiGetPersonFieldsRequest) (*GetPersonFields200Response, *http.Response, error) {
+func (a *PersonFieldsAPIService) GetPersonFieldsExecute(r PersonFieldsAPIGetPersonFieldsRequest) (*GetPersonFields200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -790,19 +790,19 @@ func (a *PersonFieldsAPIService) GetPersonFieldsExecute(r ApiGetPersonFieldsRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdatePersonFieldRequest struct {
+type PersonFieldsAPIUpdatePersonFieldRequest struct {
 	ctx context.Context
 	ApiService *PersonFieldsAPIService
 	fieldCode string
 	updatePersonFieldRequest *UpdatePersonFieldRequest
 }
 
-func (r ApiUpdatePersonFieldRequest) UpdatePersonFieldRequest(updatePersonFieldRequest UpdatePersonFieldRequest) ApiUpdatePersonFieldRequest {
+func (r PersonFieldsAPIUpdatePersonFieldRequest) UpdatePersonFieldRequest(updatePersonFieldRequest UpdatePersonFieldRequest) PersonFieldsAPIUpdatePersonFieldRequest {
 	r.updatePersonFieldRequest = &updatePersonFieldRequest
 	return r
 }
 
-func (r ApiUpdatePersonFieldRequest) Execute() (*AddPersonField200Response, *http.Response, error) {
+func (r PersonFieldsAPIUpdatePersonFieldRequest) Execute() (*AddPersonField200Response, *http.Response, error) {
 	return r.ApiService.UpdatePersonFieldExecute(r)
 }
 
@@ -813,10 +813,10 @@ Updates a person custom field. The field_code and field_type cannot be changed. 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiUpdatePersonFieldRequest
+ @return PersonFieldsAPIUpdatePersonFieldRequest
 */
-func (a *PersonFieldsAPIService) UpdatePersonField(ctx context.Context, fieldCode string) ApiUpdatePersonFieldRequest {
-	return ApiUpdatePersonFieldRequest{
+func (a *PersonFieldsAPIService) UpdatePersonField(ctx context.Context, fieldCode string) PersonFieldsAPIUpdatePersonFieldRequest {
+	return PersonFieldsAPIUpdatePersonFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -825,7 +825,7 @@ func (a *PersonFieldsAPIService) UpdatePersonField(ctx context.Context, fieldCod
 
 // Execute executes the request
 //  @return AddPersonField200Response
-func (a *PersonFieldsAPIService) UpdatePersonFieldExecute(r ApiUpdatePersonFieldRequest) (*AddPersonField200Response, *http.Response, error) {
+func (a *PersonFieldsAPIService) UpdatePersonFieldExecute(r PersonFieldsAPIUpdatePersonFieldRequest) (*AddPersonField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -918,19 +918,19 @@ func (a *PersonFieldsAPIService) UpdatePersonFieldExecute(r ApiUpdatePersonField
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdatePersonFieldOptionsRequest struct {
+type PersonFieldsAPIUpdatePersonFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *PersonFieldsAPIService
 	fieldCode string
 	updateDealFieldOptionsRequestInner *[]UpdateDealFieldOptionsRequestInner
 }
 
-func (r ApiUpdatePersonFieldOptionsRequest) UpdateDealFieldOptionsRequestInner(updateDealFieldOptionsRequestInner []UpdateDealFieldOptionsRequestInner) ApiUpdatePersonFieldOptionsRequest {
+func (r PersonFieldsAPIUpdatePersonFieldOptionsRequest) UpdateDealFieldOptionsRequestInner(updateDealFieldOptionsRequestInner []UpdateDealFieldOptionsRequestInner) PersonFieldsAPIUpdatePersonFieldOptionsRequest {
 	r.updateDealFieldOptionsRequestInner = &updateDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiUpdatePersonFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r PersonFieldsAPIUpdatePersonFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.UpdatePersonFieldOptionsExecute(r)
 }
 
@@ -941,10 +941,10 @@ Updates existing options for a person custom field. This operation is atomic and
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiUpdatePersonFieldOptionsRequest
+ @return PersonFieldsAPIUpdatePersonFieldOptionsRequest
 */
-func (a *PersonFieldsAPIService) UpdatePersonFieldOptions(ctx context.Context, fieldCode string) ApiUpdatePersonFieldOptionsRequest {
-	return ApiUpdatePersonFieldOptionsRequest{
+func (a *PersonFieldsAPIService) UpdatePersonFieldOptions(ctx context.Context, fieldCode string) PersonFieldsAPIUpdatePersonFieldOptionsRequest {
+	return PersonFieldsAPIUpdatePersonFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -953,7 +953,7 @@ func (a *PersonFieldsAPIService) UpdatePersonFieldOptions(ctx context.Context, f
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *PersonFieldsAPIService) UpdatePersonFieldOptionsExecute(r ApiUpdatePersonFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *PersonFieldsAPIService) UpdatePersonFieldOptionsExecute(r PersonFieldsAPIUpdatePersonFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

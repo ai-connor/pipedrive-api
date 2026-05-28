@@ -24,14 +24,14 @@ import (
 // DealInstallmentsAPIService DealInstallmentsAPI service
 type DealInstallmentsAPIService service
 
-type ApiDeleteInstallmentRequest struct {
+type DealInstallmentsAPIDeleteInstallmentRequest struct {
 	ctx context.Context
 	ApiService *DealInstallmentsAPIService
 	id int32
 	installmentId int32
 }
 
-func (r ApiDeleteInstallmentRequest) Execute() (*DeleteInstallmentResponse, *http.Response, error) {
+func (r DealInstallmentsAPIDeleteInstallmentRequest) Execute() (*DeleteInstallmentResponse, *http.Response, error) {
 	return r.ApiService.DeleteInstallmentExecute(r)
 }
 
@@ -46,10 +46,10 @@ Only available in Growth and above plans.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
  @param installmentId The ID of the installment
- @return ApiDeleteInstallmentRequest
+ @return DealInstallmentsAPIDeleteInstallmentRequest
 */
-func (a *DealInstallmentsAPIService) DeleteInstallment(ctx context.Context, id int32, installmentId int32) ApiDeleteInstallmentRequest {
-	return ApiDeleteInstallmentRequest{
+func (a *DealInstallmentsAPIService) DeleteInstallment(ctx context.Context, id int32, installmentId int32) DealInstallmentsAPIDeleteInstallmentRequest {
+	return DealInstallmentsAPIDeleteInstallmentRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -59,7 +59,7 @@ func (a *DealInstallmentsAPIService) DeleteInstallment(ctx context.Context, id i
 
 // Execute executes the request
 //  @return DeleteInstallmentResponse
-func (a *DealInstallmentsAPIService) DeleteInstallmentExecute(r ApiDeleteInstallmentRequest) (*DeleteInstallmentResponse, *http.Response, error) {
+func (a *DealInstallmentsAPIService) DeleteInstallmentExecute(r DealInstallmentsAPIDeleteInstallmentRequest) (*DeleteInstallmentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -148,7 +148,7 @@ func (a *DealInstallmentsAPIService) DeleteInstallmentExecute(r ApiDeleteInstall
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetInstallmentsRequest struct {
+type DealInstallmentsAPIGetInstallmentsRequest struct {
 	ctx context.Context
 	ApiService *DealInstallmentsAPIService
 	dealIds *[]int32
@@ -159,36 +159,36 @@ type ApiGetInstallmentsRequest struct {
 }
 
 // An array of integers with the IDs of the deals for which the attached installments will be returned. A maximum of 100 deal IDs can be provided.
-func (r ApiGetInstallmentsRequest) DealIds(dealIds []int32) ApiGetInstallmentsRequest {
+func (r DealInstallmentsAPIGetInstallmentsRequest) DealIds(dealIds []int32) DealInstallmentsAPIGetInstallmentsRequest {
 	r.dealIds = &dealIds
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetInstallmentsRequest) Cursor(cursor string) ApiGetInstallmentsRequest {
+func (r DealInstallmentsAPIGetInstallmentsRequest) Cursor(cursor string) DealInstallmentsAPIGetInstallmentsRequest {
 	r.cursor = &cursor
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetInstallmentsRequest) Limit(limit int32) ApiGetInstallmentsRequest {
+func (r DealInstallmentsAPIGetInstallmentsRequest) Limit(limit int32) DealInstallmentsAPIGetInstallmentsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;billing_date&#x60;, &#x60;deal_id&#x60;.
-func (r ApiGetInstallmentsRequest) SortBy(sortBy string) ApiGetInstallmentsRequest {
+func (r DealInstallmentsAPIGetInstallmentsRequest) SortBy(sortBy string) DealInstallmentsAPIGetInstallmentsRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetInstallmentsRequest) SortDirection(sortDirection string) ApiGetInstallmentsRequest {
+func (r DealInstallmentsAPIGetInstallmentsRequest) SortDirection(sortDirection string) DealInstallmentsAPIGetInstallmentsRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
-func (r ApiGetInstallmentsRequest) Execute() (*GetInstallmentsResponse, *http.Response, error) {
+func (r DealInstallmentsAPIGetInstallmentsRequest) Execute() (*GetInstallmentsResponse, *http.Response, error) {
 	return r.ApiService.GetInstallmentsExecute(r)
 }
 
@@ -201,10 +201,10 @@ Only available in Growth and above plans.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetInstallmentsRequest
+ @return DealInstallmentsAPIGetInstallmentsRequest
 */
-func (a *DealInstallmentsAPIService) GetInstallments(ctx context.Context) ApiGetInstallmentsRequest {
-	return ApiGetInstallmentsRequest{
+func (a *DealInstallmentsAPIService) GetInstallments(ctx context.Context) DealInstallmentsAPIGetInstallmentsRequest {
+	return DealInstallmentsAPIGetInstallmentsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -212,7 +212,7 @@ func (a *DealInstallmentsAPIService) GetInstallments(ctx context.Context) ApiGet
 
 // Execute executes the request
 //  @return GetInstallmentsResponse
-func (a *DealInstallmentsAPIService) GetInstallmentsExecute(r ApiGetInstallmentsRequest) (*GetInstallmentsResponse, *http.Response, error) {
+func (a *DealInstallmentsAPIService) GetInstallmentsExecute(r DealInstallmentsAPIGetInstallmentsRequest) (*GetInstallmentsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -333,19 +333,19 @@ func (a *DealInstallmentsAPIService) GetInstallmentsExecute(r ApiGetInstallments
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiPostInstallmentRequest struct {
+type DealInstallmentsAPIPostInstallmentRequest struct {
 	ctx context.Context
 	ApiService *DealInstallmentsAPIService
 	id int32
 	addInstallmentRequestBody *AddInstallmentRequestBody
 }
 
-func (r ApiPostInstallmentRequest) AddInstallmentRequestBody(addInstallmentRequestBody AddInstallmentRequestBody) ApiPostInstallmentRequest {
+func (r DealInstallmentsAPIPostInstallmentRequest) AddInstallmentRequestBody(addInstallmentRequestBody AddInstallmentRequestBody) DealInstallmentsAPIPostInstallmentRequest {
 	r.addInstallmentRequestBody = &addInstallmentRequestBody
 	return r
 }
 
-func (r ApiPostInstallmentRequest) Execute() (*AddAInstallmentResponse, *http.Response, error) {
+func (r DealInstallmentsAPIPostInstallmentRequest) Execute() (*AddAInstallmentResponse, *http.Response, error) {
 	return r.ApiService.PostInstallmentExecute(r)
 }
 
@@ -362,10 +362,10 @@ Only available in Growth and above plans.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
- @return ApiPostInstallmentRequest
+ @return DealInstallmentsAPIPostInstallmentRequest
 */
-func (a *DealInstallmentsAPIService) PostInstallment(ctx context.Context, id int32) ApiPostInstallmentRequest {
-	return ApiPostInstallmentRequest{
+func (a *DealInstallmentsAPIService) PostInstallment(ctx context.Context, id int32) DealInstallmentsAPIPostInstallmentRequest {
+	return DealInstallmentsAPIPostInstallmentRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -374,7 +374,7 @@ func (a *DealInstallmentsAPIService) PostInstallment(ctx context.Context, id int
 
 // Execute executes the request
 //  @return AddAInstallmentResponse
-func (a *DealInstallmentsAPIService) PostInstallmentExecute(r ApiPostInstallmentRequest) (*AddAInstallmentResponse, *http.Response, error) {
+func (a *DealInstallmentsAPIService) PostInstallmentExecute(r DealInstallmentsAPIPostInstallmentRequest) (*AddAInstallmentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -464,7 +464,7 @@ func (a *DealInstallmentsAPIService) PostInstallmentExecute(r ApiPostInstallment
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateInstallmentRequest struct {
+type DealInstallmentsAPIUpdateInstallmentRequest struct {
 	ctx context.Context
 	ApiService *DealInstallmentsAPIService
 	id int32
@@ -472,12 +472,12 @@ type ApiUpdateInstallmentRequest struct {
 	updateInstallmentRequestBody *UpdateInstallmentRequestBody
 }
 
-func (r ApiUpdateInstallmentRequest) UpdateInstallmentRequestBody(updateInstallmentRequestBody UpdateInstallmentRequestBody) ApiUpdateInstallmentRequest {
+func (r DealInstallmentsAPIUpdateInstallmentRequest) UpdateInstallmentRequestBody(updateInstallmentRequestBody UpdateInstallmentRequestBody) DealInstallmentsAPIUpdateInstallmentRequest {
 	r.updateInstallmentRequestBody = &updateInstallmentRequestBody
 	return r
 }
 
-func (r ApiUpdateInstallmentRequest) Execute() (*UpdateInstallmentResponse, *http.Response, error) {
+func (r DealInstallmentsAPIUpdateInstallmentRequest) Execute() (*UpdateInstallmentResponse, *http.Response, error) {
 	return r.ApiService.UpdateInstallmentExecute(r)
 }
 
@@ -492,10 +492,10 @@ Only available in Growth and above plans.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the deal
  @param installmentId The ID of the installment
- @return ApiUpdateInstallmentRequest
+ @return DealInstallmentsAPIUpdateInstallmentRequest
 */
-func (a *DealInstallmentsAPIService) UpdateInstallment(ctx context.Context, id int32, installmentId int32) ApiUpdateInstallmentRequest {
-	return ApiUpdateInstallmentRequest{
+func (a *DealInstallmentsAPIService) UpdateInstallment(ctx context.Context, id int32, installmentId int32) DealInstallmentsAPIUpdateInstallmentRequest {
+	return DealInstallmentsAPIUpdateInstallmentRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -505,7 +505,7 @@ func (a *DealInstallmentsAPIService) UpdateInstallment(ctx context.Context, id i
 
 // Execute executes the request
 //  @return UpdateInstallmentResponse
-func (a *DealInstallmentsAPIService) UpdateInstallmentExecute(r ApiUpdateInstallmentRequest) (*UpdateInstallmentResponse, *http.Response, error) {
+func (a *DealInstallmentsAPIService) UpdateInstallmentExecute(r DealInstallmentsAPIUpdateInstallmentRequest) (*UpdateInstallmentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

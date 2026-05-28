@@ -23,19 +23,19 @@ import (
 // LeadsAPIService LeadsAPI service
 type LeadsAPIService service
 
-type ApiConvertLeadToDealRequest struct {
+type LeadsAPIConvertLeadToDealRequest struct {
 	ctx context.Context
 	ApiService *LeadsAPIService
 	id string
 	convertLeadToDealRequest *ConvertLeadToDealRequest
 }
 
-func (r ApiConvertLeadToDealRequest) ConvertLeadToDealRequest(convertLeadToDealRequest ConvertLeadToDealRequest) ApiConvertLeadToDealRequest {
+func (r LeadsAPIConvertLeadToDealRequest) ConvertLeadToDealRequest(convertLeadToDealRequest ConvertLeadToDealRequest) LeadsAPIConvertLeadToDealRequest {
 	r.convertLeadToDealRequest = &convertLeadToDealRequest
 	return r
 }
 
-func (r ApiConvertLeadToDealRequest) Execute() (*AddConvertLeadToDealResponse, *http.Response, error) {
+func (r LeadsAPIConvertLeadToDealRequest) Execute() (*AddConvertLeadToDealResponse, *http.Response, error) {
 	return r.ApiService.ConvertLeadToDealExecute(r)
 }
 
@@ -46,10 +46,10 @@ Initiates a conversion of a lead to a deal. The return value is an ID of a job t
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the lead to convert
- @return ApiConvertLeadToDealRequest
+ @return LeadsAPIConvertLeadToDealRequest
 */
-func (a *LeadsAPIService) ConvertLeadToDeal(ctx context.Context, id string) ApiConvertLeadToDealRequest {
-	return ApiConvertLeadToDealRequest{
+func (a *LeadsAPIService) ConvertLeadToDeal(ctx context.Context, id string) LeadsAPIConvertLeadToDealRequest {
+	return LeadsAPIConvertLeadToDealRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -58,7 +58,7 @@ func (a *LeadsAPIService) ConvertLeadToDeal(ctx context.Context, id string) ApiC
 
 // Execute executes the request
 //  @return AddConvertLeadToDealResponse
-func (a *LeadsAPIService) ConvertLeadToDealExecute(r ApiConvertLeadToDealRequest) (*AddConvertLeadToDealResponse, *http.Response, error) {
+func (a *LeadsAPIService) ConvertLeadToDealExecute(r LeadsAPIConvertLeadToDealRequest) (*AddConvertLeadToDealResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -158,14 +158,14 @@ func (a *LeadsAPIService) ConvertLeadToDealExecute(r ApiConvertLeadToDealRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetLeadConversionStatusRequest struct {
+type LeadsAPIGetLeadConversionStatusRequest struct {
 	ctx context.Context
 	ApiService *LeadsAPIService
 	id string
 	conversionId string
 }
 
-func (r ApiGetLeadConversionStatusRequest) Execute() (*GetConvertResponse1, *http.Response, error) {
+func (r LeadsAPIGetLeadConversionStatusRequest) Execute() (*GetConvertResponse1, *http.Response, error) {
 	return r.ApiService.GetLeadConversionStatusExecute(r)
 }
 
@@ -177,10 +177,10 @@ Returns data about the conversion. Status is always present and its value (not_s
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of a lead
  @param conversionId The ID of the conversion
- @return ApiGetLeadConversionStatusRequest
+ @return LeadsAPIGetLeadConversionStatusRequest
 */
-func (a *LeadsAPIService) GetLeadConversionStatus(ctx context.Context, id string, conversionId string) ApiGetLeadConversionStatusRequest {
-	return ApiGetLeadConversionStatusRequest{
+func (a *LeadsAPIService) GetLeadConversionStatus(ctx context.Context, id string, conversionId string) LeadsAPIGetLeadConversionStatusRequest {
+	return LeadsAPIGetLeadConversionStatusRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -190,7 +190,7 @@ func (a *LeadsAPIService) GetLeadConversionStatus(ctx context.Context, id string
 
 // Execute executes the request
 //  @return GetConvertResponse1
-func (a *LeadsAPIService) GetLeadConversionStatusExecute(r ApiGetLeadConversionStatusRequest) (*GetConvertResponse1, *http.Response, error) {
+func (a *LeadsAPIService) GetLeadConversionStatusExecute(r LeadsAPIGetLeadConversionStatusRequest) (*GetConvertResponse1, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -289,7 +289,7 @@ func (a *LeadsAPIService) GetLeadConversionStatusExecute(r ApiGetLeadConversionS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchLeadsRequest struct {
+type LeadsAPISearchLeadsRequest struct {
 	ctx context.Context
 	ApiService *LeadsAPIService
 	term *string
@@ -303,54 +303,54 @@ type ApiSearchLeadsRequest struct {
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-func (r ApiSearchLeadsRequest) Term(term string) ApiSearchLeadsRequest {
+func (r LeadsAPISearchLeadsRequest) Term(term string) LeadsAPISearchLeadsRequest {
 	r.term = &term
 	return r
 }
 
 // A comma-separated string array. The fields to perform the search from. Defaults to all of them.
-func (r ApiSearchLeadsRequest) Fields(fields string) ApiSearchLeadsRequest {
+func (r LeadsAPISearchLeadsRequest) Fields(fields string) LeadsAPISearchLeadsRequest {
 	r.fields = &fields
 	return r
 }
 
 // When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-func (r ApiSearchLeadsRequest) ExactMatch(exactMatch bool) ApiSearchLeadsRequest {
+func (r LeadsAPISearchLeadsRequest) ExactMatch(exactMatch bool) LeadsAPISearchLeadsRequest {
 	r.exactMatch = &exactMatch
 	return r
 }
 
 // Will filter leads by the provided person ID. The upper limit of found leads associated with the person is 2000.
-func (r ApiSearchLeadsRequest) PersonId(personId int32) ApiSearchLeadsRequest {
+func (r LeadsAPISearchLeadsRequest) PersonId(personId int32) LeadsAPISearchLeadsRequest {
 	r.personId = &personId
 	return r
 }
 
 // Will filter leads by the provided organization ID. The upper limit of found leads associated with the organization is 2000.
-func (r ApiSearchLeadsRequest) OrganizationId(organizationId int32) ApiSearchLeadsRequest {
+func (r LeadsAPISearchLeadsRequest) OrganizationId(organizationId int32) LeadsAPISearchLeadsRequest {
 	r.organizationId = &organizationId
 	return r
 }
 
 // Supports including optional fields in the results which are not provided by default
-func (r ApiSearchLeadsRequest) IncludeFields(includeFields string) ApiSearchLeadsRequest {
+func (r LeadsAPISearchLeadsRequest) IncludeFields(includeFields string) LeadsAPISearchLeadsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiSearchLeadsRequest) Limit(limit int32) ApiSearchLeadsRequest {
+func (r LeadsAPISearchLeadsRequest) Limit(limit int32) LeadsAPISearchLeadsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiSearchLeadsRequest) Cursor(cursor string) ApiSearchLeadsRequest {
+func (r LeadsAPISearchLeadsRequest) Cursor(cursor string) LeadsAPISearchLeadsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiSearchLeadsRequest) Execute() (*GetLeadSearchResponse, *http.Response, error) {
+func (r LeadsAPISearchLeadsRequest) Execute() (*GetLeadSearchResponse, *http.Response, error) {
 	return r.ApiService.SearchLeadsExecute(r)
 }
 
@@ -360,10 +360,10 @@ SearchLeads Search leads
 Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchLeadsRequest
+ @return LeadsAPISearchLeadsRequest
 */
-func (a *LeadsAPIService) SearchLeads(ctx context.Context) ApiSearchLeadsRequest {
-	return ApiSearchLeadsRequest{
+func (a *LeadsAPIService) SearchLeads(ctx context.Context) LeadsAPISearchLeadsRequest {
+	return LeadsAPISearchLeadsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -371,7 +371,7 @@ func (a *LeadsAPIService) SearchLeads(ctx context.Context) ApiSearchLeadsRequest
 
 // Execute executes the request
 //  @return GetLeadSearchResponse
-func (a *LeadsAPIService) SearchLeadsExecute(r ApiSearchLeadsRequest) (*GetLeadSearchResponse, *http.Response, error) {
+func (a *LeadsAPIService) SearchLeadsExecute(r LeadsAPISearchLeadsRequest) (*GetLeadSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

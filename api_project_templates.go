@@ -23,13 +23,13 @@ import (
 // ProjectTemplatesAPIService ProjectTemplatesAPI service
 type ProjectTemplatesAPIService service
 
-type ApiGetProjectTemplateRequest struct {
+type ProjectTemplatesAPIGetProjectTemplateRequest struct {
 	ctx context.Context
 	ApiService *ProjectTemplatesAPIService
 	id int32
 }
 
-func (r ApiGetProjectTemplateRequest) Execute() (*GetProjectTemplateResponse, *http.Response, error) {
+func (r ProjectTemplatesAPIGetProjectTemplateRequest) Execute() (*GetProjectTemplateResponse, *http.Response, error) {
 	return r.ApiService.GetProjectTemplateExecute(r)
 }
 
@@ -40,10 +40,10 @@ Returns the details of a specific project template.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the project template
- @return ApiGetProjectTemplateRequest
+ @return ProjectTemplatesAPIGetProjectTemplateRequest
 */
-func (a *ProjectTemplatesAPIService) GetProjectTemplate(ctx context.Context, id int32) ApiGetProjectTemplateRequest {
-	return ApiGetProjectTemplateRequest{
+func (a *ProjectTemplatesAPIService) GetProjectTemplate(ctx context.Context, id int32) ProjectTemplatesAPIGetProjectTemplateRequest {
+	return ProjectTemplatesAPIGetProjectTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -52,7 +52,7 @@ func (a *ProjectTemplatesAPIService) GetProjectTemplate(ctx context.Context, id 
 
 // Execute executes the request
 //  @return GetProjectTemplateResponse
-func (a *ProjectTemplatesAPIService) GetProjectTemplateExecute(r ApiGetProjectTemplateRequest) (*GetProjectTemplateResponse, *http.Response, error) {
+func (a *ProjectTemplatesAPIService) GetProjectTemplateExecute(r ProjectTemplatesAPIGetProjectTemplateRequest) (*GetProjectTemplateResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -140,7 +140,7 @@ func (a *ProjectTemplatesAPIService) GetProjectTemplateExecute(r ApiGetProjectTe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectTemplatesRequest struct {
+type ProjectTemplatesAPIGetProjectTemplatesRequest struct {
 	ctx context.Context
 	ApiService *ProjectTemplatesAPIService
 	cursor *string
@@ -148,18 +148,18 @@ type ApiGetProjectTemplatesRequest struct {
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetProjectTemplatesRequest) Cursor(cursor string) ApiGetProjectTemplatesRequest {
+func (r ProjectTemplatesAPIGetProjectTemplatesRequest) Cursor(cursor string) ProjectTemplatesAPIGetProjectTemplatesRequest {
 	r.cursor = &cursor
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetProjectTemplatesRequest) Limit(limit int32) ApiGetProjectTemplatesRequest {
+func (r ProjectTemplatesAPIGetProjectTemplatesRequest) Limit(limit int32) ProjectTemplatesAPIGetProjectTemplatesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiGetProjectTemplatesRequest) Execute() (*GetProjectTemplatesResponse, *http.Response, error) {
+func (r ProjectTemplatesAPIGetProjectTemplatesRequest) Execute() (*GetProjectTemplatesResponse, *http.Response, error) {
 	return r.ApiService.GetProjectTemplatesExecute(r)
 }
 
@@ -169,10 +169,10 @@ GetProjectTemplates Get all project templates
 Returns all not deleted project templates.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProjectTemplatesRequest
+ @return ProjectTemplatesAPIGetProjectTemplatesRequest
 */
-func (a *ProjectTemplatesAPIService) GetProjectTemplates(ctx context.Context) ApiGetProjectTemplatesRequest {
-	return ApiGetProjectTemplatesRequest{
+func (a *ProjectTemplatesAPIService) GetProjectTemplates(ctx context.Context) ProjectTemplatesAPIGetProjectTemplatesRequest {
+	return ProjectTemplatesAPIGetProjectTemplatesRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -180,7 +180,7 @@ func (a *ProjectTemplatesAPIService) GetProjectTemplates(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return GetProjectTemplatesResponse
-func (a *ProjectTemplatesAPIService) GetProjectTemplatesExecute(r ApiGetProjectTemplatesRequest) (*GetProjectTemplatesResponse, *http.Response, error) {
+func (a *ProjectTemplatesAPIService) GetProjectTemplatesExecute(r ProjectTemplatesAPIGetProjectTemplatesRequest) (*GetProjectTemplatesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

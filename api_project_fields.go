@@ -23,18 +23,18 @@ import (
 // ProjectFieldsAPIService ProjectFieldsAPI service
 type ProjectFieldsAPIService service
 
-type ApiAddProjectFieldRequest struct {
+type ProjectFieldsAPIAddProjectFieldRequest struct {
 	ctx context.Context
 	ApiService *ProjectFieldsAPIService
 	addProjectFieldRequest *AddProjectFieldRequest
 }
 
-func (r ApiAddProjectFieldRequest) AddProjectFieldRequest(addProjectFieldRequest AddProjectFieldRequest) ApiAddProjectFieldRequest {
+func (r ProjectFieldsAPIAddProjectFieldRequest) AddProjectFieldRequest(addProjectFieldRequest AddProjectFieldRequest) ProjectFieldsAPIAddProjectFieldRequest {
 	r.addProjectFieldRequest = &addProjectFieldRequest
 	return r
 }
 
-func (r ApiAddProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
+func (r ProjectFieldsAPIAddProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
 	return r.ApiService.AddProjectFieldExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddProjectField Create one project field
 Creates a new project custom field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddProjectFieldRequest
+ @return ProjectFieldsAPIAddProjectFieldRequest
 */
-func (a *ProjectFieldsAPIService) AddProjectField(ctx context.Context) ApiAddProjectFieldRequest {
-	return ApiAddProjectFieldRequest{
+func (a *ProjectFieldsAPIService) AddProjectField(ctx context.Context) ProjectFieldsAPIAddProjectFieldRequest {
+	return ProjectFieldsAPIAddProjectFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *ProjectFieldsAPIService) AddProjectField(ctx context.Context) ApiAddPro
 
 // Execute executes the request
 //  @return AddProjectField200Response
-func (a *ProjectFieldsAPIService) AddProjectFieldExecute(r ApiAddProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
+func (a *ProjectFieldsAPIService) AddProjectFieldExecute(r ProjectFieldsAPIAddProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -147,19 +147,19 @@ func (a *ProjectFieldsAPIService) AddProjectFieldExecute(r ApiAddProjectFieldReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddProjectFieldOptionsRequest struct {
+type ProjectFieldsAPIAddProjectFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *ProjectFieldsAPIService
 	fieldCode string
 	addDealFieldOptionsRequestInner *[]AddDealFieldOptionsRequestInner
 }
 
-func (r ApiAddProjectFieldOptionsRequest) AddDealFieldOptionsRequestInner(addDealFieldOptionsRequestInner []AddDealFieldOptionsRequestInner) ApiAddProjectFieldOptionsRequest {
+func (r ProjectFieldsAPIAddProjectFieldOptionsRequest) AddDealFieldOptionsRequestInner(addDealFieldOptionsRequestInner []AddDealFieldOptionsRequestInner) ProjectFieldsAPIAddProjectFieldOptionsRequest {
 	r.addDealFieldOptionsRequestInner = &addDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiAddProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r ProjectFieldsAPIAddProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.AddProjectFieldOptionsExecute(r)
 }
 
@@ -170,10 +170,10 @@ Adds new options to a project custom field that supports options (enum or set fi
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiAddProjectFieldOptionsRequest
+ @return ProjectFieldsAPIAddProjectFieldOptionsRequest
 */
-func (a *ProjectFieldsAPIService) AddProjectFieldOptions(ctx context.Context, fieldCode string) ApiAddProjectFieldOptionsRequest {
-	return ApiAddProjectFieldOptionsRequest{
+func (a *ProjectFieldsAPIService) AddProjectFieldOptions(ctx context.Context, fieldCode string) ProjectFieldsAPIAddProjectFieldOptionsRequest {
+	return ProjectFieldsAPIAddProjectFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -182,7 +182,7 @@ func (a *ProjectFieldsAPIService) AddProjectFieldOptions(ctx context.Context, fi
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *ProjectFieldsAPIService) AddProjectFieldOptionsExecute(r ApiAddProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *ProjectFieldsAPIService) AddProjectFieldOptionsExecute(r ProjectFieldsAPIAddProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -275,13 +275,13 @@ func (a *ProjectFieldsAPIService) AddProjectFieldOptionsExecute(r ApiAddProjectF
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProjectFieldRequest struct {
+type ProjectFieldsAPIDeleteProjectFieldRequest struct {
 	ctx context.Context
 	ApiService *ProjectFieldsAPIService
 	fieldCode string
 }
 
-func (r ApiDeleteProjectFieldRequest) Execute() (*DeleteProjectField200Response, *http.Response, error) {
+func (r ProjectFieldsAPIDeleteProjectFieldRequest) Execute() (*DeleteProjectField200Response, *http.Response, error) {
 	return r.ApiService.DeleteProjectFieldExecute(r)
 }
 
@@ -292,10 +292,10 @@ Marks a custom field as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiDeleteProjectFieldRequest
+ @return ProjectFieldsAPIDeleteProjectFieldRequest
 */
-func (a *ProjectFieldsAPIService) DeleteProjectField(ctx context.Context, fieldCode string) ApiDeleteProjectFieldRequest {
-	return ApiDeleteProjectFieldRequest{
+func (a *ProjectFieldsAPIService) DeleteProjectField(ctx context.Context, fieldCode string) ProjectFieldsAPIDeleteProjectFieldRequest {
+	return ProjectFieldsAPIDeleteProjectFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -304,7 +304,7 @@ func (a *ProjectFieldsAPIService) DeleteProjectField(ctx context.Context, fieldC
 
 // Execute executes the request
 //  @return DeleteProjectField200Response
-func (a *ProjectFieldsAPIService) DeleteProjectFieldExecute(r ApiDeleteProjectFieldRequest) (*DeleteProjectField200Response, *http.Response, error) {
+func (a *ProjectFieldsAPIService) DeleteProjectFieldExecute(r ProjectFieldsAPIDeleteProjectFieldRequest) (*DeleteProjectField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -392,19 +392,19 @@ func (a *ProjectFieldsAPIService) DeleteProjectFieldExecute(r ApiDeleteProjectFi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteProjectFieldOptionsRequest struct {
+type ProjectFieldsAPIDeleteProjectFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *ProjectFieldsAPIService
 	fieldCode string
 	deleteDealFieldOptionsRequestInner *[]DeleteDealFieldOptionsRequestInner
 }
 
-func (r ApiDeleteProjectFieldOptionsRequest) DeleteDealFieldOptionsRequestInner(deleteDealFieldOptionsRequestInner []DeleteDealFieldOptionsRequestInner) ApiDeleteProjectFieldOptionsRequest {
+func (r ProjectFieldsAPIDeleteProjectFieldOptionsRequest) DeleteDealFieldOptionsRequestInner(deleteDealFieldOptionsRequestInner []DeleteDealFieldOptionsRequestInner) ProjectFieldsAPIDeleteProjectFieldOptionsRequest {
 	r.deleteDealFieldOptionsRequestInner = &deleteDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiDeleteProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r ProjectFieldsAPIDeleteProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.DeleteProjectFieldOptionsExecute(r)
 }
 
@@ -415,10 +415,10 @@ Removes existing options from a project custom field. This operation is atomic a
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiDeleteProjectFieldOptionsRequest
+ @return ProjectFieldsAPIDeleteProjectFieldOptionsRequest
 */
-func (a *ProjectFieldsAPIService) DeleteProjectFieldOptions(ctx context.Context, fieldCode string) ApiDeleteProjectFieldOptionsRequest {
-	return ApiDeleteProjectFieldOptionsRequest{
+func (a *ProjectFieldsAPIService) DeleteProjectFieldOptions(ctx context.Context, fieldCode string) ProjectFieldsAPIDeleteProjectFieldOptionsRequest {
+	return ProjectFieldsAPIDeleteProjectFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -427,7 +427,7 @@ func (a *ProjectFieldsAPIService) DeleteProjectFieldOptions(ctx context.Context,
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *ProjectFieldsAPIService) DeleteProjectFieldOptionsExecute(r ApiDeleteProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *ProjectFieldsAPIService) DeleteProjectFieldOptionsExecute(r ProjectFieldsAPIDeleteProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -520,13 +520,13 @@ func (a *ProjectFieldsAPIService) DeleteProjectFieldOptionsExecute(r ApiDeletePr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectFieldRequest struct {
+type ProjectFieldsAPIGetProjectFieldRequest struct {
 	ctx context.Context
 	ApiService *ProjectFieldsAPIService
 	fieldCode string
 }
 
-func (r ApiGetProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
+func (r ProjectFieldsAPIGetProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
 	return r.ApiService.GetProjectFieldExecute(r)
 }
 
@@ -537,10 +537,10 @@ Returns metadata about a specific project field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiGetProjectFieldRequest
+ @return ProjectFieldsAPIGetProjectFieldRequest
 */
-func (a *ProjectFieldsAPIService) GetProjectField(ctx context.Context, fieldCode string) ApiGetProjectFieldRequest {
-	return ApiGetProjectFieldRequest{
+func (a *ProjectFieldsAPIService) GetProjectField(ctx context.Context, fieldCode string) ProjectFieldsAPIGetProjectFieldRequest {
+	return ProjectFieldsAPIGetProjectFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -549,7 +549,7 @@ func (a *ProjectFieldsAPIService) GetProjectField(ctx context.Context, fieldCode
 
 // Execute executes the request
 //  @return AddProjectField200Response
-func (a *ProjectFieldsAPIService) GetProjectFieldExecute(r ApiGetProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
+func (a *ProjectFieldsAPIService) GetProjectFieldExecute(r ProjectFieldsAPIGetProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -637,7 +637,7 @@ func (a *ProjectFieldsAPIService) GetProjectFieldExecute(r ApiGetProjectFieldReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProjectFieldsRequest struct {
+type ProjectFieldsAPIGetProjectFieldsRequest struct {
 	ctx context.Context
 	ApiService *ProjectFieldsAPIService
 	limit *int32
@@ -645,18 +645,18 @@ type ApiGetProjectFieldsRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetProjectFieldsRequest) Limit(limit int32) ApiGetProjectFieldsRequest {
+func (r ProjectFieldsAPIGetProjectFieldsRequest) Limit(limit int32) ProjectFieldsAPIGetProjectFieldsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetProjectFieldsRequest) Cursor(cursor string) ApiGetProjectFieldsRequest {
+func (r ProjectFieldsAPIGetProjectFieldsRequest) Cursor(cursor string) ProjectFieldsAPIGetProjectFieldsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetProjectFieldsRequest) Execute() (*GetProjectFields200Response, *http.Response, error) {
+func (r ProjectFieldsAPIGetProjectFieldsRequest) Execute() (*GetProjectFields200Response, *http.Response, error) {
 	return r.ApiService.GetProjectFieldsExecute(r)
 }
 
@@ -666,10 +666,10 @@ GetProjectFields Get all project fields
 Returns metadata about all project fields in the company.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProjectFieldsRequest
+ @return ProjectFieldsAPIGetProjectFieldsRequest
 */
-func (a *ProjectFieldsAPIService) GetProjectFields(ctx context.Context) ApiGetProjectFieldsRequest {
-	return ApiGetProjectFieldsRequest{
+func (a *ProjectFieldsAPIService) GetProjectFields(ctx context.Context) ProjectFieldsAPIGetProjectFieldsRequest {
+	return ProjectFieldsAPIGetProjectFieldsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -677,7 +677,7 @@ func (a *ProjectFieldsAPIService) GetProjectFields(ctx context.Context) ApiGetPr
 
 // Execute executes the request
 //  @return GetProjectFields200Response
-func (a *ProjectFieldsAPIService) GetProjectFieldsExecute(r ApiGetProjectFieldsRequest) (*GetProjectFields200Response, *http.Response, error) {
+func (a *ProjectFieldsAPIService) GetProjectFieldsExecute(r ProjectFieldsAPIGetProjectFieldsRequest) (*GetProjectFields200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -770,19 +770,19 @@ func (a *ProjectFieldsAPIService) GetProjectFieldsExecute(r ApiGetProjectFieldsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProjectFieldRequest struct {
+type ProjectFieldsAPIUpdateProjectFieldRequest struct {
 	ctx context.Context
 	ApiService *ProjectFieldsAPIService
 	fieldCode string
 	updateProjectFieldRequest *UpdateProjectFieldRequest
 }
 
-func (r ApiUpdateProjectFieldRequest) UpdateProjectFieldRequest(updateProjectFieldRequest UpdateProjectFieldRequest) ApiUpdateProjectFieldRequest {
+func (r ProjectFieldsAPIUpdateProjectFieldRequest) UpdateProjectFieldRequest(updateProjectFieldRequest UpdateProjectFieldRequest) ProjectFieldsAPIUpdateProjectFieldRequest {
 	r.updateProjectFieldRequest = &updateProjectFieldRequest
 	return r
 }
 
-func (r ApiUpdateProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
+func (r ProjectFieldsAPIUpdateProjectFieldRequest) Execute() (*AddProjectField200Response, *http.Response, error) {
 	return r.ApiService.UpdateProjectFieldExecute(r)
 }
 
@@ -793,10 +793,10 @@ Updates a project custom field. The field_code and field_type cannot be changed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiUpdateProjectFieldRequest
+ @return ProjectFieldsAPIUpdateProjectFieldRequest
 */
-func (a *ProjectFieldsAPIService) UpdateProjectField(ctx context.Context, fieldCode string) ApiUpdateProjectFieldRequest {
-	return ApiUpdateProjectFieldRequest{
+func (a *ProjectFieldsAPIService) UpdateProjectField(ctx context.Context, fieldCode string) ProjectFieldsAPIUpdateProjectFieldRequest {
+	return ProjectFieldsAPIUpdateProjectFieldRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -805,7 +805,7 @@ func (a *ProjectFieldsAPIService) UpdateProjectField(ctx context.Context, fieldC
 
 // Execute executes the request
 //  @return AddProjectField200Response
-func (a *ProjectFieldsAPIService) UpdateProjectFieldExecute(r ApiUpdateProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
+func (a *ProjectFieldsAPIService) UpdateProjectFieldExecute(r ProjectFieldsAPIUpdateProjectFieldRequest) (*AddProjectField200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -898,19 +898,19 @@ func (a *ProjectFieldsAPIService) UpdateProjectFieldExecute(r ApiUpdateProjectFi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateProjectFieldOptionsRequest struct {
+type ProjectFieldsAPIUpdateProjectFieldOptionsRequest struct {
 	ctx context.Context
 	ApiService *ProjectFieldsAPIService
 	fieldCode string
 	updateDealFieldOptionsRequestInner *[]UpdateDealFieldOptionsRequestInner
 }
 
-func (r ApiUpdateProjectFieldOptionsRequest) UpdateDealFieldOptionsRequestInner(updateDealFieldOptionsRequestInner []UpdateDealFieldOptionsRequestInner) ApiUpdateProjectFieldOptionsRequest {
+func (r ProjectFieldsAPIUpdateProjectFieldOptionsRequest) UpdateDealFieldOptionsRequestInner(updateDealFieldOptionsRequestInner []UpdateDealFieldOptionsRequestInner) ProjectFieldsAPIUpdateProjectFieldOptionsRequest {
 	r.updateDealFieldOptionsRequestInner = &updateDealFieldOptionsRequestInner
 	return r
 }
 
-func (r ApiUpdateProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
+func (r ProjectFieldsAPIUpdateProjectFieldOptionsRequest) Execute() (*AddDealFieldOptions200Response, *http.Response, error) {
 	return r.ApiService.UpdateProjectFieldOptionsExecute(r)
 }
 
@@ -921,10 +921,10 @@ Updates existing options for a project custom field. This operation is atomic an
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fieldCode The unique code identifying the field
- @return ApiUpdateProjectFieldOptionsRequest
+ @return ProjectFieldsAPIUpdateProjectFieldOptionsRequest
 */
-func (a *ProjectFieldsAPIService) UpdateProjectFieldOptions(ctx context.Context, fieldCode string) ApiUpdateProjectFieldOptionsRequest {
-	return ApiUpdateProjectFieldOptionsRequest{
+func (a *ProjectFieldsAPIService) UpdateProjectFieldOptions(ctx context.Context, fieldCode string) ProjectFieldsAPIUpdateProjectFieldOptionsRequest {
+	return ProjectFieldsAPIUpdateProjectFieldOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		fieldCode: fieldCode,
@@ -933,7 +933,7 @@ func (a *ProjectFieldsAPIService) UpdateProjectFieldOptions(ctx context.Context,
 
 // Execute executes the request
 //  @return AddDealFieldOptions200Response
-func (a *ProjectFieldsAPIService) UpdateProjectFieldOptionsExecute(r ApiUpdateProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
+func (a *ProjectFieldsAPIService) UpdateProjectFieldOptionsExecute(r ProjectFieldsAPIUpdateProjectFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

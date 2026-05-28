@@ -23,7 +23,7 @@ import (
 // UsersAPIService UsersAPI service
 type UsersAPIService service
 
-type ApiGetUserFollowersRequest struct {
+type UsersAPIGetUserFollowersRequest struct {
 	ctx context.Context
 	ApiService *UsersAPIService
 	id int32
@@ -32,18 +32,18 @@ type ApiGetUserFollowersRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetUserFollowersRequest) Limit(limit int32) ApiGetUserFollowersRequest {
+func (r UsersAPIGetUserFollowersRequest) Limit(limit int32) UsersAPIGetUserFollowersRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetUserFollowersRequest) Cursor(cursor string) ApiGetUserFollowersRequest {
+func (r UsersAPIGetUserFollowersRequest) Cursor(cursor string) UsersAPIGetUserFollowersRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetUserFollowersRequest) Execute() (*GetFollowersResponse, *http.Response, error) {
+func (r UsersAPIGetUserFollowersRequest) Execute() (*GetFollowersResponse, *http.Response, error) {
 	return r.ApiService.GetUserFollowersExecute(r)
 }
 
@@ -54,10 +54,10 @@ Lists users who are following the user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the user
- @return ApiGetUserFollowersRequest
+ @return UsersAPIGetUserFollowersRequest
 */
-func (a *UsersAPIService) GetUserFollowers(ctx context.Context, id int32) ApiGetUserFollowersRequest {
-	return ApiGetUserFollowersRequest{
+func (a *UsersAPIService) GetUserFollowers(ctx context.Context, id int32) UsersAPIGetUserFollowersRequest {
+	return UsersAPIGetUserFollowersRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -66,7 +66,7 @@ func (a *UsersAPIService) GetUserFollowers(ctx context.Context, id int32) ApiGet
 
 // Execute executes the request
 //  @return GetFollowersResponse
-func (a *UsersAPIService) GetUserFollowersExecute(r ApiGetUserFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
+func (a *UsersAPIService) GetUserFollowersExecute(r UsersAPIGetUserFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

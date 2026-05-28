@@ -23,18 +23,18 @@ import (
 // PersonsAPIService PersonsAPI service
 type PersonsAPIService service
 
-type ApiAddPersonRequest struct {
+type PersonsAPIAddPersonRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	addPersonRequest *AddPersonRequest
 }
 
-func (r ApiAddPersonRequest) AddPersonRequest(addPersonRequest AddPersonRequest) ApiAddPersonRequest {
+func (r PersonsAPIAddPersonRequest) AddPersonRequest(addPersonRequest AddPersonRequest) PersonsAPIAddPersonRequest {
 	r.addPersonRequest = &addPersonRequest
 	return r
 }
 
-func (r ApiAddPersonRequest) Execute() (*UpsertPersonResponse, *http.Response, error) {
+func (r PersonsAPIAddPersonRequest) Execute() (*UpsertPersonResponse, *http.Response, error) {
 	return r.ApiService.AddPersonExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddPerson Add a new person
 Adds a new person. If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddPersonRequest
+ @return PersonsAPIAddPersonRequest
 */
-func (a *PersonsAPIService) AddPerson(ctx context.Context) ApiAddPersonRequest {
-	return ApiAddPersonRequest{
+func (a *PersonsAPIService) AddPerson(ctx context.Context) PersonsAPIAddPersonRequest {
+	return PersonsAPIAddPersonRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *PersonsAPIService) AddPerson(ctx context.Context) ApiAddPersonRequest {
 
 // Execute executes the request
 //  @return UpsertPersonResponse
-func (a *PersonsAPIService) AddPersonExecute(r ApiAddPersonRequest) (*UpsertPersonResponse, *http.Response, error) {
+func (a *PersonsAPIService) AddPersonExecute(r PersonsAPIAddPersonRequest) (*UpsertPersonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -144,19 +144,19 @@ func (a *PersonsAPIService) AddPersonExecute(r ApiAddPersonRequest) (*UpsertPers
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddPersonFollowerRequest struct {
+type PersonsAPIAddPersonFollowerRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	id int32
 	addDealFollowerRequest *AddDealFollowerRequest
 }
 
-func (r ApiAddPersonFollowerRequest) AddDealFollowerRequest(addDealFollowerRequest AddDealFollowerRequest) ApiAddPersonFollowerRequest {
+func (r PersonsAPIAddPersonFollowerRequest) AddDealFollowerRequest(addDealFollowerRequest AddDealFollowerRequest) PersonsAPIAddPersonFollowerRequest {
 	r.addDealFollowerRequest = &addDealFollowerRequest
 	return r
 }
 
-func (r ApiAddPersonFollowerRequest) Execute() (*AddFollowerResponse, *http.Response, error) {
+func (r PersonsAPIAddPersonFollowerRequest) Execute() (*AddFollowerResponse, *http.Response, error) {
 	return r.ApiService.AddPersonFollowerExecute(r)
 }
 
@@ -167,10 +167,10 @@ Adds a user as a follower to the person.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the person
- @return ApiAddPersonFollowerRequest
+ @return PersonsAPIAddPersonFollowerRequest
 */
-func (a *PersonsAPIService) AddPersonFollower(ctx context.Context, id int32) ApiAddPersonFollowerRequest {
-	return ApiAddPersonFollowerRequest{
+func (a *PersonsAPIService) AddPersonFollower(ctx context.Context, id int32) PersonsAPIAddPersonFollowerRequest {
+	return PersonsAPIAddPersonFollowerRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -179,7 +179,7 @@ func (a *PersonsAPIService) AddPersonFollower(ctx context.Context, id int32) Api
 
 // Execute executes the request
 //  @return AddFollowerResponse
-func (a *PersonsAPIService) AddPersonFollowerExecute(r ApiAddPersonFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
+func (a *PersonsAPIService) AddPersonFollowerExecute(r PersonsAPIAddPersonFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -269,13 +269,13 @@ func (a *PersonsAPIService) AddPersonFollowerExecute(r ApiAddPersonFollowerReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeletePersonRequest struct {
+type PersonsAPIDeletePersonRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	id int32
 }
 
-func (r ApiDeletePersonRequest) Execute() (*DeletePersonResponse, *http.Response, error) {
+func (r PersonsAPIDeletePersonRequest) Execute() (*DeletePersonResponse, *http.Response, error) {
 	return r.ApiService.DeletePersonExecute(r)
 }
 
@@ -286,10 +286,10 @@ Marks a person as deleted. After 30 days, the person will be permanently deleted
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the person
- @return ApiDeletePersonRequest
+ @return PersonsAPIDeletePersonRequest
 */
-func (a *PersonsAPIService) DeletePerson(ctx context.Context, id int32) ApiDeletePersonRequest {
-	return ApiDeletePersonRequest{
+func (a *PersonsAPIService) DeletePerson(ctx context.Context, id int32) PersonsAPIDeletePersonRequest {
+	return PersonsAPIDeletePersonRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -298,7 +298,7 @@ func (a *PersonsAPIService) DeletePerson(ctx context.Context, id int32) ApiDelet
 
 // Execute executes the request
 //  @return DeletePersonResponse
-func (a *PersonsAPIService) DeletePersonExecute(r ApiDeletePersonRequest) (*DeletePersonResponse, *http.Response, error) {
+func (a *PersonsAPIService) DeletePersonExecute(r PersonsAPIDeletePersonRequest) (*DeletePersonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -386,14 +386,14 @@ func (a *PersonsAPIService) DeletePersonExecute(r ApiDeletePersonRequest) (*Dele
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeletePersonFollowerRequest struct {
+type PersonsAPIDeletePersonFollowerRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	id int32
 	followerId int32
 }
 
-func (r ApiDeletePersonFollowerRequest) Execute() (*DeleteFollowerResponse, *http.Response, error) {
+func (r PersonsAPIDeletePersonFollowerRequest) Execute() (*DeleteFollowerResponse, *http.Response, error) {
 	return r.ApiService.DeletePersonFollowerExecute(r)
 }
 
@@ -405,10 +405,10 @@ Deletes a user follower from the person.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the person
  @param followerId The ID of the following user
- @return ApiDeletePersonFollowerRequest
+ @return PersonsAPIDeletePersonFollowerRequest
 */
-func (a *PersonsAPIService) DeletePersonFollower(ctx context.Context, id int32, followerId int32) ApiDeletePersonFollowerRequest {
-	return ApiDeletePersonFollowerRequest{
+func (a *PersonsAPIService) DeletePersonFollower(ctx context.Context, id int32, followerId int32) PersonsAPIDeletePersonFollowerRequest {
+	return PersonsAPIDeletePersonFollowerRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -418,7 +418,7 @@ func (a *PersonsAPIService) DeletePersonFollower(ctx context.Context, id int32, 
 
 // Execute executes the request
 //  @return DeleteFollowerResponse
-func (a *PersonsAPIService) DeletePersonFollowerExecute(r ApiDeletePersonFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
+func (a *PersonsAPIService) DeletePersonFollowerExecute(r PersonsAPIDeletePersonFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -507,7 +507,7 @@ func (a *PersonsAPIService) DeletePersonFollowerExecute(r ApiDeletePersonFollowe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPersonRequest struct {
+type PersonsAPIGetPersonRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	id int32
@@ -518,30 +518,30 @@ type ApiGetPersonRequest struct {
 }
 
 // Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
-func (r ApiGetPersonRequest) IncludeFields(includeFields string) ApiGetPersonRequest {
+func (r PersonsAPIGetPersonRequest) IncludeFields(includeFields string) PersonsAPIGetPersonRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-func (r ApiGetPersonRequest) CustomFields(customFields string) ApiGetPersonRequest {
+func (r PersonsAPIGetPersonRequest) CustomFields(customFields string) PersonsAPIGetPersonRequest {
 	r.customFields = &customFields
 	return r
 }
 
 // When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id
-func (r ApiGetPersonRequest) IncludeOptionLabels(includeOptionLabels bool) ApiGetPersonRequest {
+func (r PersonsAPIGetPersonRequest) IncludeOptionLabels(includeOptionLabels bool) PersonsAPIGetPersonRequest {
 	r.includeOptionLabels = &includeOptionLabels
 	return r
 }
 
 // When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39;
-func (r ApiGetPersonRequest) IncludeLabels(includeLabels bool) ApiGetPersonRequest {
+func (r PersonsAPIGetPersonRequest) IncludeLabels(includeLabels bool) PersonsAPIGetPersonRequest {
 	r.includeLabels = &includeLabels
 	return r
 }
 
-func (r ApiGetPersonRequest) Execute() (*UpsertPersonResponse, *http.Response, error) {
+func (r PersonsAPIGetPersonRequest) Execute() (*UpsertPersonResponse, *http.Response, error) {
 	return r.ApiService.GetPersonExecute(r)
 }
 
@@ -552,10 +552,10 @@ Returns the details of a specific person. Fields `ims`, `postal_address`, `notes
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the person
- @return ApiGetPersonRequest
+ @return PersonsAPIGetPersonRequest
 */
-func (a *PersonsAPIService) GetPerson(ctx context.Context, id int32) ApiGetPersonRequest {
-	return ApiGetPersonRequest{
+func (a *PersonsAPIService) GetPerson(ctx context.Context, id int32) PersonsAPIGetPersonRequest {
+	return PersonsAPIGetPersonRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -564,7 +564,7 @@ func (a *PersonsAPIService) GetPerson(ctx context.Context, id int32) ApiGetPerso
 
 // Execute executes the request
 //  @return UpsertPersonResponse
-func (a *PersonsAPIService) GetPersonExecute(r ApiGetPersonRequest) (*UpsertPersonResponse, *http.Response, error) {
+func (a *PersonsAPIService) GetPersonExecute(r PersonsAPIGetPersonRequest) (*UpsertPersonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -664,7 +664,7 @@ func (a *PersonsAPIService) GetPersonExecute(r ApiGetPersonRequest) (*UpsertPers
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPersonFollowersRequest struct {
+type PersonsAPIGetPersonFollowersRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	id int32
@@ -673,18 +673,18 @@ type ApiGetPersonFollowersRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetPersonFollowersRequest) Limit(limit int32) ApiGetPersonFollowersRequest {
+func (r PersonsAPIGetPersonFollowersRequest) Limit(limit int32) PersonsAPIGetPersonFollowersRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetPersonFollowersRequest) Cursor(cursor string) ApiGetPersonFollowersRequest {
+func (r PersonsAPIGetPersonFollowersRequest) Cursor(cursor string) PersonsAPIGetPersonFollowersRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetPersonFollowersRequest) Execute() (*GetFollowersResponse, *http.Response, error) {
+func (r PersonsAPIGetPersonFollowersRequest) Execute() (*GetFollowersResponse, *http.Response, error) {
 	return r.ApiService.GetPersonFollowersExecute(r)
 }
 
@@ -695,10 +695,10 @@ Lists users who are following the person.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the person
- @return ApiGetPersonFollowersRequest
+ @return PersonsAPIGetPersonFollowersRequest
 */
-func (a *PersonsAPIService) GetPersonFollowers(ctx context.Context, id int32) ApiGetPersonFollowersRequest {
-	return ApiGetPersonFollowersRequest{
+func (a *PersonsAPIService) GetPersonFollowers(ctx context.Context, id int32) PersonsAPIGetPersonFollowersRequest {
+	return PersonsAPIGetPersonFollowersRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -707,7 +707,7 @@ func (a *PersonsAPIService) GetPersonFollowers(ctx context.Context, id int32) Ap
 
 // Execute executes the request
 //  @return GetFollowersResponse
-func (a *PersonsAPIService) GetPersonFollowersExecute(r ApiGetPersonFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
+func (a *PersonsAPIService) GetPersonFollowersExecute(r PersonsAPIGetPersonFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -801,7 +801,7 @@ func (a *PersonsAPIService) GetPersonFollowersExecute(r ApiGetPersonFollowersReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPersonFollowersChangelogRequest struct {
+type PersonsAPIGetPersonFollowersChangelogRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	id int32
@@ -810,18 +810,18 @@ type ApiGetPersonFollowersChangelogRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetPersonFollowersChangelogRequest) Limit(limit int32) ApiGetPersonFollowersChangelogRequest {
+func (r PersonsAPIGetPersonFollowersChangelogRequest) Limit(limit int32) PersonsAPIGetPersonFollowersChangelogRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetPersonFollowersChangelogRequest) Cursor(cursor string) ApiGetPersonFollowersChangelogRequest {
+func (r PersonsAPIGetPersonFollowersChangelogRequest) Cursor(cursor string) PersonsAPIGetPersonFollowersChangelogRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetPersonFollowersChangelogRequest) Execute() (*GetFollowerChangelogsResponse, *http.Response, error) {
+func (r PersonsAPIGetPersonFollowersChangelogRequest) Execute() (*GetFollowerChangelogsResponse, *http.Response, error) {
 	return r.ApiService.GetPersonFollowersChangelogExecute(r)
 }
 
@@ -832,10 +832,10 @@ Lists changelogs about users have followed the person.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the person
- @return ApiGetPersonFollowersChangelogRequest
+ @return PersonsAPIGetPersonFollowersChangelogRequest
 */
-func (a *PersonsAPIService) GetPersonFollowersChangelog(ctx context.Context, id int32) ApiGetPersonFollowersChangelogRequest {
-	return ApiGetPersonFollowersChangelogRequest{
+func (a *PersonsAPIService) GetPersonFollowersChangelog(ctx context.Context, id int32) PersonsAPIGetPersonFollowersChangelogRequest {
+	return PersonsAPIGetPersonFollowersChangelogRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -844,7 +844,7 @@ func (a *PersonsAPIService) GetPersonFollowersChangelog(ctx context.Context, id 
 
 // Execute executes the request
 //  @return GetFollowerChangelogsResponse
-func (a *PersonsAPIService) GetPersonFollowersChangelogExecute(r ApiGetPersonFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
+func (a *PersonsAPIService) GetPersonFollowersChangelogExecute(r PersonsAPIGetPersonFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -938,13 +938,13 @@ func (a *PersonsAPIService) GetPersonFollowersChangelogExecute(r ApiGetPersonFol
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPersonPictureRequest struct {
+type PersonsAPIGetPersonPictureRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	id int32
 }
 
-func (r ApiGetPersonPictureRequest) Execute() (*GetPersonPictureResponse, *http.Response, error) {
+func (r PersonsAPIGetPersonPictureRequest) Execute() (*GetPersonPictureResponse, *http.Response, error) {
 	return r.ApiService.GetPersonPictureExecute(r)
 }
 
@@ -955,10 +955,10 @@ Returns the picture associated with a person. The picture URLs include both 128x
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the person
- @return ApiGetPersonPictureRequest
+ @return PersonsAPIGetPersonPictureRequest
 */
-func (a *PersonsAPIService) GetPersonPicture(ctx context.Context, id int32) ApiGetPersonPictureRequest {
-	return ApiGetPersonPictureRequest{
+func (a *PersonsAPIService) GetPersonPicture(ctx context.Context, id int32) PersonsAPIGetPersonPictureRequest {
+	return PersonsAPIGetPersonPictureRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -967,7 +967,7 @@ func (a *PersonsAPIService) GetPersonPicture(ctx context.Context, id int32) ApiG
 
 // Execute executes the request
 //  @return GetPersonPictureResponse
-func (a *PersonsAPIService) GetPersonPictureExecute(r ApiGetPersonPictureRequest) (*GetPersonPictureResponse, *http.Response, error) {
+func (a *PersonsAPIService) GetPersonPictureExecute(r PersonsAPIGetPersonPictureRequest) (*GetPersonPictureResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1055,7 +1055,7 @@ func (a *PersonsAPIService) GetPersonPictureExecute(r ApiGetPersonPictureRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetPersonsRequest struct {
+type PersonsAPIGetPersonsRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	filterId *int32
@@ -1076,96 +1076,96 @@ type ApiGetPersonsRequest struct {
 }
 
 // If supplied, only persons matching the specified filter are returned
-func (r ApiGetPersonsRequest) FilterId(filterId int32) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) FilterId(filterId int32) PersonsAPIGetPersonsRequest {
 	r.filterId = &filterId
 	return r
 }
 
 // Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-func (r ApiGetPersonsRequest) Ids(ids string) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) Ids(ids string) PersonsAPIGetPersonsRequest {
 	r.ids = &ids
 	return r
 }
 
 // If supplied, only persons owned by the specified user are returned. If filter_id is provided, this is ignored.
-func (r ApiGetPersonsRequest) OwnerId(ownerId int32) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) OwnerId(ownerId int32) PersonsAPIGetPersonsRequest {
 	r.ownerId = &ownerId
 	return r
 }
 
 // If supplied, only persons linked to the specified organization are returned. If filter_id is provided, this is ignored.
-func (r ApiGetPersonsRequest) OrgId(orgId int32) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) OrgId(orgId int32) PersonsAPIGetPersonsRequest {
 	r.orgId = &orgId
 	return r
 }
 
 // If supplied, only persons linked to the specified deal are returned. If filter_id is provided, this is ignored.
-func (r ApiGetPersonsRequest) DealId(dealId int32) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) DealId(dealId int32) PersonsAPIGetPersonsRequest {
 	r.dealId = &dealId
 	return r
 }
 
 // If set, only persons with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-func (r ApiGetPersonsRequest) UpdatedSince(updatedSince string) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) UpdatedSince(updatedSince string) PersonsAPIGetPersonsRequest {
 	r.updatedSince = &updatedSince
 	return r
 }
 
 // If set, only persons with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-func (r ApiGetPersonsRequest) UpdatedUntil(updatedUntil string) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) UpdatedUntil(updatedUntil string) PersonsAPIGetPersonsRequest {
 	r.updatedUntil = &updatedUntil
 	return r
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
-func (r ApiGetPersonsRequest) SortBy(sortBy string) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) SortBy(sortBy string) PersonsAPIGetPersonsRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetPersonsRequest) SortDirection(sortDirection string) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) SortDirection(sortDirection string) PersonsAPIGetPersonsRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
 // Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
-func (r ApiGetPersonsRequest) IncludeFields(includeFields string) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) IncludeFields(includeFields string) PersonsAPIGetPersonsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-func (r ApiGetPersonsRequest) CustomFields(customFields string) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) CustomFields(customFields string) PersonsAPIGetPersonsRequest {
 	r.customFields = &customFields
 	return r
 }
 
 // When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id
-func (r ApiGetPersonsRequest) IncludeOptionLabels(includeOptionLabels bool) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) IncludeOptionLabels(includeOptionLabels bool) PersonsAPIGetPersonsRequest {
 	r.includeOptionLabels = &includeOptionLabels
 	return r
 }
 
 // When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39;
-func (r ApiGetPersonsRequest) IncludeLabels(includeLabels bool) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) IncludeLabels(includeLabels bool) PersonsAPIGetPersonsRequest {
 	r.includeLabels = &includeLabels
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetPersonsRequest) Limit(limit int32) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) Limit(limit int32) PersonsAPIGetPersonsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetPersonsRequest) Cursor(cursor string) ApiGetPersonsRequest {
+func (r PersonsAPIGetPersonsRequest) Cursor(cursor string) PersonsAPIGetPersonsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetPersonsRequest) Execute() (*GetPersonsResponse, *http.Response, error) {
+func (r PersonsAPIGetPersonsRequest) Execute() (*GetPersonsResponse, *http.Response, error) {
 	return r.ApiService.GetPersonsExecute(r)
 }
 
@@ -1175,10 +1175,10 @@ GetPersons Get all persons
 Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPersonsRequest
+ @return PersonsAPIGetPersonsRequest
 */
-func (a *PersonsAPIService) GetPersons(ctx context.Context) ApiGetPersonsRequest {
-	return ApiGetPersonsRequest{
+func (a *PersonsAPIService) GetPersons(ctx context.Context) PersonsAPIGetPersonsRequest {
+	return PersonsAPIGetPersonsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1186,7 +1186,7 @@ func (a *PersonsAPIService) GetPersons(ctx context.Context) ApiGetPersonsRequest
 
 // Execute executes the request
 //  @return GetPersonsResponse
-func (a *PersonsAPIService) GetPersonsExecute(r ApiGetPersonsRequest) (*GetPersonsResponse, *http.Response, error) {
+func (a *PersonsAPIService) GetPersonsExecute(r PersonsAPIGetPersonsRequest) (*GetPersonsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1326,7 +1326,7 @@ func (a *PersonsAPIService) GetPersonsExecute(r ApiGetPersonsRequest) (*GetPerso
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchPersonsRequest struct {
+type PersonsAPISearchPersonsRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	term *string
@@ -1339,48 +1339,48 @@ type ApiSearchPersonsRequest struct {
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-func (r ApiSearchPersonsRequest) Term(term string) ApiSearchPersonsRequest {
+func (r PersonsAPISearchPersonsRequest) Term(term string) PersonsAPISearchPersonsRequest {
 	r.term = &term
 	return r
 }
 
 // A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-func (r ApiSearchPersonsRequest) Fields(fields string) ApiSearchPersonsRequest {
+func (r PersonsAPISearchPersonsRequest) Fields(fields string) PersonsAPISearchPersonsRequest {
 	r.fields = &fields
 	return r
 }
 
 // When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-func (r ApiSearchPersonsRequest) ExactMatch(exactMatch bool) ApiSearchPersonsRequest {
+func (r PersonsAPISearchPersonsRequest) ExactMatch(exactMatch bool) PersonsAPISearchPersonsRequest {
 	r.exactMatch = &exactMatch
 	return r
 }
 
 // Will filter persons by the provided organization ID. The upper limit of found persons associated with the organization is 2000.
-func (r ApiSearchPersonsRequest) OrganizationId(organizationId int32) ApiSearchPersonsRequest {
+func (r PersonsAPISearchPersonsRequest) OrganizationId(organizationId int32) PersonsAPISearchPersonsRequest {
 	r.organizationId = &organizationId
 	return r
 }
 
 // Supports including optional fields in the results which are not provided by default
-func (r ApiSearchPersonsRequest) IncludeFields(includeFields string) ApiSearchPersonsRequest {
+func (r PersonsAPISearchPersonsRequest) IncludeFields(includeFields string) PersonsAPISearchPersonsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiSearchPersonsRequest) Limit(limit int32) ApiSearchPersonsRequest {
+func (r PersonsAPISearchPersonsRequest) Limit(limit int32) PersonsAPISearchPersonsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiSearchPersonsRequest) Cursor(cursor string) ApiSearchPersonsRequest {
+func (r PersonsAPISearchPersonsRequest) Cursor(cursor string) PersonsAPISearchPersonsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiSearchPersonsRequest) Execute() (*GetPersonSearchResponse, *http.Response, error) {
+func (r PersonsAPISearchPersonsRequest) Execute() (*GetPersonSearchResponse, *http.Response, error) {
 	return r.ApiService.SearchPersonsExecute(r)
 }
 
@@ -1390,10 +1390,10 @@ SearchPersons Search persons
 Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchPersonsRequest
+ @return PersonsAPISearchPersonsRequest
 */
-func (a *PersonsAPIService) SearchPersons(ctx context.Context) ApiSearchPersonsRequest {
-	return ApiSearchPersonsRequest{
+func (a *PersonsAPIService) SearchPersons(ctx context.Context) PersonsAPISearchPersonsRequest {
+	return PersonsAPISearchPersonsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1401,7 +1401,7 @@ func (a *PersonsAPIService) SearchPersons(ctx context.Context) ApiSearchPersonsR
 
 // Execute executes the request
 //  @return GetPersonSearchResponse
-func (a *PersonsAPIService) SearchPersonsExecute(r ApiSearchPersonsRequest) (*GetPersonSearchResponse, *http.Response, error) {
+func (a *PersonsAPIService) SearchPersonsExecute(r PersonsAPISearchPersonsRequest) (*GetPersonSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1510,19 +1510,19 @@ func (a *PersonsAPIService) SearchPersonsExecute(r ApiSearchPersonsRequest) (*Ge
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdatePersonRequest struct {
+type PersonsAPIUpdatePersonRequest struct {
 	ctx context.Context
 	ApiService *PersonsAPIService
 	id int32
 	addPersonRequest *AddPersonRequest
 }
 
-func (r ApiUpdatePersonRequest) AddPersonRequest(addPersonRequest AddPersonRequest) ApiUpdatePersonRequest {
+func (r PersonsAPIUpdatePersonRequest) AddPersonRequest(addPersonRequest AddPersonRequest) PersonsAPIUpdatePersonRequest {
 	r.addPersonRequest = &addPersonRequest
 	return r
 }
 
-func (r ApiUpdatePersonRequest) Execute() (*UpsertPersonResponse, *http.Response, error) {
+func (r PersonsAPIUpdatePersonRequest) Execute() (*UpsertPersonResponse, *http.Response, error) {
 	return r.ApiService.UpdatePersonExecute(r)
 }
 
@@ -1533,10 +1533,10 @@ Updates the properties of a person. <br>If the company uses the [Campaigns produ
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the person
- @return ApiUpdatePersonRequest
+ @return PersonsAPIUpdatePersonRequest
 */
-func (a *PersonsAPIService) UpdatePerson(ctx context.Context, id int32) ApiUpdatePersonRequest {
-	return ApiUpdatePersonRequest{
+func (a *PersonsAPIService) UpdatePerson(ctx context.Context, id int32) PersonsAPIUpdatePersonRequest {
+	return PersonsAPIUpdatePersonRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1545,7 +1545,7 @@ func (a *PersonsAPIService) UpdatePerson(ctx context.Context, id int32) ApiUpdat
 
 // Execute executes the request
 //  @return UpsertPersonResponse
-func (a *PersonsAPIService) UpdatePersonExecute(r ApiUpdatePersonRequest) (*UpsertPersonResponse, *http.Response, error) {
+func (a *PersonsAPIService) UpdatePersonExecute(r PersonsAPIUpdatePersonRequest) (*UpsertPersonResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

@@ -23,18 +23,18 @@ import (
 // TasksAPIService TasksAPI service
 type TasksAPIService service
 
-type ApiAddTaskRequest struct {
+type TasksAPIAddTaskRequest struct {
 	ctx context.Context
 	ApiService *TasksAPIService
 	addTaskRequest *AddTaskRequest
 }
 
-func (r ApiAddTaskRequest) AddTaskRequest(addTaskRequest AddTaskRequest) ApiAddTaskRequest {
+func (r TasksAPIAddTaskRequest) AddTaskRequest(addTaskRequest AddTaskRequest) TasksAPIAddTaskRequest {
 	r.addTaskRequest = &addTaskRequest
 	return r
 }
 
-func (r ApiAddTaskRequest) Execute() (*AddTaskResponse, *http.Response, error) {
+func (r TasksAPIAddTaskRequest) Execute() (*AddTaskResponse, *http.Response, error) {
 	return r.ApiService.AddTaskExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddTask Add a task
 Adds a new task.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddTaskRequest
+ @return TasksAPIAddTaskRequest
 */
-func (a *TasksAPIService) AddTask(ctx context.Context) ApiAddTaskRequest {
-	return ApiAddTaskRequest{
+func (a *TasksAPIService) AddTask(ctx context.Context) TasksAPIAddTaskRequest {
+	return TasksAPIAddTaskRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *TasksAPIService) AddTask(ctx context.Context) ApiAddTaskRequest {
 
 // Execute executes the request
 //  @return AddTaskResponse
-func (a *TasksAPIService) AddTaskExecute(r ApiAddTaskRequest) (*AddTaskResponse, *http.Response, error) {
+func (a *TasksAPIService) AddTaskExecute(r TasksAPIAddTaskRequest) (*AddTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -147,13 +147,13 @@ func (a *TasksAPIService) AddTaskExecute(r ApiAddTaskRequest) (*AddTaskResponse,
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteTaskRequest struct {
+type TasksAPIDeleteTaskRequest struct {
 	ctx context.Context
 	ApiService *TasksAPIService
 	id int32
 }
 
-func (r ApiDeleteTaskRequest) Execute() (*DeleteTaskResponse, *http.Response, error) {
+func (r TasksAPIDeleteTaskRequest) Execute() (*DeleteTaskResponse, *http.Response, error) {
 	return r.ApiService.DeleteTaskExecute(r)
 }
 
@@ -164,10 +164,10 @@ Marks a task as deleted. If the task has subtasks, those will also be deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the task
- @return ApiDeleteTaskRequest
+ @return TasksAPIDeleteTaskRequest
 */
-func (a *TasksAPIService) DeleteTask(ctx context.Context, id int32) ApiDeleteTaskRequest {
-	return ApiDeleteTaskRequest{
+func (a *TasksAPIService) DeleteTask(ctx context.Context, id int32) TasksAPIDeleteTaskRequest {
+	return TasksAPIDeleteTaskRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -176,7 +176,7 @@ func (a *TasksAPIService) DeleteTask(ctx context.Context, id int32) ApiDeleteTas
 
 // Execute executes the request
 //  @return DeleteTaskResponse
-func (a *TasksAPIService) DeleteTaskExecute(r ApiDeleteTaskRequest) (*DeleteTaskResponse, *http.Response, error) {
+func (a *TasksAPIService) DeleteTaskExecute(r TasksAPIDeleteTaskRequest) (*DeleteTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -264,13 +264,13 @@ func (a *TasksAPIService) DeleteTaskExecute(r ApiDeleteTaskRequest) (*DeleteTask
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTaskRequest struct {
+type TasksAPIGetTaskRequest struct {
 	ctx context.Context
 	ApiService *TasksAPIService
 	id int32
 }
 
-func (r ApiGetTaskRequest) Execute() (*GetTaskResponse, *http.Response, error) {
+func (r TasksAPIGetTaskRequest) Execute() (*GetTaskResponse, *http.Response, error) {
 	return r.ApiService.GetTaskExecute(r)
 }
 
@@ -281,10 +281,10 @@ Returns the details of a specific task.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the task
- @return ApiGetTaskRequest
+ @return TasksAPIGetTaskRequest
 */
-func (a *TasksAPIService) GetTask(ctx context.Context, id int32) ApiGetTaskRequest {
-	return ApiGetTaskRequest{
+func (a *TasksAPIService) GetTask(ctx context.Context, id int32) TasksAPIGetTaskRequest {
+	return TasksAPIGetTaskRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -293,7 +293,7 @@ func (a *TasksAPIService) GetTask(ctx context.Context, id int32) ApiGetTaskReque
 
 // Execute executes the request
 //  @return GetTaskResponse
-func (a *TasksAPIService) GetTaskExecute(r ApiGetTaskRequest) (*GetTaskResponse, *http.Response, error) {
+func (a *TasksAPIService) GetTaskExecute(r TasksAPIGetTaskRequest) (*GetTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -381,7 +381,7 @@ func (a *TasksAPIService) GetTaskExecute(r ApiGetTaskRequest) (*GetTaskResponse,
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetTasksRequest struct {
+type TasksAPIGetTasksRequest struct {
 	ctx context.Context
 	ApiService *TasksAPIService
 	cursor *string
@@ -394,48 +394,48 @@ type ApiGetTasksRequest struct {
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetTasksRequest) Cursor(cursor string) ApiGetTasksRequest {
+func (r TasksAPIGetTasksRequest) Cursor(cursor string) TasksAPIGetTasksRequest {
 	r.cursor = &cursor
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetTasksRequest) Limit(limit int32) ApiGetTasksRequest {
+func (r TasksAPIGetTasksRequest) Limit(limit int32) TasksAPIGetTasksRequest {
 	r.limit = &limit
 	return r
 }
 
 // Whether the task is done or not. If omitted, both done and not done tasks are returned.
-func (r ApiGetTasksRequest) IsDone(isDone bool) ApiGetTasksRequest {
+func (r TasksAPIGetTasksRequest) IsDone(isDone bool) TasksAPIGetTasksRequest {
 	r.isDone = &isDone
 	return r
 }
 
 // Whether the task is a milestone or not. If omitted, both milestone and non-milestone tasks are returned.
-func (r ApiGetTasksRequest) IsMilestone(isMilestone bool) ApiGetTasksRequest {
+func (r TasksAPIGetTasksRequest) IsMilestone(isMilestone bool) TasksAPIGetTasksRequest {
 	r.isMilestone = &isMilestone
 	return r
 }
 
 // If supplied, only tasks assigned to this user are returned
-func (r ApiGetTasksRequest) AssigneeId(assigneeId int32) ApiGetTasksRequest {
+func (r TasksAPIGetTasksRequest) AssigneeId(assigneeId int32) TasksAPIGetTasksRequest {
 	r.assigneeId = &assigneeId
 	return r
 }
 
 // If supplied, only tasks belonging to this project are returned
-func (r ApiGetTasksRequest) ProjectId(projectId int32) ApiGetTasksRequest {
+func (r TasksAPIGetTasksRequest) ProjectId(projectId int32) TasksAPIGetTasksRequest {
 	r.projectId = &projectId
 	return r
 }
 
 // If &#x60;null&#x60; is supplied, only root-level tasks (without a parent) are returned. If an integer is supplied, only subtasks of that specific task are returned. By default all tasks are returned.
-func (r ApiGetTasksRequest) ParentTaskId(parentTaskId string) ApiGetTasksRequest {
+func (r TasksAPIGetTasksRequest) ParentTaskId(parentTaskId string) TasksAPIGetTasksRequest {
 	r.parentTaskId = &parentTaskId
 	return r
 }
 
-func (r ApiGetTasksRequest) Execute() (*GetTasksResponse, *http.Response, error) {
+func (r TasksAPIGetTasksRequest) Execute() (*GetTasksResponse, *http.Response, error) {
 	return r.ApiService.GetTasksExecute(r)
 }
 
@@ -445,10 +445,10 @@ GetTasks Get all tasks
 Returns all tasks.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetTasksRequest
+ @return TasksAPIGetTasksRequest
 */
-func (a *TasksAPIService) GetTasks(ctx context.Context) ApiGetTasksRequest {
-	return ApiGetTasksRequest{
+func (a *TasksAPIService) GetTasks(ctx context.Context) TasksAPIGetTasksRequest {
+	return TasksAPIGetTasksRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -456,7 +456,7 @@ func (a *TasksAPIService) GetTasks(ctx context.Context) ApiGetTasksRequest {
 
 // Execute executes the request
 //  @return GetTasksResponse
-func (a *TasksAPIService) GetTasksExecute(r ApiGetTasksRequest) (*GetTasksResponse, *http.Response, error) {
+func (a *TasksAPIService) GetTasksExecute(r TasksAPIGetTasksRequest) (*GetTasksResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -564,19 +564,19 @@ func (a *TasksAPIService) GetTasksExecute(r ApiGetTasksRequest) (*GetTasksRespon
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateTaskRequest struct {
+type TasksAPIUpdateTaskRequest struct {
 	ctx context.Context
 	ApiService *TasksAPIService
 	id int32
 	updateTaskRequest *UpdateTaskRequest
 }
 
-func (r ApiUpdateTaskRequest) UpdateTaskRequest(updateTaskRequest UpdateTaskRequest) ApiUpdateTaskRequest {
+func (r TasksAPIUpdateTaskRequest) UpdateTaskRequest(updateTaskRequest UpdateTaskRequest) TasksAPIUpdateTaskRequest {
 	r.updateTaskRequest = &updateTaskRequest
 	return r
 }
 
-func (r ApiUpdateTaskRequest) Execute() (*UpdateTaskResponse, *http.Response, error) {
+func (r TasksAPIUpdateTaskRequest) Execute() (*UpdateTaskResponse, *http.Response, error) {
 	return r.ApiService.UpdateTaskExecute(r)
 }
 
@@ -587,10 +587,10 @@ Updates a task.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the task
- @return ApiUpdateTaskRequest
+ @return TasksAPIUpdateTaskRequest
 */
-func (a *TasksAPIService) UpdateTask(ctx context.Context, id int32) ApiUpdateTaskRequest {
-	return ApiUpdateTaskRequest{
+func (a *TasksAPIService) UpdateTask(ctx context.Context, id int32) TasksAPIUpdateTaskRequest {
+	return TasksAPIUpdateTaskRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -599,7 +599,7 @@ func (a *TasksAPIService) UpdateTask(ctx context.Context, id int32) ApiUpdateTas
 
 // Execute executes the request
 //  @return UpdateTaskResponse
-func (a *TasksAPIService) UpdateTaskExecute(r ApiUpdateTaskRequest) (*UpdateTaskResponse, *http.Response, error) {
+func (a *TasksAPIService) UpdateTaskExecute(r TasksAPIUpdateTaskRequest) (*UpdateTaskResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}

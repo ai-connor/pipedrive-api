@@ -23,18 +23,18 @@ import (
 // OrganizationsAPIService OrganizationsAPI service
 type OrganizationsAPIService service
 
-type ApiAddOrganizationRequest struct {
+type OrganizationsAPIAddOrganizationRequest struct {
 	ctx context.Context
 	ApiService *OrganizationsAPIService
 	addOrganizationRequest *AddOrganizationRequest
 }
 
-func (r ApiAddOrganizationRequest) AddOrganizationRequest(addOrganizationRequest AddOrganizationRequest) ApiAddOrganizationRequest {
+func (r OrganizationsAPIAddOrganizationRequest) AddOrganizationRequest(addOrganizationRequest AddOrganizationRequest) OrganizationsAPIAddOrganizationRequest {
 	r.addOrganizationRequest = &addOrganizationRequest
 	return r
 }
 
-func (r ApiAddOrganizationRequest) Execute() (*UpsertOrganizationResponse, *http.Response, error) {
+func (r OrganizationsAPIAddOrganizationRequest) Execute() (*UpsertOrganizationResponse, *http.Response, error) {
 	return r.ApiService.AddOrganizationExecute(r)
 }
 
@@ -44,10 +44,10 @@ AddOrganization Add a new organization
 Adds a new organization.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddOrganizationRequest
+ @return OrganizationsAPIAddOrganizationRequest
 */
-func (a *OrganizationsAPIService) AddOrganization(ctx context.Context) ApiAddOrganizationRequest {
-	return ApiAddOrganizationRequest{
+func (a *OrganizationsAPIService) AddOrganization(ctx context.Context) OrganizationsAPIAddOrganizationRequest {
+	return OrganizationsAPIAddOrganizationRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -55,7 +55,7 @@ func (a *OrganizationsAPIService) AddOrganization(ctx context.Context) ApiAddOrg
 
 // Execute executes the request
 //  @return UpsertOrganizationResponse
-func (a *OrganizationsAPIService) AddOrganizationExecute(r ApiAddOrganizationRequest) (*UpsertOrganizationResponse, *http.Response, error) {
+func (a *OrganizationsAPIService) AddOrganizationExecute(r OrganizationsAPIAddOrganizationRequest) (*UpsertOrganizationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -144,19 +144,19 @@ func (a *OrganizationsAPIService) AddOrganizationExecute(r ApiAddOrganizationReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiAddOrganizationFollowerRequest struct {
+type OrganizationsAPIAddOrganizationFollowerRequest struct {
 	ctx context.Context
 	ApiService *OrganizationsAPIService
 	id int32
 	addDealFollowerRequest *AddDealFollowerRequest
 }
 
-func (r ApiAddOrganizationFollowerRequest) AddDealFollowerRequest(addDealFollowerRequest AddDealFollowerRequest) ApiAddOrganizationFollowerRequest {
+func (r OrganizationsAPIAddOrganizationFollowerRequest) AddDealFollowerRequest(addDealFollowerRequest AddDealFollowerRequest) OrganizationsAPIAddOrganizationFollowerRequest {
 	r.addDealFollowerRequest = &addDealFollowerRequest
 	return r
 }
 
-func (r ApiAddOrganizationFollowerRequest) Execute() (*AddFollowerResponse, *http.Response, error) {
+func (r OrganizationsAPIAddOrganizationFollowerRequest) Execute() (*AddFollowerResponse, *http.Response, error) {
 	return r.ApiService.AddOrganizationFollowerExecute(r)
 }
 
@@ -167,10 +167,10 @@ Adds a user as a follower to the organization.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the organization
- @return ApiAddOrganizationFollowerRequest
+ @return OrganizationsAPIAddOrganizationFollowerRequest
 */
-func (a *OrganizationsAPIService) AddOrganizationFollower(ctx context.Context, id int32) ApiAddOrganizationFollowerRequest {
-	return ApiAddOrganizationFollowerRequest{
+func (a *OrganizationsAPIService) AddOrganizationFollower(ctx context.Context, id int32) OrganizationsAPIAddOrganizationFollowerRequest {
+	return OrganizationsAPIAddOrganizationFollowerRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -179,7 +179,7 @@ func (a *OrganizationsAPIService) AddOrganizationFollower(ctx context.Context, i
 
 // Execute executes the request
 //  @return AddFollowerResponse
-func (a *OrganizationsAPIService) AddOrganizationFollowerExecute(r ApiAddOrganizationFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
+func (a *OrganizationsAPIService) AddOrganizationFollowerExecute(r OrganizationsAPIAddOrganizationFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -269,13 +269,13 @@ func (a *OrganizationsAPIService) AddOrganizationFollowerExecute(r ApiAddOrganiz
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteOrganizationRequest struct {
+type OrganizationsAPIDeleteOrganizationRequest struct {
 	ctx context.Context
 	ApiService *OrganizationsAPIService
 	id int32
 }
 
-func (r ApiDeleteOrganizationRequest) Execute() (*DeleteOrganizationResponse, *http.Response, error) {
+func (r OrganizationsAPIDeleteOrganizationRequest) Execute() (*DeleteOrganizationResponse, *http.Response, error) {
 	return r.ApiService.DeleteOrganizationExecute(r)
 }
 
@@ -286,10 +286,10 @@ Marks a organization as deleted. After 30 days, the organization will be permane
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the organization
- @return ApiDeleteOrganizationRequest
+ @return OrganizationsAPIDeleteOrganizationRequest
 */
-func (a *OrganizationsAPIService) DeleteOrganization(ctx context.Context, id int32) ApiDeleteOrganizationRequest {
-	return ApiDeleteOrganizationRequest{
+func (a *OrganizationsAPIService) DeleteOrganization(ctx context.Context, id int32) OrganizationsAPIDeleteOrganizationRequest {
+	return OrganizationsAPIDeleteOrganizationRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -298,7 +298,7 @@ func (a *OrganizationsAPIService) DeleteOrganization(ctx context.Context, id int
 
 // Execute executes the request
 //  @return DeleteOrganizationResponse
-func (a *OrganizationsAPIService) DeleteOrganizationExecute(r ApiDeleteOrganizationRequest) (*DeleteOrganizationResponse, *http.Response, error) {
+func (a *OrganizationsAPIService) DeleteOrganizationExecute(r OrganizationsAPIDeleteOrganizationRequest) (*DeleteOrganizationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -386,14 +386,14 @@ func (a *OrganizationsAPIService) DeleteOrganizationExecute(r ApiDeleteOrganizat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteOrganizationFollowerRequest struct {
+type OrganizationsAPIDeleteOrganizationFollowerRequest struct {
 	ctx context.Context
 	ApiService *OrganizationsAPIService
 	id int32
 	followerId int32
 }
 
-func (r ApiDeleteOrganizationFollowerRequest) Execute() (*DeleteFollowerResponse, *http.Response, error) {
+func (r OrganizationsAPIDeleteOrganizationFollowerRequest) Execute() (*DeleteFollowerResponse, *http.Response, error) {
 	return r.ApiService.DeleteOrganizationFollowerExecute(r)
 }
 
@@ -405,10 +405,10 @@ Deletes a user follower from the organization.
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the organization
  @param followerId The ID of the following user
- @return ApiDeleteOrganizationFollowerRequest
+ @return OrganizationsAPIDeleteOrganizationFollowerRequest
 */
-func (a *OrganizationsAPIService) DeleteOrganizationFollower(ctx context.Context, id int32, followerId int32) ApiDeleteOrganizationFollowerRequest {
-	return ApiDeleteOrganizationFollowerRequest{
+func (a *OrganizationsAPIService) DeleteOrganizationFollower(ctx context.Context, id int32, followerId int32) OrganizationsAPIDeleteOrganizationFollowerRequest {
+	return OrganizationsAPIDeleteOrganizationFollowerRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -418,7 +418,7 @@ func (a *OrganizationsAPIService) DeleteOrganizationFollower(ctx context.Context
 
 // Execute executes the request
 //  @return DeleteFollowerResponse
-func (a *OrganizationsAPIService) DeleteOrganizationFollowerExecute(r ApiDeleteOrganizationFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
+func (a *OrganizationsAPIService) DeleteOrganizationFollowerExecute(r OrganizationsAPIDeleteOrganizationFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -507,7 +507,7 @@ func (a *OrganizationsAPIService) DeleteOrganizationFollowerExecute(r ApiDeleteO
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetOrganizationRequest struct {
+type OrganizationsAPIGetOrganizationRequest struct {
 	ctx context.Context
 	ApiService *OrganizationsAPIService
 	id int32
@@ -518,30 +518,30 @@ type ApiGetOrganizationRequest struct {
 }
 
 // Optional comma separated string array of additional fields to include
-func (r ApiGetOrganizationRequest) IncludeFields(includeFields string) ApiGetOrganizationRequest {
+func (r OrganizationsAPIGetOrganizationRequest) IncludeFields(includeFields string) OrganizationsAPIGetOrganizationRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-func (r ApiGetOrganizationRequest) CustomFields(customFields string) ApiGetOrganizationRequest {
+func (r OrganizationsAPIGetOrganizationRequest) CustomFields(customFields string) OrganizationsAPIGetOrganizationRequest {
 	r.customFields = &customFields
 	return r
 }
 
 // When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id
-func (r ApiGetOrganizationRequest) IncludeOptionLabels(includeOptionLabels bool) ApiGetOrganizationRequest {
+func (r OrganizationsAPIGetOrganizationRequest) IncludeOptionLabels(includeOptionLabels bool) OrganizationsAPIGetOrganizationRequest {
 	r.includeOptionLabels = &includeOptionLabels
 	return r
 }
 
 // When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39;
-func (r ApiGetOrganizationRequest) IncludeLabels(includeLabels bool) ApiGetOrganizationRequest {
+func (r OrganizationsAPIGetOrganizationRequest) IncludeLabels(includeLabels bool) OrganizationsAPIGetOrganizationRequest {
 	r.includeLabels = &includeLabels
 	return r
 }
 
-func (r ApiGetOrganizationRequest) Execute() (*UpsertOrganizationResponse, *http.Response, error) {
+func (r OrganizationsAPIGetOrganizationRequest) Execute() (*UpsertOrganizationResponse, *http.Response, error) {
 	return r.ApiService.GetOrganizationExecute(r)
 }
 
@@ -552,10 +552,10 @@ Returns the details of a specific organization.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the organization
- @return ApiGetOrganizationRequest
+ @return OrganizationsAPIGetOrganizationRequest
 */
-func (a *OrganizationsAPIService) GetOrganization(ctx context.Context, id int32) ApiGetOrganizationRequest {
-	return ApiGetOrganizationRequest{
+func (a *OrganizationsAPIService) GetOrganization(ctx context.Context, id int32) OrganizationsAPIGetOrganizationRequest {
+	return OrganizationsAPIGetOrganizationRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -564,7 +564,7 @@ func (a *OrganizationsAPIService) GetOrganization(ctx context.Context, id int32)
 
 // Execute executes the request
 //  @return UpsertOrganizationResponse
-func (a *OrganizationsAPIService) GetOrganizationExecute(r ApiGetOrganizationRequest) (*UpsertOrganizationResponse, *http.Response, error) {
+func (a *OrganizationsAPIService) GetOrganizationExecute(r OrganizationsAPIGetOrganizationRequest) (*UpsertOrganizationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -664,7 +664,7 @@ func (a *OrganizationsAPIService) GetOrganizationExecute(r ApiGetOrganizationReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetOrganizationFollowersRequest struct {
+type OrganizationsAPIGetOrganizationFollowersRequest struct {
 	ctx context.Context
 	ApiService *OrganizationsAPIService
 	id int32
@@ -673,18 +673,18 @@ type ApiGetOrganizationFollowersRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetOrganizationFollowersRequest) Limit(limit int32) ApiGetOrganizationFollowersRequest {
+func (r OrganizationsAPIGetOrganizationFollowersRequest) Limit(limit int32) OrganizationsAPIGetOrganizationFollowersRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetOrganizationFollowersRequest) Cursor(cursor string) ApiGetOrganizationFollowersRequest {
+func (r OrganizationsAPIGetOrganizationFollowersRequest) Cursor(cursor string) OrganizationsAPIGetOrganizationFollowersRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetOrganizationFollowersRequest) Execute() (*GetFollowersResponse, *http.Response, error) {
+func (r OrganizationsAPIGetOrganizationFollowersRequest) Execute() (*GetFollowersResponse, *http.Response, error) {
 	return r.ApiService.GetOrganizationFollowersExecute(r)
 }
 
@@ -695,10 +695,10 @@ Lists users who are following the organization.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the organization
- @return ApiGetOrganizationFollowersRequest
+ @return OrganizationsAPIGetOrganizationFollowersRequest
 */
-func (a *OrganizationsAPIService) GetOrganizationFollowers(ctx context.Context, id int32) ApiGetOrganizationFollowersRequest {
-	return ApiGetOrganizationFollowersRequest{
+func (a *OrganizationsAPIService) GetOrganizationFollowers(ctx context.Context, id int32) OrganizationsAPIGetOrganizationFollowersRequest {
+	return OrganizationsAPIGetOrganizationFollowersRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -707,7 +707,7 @@ func (a *OrganizationsAPIService) GetOrganizationFollowers(ctx context.Context, 
 
 // Execute executes the request
 //  @return GetFollowersResponse
-func (a *OrganizationsAPIService) GetOrganizationFollowersExecute(r ApiGetOrganizationFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
+func (a *OrganizationsAPIService) GetOrganizationFollowersExecute(r OrganizationsAPIGetOrganizationFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -801,7 +801,7 @@ func (a *OrganizationsAPIService) GetOrganizationFollowersExecute(r ApiGetOrgani
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetOrganizationFollowersChangelogRequest struct {
+type OrganizationsAPIGetOrganizationFollowersChangelogRequest struct {
 	ctx context.Context
 	ApiService *OrganizationsAPIService
 	id int32
@@ -810,18 +810,18 @@ type ApiGetOrganizationFollowersChangelogRequest struct {
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetOrganizationFollowersChangelogRequest) Limit(limit int32) ApiGetOrganizationFollowersChangelogRequest {
+func (r OrganizationsAPIGetOrganizationFollowersChangelogRequest) Limit(limit int32) OrganizationsAPIGetOrganizationFollowersChangelogRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetOrganizationFollowersChangelogRequest) Cursor(cursor string) ApiGetOrganizationFollowersChangelogRequest {
+func (r OrganizationsAPIGetOrganizationFollowersChangelogRequest) Cursor(cursor string) OrganizationsAPIGetOrganizationFollowersChangelogRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetOrganizationFollowersChangelogRequest) Execute() (*GetFollowerChangelogsResponse, *http.Response, error) {
+func (r OrganizationsAPIGetOrganizationFollowersChangelogRequest) Execute() (*GetFollowerChangelogsResponse, *http.Response, error) {
 	return r.ApiService.GetOrganizationFollowersChangelogExecute(r)
 }
 
@@ -832,10 +832,10 @@ Lists changelogs about users have followed the organization.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the organization
- @return ApiGetOrganizationFollowersChangelogRequest
+ @return OrganizationsAPIGetOrganizationFollowersChangelogRequest
 */
-func (a *OrganizationsAPIService) GetOrganizationFollowersChangelog(ctx context.Context, id int32) ApiGetOrganizationFollowersChangelogRequest {
-	return ApiGetOrganizationFollowersChangelogRequest{
+func (a *OrganizationsAPIService) GetOrganizationFollowersChangelog(ctx context.Context, id int32) OrganizationsAPIGetOrganizationFollowersChangelogRequest {
+	return OrganizationsAPIGetOrganizationFollowersChangelogRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -844,7 +844,7 @@ func (a *OrganizationsAPIService) GetOrganizationFollowersChangelog(ctx context.
 
 // Execute executes the request
 //  @return GetFollowerChangelogsResponse
-func (a *OrganizationsAPIService) GetOrganizationFollowersChangelogExecute(r ApiGetOrganizationFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
+func (a *OrganizationsAPIService) GetOrganizationFollowersChangelogExecute(r OrganizationsAPIGetOrganizationFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -938,7 +938,7 @@ func (a *OrganizationsAPIService) GetOrganizationFollowersChangelogExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetOrganizationsRequest struct {
+type OrganizationsAPIGetOrganizationsRequest struct {
 	ctx context.Context
 	ApiService *OrganizationsAPIService
 	filterId *int32
@@ -957,84 +957,84 @@ type ApiGetOrganizationsRequest struct {
 }
 
 // If supplied, only organizations matching the specified filter are returned
-func (r ApiGetOrganizationsRequest) FilterId(filterId int32) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) FilterId(filterId int32) OrganizationsAPIGetOrganizationsRequest {
 	r.filterId = &filterId
 	return r
 }
 
 // Optional comma separated string array of up to 100 entity ids to fetch. If filter_id is provided, this is ignored. If any of the requested entities do not exist or are not visible, they are not included in the response.
-func (r ApiGetOrganizationsRequest) Ids(ids string) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) Ids(ids string) OrganizationsAPIGetOrganizationsRequest {
 	r.ids = &ids
 	return r
 }
 
 // If supplied, only organizations owned by the specified user are returned. If filter_id is provided, this is ignored.
-func (r ApiGetOrganizationsRequest) OwnerId(ownerId int32) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) OwnerId(ownerId int32) OrganizationsAPIGetOrganizationsRequest {
 	r.ownerId = &ownerId
 	return r
 }
 
 // If set, only organizations with an &#x60;update_time&#x60; later than or equal to this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-func (r ApiGetOrganizationsRequest) UpdatedSince(updatedSince string) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) UpdatedSince(updatedSince string) OrganizationsAPIGetOrganizationsRequest {
 	r.updatedSince = &updatedSince
 	return r
 }
 
 // If set, only organizations with an &#x60;update_time&#x60; earlier than this time are returned. In RFC3339 format, e.g. 2025-01-01T10:20:00Z.
-func (r ApiGetOrganizationsRequest) UpdatedUntil(updatedUntil string) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) UpdatedUntil(updatedUntil string) OrganizationsAPIGetOrganizationsRequest {
 	r.updatedUntil = &updatedUntil
 	return r
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
-func (r ApiGetOrganizationsRequest) SortBy(sortBy string) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) SortBy(sortBy string) OrganizationsAPIGetOrganizationsRequest {
 	r.sortBy = &sortBy
 	return r
 }
 
 // The sorting direction. Supported values: &#x60;asc&#x60;, &#x60;desc&#x60;.
-func (r ApiGetOrganizationsRequest) SortDirection(sortDirection string) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) SortDirection(sortDirection string) OrganizationsAPIGetOrganizationsRequest {
 	r.sortDirection = &sortDirection
 	return r
 }
 
 // Optional comma separated string array of additional fields to include
-func (r ApiGetOrganizationsRequest) IncludeFields(includeFields string) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) IncludeFields(includeFields string) OrganizationsAPIGetOrganizationsRequest {
 	r.includeFields = &includeFields
 	return r
 }
 
 // Optional comma separated string array of custom fields keys to include. If you are only interested in a particular set of custom fields, please use this parameter for faster results and smaller response.&lt;br/&gt;A maximum of 15 keys is allowed.
-func (r ApiGetOrganizationsRequest) CustomFields(customFields string) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) CustomFields(customFields string) OrganizationsAPIGetOrganizationsRequest {
 	r.customFields = &customFields
 	return r
 }
 
 // When provided with a &#39;true&#39; value, single option and multiple option custom fields values contain objects in the form of &#39;{ id: number, label: string }&#39; instead of plain id
-func (r ApiGetOrganizationsRequest) IncludeOptionLabels(includeOptionLabels bool) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) IncludeOptionLabels(includeOptionLabels bool) OrganizationsAPIGetOrganizationsRequest {
 	r.includeOptionLabels = &includeOptionLabels
 	return r
 }
 
 // When provided with &#39;true&#39; value, response will include an array of label objects in the form of &#39;{ id: number, label: string }&#39;
-func (r ApiGetOrganizationsRequest) IncludeLabels(includeLabels bool) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) IncludeLabels(includeLabels bool) OrganizationsAPIGetOrganizationsRequest {
 	r.includeLabels = &includeLabels
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiGetOrganizationsRequest) Limit(limit int32) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) Limit(limit int32) OrganizationsAPIGetOrganizationsRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiGetOrganizationsRequest) Cursor(cursor string) ApiGetOrganizationsRequest {
+func (r OrganizationsAPIGetOrganizationsRequest) Cursor(cursor string) OrganizationsAPIGetOrganizationsRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiGetOrganizationsRequest) Execute() (*GetOrganizationsResponse, *http.Response, error) {
+func (r OrganizationsAPIGetOrganizationsRequest) Execute() (*GetOrganizationsResponse, *http.Response, error) {
 	return r.ApiService.GetOrganizationsExecute(r)
 }
 
@@ -1044,10 +1044,10 @@ GetOrganizations Get all organizations
 Returns data about all organizations.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetOrganizationsRequest
+ @return OrganizationsAPIGetOrganizationsRequest
 */
-func (a *OrganizationsAPIService) GetOrganizations(ctx context.Context) ApiGetOrganizationsRequest {
-	return ApiGetOrganizationsRequest{
+func (a *OrganizationsAPIService) GetOrganizations(ctx context.Context) OrganizationsAPIGetOrganizationsRequest {
+	return OrganizationsAPIGetOrganizationsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1055,7 +1055,7 @@ func (a *OrganizationsAPIService) GetOrganizations(ctx context.Context) ApiGetOr
 
 // Execute executes the request
 //  @return GetOrganizationsResponse
-func (a *OrganizationsAPIService) GetOrganizationsExecute(r ApiGetOrganizationsRequest) (*GetOrganizationsResponse, *http.Response, error) {
+func (a *OrganizationsAPIService) GetOrganizationsExecute(r OrganizationsAPIGetOrganizationsRequest) (*GetOrganizationsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1189,7 +1189,7 @@ func (a *OrganizationsAPIService) GetOrganizationsExecute(r ApiGetOrganizationsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchOrganizationRequest struct {
+type OrganizationsAPISearchOrganizationRequest struct {
 	ctx context.Context
 	ApiService *OrganizationsAPIService
 	term *string
@@ -1200,36 +1200,36 @@ type ApiSearchOrganizationRequest struct {
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
-func (r ApiSearchOrganizationRequest) Term(term string) ApiSearchOrganizationRequest {
+func (r OrganizationsAPISearchOrganizationRequest) Term(term string) OrganizationsAPISearchOrganizationRequest {
 	r.term = &term
 	return r
 }
 
 // A comma-separated string array. The fields to perform the search from. Defaults to all of them. Only the following custom field types are searchable: &#x60;address&#x60;, &#x60;varchar&#x60;, &#x60;text&#x60;, &#x60;varchar_auto&#x60;, &#x60;double&#x60;, &#x60;monetary&#x60; and &#x60;phone&#x60;. Read more about searching by custom fields &lt;a href&#x3D;\&quot;https://support.pipedrive.com/en/article/search-finding-what-you-need#searching-by-custom-fields\&quot; target&#x3D;\&quot;_blank\&quot; rel&#x3D;\&quot;noopener noreferrer\&quot;&gt;here&lt;/a&gt;.
-func (r ApiSearchOrganizationRequest) Fields(fields string) ApiSearchOrganizationRequest {
+func (r OrganizationsAPISearchOrganizationRequest) Fields(fields string) OrganizationsAPISearchOrganizationRequest {
 	r.fields = &fields
 	return r
 }
 
 // When enabled, only full exact matches against the given term are returned. It is &lt;b&gt;not&lt;/b&gt; case sensitive.
-func (r ApiSearchOrganizationRequest) ExactMatch(exactMatch bool) ApiSearchOrganizationRequest {
+func (r OrganizationsAPISearchOrganizationRequest) ExactMatch(exactMatch bool) OrganizationsAPISearchOrganizationRequest {
 	r.exactMatch = &exactMatch
 	return r
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
-func (r ApiSearchOrganizationRequest) Limit(limit int32) ApiSearchOrganizationRequest {
+func (r OrganizationsAPISearchOrganizationRequest) Limit(limit int32) OrganizationsAPISearchOrganizationRequest {
 	r.limit = &limit
 	return r
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
-func (r ApiSearchOrganizationRequest) Cursor(cursor string) ApiSearchOrganizationRequest {
+func (r OrganizationsAPISearchOrganizationRequest) Cursor(cursor string) OrganizationsAPISearchOrganizationRequest {
 	r.cursor = &cursor
 	return r
 }
 
-func (r ApiSearchOrganizationRequest) Execute() (*GetOrganizationSearchResponse, *http.Response, error) {
+func (r OrganizationsAPISearchOrganizationRequest) Execute() (*GetOrganizationSearchResponse, *http.Response, error) {
 	return r.ApiService.SearchOrganizationExecute(r)
 }
 
@@ -1239,10 +1239,10 @@ SearchOrganization Search organizations
 Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchOrganizationRequest
+ @return OrganizationsAPISearchOrganizationRequest
 */
-func (a *OrganizationsAPIService) SearchOrganization(ctx context.Context) ApiSearchOrganizationRequest {
-	return ApiSearchOrganizationRequest{
+func (a *OrganizationsAPIService) SearchOrganization(ctx context.Context) OrganizationsAPISearchOrganizationRequest {
+	return OrganizationsAPISearchOrganizationRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1250,7 +1250,7 @@ func (a *OrganizationsAPIService) SearchOrganization(ctx context.Context) ApiSea
 
 // Execute executes the request
 //  @return GetOrganizationSearchResponse
-func (a *OrganizationsAPIService) SearchOrganizationExecute(r ApiSearchOrganizationRequest) (*GetOrganizationSearchResponse, *http.Response, error) {
+func (a *OrganizationsAPIService) SearchOrganizationExecute(r OrganizationsAPISearchOrganizationRequest) (*GetOrganizationSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1353,19 +1353,19 @@ func (a *OrganizationsAPIService) SearchOrganizationExecute(r ApiSearchOrganizat
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateOrganizationRequest struct {
+type OrganizationsAPIUpdateOrganizationRequest struct {
 	ctx context.Context
 	ApiService *OrganizationsAPIService
 	id int32
 	updateOrganizationRequest *UpdateOrganizationRequest
 }
 
-func (r ApiUpdateOrganizationRequest) UpdateOrganizationRequest(updateOrganizationRequest UpdateOrganizationRequest) ApiUpdateOrganizationRequest {
+func (r OrganizationsAPIUpdateOrganizationRequest) UpdateOrganizationRequest(updateOrganizationRequest UpdateOrganizationRequest) OrganizationsAPIUpdateOrganizationRequest {
 	r.updateOrganizationRequest = &updateOrganizationRequest
 	return r
 }
 
-func (r ApiUpdateOrganizationRequest) Execute() (*UpsertOrganizationResponse, *http.Response, error) {
+func (r OrganizationsAPIUpdateOrganizationRequest) Execute() (*UpsertOrganizationResponse, *http.Response, error) {
 	return r.ApiService.UpdateOrganizationExecute(r)
 }
 
@@ -1376,10 +1376,10 @@ Updates the properties of a organization.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id The ID of the organization
- @return ApiUpdateOrganizationRequest
+ @return OrganizationsAPIUpdateOrganizationRequest
 */
-func (a *OrganizationsAPIService) UpdateOrganization(ctx context.Context, id int32) ApiUpdateOrganizationRequest {
-	return ApiUpdateOrganizationRequest{
+func (a *OrganizationsAPIService) UpdateOrganization(ctx context.Context, id int32) OrganizationsAPIUpdateOrganizationRequest {
+	return OrganizationsAPIUpdateOrganizationRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -1388,7 +1388,7 @@ func (a *OrganizationsAPIService) UpdateOrganization(ctx context.Context, id int
 
 // Execute executes the request
 //  @return UpsertOrganizationResponse
-func (a *OrganizationsAPIService) UpdateOrganizationExecute(r ApiUpdateOrganizationRequest) (*UpsertOrganizationResponse, *http.Response, error) {
+func (a *OrganizationsAPIService) UpdateOrganizationExecute(r OrganizationsAPIUpdateOrganizationRequest) (*UpsertOrganizationResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
