@@ -1,0 +1,10 @@
+globalProperties:
+  apiTests: false
+  modelTests: false  
+  apiDocs: false
+  modelDocs: false
+additionalProperties:
+  hideGenerationTimestamp: true
+  packageName: pipedriveapi
+  disallowAdditionalPropertiesIfNotPresent: false
+  enumClassPrefix: true
