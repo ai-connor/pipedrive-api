@@ -13963,6 +13963,35 @@ components:
           example: null
       title: GetConvertResponse
       type: object
+    getDealFields_200_response_data_inner_options_inner:
+      example:
+        update_time: 2000-01-23T04:56:07.000+00:00
+        color: color
+        id: id
+        label: label
+        add_time: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          description: The option ID
+          type: string
+        label:
+          description: The option display label
+          type: string
+        color:
+          description: Optional color code for the option
+          nullable: true
+          type: string
+        update_time:
+          description: When the option was last updated
+          format: date-time
+          nullable: true
+          type: string
+        add_time:
+          description: When the option was created
+          format: date-time
+          nullable: true
+          type: string
+      type: object
     getDealFields_200_response_data_inner_ui_visibility_show_in_pipelines:
       description: Pipeline visibility configuration
       example:
@@ -14078,12 +14107,12 @@ components:
         options:
         - update_time: 2000-01-23T04:56:07.000+00:00
           color: color
-          id: 0
+          id: id
           label: label
           add_time: 2000-01-23T04:56:07.000+00:00
         - update_time: 2000-01-23T04:56:07.000+00:00
           color: color
-          id: 0
+          id: id
           label: label
           add_time: 2000-01-23T04:56:07.000+00:00
         important_fields:
@@ -14156,7 +14185,7 @@ components:
           description: "Array of available options for enum/set fields, null for other\
             \ field types"
           items:
-            $ref: "#/components/schemas/getActivityFields_200_response_data_inner_options_inner"
+            $ref: "#/components/schemas/getDealFields_200_response_data_inner_options_inner"
           nullable: true
           type: array
         subfields:
@@ -14212,12 +14241,12 @@ components:
           options:
           - update_time: 2000-01-23T04:56:07.000+00:00
             color: color
-            id: 0
+            id: id
             label: label
             add_time: 2000-01-23T04:56:07.000+00:00
           - update_time: 2000-01-23T04:56:07.000+00:00
             color: color
-            id: 0
+            id: id
             label: label
             add_time: 2000-01-23T04:56:07.000+00:00
           important_fields:
@@ -14259,12 +14288,12 @@ components:
           options:
           - update_time: 2000-01-23T04:56:07.000+00:00
             color: color
-            id: 0
+            id: id
             label: label
             add_time: 2000-01-23T04:56:07.000+00:00
           - update_time: 2000-01-23T04:56:07.000+00:00
             color: color
-            id: 0
+            id: id
             label: label
             add_time: 2000-01-23T04:56:07.000+00:00
           important_fields:
@@ -14465,6 +14494,137 @@ components:
       - field_name
       - field_type
       type: object
+    addDealField_200_response_data:
+      example:
+        is_optional_response_field: true
+        required_fields:
+          stage_ids:
+          - 1
+          - 1
+          statuses:
+            key:
+            - won
+            - won
+          enabled: true
+        subfields:
+        - field_code: field_code
+          field_type: field_type
+          field_name: field_name
+        - field_code: field_code
+          field_type: field_type
+          field_name: field_name
+        field_code: field_code
+        options:
+        - update_time: 2000-01-23T04:56:07.000+00:00
+          color: color
+          id: 0
+          label: label
+          add_time: 2000-01-23T04:56:07.000+00:00
+        - update_time: 2000-01-23T04:56:07.000+00:00
+          color: color
+          id: 0
+          label: label
+          add_time: 2000-01-23T04:56:07.000+00:00
+        important_fields:
+          stage_ids:
+          - 6
+          - 6
+          enabled: true
+        description: description
+        is_custom_field: true
+        field_type: int
+        ui_visibility:
+          details_visible_flag: true
+          projects_detail_visible_flag: true
+          add_visible_flag: true
+          show_in_pipelines:
+            show_in_all: true
+            pipeline_ids:
+            - 0
+            - 0
+        field_name: field_name
+      properties:
+        field_name:
+          description: The display name/label of the field
+          type: string
+        field_code:
+          description: The unique identifier for the field (40-character hash for
+            custom fields)
+          type: string
+        description:
+          description: The description of the field
+          type: string
+        field_type:
+          description: The type of the field
+          enum:
+          - int
+          - double
+          - boolean
+          - varchar
+          - text
+          - phone
+          - varchar_options
+          - varchar_auto
+          - date
+          - daterange
+          - time
+          - timerange
+          - enum
+          - set
+          - address
+          - monetary
+          - deal
+          - deals
+          - lead
+          - org
+          - people
+          - project
+          - stage
+          - user
+          - activity
+          - json
+          - picture
+          - status
+          - visible_to
+          - price_list
+          - billing_frequency
+          - projects_board
+          - projects_phase
+          type: string
+        options:
+          description: "Array of available options for enum/set fields, null for other\
+            \ field types"
+          items:
+            $ref: "#/components/schemas/getActivityFields_200_response_data_inner_options_inner"
+          nullable: true
+          type: array
+        subfields:
+          description: "Array of subfields for complex field types (address, monetary),\
+            \ null for simple field types"
+          items:
+            $ref: "#/components/schemas/getActivityFields_200_response_data_inner_subfields_inner"
+          nullable: true
+          type: array
+        is_custom_field:
+          description: Whether this is a user-created custom field
+          type: boolean
+        is_optional_response_field:
+          description: Whether this field is not returned by default in entity responses
+          type: boolean
+        ui_visibility:
+          $ref: "#/components/schemas/getDealFields_200_response_data_inner_ui_visibility"
+        important_fields:
+          $ref: "#/components/schemas/getDealFields_200_response_data_inner_important_fields"
+        required_fields:
+          $ref: "#/components/schemas/getDealFields_200_response_data_inner_required_fields"
+      required:
+      - description
+      - field_code
+      - field_name
+      - field_type
+      - is_custom_field
+      - is_optional_response_field
+      type: object
     addDealField_200_response:
       example:
         data:
@@ -14521,7 +14681,7 @@ components:
           description: Whether the request was successful
           type: boolean
         data:
-          $ref: "#/components/schemas/getDealFields_200_response_data_inner"
+          $ref: "#/components/schemas/addDealField_200_response_data"
       type: object
     deleteDealField_200_response_data:
       example:

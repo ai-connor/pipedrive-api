@@ -21,7 +21,7 @@ var _ MappedNullable = &AddDealField200Response{}
 type AddDealField200Response struct {
 	// Whether the request was successful
 	Success *bool `json:"success,omitempty"`
-	Data *GetDealFields200ResponseDataInner `json:"data,omitempty"`
+	Data *AddDealField200ResponseData `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -77,9 +77,9 @@ func (o *AddDealField200Response) SetSuccess(v bool) {
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *AddDealField200Response) GetData() GetDealFields200ResponseDataInner {
+func (o *AddDealField200Response) GetData() AddDealField200ResponseData {
 	if o == nil || IsNil(o.Data) {
-		var ret GetDealFields200ResponseDataInner
+		var ret AddDealField200ResponseData
 		return ret
 	}
 	return *o.Data
@@ -87,7 +87,7 @@ func (o *AddDealField200Response) GetData() GetDealFields200ResponseDataInner {
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AddDealField200Response) GetDataOk() (*GetDealFields200ResponseDataInner, bool) {
+func (o *AddDealField200Response) GetDataOk() (*AddDealField200ResponseData, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *AddDealField200Response) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given GetDealFields200ResponseDataInner and assigns it to the Data field.
-func (o *AddDealField200Response) SetData(v GetDealFields200ResponseDataInner) {
+// SetData gets a reference to the given AddDealField200ResponseData and assigns it to the Data field.
+func (o *AddDealField200Response) SetData(v AddDealField200ResponseData) {
 	o.Data = &v
 }
 
