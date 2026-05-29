@@ -21,7 +21,7 @@ var _ MappedNullable = &GetDealFields200ResponseDataInnerOptionsInner{}
 // GetDealFields200ResponseDataInnerOptionsInner struct for GetDealFields200ResponseDataInnerOptionsInner
 type GetDealFields200ResponseDataInnerOptionsInner struct {
 	// The option ID
-	Id *string `json:"id,omitempty"`
+	Id interface{} `json:"id,omitempty"`
 	// The option display label
 	Label *string `json:"label,omitempty"`
 	// Optional color code for the option
@@ -52,22 +52,23 @@ func NewGetDealFields200ResponseDataInnerOptionsInnerWithDefaults() *GetDealFiel
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *GetDealFields200ResponseDataInnerOptionsInner) GetId() string {
-	if o == nil || IsNil(o.Id) {
-		var ret string
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetDealFields200ResponseDataInnerOptionsInner) GetId() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Id
+	return o.Id
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetDealFields200ResponseDataInnerOptionsInner) GetIdOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetDealFields200ResponseDataInnerOptionsInner) GetIdOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
 // HasId returns a boolean if a field has been set.
@@ -79,9 +80,9 @@ func (o *GetDealFields200ResponseDataInnerOptionsInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *GetDealFields200ResponseDataInnerOptionsInner) SetId(v string) {
-	o.Id = &v
+// SetId gets a reference to the given interface{} and assigns it to the Id field.
+func (o *GetDealFields200ResponseDataInnerOptionsInner) SetId(v interface{}) {
+	o.Id = v
 }
 
 // GetLabel returns the Label field value if set, zero value otherwise.
@@ -252,7 +253,7 @@ func (o GetDealFields200ResponseDataInnerOptionsInner) MarshalJSON() ([]byte, er
 
 func (o GetDealFields200ResponseDataInnerOptionsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
+	if o.Id != nil {
 		toSerialize["id"] = o.Id
 	}
 	if !IsNil(o.Label) {

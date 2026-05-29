@@ -6096,7 +6096,7 @@ paths:
                             type: object
                             properties:
                               id:
-                                type: string
+                                type: [string, integer]
                                 description: The option ID
                               label:
                                 type: string

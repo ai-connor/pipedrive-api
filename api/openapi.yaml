@@ -13967,13 +13967,12 @@ components:
       example:
         update_time: 2000-01-23T04:56:07.000+00:00
         color: color
-        id: id
+        id: ""
         label: label
         add_time: 2000-01-23T04:56:07.000+00:00
       properties:
         id:
           description: The option ID
-          type: string
         label:
           description: The option display label
           type: string
@@ -14107,12 +14106,12 @@ components:
         options:
         - update_time: 2000-01-23T04:56:07.000+00:00
           color: color
-          id: id
+          id: ""
           label: label
           add_time: 2000-01-23T04:56:07.000+00:00
         - update_time: 2000-01-23T04:56:07.000+00:00
           color: color
-          id: id
+          id: ""
           label: label
           add_time: 2000-01-23T04:56:07.000+00:00
         important_fields:
@@ -14241,12 +14240,12 @@ components:
           options:
           - update_time: 2000-01-23T04:56:07.000+00:00
             color: color
-            id: id
+            id: ""
             label: label
             add_time: 2000-01-23T04:56:07.000+00:00
           - update_time: 2000-01-23T04:56:07.000+00:00
             color: color
-            id: id
+            id: ""
             label: label
             add_time: 2000-01-23T04:56:07.000+00:00
           important_fields:
@@ -14288,12 +14287,12 @@ components:
           options:
           - update_time: 2000-01-23T04:56:07.000+00:00
             color: color
-            id: id
+            id: ""
             label: label
             add_time: 2000-01-23T04:56:07.000+00:00
           - update_time: 2000-01-23T04:56:07.000+00:00
             color: color
-            id: id
+            id: ""
             label: label
             add_time: 2000-01-23T04:56:07.000+00:00
           important_fields:
