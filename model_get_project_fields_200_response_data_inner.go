@@ -27,7 +27,7 @@ type GetProjectFields200ResponseDataInner struct {
 	// The type of the field
 	FieldType string `json:"field_type"`
 	// Array of available options for enum/set fields, null for other field types
-	Options []GetActivityFields200ResponseDataInnerOptionsInner `json:"options,omitempty"`
+	Options []GetActivityField200ResponseDataOptionsInner `json:"options,omitempty"`
 	// Array of subfields for complex field types (address, monetary), null for simple field types
 	Subfields []GetActivityFields200ResponseDataInnerSubfieldsInner `json:"subfields,omitempty"`
 	// Whether this is a user-created custom field
@@ -137,9 +137,9 @@ func (o *GetProjectFields200ResponseDataInner) SetFieldType(v string) {
 }
 
 // GetOptions returns the Options field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GetProjectFields200ResponseDataInner) GetOptions() []GetActivityFields200ResponseDataInnerOptionsInner {
+func (o *GetProjectFields200ResponseDataInner) GetOptions() []GetActivityField200ResponseDataOptionsInner {
 	if o == nil {
-		var ret []GetActivityFields200ResponseDataInnerOptionsInner
+		var ret []GetActivityField200ResponseDataOptionsInner
 		return ret
 	}
 	return o.Options
@@ -148,7 +148,7 @@ func (o *GetProjectFields200ResponseDataInner) GetOptions() []GetActivityFields2
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GetProjectFields200ResponseDataInner) GetOptionsOk() ([]GetActivityFields200ResponseDataInnerOptionsInner, bool) {
+func (o *GetProjectFields200ResponseDataInner) GetOptionsOk() ([]GetActivityField200ResponseDataOptionsInner, bool) {
 	if o == nil || IsNil(o.Options) {
 		return nil, false
 	}
@@ -164,8 +164,8 @@ func (o *GetProjectFields200ResponseDataInner) HasOptions() bool {
 	return false
 }
 
-// SetOptions gets a reference to the given []GetActivityFields200ResponseDataInnerOptionsInner and assigns it to the Options field.
-func (o *GetProjectFields200ResponseDataInner) SetOptions(v []GetActivityFields200ResponseDataInnerOptionsInner) {
+// SetOptions gets a reference to the given []GetActivityField200ResponseDataOptionsInner and assigns it to the Options field.
+func (o *GetProjectFields200ResponseDataInner) SetOptions(v []GetActivityField200ResponseDataOptionsInner) {
 	o.Options = v
 }
 

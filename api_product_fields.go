@@ -673,7 +673,7 @@ func (r ProductFieldsAPIGetProductFieldsRequest) Cursor(cursor string) ProductFi
 	return r
 }
 
-func (r ProductFieldsAPIGetProductFieldsRequest) Execute() (*GetActivityFields200Response, *http.Response, error) {
+func (r ProductFieldsAPIGetProductFieldsRequest) Execute() (*GetProductFields200Response, *http.Response, error) {
 	return r.ApiService.GetProductFieldsExecute(r)
 }
 
@@ -693,13 +693,13 @@ func (a *ProductFieldsAPIService) GetProductFields(ctx context.Context) ProductF
 }
 
 // Execute executes the request
-//  @return GetActivityFields200Response
-func (a *ProductFieldsAPIService) GetProductFieldsExecute(r ProductFieldsAPIGetProductFieldsRequest) (*GetActivityFields200Response, *http.Response, error) {
+//  @return GetProductFields200Response
+func (a *ProductFieldsAPIService) GetProductFieldsExecute(r ProductFieldsAPIGetProductFieldsRequest) (*GetProductFields200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetActivityFields200Response
+		localVarReturnValue  *GetProductFields200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductFieldsAPIService.GetProductFields")

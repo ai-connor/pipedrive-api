@@ -15,13 +15,13 @@ import (
 	"time"
 )
 
-// checks if the GetActivityFields200ResponseDataInnerOptionsInner type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GetActivityFields200ResponseDataInnerOptionsInner{}
+// checks if the GetActivityField200ResponseDataOptionsInner type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &GetActivityField200ResponseDataOptionsInner{}
 
-// GetActivityFields200ResponseDataInnerOptionsInner struct for GetActivityFields200ResponseDataInnerOptionsInner
-type GetActivityFields200ResponseDataInnerOptionsInner struct {
+// GetActivityField200ResponseDataOptionsInner struct for GetActivityField200ResponseDataOptionsInner
+type GetActivityField200ResponseDataOptionsInner struct {
 	// The option ID
-	Id *string `json:"id,omitempty"`
+	Id *int32 `json:"id,omitempty"`
 	// The option display label
 	Label *string `json:"label,omitempty"`
 	// Optional color code for the option
@@ -33,29 +33,29 @@ type GetActivityFields200ResponseDataInnerOptionsInner struct {
 	AdditionalProperties map[string]interface{}
 }
 
-type _GetActivityFields200ResponseDataInnerOptionsInner GetActivityFields200ResponseDataInnerOptionsInner
+type _GetActivityField200ResponseDataOptionsInner GetActivityField200ResponseDataOptionsInner
 
-// NewGetActivityFields200ResponseDataInnerOptionsInner instantiates a new GetActivityFields200ResponseDataInnerOptionsInner object
+// NewGetActivityField200ResponseDataOptionsInner instantiates a new GetActivityField200ResponseDataOptionsInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetActivityFields200ResponseDataInnerOptionsInner() *GetActivityFields200ResponseDataInnerOptionsInner {
-	this := GetActivityFields200ResponseDataInnerOptionsInner{}
+func NewGetActivityField200ResponseDataOptionsInner() *GetActivityField200ResponseDataOptionsInner {
+	this := GetActivityField200ResponseDataOptionsInner{}
 	return &this
 }
 
-// NewGetActivityFields200ResponseDataInnerOptionsInnerWithDefaults instantiates a new GetActivityFields200ResponseDataInnerOptionsInner object
+// NewGetActivityField200ResponseDataOptionsInnerWithDefaults instantiates a new GetActivityField200ResponseDataOptionsInner object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGetActivityFields200ResponseDataInnerOptionsInnerWithDefaults() *GetActivityFields200ResponseDataInnerOptionsInner {
-	this := GetActivityFields200ResponseDataInnerOptionsInner{}
+func NewGetActivityField200ResponseDataOptionsInnerWithDefaults() *GetActivityField200ResponseDataOptionsInner {
+	this := GetActivityField200ResponseDataOptionsInner{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetId() string {
+func (o *GetActivityField200ResponseDataOptionsInner) GetId() int32 {
 	if o == nil || IsNil(o.Id) {
-		var ret string
+		var ret int32
 		return ret
 	}
 	return *o.Id
@@ -63,7 +63,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetIdOk() (*string, bool) {
+func (o *GetActivityField200ResponseDataOptionsInner) GetIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetIdOk() (*string, 
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasId() bool {
+func (o *GetActivityField200ResponseDataOptionsInner) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -79,13 +79,13 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasId() bool {
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetId(v string) {
+// SetId gets a reference to the given int32 and assigns it to the Id field.
+func (o *GetActivityField200ResponseDataOptionsInner) SetId(v int32) {
 	o.Id = &v
 }
 
 // GetLabel returns the Label field value if set, zero value otherwise.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetLabel() string {
+func (o *GetActivityField200ResponseDataOptionsInner) GetLabel() string {
 	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
@@ -95,7 +95,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetLabel() string {
 
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetLabelOk() (*string, bool) {
+func (o *GetActivityField200ResponseDataOptionsInner) GetLabelOk() (*string, bool) {
 	if o == nil || IsNil(o.Label) {
 		return nil, false
 	}
@@ -103,7 +103,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetLabelOk() (*strin
 }
 
 // HasLabel returns a boolean if a field has been set.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasLabel() bool {
+func (o *GetActivityField200ResponseDataOptionsInner) HasLabel() bool {
 	if o != nil && !IsNil(o.Label) {
 		return true
 	}
@@ -112,12 +112,12 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasLabel() bool {
 }
 
 // SetLabel gets a reference to the given string and assigns it to the Label field.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetLabel(v string) {
+func (o *GetActivityField200ResponseDataOptionsInner) SetLabel(v string) {
 	o.Label = &v
 }
 
 // GetColor returns the Color field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetColor() string {
+func (o *GetActivityField200ResponseDataOptionsInner) GetColor() string {
 	if o == nil || IsNil(o.Color.Get()) {
 		var ret string
 		return ret
@@ -128,7 +128,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetColor() string {
 // GetColorOk returns a tuple with the Color field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetColorOk() (*string, bool) {
+func (o *GetActivityField200ResponseDataOptionsInner) GetColorOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -136,7 +136,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetColorOk() (*strin
 }
 
 // HasColor returns a boolean if a field has been set.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasColor() bool {
+func (o *GetActivityField200ResponseDataOptionsInner) HasColor() bool {
 	if o != nil && o.Color.IsSet() {
 		return true
 	}
@@ -145,21 +145,21 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasColor() bool {
 }
 
 // SetColor gets a reference to the given NullableString and assigns it to the Color field.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetColor(v string) {
+func (o *GetActivityField200ResponseDataOptionsInner) SetColor(v string) {
 	o.Color.Set(&v)
 }
 // SetColorNil sets the value for Color to be an explicit nil
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetColorNil() {
+func (o *GetActivityField200ResponseDataOptionsInner) SetColorNil() {
 	o.Color.Set(nil)
 }
 
 // UnsetColor ensures that no value is present for Color, not even an explicit nil
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) UnsetColor() {
+func (o *GetActivityField200ResponseDataOptionsInner) UnsetColor() {
 	o.Color.Unset()
 }
 
 // GetUpdateTime returns the UpdateTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetUpdateTime() time.Time {
+func (o *GetActivityField200ResponseDataOptionsInner) GetUpdateTime() time.Time {
 	if o == nil || IsNil(o.UpdateTime.Get()) {
 		var ret time.Time
 		return ret
@@ -170,7 +170,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetUpdateTime() time
 // GetUpdateTimeOk returns a tuple with the UpdateTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetUpdateTimeOk() (*time.Time, bool) {
+func (o *GetActivityField200ResponseDataOptionsInner) GetUpdateTimeOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -178,7 +178,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetUpdateTimeOk() (*
 }
 
 // HasUpdateTime returns a boolean if a field has been set.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasUpdateTime() bool {
+func (o *GetActivityField200ResponseDataOptionsInner) HasUpdateTime() bool {
 	if o != nil && o.UpdateTime.IsSet() {
 		return true
 	}
@@ -187,21 +187,21 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasUpdateTime() bool
 }
 
 // SetUpdateTime gets a reference to the given NullableTime and assigns it to the UpdateTime field.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetUpdateTime(v time.Time) {
+func (o *GetActivityField200ResponseDataOptionsInner) SetUpdateTime(v time.Time) {
 	o.UpdateTime.Set(&v)
 }
 // SetUpdateTimeNil sets the value for UpdateTime to be an explicit nil
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetUpdateTimeNil() {
+func (o *GetActivityField200ResponseDataOptionsInner) SetUpdateTimeNil() {
 	o.UpdateTime.Set(nil)
 }
 
 // UnsetUpdateTime ensures that no value is present for UpdateTime, not even an explicit nil
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) UnsetUpdateTime() {
+func (o *GetActivityField200ResponseDataOptionsInner) UnsetUpdateTime() {
 	o.UpdateTime.Unset()
 }
 
 // GetAddTime returns the AddTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetAddTime() time.Time {
+func (o *GetActivityField200ResponseDataOptionsInner) GetAddTime() time.Time {
 	if o == nil || IsNil(o.AddTime.Get()) {
 		var ret time.Time
 		return ret
@@ -212,7 +212,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetAddTime() time.Ti
 // GetAddTimeOk returns a tuple with the AddTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetAddTimeOk() (*time.Time, bool) {
+func (o *GetActivityField200ResponseDataOptionsInner) GetAddTimeOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -220,7 +220,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) GetAddTimeOk() (*tim
 }
 
 // HasAddTime returns a boolean if a field has been set.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasAddTime() bool {
+func (o *GetActivityField200ResponseDataOptionsInner) HasAddTime() bool {
 	if o != nil && o.AddTime.IsSet() {
 		return true
 	}
@@ -229,20 +229,20 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasAddTime() bool {
 }
 
 // SetAddTime gets a reference to the given NullableTime and assigns it to the AddTime field.
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetAddTime(v time.Time) {
+func (o *GetActivityField200ResponseDataOptionsInner) SetAddTime(v time.Time) {
 	o.AddTime.Set(&v)
 }
 // SetAddTimeNil sets the value for AddTime to be an explicit nil
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetAddTimeNil() {
+func (o *GetActivityField200ResponseDataOptionsInner) SetAddTimeNil() {
 	o.AddTime.Set(nil)
 }
 
 // UnsetAddTime ensures that no value is present for AddTime, not even an explicit nil
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) UnsetAddTime() {
+func (o *GetActivityField200ResponseDataOptionsInner) UnsetAddTime() {
 	o.AddTime.Unset()
 }
 
-func (o GetActivityFields200ResponseDataInnerOptionsInner) MarshalJSON() ([]byte, error) {
+func (o GetActivityField200ResponseDataOptionsInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -250,7 +250,7 @@ func (o GetActivityFields200ResponseDataInnerOptionsInner) MarshalJSON() ([]byte
 	return json.Marshal(toSerialize)
 }
 
-func (o GetActivityFields200ResponseDataInnerOptionsInner) ToMap() (map[string]interface{}, error) {
+func (o GetActivityField200ResponseDataOptionsInner) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
@@ -275,16 +275,16 @@ func (o GetActivityFields200ResponseDataInnerOptionsInner) ToMap() (map[string]i
 	return toSerialize, nil
 }
 
-func (o *GetActivityFields200ResponseDataInnerOptionsInner) UnmarshalJSON(data []byte) (err error) {
-	varGetActivityFields200ResponseDataInnerOptionsInner := _GetActivityFields200ResponseDataInnerOptionsInner{}
+func (o *GetActivityField200ResponseDataOptionsInner) UnmarshalJSON(data []byte) (err error) {
+	varGetActivityField200ResponseDataOptionsInner := _GetActivityField200ResponseDataOptionsInner{}
 
-	err = json.Unmarshal(data, &varGetActivityFields200ResponseDataInnerOptionsInner)
+	err = json.Unmarshal(data, &varGetActivityField200ResponseDataOptionsInner)
 
 	if err != nil {
 		return err
 	}
 
-	*o = GetActivityFields200ResponseDataInnerOptionsInner(varGetActivityFields200ResponseDataInnerOptionsInner)
+	*o = GetActivityField200ResponseDataOptionsInner(varGetActivityField200ResponseDataOptionsInner)
 
 	additionalProperties := make(map[string]interface{})
 
@@ -300,38 +300,38 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) UnmarshalJSON(data [
 	return err
 }
 
-type NullableGetActivityFields200ResponseDataInnerOptionsInner struct {
-	value *GetActivityFields200ResponseDataInnerOptionsInner
+type NullableGetActivityField200ResponseDataOptionsInner struct {
+	value *GetActivityField200ResponseDataOptionsInner
 	isSet bool
 }
 
-func (v NullableGetActivityFields200ResponseDataInnerOptionsInner) Get() *GetActivityFields200ResponseDataInnerOptionsInner {
+func (v NullableGetActivityField200ResponseDataOptionsInner) Get() *GetActivityField200ResponseDataOptionsInner {
 	return v.value
 }
 
-func (v *NullableGetActivityFields200ResponseDataInnerOptionsInner) Set(val *GetActivityFields200ResponseDataInnerOptionsInner) {
+func (v *NullableGetActivityField200ResponseDataOptionsInner) Set(val *GetActivityField200ResponseDataOptionsInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGetActivityFields200ResponseDataInnerOptionsInner) IsSet() bool {
+func (v NullableGetActivityField200ResponseDataOptionsInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGetActivityFields200ResponseDataInnerOptionsInner) Unset() {
+func (v *NullableGetActivityField200ResponseDataOptionsInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGetActivityFields200ResponseDataInnerOptionsInner(val *GetActivityFields200ResponseDataInnerOptionsInner) *NullableGetActivityFields200ResponseDataInnerOptionsInner {
-	return &NullableGetActivityFields200ResponseDataInnerOptionsInner{value: val, isSet: true}
+func NewNullableGetActivityField200ResponseDataOptionsInner(val *GetActivityField200ResponseDataOptionsInner) *NullableGetActivityField200ResponseDataOptionsInner {
+	return &NullableGetActivityField200ResponseDataOptionsInner{value: val, isSet: true}
 }
 
-func (v NullableGetActivityFields200ResponseDataInnerOptionsInner) MarshalJSON() ([]byte, error) {
+func (v NullableGetActivityField200ResponseDataOptionsInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGetActivityFields200ResponseDataInnerOptionsInner) UnmarshalJSON(src []byte) error {
+func (v *NullableGetActivityField200ResponseDataOptionsInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -21,7 +21,7 @@ var _ MappedNullable = &GetActivityField200Response{}
 type GetActivityField200Response struct {
 	// Whether the request was successful
 	Success *bool `json:"success,omitempty"`
-	Data *GetActivityFields200ResponseDataInner `json:"data,omitempty"`
+	Data *GetActivityField200ResponseData `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -77,9 +77,9 @@ func (o *GetActivityField200Response) SetSuccess(v bool) {
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *GetActivityField200Response) GetData() GetActivityFields200ResponseDataInner {
+func (o *GetActivityField200Response) GetData() GetActivityField200ResponseData {
 	if o == nil || IsNil(o.Data) {
-		var ret GetActivityFields200ResponseDataInner
+		var ret GetActivityField200ResponseData
 		return ret
 	}
 	return *o.Data
@@ -87,7 +87,7 @@ func (o *GetActivityField200Response) GetData() GetActivityFields200ResponseData
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetActivityField200Response) GetDataOk() (*GetActivityFields200ResponseDataInner, bool) {
+func (o *GetActivityField200Response) GetDataOk() (*GetActivityField200ResponseData, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *GetActivityField200Response) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given GetActivityFields200ResponseDataInner and assigns it to the Data field.
-func (o *GetActivityField200Response) SetData(v GetActivityFields200ResponseDataInner) {
+// SetData gets a reference to the given GetActivityField200ResponseData and assigns it to the Data field.
+func (o *GetActivityField200Response) SetData(v GetActivityField200ResponseData) {
 	o.Data = &v
 }
 
