@@ -15,60 +15,57 @@ import (
 	"fmt"
 )
 
-// checks if the GetDealFields200ResponseDataInner type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GetDealFields200ResponseDataInner{}
+// checks if the AddPersonField200ResponseData type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AddPersonField200ResponseData{}
 
-// GetDealFields200ResponseDataInner struct for GetDealFields200ResponseDataInner
-type GetDealFields200ResponseDataInner struct {
+// AddPersonField200ResponseData struct for AddPersonField200ResponseData
+type AddPersonField200ResponseData struct {
 	// The display name/label of the field
 	FieldName string `json:"field_name"`
 	// The unique identifier for the field (40-character hash for custom fields)
 	FieldCode string `json:"field_code"`
-	// The description of the field
-	Description string `json:"description"`
 	// The type of the field
 	FieldType string `json:"field_type"`
 	// Array of available options for enum/set fields, null for other field types
-	Options []GetActivityFields200ResponseDataInnerOptionsInner `json:"options,omitempty"`
+	Options []GetActivityField200ResponseDataOptionsInner `json:"options,omitempty"`
 	// Array of subfields for complex field types (address, monetary), null for simple field types
 	Subfields []GetActivityFields200ResponseDataInnerSubfieldsInner `json:"subfields,omitempty"`
 	// Whether this is a user-created custom field
 	IsCustomField bool `json:"is_custom_field"`
 	// Whether this field is not returned by default in entity responses
 	IsOptionalResponseField bool `json:"is_optional_response_field"`
-	UiVisibility *GetDealFields200ResponseDataInnerUiVisibility `json:"ui_visibility,omitempty"`
-	ImportantFields *GetDealFields200ResponseDataInnerImportantFields `json:"important_fields,omitempty"`
-	RequiredFields *GetDealFields200ResponseDataInnerRequiredFields `json:"required_fields,omitempty"`
+	UiVisibility *GetPersonFields200ResponseDataInnerUiVisibility `json:"ui_visibility,omitempty"`
+	ImportantFields *GetPersonFields200ResponseDataInnerImportantFields `json:"important_fields,omitempty"`
+	RequiredFields *GetPersonFields200ResponseDataInnerRequiredFields `json:"required_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
-type _GetDealFields200ResponseDataInner GetDealFields200ResponseDataInner
+type _AddPersonField200ResponseData AddPersonField200ResponseData
 
-// NewGetDealFields200ResponseDataInner instantiates a new GetDealFields200ResponseDataInner object
+// NewAddPersonField200ResponseData instantiates a new AddPersonField200ResponseData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetDealFields200ResponseDataInner(fieldName string, fieldCode string, description string, fieldType string, isCustomField bool, isOptionalResponseField bool) *GetDealFields200ResponseDataInner {
-	this := GetDealFields200ResponseDataInner{}
+func NewAddPersonField200ResponseData(fieldName string, fieldCode string, fieldType string, isCustomField bool, isOptionalResponseField bool) *AddPersonField200ResponseData {
+	this := AddPersonField200ResponseData{}
 	this.FieldName = fieldName
 	this.FieldCode = fieldCode
-	this.Description = description
 	this.FieldType = fieldType
 	this.IsCustomField = isCustomField
 	this.IsOptionalResponseField = isOptionalResponseField
 	return &this
 }
 
-// NewGetDealFields200ResponseDataInnerWithDefaults instantiates a new GetDealFields200ResponseDataInner object
+// NewAddPersonField200ResponseDataWithDefaults instantiates a new AddPersonField200ResponseData object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGetDealFields200ResponseDataInnerWithDefaults() *GetDealFields200ResponseDataInner {
-	this := GetDealFields200ResponseDataInner{}
+func NewAddPersonField200ResponseDataWithDefaults() *AddPersonField200ResponseData {
+	this := AddPersonField200ResponseData{}
 	return &this
 }
 
 // GetFieldName returns the FieldName field value
-func (o *GetDealFields200ResponseDataInner) GetFieldName() string {
+func (o *AddPersonField200ResponseData) GetFieldName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -79,7 +76,7 @@ func (o *GetDealFields200ResponseDataInner) GetFieldName() string {
 
 // GetFieldNameOk returns a tuple with the FieldName field value
 // and a boolean to check if the value has been set.
-func (o *GetDealFields200ResponseDataInner) GetFieldNameOk() (*string, bool) {
+func (o *AddPersonField200ResponseData) GetFieldNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -87,12 +84,12 @@ func (o *GetDealFields200ResponseDataInner) GetFieldNameOk() (*string, bool) {
 }
 
 // SetFieldName sets field value
-func (o *GetDealFields200ResponseDataInner) SetFieldName(v string) {
+func (o *AddPersonField200ResponseData) SetFieldName(v string) {
 	o.FieldName = v
 }
 
 // GetFieldCode returns the FieldCode field value
-func (o *GetDealFields200ResponseDataInner) GetFieldCode() string {
+func (o *AddPersonField200ResponseData) GetFieldCode() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -103,7 +100,7 @@ func (o *GetDealFields200ResponseDataInner) GetFieldCode() string {
 
 // GetFieldCodeOk returns a tuple with the FieldCode field value
 // and a boolean to check if the value has been set.
-func (o *GetDealFields200ResponseDataInner) GetFieldCodeOk() (*string, bool) {
+func (o *AddPersonField200ResponseData) GetFieldCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -111,36 +108,12 @@ func (o *GetDealFields200ResponseDataInner) GetFieldCodeOk() (*string, bool) {
 }
 
 // SetFieldCode sets field value
-func (o *GetDealFields200ResponseDataInner) SetFieldCode(v string) {
+func (o *AddPersonField200ResponseData) SetFieldCode(v string) {
 	o.FieldCode = v
 }
 
-// GetDescription returns the Description field value
-func (o *GetDealFields200ResponseDataInner) GetDescription() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Description
-}
-
-// GetDescriptionOk returns a tuple with the Description field value
-// and a boolean to check if the value has been set.
-func (o *GetDealFields200ResponseDataInner) GetDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Description, true
-}
-
-// SetDescription sets field value
-func (o *GetDealFields200ResponseDataInner) SetDescription(v string) {
-	o.Description = v
-}
-
 // GetFieldType returns the FieldType field value
-func (o *GetDealFields200ResponseDataInner) GetFieldType() string {
+func (o *AddPersonField200ResponseData) GetFieldType() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -151,7 +124,7 @@ func (o *GetDealFields200ResponseDataInner) GetFieldType() string {
 
 // GetFieldTypeOk returns a tuple with the FieldType field value
 // and a boolean to check if the value has been set.
-func (o *GetDealFields200ResponseDataInner) GetFieldTypeOk() (*string, bool) {
+func (o *AddPersonField200ResponseData) GetFieldTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -159,14 +132,14 @@ func (o *GetDealFields200ResponseDataInner) GetFieldTypeOk() (*string, bool) {
 }
 
 // SetFieldType sets field value
-func (o *GetDealFields200ResponseDataInner) SetFieldType(v string) {
+func (o *AddPersonField200ResponseData) SetFieldType(v string) {
 	o.FieldType = v
 }
 
 // GetOptions returns the Options field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GetDealFields200ResponseDataInner) GetOptions() []GetActivityFields200ResponseDataInnerOptionsInner {
+func (o *AddPersonField200ResponseData) GetOptions() []GetActivityField200ResponseDataOptionsInner {
 	if o == nil {
-		var ret []GetActivityFields200ResponseDataInnerOptionsInner
+		var ret []GetActivityField200ResponseDataOptionsInner
 		return ret
 	}
 	return o.Options
@@ -175,7 +148,7 @@ func (o *GetDealFields200ResponseDataInner) GetOptions() []GetActivityFields200R
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GetDealFields200ResponseDataInner) GetOptionsOk() ([]GetActivityFields200ResponseDataInnerOptionsInner, bool) {
+func (o *AddPersonField200ResponseData) GetOptionsOk() ([]GetActivityField200ResponseDataOptionsInner, bool) {
 	if o == nil || IsNil(o.Options) {
 		return nil, false
 	}
@@ -183,7 +156,7 @@ func (o *GetDealFields200ResponseDataInner) GetOptionsOk() ([]GetActivityFields2
 }
 
 // HasOptions returns a boolean if a field has been set.
-func (o *GetDealFields200ResponseDataInner) HasOptions() bool {
+func (o *AddPersonField200ResponseData) HasOptions() bool {
 	if o != nil && !IsNil(o.Options) {
 		return true
 	}
@@ -191,13 +164,13 @@ func (o *GetDealFields200ResponseDataInner) HasOptions() bool {
 	return false
 }
 
-// SetOptions gets a reference to the given []GetActivityFields200ResponseDataInnerOptionsInner and assigns it to the Options field.
-func (o *GetDealFields200ResponseDataInner) SetOptions(v []GetActivityFields200ResponseDataInnerOptionsInner) {
+// SetOptions gets a reference to the given []GetActivityField200ResponseDataOptionsInner and assigns it to the Options field.
+func (o *AddPersonField200ResponseData) SetOptions(v []GetActivityField200ResponseDataOptionsInner) {
 	o.Options = v
 }
 
 // GetSubfields returns the Subfields field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GetDealFields200ResponseDataInner) GetSubfields() []GetActivityFields200ResponseDataInnerSubfieldsInner {
+func (o *AddPersonField200ResponseData) GetSubfields() []GetActivityFields200ResponseDataInnerSubfieldsInner {
 	if o == nil {
 		var ret []GetActivityFields200ResponseDataInnerSubfieldsInner
 		return ret
@@ -208,7 +181,7 @@ func (o *GetDealFields200ResponseDataInner) GetSubfields() []GetActivityFields20
 // GetSubfieldsOk returns a tuple with the Subfields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GetDealFields200ResponseDataInner) GetSubfieldsOk() ([]GetActivityFields200ResponseDataInnerSubfieldsInner, bool) {
+func (o *AddPersonField200ResponseData) GetSubfieldsOk() ([]GetActivityFields200ResponseDataInnerSubfieldsInner, bool) {
 	if o == nil || IsNil(o.Subfields) {
 		return nil, false
 	}
@@ -216,7 +189,7 @@ func (o *GetDealFields200ResponseDataInner) GetSubfieldsOk() ([]GetActivityField
 }
 
 // HasSubfields returns a boolean if a field has been set.
-func (o *GetDealFields200ResponseDataInner) HasSubfields() bool {
+func (o *AddPersonField200ResponseData) HasSubfields() bool {
 	if o != nil && !IsNil(o.Subfields) {
 		return true
 	}
@@ -225,12 +198,12 @@ func (o *GetDealFields200ResponseDataInner) HasSubfields() bool {
 }
 
 // SetSubfields gets a reference to the given []GetActivityFields200ResponseDataInnerSubfieldsInner and assigns it to the Subfields field.
-func (o *GetDealFields200ResponseDataInner) SetSubfields(v []GetActivityFields200ResponseDataInnerSubfieldsInner) {
+func (o *AddPersonField200ResponseData) SetSubfields(v []GetActivityFields200ResponseDataInnerSubfieldsInner) {
 	o.Subfields = v
 }
 
 // GetIsCustomField returns the IsCustomField field value
-func (o *GetDealFields200ResponseDataInner) GetIsCustomField() bool {
+func (o *AddPersonField200ResponseData) GetIsCustomField() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -241,7 +214,7 @@ func (o *GetDealFields200ResponseDataInner) GetIsCustomField() bool {
 
 // GetIsCustomFieldOk returns a tuple with the IsCustomField field value
 // and a boolean to check if the value has been set.
-func (o *GetDealFields200ResponseDataInner) GetIsCustomFieldOk() (*bool, bool) {
+func (o *AddPersonField200ResponseData) GetIsCustomFieldOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -249,12 +222,12 @@ func (o *GetDealFields200ResponseDataInner) GetIsCustomFieldOk() (*bool, bool) {
 }
 
 // SetIsCustomField sets field value
-func (o *GetDealFields200ResponseDataInner) SetIsCustomField(v bool) {
+func (o *AddPersonField200ResponseData) SetIsCustomField(v bool) {
 	o.IsCustomField = v
 }
 
 // GetIsOptionalResponseField returns the IsOptionalResponseField field value
-func (o *GetDealFields200ResponseDataInner) GetIsOptionalResponseField() bool {
+func (o *AddPersonField200ResponseData) GetIsOptionalResponseField() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -265,7 +238,7 @@ func (o *GetDealFields200ResponseDataInner) GetIsOptionalResponseField() bool {
 
 // GetIsOptionalResponseFieldOk returns a tuple with the IsOptionalResponseField field value
 // and a boolean to check if the value has been set.
-func (o *GetDealFields200ResponseDataInner) GetIsOptionalResponseFieldOk() (*bool, bool) {
+func (o *AddPersonField200ResponseData) GetIsOptionalResponseFieldOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -273,14 +246,14 @@ func (o *GetDealFields200ResponseDataInner) GetIsOptionalResponseFieldOk() (*boo
 }
 
 // SetIsOptionalResponseField sets field value
-func (o *GetDealFields200ResponseDataInner) SetIsOptionalResponseField(v bool) {
+func (o *AddPersonField200ResponseData) SetIsOptionalResponseField(v bool) {
 	o.IsOptionalResponseField = v
 }
 
 // GetUiVisibility returns the UiVisibility field value if set, zero value otherwise.
-func (o *GetDealFields200ResponseDataInner) GetUiVisibility() GetDealFields200ResponseDataInnerUiVisibility {
+func (o *AddPersonField200ResponseData) GetUiVisibility() GetPersonFields200ResponseDataInnerUiVisibility {
 	if o == nil || IsNil(o.UiVisibility) {
-		var ret GetDealFields200ResponseDataInnerUiVisibility
+		var ret GetPersonFields200ResponseDataInnerUiVisibility
 		return ret
 	}
 	return *o.UiVisibility
@@ -288,7 +261,7 @@ func (o *GetDealFields200ResponseDataInner) GetUiVisibility() GetDealFields200Re
 
 // GetUiVisibilityOk returns a tuple with the UiVisibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetDealFields200ResponseDataInner) GetUiVisibilityOk() (*GetDealFields200ResponseDataInnerUiVisibility, bool) {
+func (o *AddPersonField200ResponseData) GetUiVisibilityOk() (*GetPersonFields200ResponseDataInnerUiVisibility, bool) {
 	if o == nil || IsNil(o.UiVisibility) {
 		return nil, false
 	}
@@ -296,7 +269,7 @@ func (o *GetDealFields200ResponseDataInner) GetUiVisibilityOk() (*GetDealFields2
 }
 
 // HasUiVisibility returns a boolean if a field has been set.
-func (o *GetDealFields200ResponseDataInner) HasUiVisibility() bool {
+func (o *AddPersonField200ResponseData) HasUiVisibility() bool {
 	if o != nil && !IsNil(o.UiVisibility) {
 		return true
 	}
@@ -304,15 +277,15 @@ func (o *GetDealFields200ResponseDataInner) HasUiVisibility() bool {
 	return false
 }
 
-// SetUiVisibility gets a reference to the given GetDealFields200ResponseDataInnerUiVisibility and assigns it to the UiVisibility field.
-func (o *GetDealFields200ResponseDataInner) SetUiVisibility(v GetDealFields200ResponseDataInnerUiVisibility) {
+// SetUiVisibility gets a reference to the given GetPersonFields200ResponseDataInnerUiVisibility and assigns it to the UiVisibility field.
+func (o *AddPersonField200ResponseData) SetUiVisibility(v GetPersonFields200ResponseDataInnerUiVisibility) {
 	o.UiVisibility = &v
 }
 
 // GetImportantFields returns the ImportantFields field value if set, zero value otherwise.
-func (o *GetDealFields200ResponseDataInner) GetImportantFields() GetDealFields200ResponseDataInnerImportantFields {
+func (o *AddPersonField200ResponseData) GetImportantFields() GetPersonFields200ResponseDataInnerImportantFields {
 	if o == nil || IsNil(o.ImportantFields) {
-		var ret GetDealFields200ResponseDataInnerImportantFields
+		var ret GetPersonFields200ResponseDataInnerImportantFields
 		return ret
 	}
 	return *o.ImportantFields
@@ -320,7 +293,7 @@ func (o *GetDealFields200ResponseDataInner) GetImportantFields() GetDealFields20
 
 // GetImportantFieldsOk returns a tuple with the ImportantFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetDealFields200ResponseDataInner) GetImportantFieldsOk() (*GetDealFields200ResponseDataInnerImportantFields, bool) {
+func (o *AddPersonField200ResponseData) GetImportantFieldsOk() (*GetPersonFields200ResponseDataInnerImportantFields, bool) {
 	if o == nil || IsNil(o.ImportantFields) {
 		return nil, false
 	}
@@ -328,7 +301,7 @@ func (o *GetDealFields200ResponseDataInner) GetImportantFieldsOk() (*GetDealFiel
 }
 
 // HasImportantFields returns a boolean if a field has been set.
-func (o *GetDealFields200ResponseDataInner) HasImportantFields() bool {
+func (o *AddPersonField200ResponseData) HasImportantFields() bool {
 	if o != nil && !IsNil(o.ImportantFields) {
 		return true
 	}
@@ -336,15 +309,15 @@ func (o *GetDealFields200ResponseDataInner) HasImportantFields() bool {
 	return false
 }
 
-// SetImportantFields gets a reference to the given GetDealFields200ResponseDataInnerImportantFields and assigns it to the ImportantFields field.
-func (o *GetDealFields200ResponseDataInner) SetImportantFields(v GetDealFields200ResponseDataInnerImportantFields) {
+// SetImportantFields gets a reference to the given GetPersonFields200ResponseDataInnerImportantFields and assigns it to the ImportantFields field.
+func (o *AddPersonField200ResponseData) SetImportantFields(v GetPersonFields200ResponseDataInnerImportantFields) {
 	o.ImportantFields = &v
 }
 
 // GetRequiredFields returns the RequiredFields field value if set, zero value otherwise.
-func (o *GetDealFields200ResponseDataInner) GetRequiredFields() GetDealFields200ResponseDataInnerRequiredFields {
+func (o *AddPersonField200ResponseData) GetRequiredFields() GetPersonFields200ResponseDataInnerRequiredFields {
 	if o == nil || IsNil(o.RequiredFields) {
-		var ret GetDealFields200ResponseDataInnerRequiredFields
+		var ret GetPersonFields200ResponseDataInnerRequiredFields
 		return ret
 	}
 	return *o.RequiredFields
@@ -352,7 +325,7 @@ func (o *GetDealFields200ResponseDataInner) GetRequiredFields() GetDealFields200
 
 // GetRequiredFieldsOk returns a tuple with the RequiredFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetDealFields200ResponseDataInner) GetRequiredFieldsOk() (*GetDealFields200ResponseDataInnerRequiredFields, bool) {
+func (o *AddPersonField200ResponseData) GetRequiredFieldsOk() (*GetPersonFields200ResponseDataInnerRequiredFields, bool) {
 	if o == nil || IsNil(o.RequiredFields) {
 		return nil, false
 	}
@@ -360,7 +333,7 @@ func (o *GetDealFields200ResponseDataInner) GetRequiredFieldsOk() (*GetDealField
 }
 
 // HasRequiredFields returns a boolean if a field has been set.
-func (o *GetDealFields200ResponseDataInner) HasRequiredFields() bool {
+func (o *AddPersonField200ResponseData) HasRequiredFields() bool {
 	if o != nil && !IsNil(o.RequiredFields) {
 		return true
 	}
@@ -368,12 +341,12 @@ func (o *GetDealFields200ResponseDataInner) HasRequiredFields() bool {
 	return false
 }
 
-// SetRequiredFields gets a reference to the given GetDealFields200ResponseDataInnerRequiredFields and assigns it to the RequiredFields field.
-func (o *GetDealFields200ResponseDataInner) SetRequiredFields(v GetDealFields200ResponseDataInnerRequiredFields) {
+// SetRequiredFields gets a reference to the given GetPersonFields200ResponseDataInnerRequiredFields and assigns it to the RequiredFields field.
+func (o *AddPersonField200ResponseData) SetRequiredFields(v GetPersonFields200ResponseDataInnerRequiredFields) {
 	o.RequiredFields = &v
 }
 
-func (o GetDealFields200ResponseDataInner) MarshalJSON() ([]byte, error) {
+func (o AddPersonField200ResponseData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -381,11 +354,10 @@ func (o GetDealFields200ResponseDataInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o GetDealFields200ResponseDataInner) ToMap() (map[string]interface{}, error) {
+func (o AddPersonField200ResponseData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["field_name"] = o.FieldName
 	toSerialize["field_code"] = o.FieldCode
-	toSerialize["description"] = o.Description
 	toSerialize["field_type"] = o.FieldType
 	if o.Options != nil {
 		toSerialize["options"] = o.Options
@@ -412,14 +384,13 @@ func (o GetDealFields200ResponseDataInner) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
-func (o *GetDealFields200ResponseDataInner) UnmarshalJSON(data []byte) (err error) {
+func (o *AddPersonField200ResponseData) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"field_name",
 		"field_code",
-		"description",
 		"field_type",
 		"is_custom_field",
 		"is_optional_response_field",
@@ -439,22 +410,21 @@ func (o *GetDealFields200ResponseDataInner) UnmarshalJSON(data []byte) (err erro
 		}
 	}
 
-	varGetDealFields200ResponseDataInner := _GetDealFields200ResponseDataInner{}
+	varAddPersonField200ResponseData := _AddPersonField200ResponseData{}
 
-	err = json.Unmarshal(data, &varGetDealFields200ResponseDataInner)
+	err = json.Unmarshal(data, &varAddPersonField200ResponseData)
 
 	if err != nil {
 		return err
 	}
 
-	*o = GetDealFields200ResponseDataInner(varGetDealFields200ResponseDataInner)
+	*o = AddPersonField200ResponseData(varAddPersonField200ResponseData)
 
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "field_name")
 		delete(additionalProperties, "field_code")
-		delete(additionalProperties, "description")
 		delete(additionalProperties, "field_type")
 		delete(additionalProperties, "options")
 		delete(additionalProperties, "subfields")
@@ -469,38 +439,38 @@ func (o *GetDealFields200ResponseDataInner) UnmarshalJSON(data []byte) (err erro
 	return err
 }
 
-type NullableGetDealFields200ResponseDataInner struct {
-	value *GetDealFields200ResponseDataInner
+type NullableAddPersonField200ResponseData struct {
+	value *AddPersonField200ResponseData
 	isSet bool
 }
 
-func (v NullableGetDealFields200ResponseDataInner) Get() *GetDealFields200ResponseDataInner {
+func (v NullableAddPersonField200ResponseData) Get() *AddPersonField200ResponseData {
 	return v.value
 }
 
-func (v *NullableGetDealFields200ResponseDataInner) Set(val *GetDealFields200ResponseDataInner) {
+func (v *NullableAddPersonField200ResponseData) Set(val *AddPersonField200ResponseData) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGetDealFields200ResponseDataInner) IsSet() bool {
+func (v NullableAddPersonField200ResponseData) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGetDealFields200ResponseDataInner) Unset() {
+func (v *NullableAddPersonField200ResponseData) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGetDealFields200ResponseDataInner(val *GetDealFields200ResponseDataInner) *NullableGetDealFields200ResponseDataInner {
-	return &NullableGetDealFields200ResponseDataInner{value: val, isSet: true}
+func NewNullableAddPersonField200ResponseData(val *AddPersonField200ResponseData) *NullableAddPersonField200ResponseData {
+	return &NullableAddPersonField200ResponseData{value: val, isSet: true}
 }
 
-func (v NullableGetDealFields200ResponseDataInner) MarshalJSON() ([]byte, error) {
+func (v NullableAddPersonField200ResponseData) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGetDealFields200ResponseDataInner) UnmarshalJSON(src []byte) error {
+func (v *NullableAddPersonField200ResponseData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

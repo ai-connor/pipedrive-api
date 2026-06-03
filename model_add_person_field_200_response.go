@@ -21,7 +21,7 @@ var _ MappedNullable = &AddPersonField200Response{}
 type AddPersonField200Response struct {
 	// Whether the request was successful
 	Success *bool `json:"success,omitempty"`
-	Data *GetPersonFields200ResponseDataInner `json:"data,omitempty"`
+	Data *AddPersonField200ResponseData `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -77,9 +77,9 @@ func (o *AddPersonField200Response) SetSuccess(v bool) {
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *AddPersonField200Response) GetData() GetPersonFields200ResponseDataInner {
+func (o *AddPersonField200Response) GetData() AddPersonField200ResponseData {
 	if o == nil || IsNil(o.Data) {
-		var ret GetPersonFields200ResponseDataInner
+		var ret AddPersonField200ResponseData
 		return ret
 	}
 	return *o.Data
@@ -87,7 +87,7 @@ func (o *AddPersonField200Response) GetData() GetPersonFields200ResponseDataInne
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AddPersonField200Response) GetDataOk() (*GetPersonFields200ResponseDataInner, bool) {
+func (o *AddPersonField200Response) GetDataOk() (*AddPersonField200ResponseData, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *AddPersonField200Response) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given GetPersonFields200ResponseDataInner and assigns it to the Data field.
-func (o *AddPersonField200Response) SetData(v GetPersonFields200ResponseDataInner) {
+// SetData gets a reference to the given AddPersonField200ResponseData and assigns it to the Data field.
+func (o *AddPersonField200Response) SetData(v AddPersonField200ResponseData) {
 	o.Data = &v
 }
 
