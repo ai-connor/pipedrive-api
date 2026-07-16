@@ -24,12 +24,12 @@ type LeadSearchItemItem struct {
 	// The type of the item
 	Type *string `json:"type,omitempty"`
 	// The title of the lead
-	Title *string `json:"title,omitempty"`
-	Owner *LeadSearchItemItemOwner `json:"owner,omitempty"`
-	Person *LeadSearchItemItemPerson `json:"person,omitempty"`
+	Title        *string                         `json:"title,omitempty"`
+	Owner        *LeadSearchItemItemOwner        `json:"owner,omitempty"`
+	Person       *LeadSearchItemItemPerson       `json:"person,omitempty"`
 	Organization *LeadSearchItemItemOrganization `json:"organization,omitempty"`
-	Phones []string `json:"phones,omitempty"`
-	Emails []string `json:"emails,omitempty"`
+	Phones       []string                        `json:"phones,omitempty"`
+	Emails       []string                        `json:"emails,omitempty"`
 	// Custom fields
 	CustomFields []string `json:"custom_fields,omitempty"`
 	// An array of notes
@@ -41,7 +41,7 @@ type LeadSearchItemItem struct {
 	// The visibility of the lead
 	VisibleTo *int32 `json:"visible_to,omitempty"`
 	// A flag indicating whether the lead is archived or not
-	IsArchived *bool `json:"is_archived,omitempty"`
+	IsArchived           *bool `json:"is_archived,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -513,7 +513,7 @@ func (o *LeadSearchItemItem) SetIsArchived(v bool) {
 }
 
 func (o LeadSearchItemItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -641,5 +641,3 @@ func (v *NullableLeadSearchItemItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

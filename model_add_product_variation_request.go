@@ -23,7 +23,7 @@ type AddProductVariationRequest struct {
 	// The name of the product variation. The maximum length is 255 characters.
 	Name string `json:"name"`
 	// Array of objects, each containing: currency (string), price (number), cost (number, optional), direct_cost (number, optional), notes (string, optional). When prices is omitted altogether, a default price of 0, a default cost of 0, a default direct_cost of 0 and the user's default currency will be assigned.
-	Prices []map[string]interface{} `json:"prices,omitempty"`
+	Prices               []map[string]interface{} `json:"prices,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -104,7 +104,7 @@ func (o *AddProductVariationRequest) SetPrices(v []map[string]interface{}) {
 }
 
 func (o AddProductVariationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -138,10 +138,10 @@ func (o *AddProductVariationRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -203,5 +203,3 @@ func (v *NullableAddProductVariationRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

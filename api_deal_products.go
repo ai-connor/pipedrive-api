@@ -19,14 +19,13 @@ import (
 	"strings"
 )
 
-
 // DealProductsAPIService DealProductsAPI service
 type DealProductsAPIService service
 
 type DealProductsAPIAddDealProductRequest struct {
-	ctx context.Context
-	ApiService *DealProductsAPIService
-	id int32
+	ctx                   context.Context
+	ApiService            *DealProductsAPIService
+	id                    int32
 	addDealProductRequest *AddDealProductRequest
 }
 
@@ -44,26 +43,27 @@ AddDealProduct Add a product to a deal
 
 Adds a product to a deal, creating a new item called a deal-product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the deal
- @return DealProductsAPIAddDealProductRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the deal
+	@return DealProductsAPIAddDealProductRequest
 */
 func (a *DealProductsAPIService) AddDealProduct(ctx context.Context, id int32) DealProductsAPIAddDealProductRequest {
 	return DealProductsAPIAddDealProductRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealProductResponse
+//
+//	@return AddDealProductResponse
 func (a *DealProductsAPIService) AddDealProductExecute(r DealProductsAPIAddDealProductRequest) (*AddDealProductResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealProductResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealProductResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealProductsAPIService.AddDealProduct")
@@ -149,9 +149,9 @@ func (a *DealProductsAPIService) AddDealProductExecute(r DealProductsAPIAddDealP
 }
 
 type DealProductsAPIAddManyDealProductsRequest struct {
-	ctx context.Context
-	ApiService *DealProductsAPIService
-	id int32
+	ctx                          context.Context
+	ApiService                   *DealProductsAPIService
+	id                           int32
 	createManyDealProductRequest *CreateManyDealProductRequest
 }
 
@@ -169,26 +169,27 @@ AddManyDealProducts Add multiple products to a deal
 
 Adds multiple products to a deal in a single request. Maximum of 100 products allowed per request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the deal
- @return DealProductsAPIAddManyDealProductsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the deal
+	@return DealProductsAPIAddManyDealProductsRequest
 */
 func (a *DealProductsAPIService) AddManyDealProducts(ctx context.Context, id int32) DealProductsAPIAddManyDealProductsRequest {
 	return DealProductsAPIAddManyDealProductsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AddManyDealProductResponse
+//
+//	@return AddManyDealProductResponse
 func (a *DealProductsAPIService) AddManyDealProductsExecute(r DealProductsAPIAddManyDealProductsRequest) (*AddManyDealProductResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddManyDealProductResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddManyDealProductResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealProductsAPIService.AddManyDealProducts")
@@ -274,9 +275,9 @@ func (a *DealProductsAPIService) AddManyDealProductsExecute(r DealProductsAPIAdd
 }
 
 type DealProductsAPIDeleteDealProductRequest struct {
-	ctx context.Context
-	ApiService *DealProductsAPIService
-	id int32
+	ctx                 context.Context
+	ApiService          *DealProductsAPIService
+	id                  int32
 	productAttachmentId int32
 }
 
@@ -289,28 +290,29 @@ DeleteDealProduct Delete an attached product from a deal
 
 Deletes a product attachment from a deal, using the `product_attachment_id`.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the deal
- @param productAttachmentId The product attachment ID
- @return DealProductsAPIDeleteDealProductRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the deal
+	@param productAttachmentId The product attachment ID
+	@return DealProductsAPIDeleteDealProductRequest
 */
 func (a *DealProductsAPIService) DeleteDealProduct(ctx context.Context, id int32, productAttachmentId int32) DealProductsAPIDeleteDealProductRequest {
 	return DealProductsAPIDeleteDealProductRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:          a,
+		ctx:                 ctx,
+		id:                  id,
 		productAttachmentId: productAttachmentId,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteDealProductResponse
+//
+//	@return DeleteDealProductResponse
 func (a *DealProductsAPIService) DeleteDealProductExecute(r DealProductsAPIDeleteDealProductRequest) (*DeleteDealProductResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteDealProductResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteDealProductResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealProductsAPIService.DeleteDealProduct")
@@ -395,10 +397,10 @@ func (a *DealProductsAPIService) DeleteDealProductExecute(r DealProductsAPIDelet
 }
 
 type DealProductsAPIDeleteManyDealProductsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *DealProductsAPIService
-	id int32
-	ids *string
+	id         int32
+	ids        *string
 }
 
 // Comma-separated list of deal product IDs to delete. If not provided, all deal products will be deleted up to 100 items. Maximum 100 IDs allowed.
@@ -416,26 +418,27 @@ DeleteManyDealProducts Delete many products from a deal
 
 Deletes multiple products from a deal. If no product IDs are specified, up to 100 products will be removed from the deal. A maximum of 100 product IDs can be provided per request.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the deal
- @return DealProductsAPIDeleteManyDealProductsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the deal
+	@return DealProductsAPIDeleteManyDealProductsRequest
 */
 func (a *DealProductsAPIService) DeleteManyDealProducts(ctx context.Context, id int32) DealProductsAPIDeleteManyDealProductsRequest {
 	return DealProductsAPIDeleteManyDealProductsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteManyDealProductResponse
+//
+//	@return DeleteManyDealProductResponse
 func (a *DealProductsAPIService) DeleteManyDealProductsExecute(r DealProductsAPIDeleteManyDealProductsRequest) (*DeleteManyDealProductResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteManyDealProductResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteManyDealProductResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealProductsAPIService.DeleteManyDealProducts")
@@ -522,12 +525,12 @@ func (a *DealProductsAPIService) DeleteManyDealProductsExecute(r DealProductsAPI
 }
 
 type DealProductsAPIGetDealProductsRequest struct {
-	ctx context.Context
-	ApiService *DealProductsAPIService
-	id int32
-	cursor *string
-	limit *int32
-	sortBy *string
+	ctx           context.Context
+	ApiService    *DealProductsAPIService
+	id            int32
+	cursor        *string
+	limit         *int32
+	sortBy        *string
 	sortDirection *string
 }
 
@@ -564,26 +567,27 @@ GetDealProducts List products attached to a deal
 
 Lists products attached to a deal.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the deal
- @return DealProductsAPIGetDealProductsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the deal
+	@return DealProductsAPIGetDealProductsRequest
 */
 func (a *DealProductsAPIService) GetDealProducts(ctx context.Context, id int32) DealProductsAPIGetDealProductsRequest {
 	return DealProductsAPIGetDealProductsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetDealsProductsResponse
+//
+//	@return GetDealsProductsResponse
 func (a *DealProductsAPIService) GetDealProductsExecute(r DealProductsAPIGetDealProductsRequest) (*GetDealsProductsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetDealsProductsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetDealsProductsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealProductsAPIService.GetDealProducts")
@@ -607,16 +611,16 @@ func (a *DealProductsAPIService) GetDealProductsExecute(r DealProductsAPIGetDeal
 	if r.sortBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "form", "")
 	} else {
-        var defaultValue string = "id"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
-        r.sortBy = &defaultValue
+		var defaultValue string = "id"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
+		r.sortBy = &defaultValue
 	}
 	if r.sortDirection != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")
 	} else {
-        var defaultValue string = "asc"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
-        r.sortDirection = &defaultValue
+		var defaultValue string = "asc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
+		r.sortDirection = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -687,12 +691,12 @@ func (a *DealProductsAPIService) GetDealProductsExecute(r DealProductsAPIGetDeal
 }
 
 type DealProductsAPIGetDealsProductsRequest struct {
-	ctx context.Context
-	ApiService *DealProductsAPIService
-	dealIds *[]int32
-	cursor *string
-	limit *int32
-	sortBy *string
+	ctx           context.Context
+	ApiService    *DealProductsAPIService
+	dealIds       *[]int32
+	cursor        *string
+	limit         *int32
+	sortBy        *string
 	sortDirection *string
 }
 
@@ -735,24 +739,25 @@ GetDealsProducts Get deal products of several deals
 
 Returns data about products attached to deals
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DealProductsAPIGetDealsProductsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return DealProductsAPIGetDealsProductsRequest
 */
 func (a *DealProductsAPIService) GetDealsProducts(ctx context.Context) DealProductsAPIGetDealsProductsRequest {
 	return DealProductsAPIGetDealsProductsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetDealsProductsResponse
+//
+//	@return GetDealsProductsResponse
 func (a *DealProductsAPIService) GetDealsProductsExecute(r DealProductsAPIGetDealsProductsRequest) (*GetDealsProductsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetDealsProductsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetDealsProductsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealProductsAPIService.GetDealsProducts")
@@ -779,16 +784,16 @@ func (a *DealProductsAPIService) GetDealsProductsExecute(r DealProductsAPIGetDea
 	if r.sortBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "form", "")
 	} else {
-        var defaultValue string = "id"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
-        r.sortBy = &defaultValue
+		var defaultValue string = "id"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
+		r.sortBy = &defaultValue
 	}
 	if r.sortDirection != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")
 	} else {
-        var defaultValue string = "asc"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
-        r.sortDirection = &defaultValue
+		var defaultValue string = "asc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
+		r.sortDirection = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -859,10 +864,10 @@ func (a *DealProductsAPIService) GetDealsProductsExecute(r DealProductsAPIGetDea
 }
 
 type DealProductsAPIUpdateDealProductRequest struct {
-	ctx context.Context
-	ApiService *DealProductsAPIService
-	id int32
-	productAttachmentId int32
+	ctx                      context.Context
+	ApiService               *DealProductsAPIService
+	id                       int32
+	productAttachmentId      int32
 	updateDealProductRequest *UpdateDealProductRequest
 }
 
@@ -880,28 +885,29 @@ UpdateDealProduct Update the product attached to a deal
 
 Updates the details of the product that has been attached to a deal.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the deal
- @param productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
- @return DealProductsAPIUpdateDealProductRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the deal
+	@param productAttachmentId The ID of the deal-product (the ID of the product attached to the deal)
+	@return DealProductsAPIUpdateDealProductRequest
 */
 func (a *DealProductsAPIService) UpdateDealProduct(ctx context.Context, id int32, productAttachmentId int32) DealProductsAPIUpdateDealProductRequest {
 	return DealProductsAPIUpdateDealProductRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:          a,
+		ctx:                 ctx,
+		id:                  id,
 		productAttachmentId: productAttachmentId,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealProductResponse
+//
+//	@return AddDealProductResponse
 func (a *DealProductsAPIService) UpdateDealProductExecute(r DealProductsAPIUpdateDealProductRequest) (*AddDealProductResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealProductResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealProductResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealProductsAPIService.UpdateDealProduct")

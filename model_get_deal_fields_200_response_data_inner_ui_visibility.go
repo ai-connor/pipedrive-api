@@ -24,9 +24,9 @@ type GetDealFields200ResponseDataInnerUiVisibility struct {
 	// Whether the field is shown in the details view
 	DetailsVisibleFlag *bool `json:"details_visible_flag,omitempty"`
 	// Whether the field is shown in project details view
-	ProjectsDetailVisibleFlag *bool `json:"projects_detail_visible_flag,omitempty"`
-	ShowInPipelines *GetDealFields200ResponseDataInnerUiVisibilityShowInPipelines `json:"show_in_pipelines,omitempty"`
-	AdditionalProperties map[string]interface{}
+	ProjectsDetailVisibleFlag *bool                                                         `json:"projects_detail_visible_flag,omitempty"`
+	ShowInPipelines           *GetDealFields200ResponseDataInnerUiVisibilityShowInPipelines `json:"show_in_pipelines,omitempty"`
+	AdditionalProperties      map[string]interface{}
 }
 
 type _GetDealFields200ResponseDataInnerUiVisibility GetDealFields200ResponseDataInnerUiVisibility
@@ -177,7 +177,7 @@ func (o *GetDealFields200ResponseDataInnerUiVisibility) SetShowInPipelines(v Get
 }
 
 func (o GetDealFields200ResponseDataInnerUiVisibility) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -265,5 +265,3 @@ func (v *NullableGetDealFields200ResponseDataInnerUiVisibility) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

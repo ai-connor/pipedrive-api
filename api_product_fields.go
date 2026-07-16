@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // ProductFieldsAPIService ProductFieldsAPI service
 type ProductFieldsAPIService service
 
 type ProductFieldsAPIAddProductFieldRequest struct {
-	ctx context.Context
-	ApiService *ProductFieldsAPIService
+	ctx                    context.Context
+	ApiService             *ProductFieldsAPIService
 	addProductFieldRequest *AddProductFieldRequest
 }
 
@@ -43,24 +42,25 @@ AddProductField Create one product field
 
 Creates a new product custom field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductFieldsAPIAddProductFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProductFieldsAPIAddProductFieldRequest
 */
 func (a *ProductFieldsAPIService) AddProductField(ctx context.Context) ProductFieldsAPIAddProductFieldRequest {
 	return ProductFieldsAPIAddProductFieldRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetActivityField200Response
+//
+//	@return GetActivityField200Response
 func (a *ProductFieldsAPIService) AddProductFieldExecute(r ProductFieldsAPIAddProductFieldRequest) (*GetActivityField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetActivityField200Response
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetActivityField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductFieldsAPIService.AddProductField")
@@ -148,9 +148,9 @@ func (a *ProductFieldsAPIService) AddProductFieldExecute(r ProductFieldsAPIAddPr
 }
 
 type ProductFieldsAPIAddProductFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *ProductFieldsAPIService
-	fieldCode string
+	ctx                             context.Context
+	ApiService                      *ProductFieldsAPIService
+	fieldCode                       string
 	addDealFieldOptionsRequestInner *[]AddDealFieldOptionsRequestInner
 }
 
@@ -168,26 +168,27 @@ AddProductFieldOptions Add product field options in bulk
 
 Adds new options to a product custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return ProductFieldsAPIAddProductFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return ProductFieldsAPIAddProductFieldOptionsRequest
 */
 func (a *ProductFieldsAPIService) AddProductFieldOptions(ctx context.Context, fieldCode string) ProductFieldsAPIAddProductFieldOptionsRequest {
 	return ProductFieldsAPIAddProductFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *ProductFieldsAPIService) AddProductFieldOptionsExecute(r ProductFieldsAPIAddProductFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductFieldsAPIService.AddProductFieldOptions")
@@ -276,9 +277,9 @@ func (a *ProductFieldsAPIService) AddProductFieldOptionsExecute(r ProductFieldsA
 }
 
 type ProductFieldsAPIDeleteProductFieldRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductFieldsAPIService
-	fieldCode string
+	fieldCode  string
 }
 
 func (r ProductFieldsAPIDeleteProductFieldRequest) Execute() (*DeletePersonField200Response, *http.Response, error) {
@@ -290,26 +291,27 @@ DeleteProductField Delete one product field
 
 Marks a custom field as deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return ProductFieldsAPIDeleteProductFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return ProductFieldsAPIDeleteProductFieldRequest
 */
 func (a *ProductFieldsAPIService) DeleteProductField(ctx context.Context, fieldCode string) ProductFieldsAPIDeleteProductFieldRequest {
 	return ProductFieldsAPIDeleteProductFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return DeletePersonField200Response
+//
+//	@return DeletePersonField200Response
 func (a *ProductFieldsAPIService) DeleteProductFieldExecute(r ProductFieldsAPIDeleteProductFieldRequest) (*DeletePersonField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeletePersonField200Response
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeletePersonField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductFieldsAPIService.DeleteProductField")
@@ -393,9 +395,9 @@ func (a *ProductFieldsAPIService) DeleteProductFieldExecute(r ProductFieldsAPIDe
 }
 
 type ProductFieldsAPIDeleteProductFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *ProductFieldsAPIService
-	fieldCode string
+	ctx                                context.Context
+	ApiService                         *ProductFieldsAPIService
+	fieldCode                          string
 	deleteDealFieldOptionsRequestInner *[]DeleteDealFieldOptionsRequestInner
 }
 
@@ -413,26 +415,27 @@ DeleteProductFieldOptions Delete product field options in bulk
 
 Removes existing options from a product custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return ProductFieldsAPIDeleteProductFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return ProductFieldsAPIDeleteProductFieldOptionsRequest
 */
 func (a *ProductFieldsAPIService) DeleteProductFieldOptions(ctx context.Context, fieldCode string) ProductFieldsAPIDeleteProductFieldOptionsRequest {
 	return ProductFieldsAPIDeleteProductFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *ProductFieldsAPIService) DeleteProductFieldOptionsExecute(r ProductFieldsAPIDeleteProductFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductFieldsAPIService.DeleteProductFieldOptions")
@@ -521,9 +524,9 @@ func (a *ProductFieldsAPIService) DeleteProductFieldOptionsExecute(r ProductFiel
 }
 
 type ProductFieldsAPIGetProductFieldRequest struct {
-	ctx context.Context
-	ApiService *ProductFieldsAPIService
-	fieldCode string
+	ctx           context.Context
+	ApiService    *ProductFieldsAPIService
+	fieldCode     string
 	includeFields *string
 }
 
@@ -542,26 +545,27 @@ GetProductField Get one product field
 
 Returns metadata about a specific product field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return ProductFieldsAPIGetProductFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return ProductFieldsAPIGetProductFieldRequest
 */
 func (a *ProductFieldsAPIService) GetProductField(ctx context.Context, fieldCode string) ProductFieldsAPIGetProductFieldRequest {
 	return ProductFieldsAPIGetProductFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return GetActivityField200Response
+//
+//	@return GetActivityField200Response
 func (a *ProductFieldsAPIService) GetProductFieldExecute(r ProductFieldsAPIGetProductFieldRequest) (*GetActivityField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetActivityField200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetActivityField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductFieldsAPIService.GetProductField")
@@ -648,11 +652,11 @@ func (a *ProductFieldsAPIService) GetProductFieldExecute(r ProductFieldsAPIGetPr
 }
 
 type ProductFieldsAPIGetProductFieldsRequest struct {
-	ctx context.Context
-	ApiService *ProductFieldsAPIService
+	ctx           context.Context
+	ApiService    *ProductFieldsAPIService
 	includeFields *string
-	limit *int32
-	cursor *string
+	limit         *int32
+	cursor        *string
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
@@ -682,24 +686,25 @@ GetProductFields Get all product fields
 
 Returns metadata about all product fields in the company.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductFieldsAPIGetProductFieldsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProductFieldsAPIGetProductFieldsRequest
 */
 func (a *ProductFieldsAPIService) GetProductFields(ctx context.Context) ProductFieldsAPIGetProductFieldsRequest {
 	return ProductFieldsAPIGetProductFieldsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetProductFields200Response
+//
+//	@return GetProductFields200Response
 func (a *ProductFieldsAPIService) GetProductFieldsExecute(r ProductFieldsAPIGetProductFieldsRequest) (*GetProductFields200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProductFields200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProductFields200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductFieldsAPIService.GetProductFields")
@@ -791,9 +796,9 @@ func (a *ProductFieldsAPIService) GetProductFieldsExecute(r ProductFieldsAPIGetP
 }
 
 type ProductFieldsAPIUpdateProductFieldRequest struct {
-	ctx context.Context
-	ApiService *ProductFieldsAPIService
-	fieldCode string
+	ctx                       context.Context
+	ApiService                *ProductFieldsAPIService
+	fieldCode                 string
 	updateProductFieldRequest *UpdateProductFieldRequest
 }
 
@@ -811,26 +816,27 @@ UpdateProductField Update one product field
 
 Updates a product custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return ProductFieldsAPIUpdateProductFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return ProductFieldsAPIUpdateProductFieldRequest
 */
 func (a *ProductFieldsAPIService) UpdateProductField(ctx context.Context, fieldCode string) ProductFieldsAPIUpdateProductFieldRequest {
 	return ProductFieldsAPIUpdateProductFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return GetActivityField200Response
+//
+//	@return GetActivityField200Response
 func (a *ProductFieldsAPIService) UpdateProductFieldExecute(r ProductFieldsAPIUpdateProductFieldRequest) (*GetActivityField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetActivityField200Response
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetActivityField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductFieldsAPIService.UpdateProductField")
@@ -919,9 +925,9 @@ func (a *ProductFieldsAPIService) UpdateProductFieldExecute(r ProductFieldsAPIUp
 }
 
 type ProductFieldsAPIUpdateProductFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *ProductFieldsAPIService
-	fieldCode string
+	ctx                                context.Context
+	ApiService                         *ProductFieldsAPIService
+	fieldCode                          string
 	updateDealFieldOptionsRequestInner *[]UpdateDealFieldOptionsRequestInner
 }
 
@@ -939,26 +945,27 @@ UpdateProductFieldOptions Update product field options in bulk
 
 Updates existing options for a product custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return ProductFieldsAPIUpdateProductFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return ProductFieldsAPIUpdateProductFieldOptionsRequest
 */
 func (a *ProductFieldsAPIService) UpdateProductFieldOptions(ctx context.Context, fieldCode string) ProductFieldsAPIUpdateProductFieldOptionsRequest {
 	return ProductFieldsAPIUpdateProductFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *ProductFieldsAPIService) UpdateProductFieldOptionsExecute(r ProductFieldsAPIUpdateProductFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductFieldsAPIService.UpdateProductFieldOptions")

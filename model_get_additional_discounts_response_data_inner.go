@@ -36,7 +36,7 @@ type GetAdditionalDiscountsResponseDataInner struct {
 	// The date and time of when the discount was created in the ISO 8601 format.
 	UpdatedAt *string `json:"updated_at,omitempty"`
 	// The ID of the user that last updated the discount.
-	UpdatedBy *int32 `json:"updated_by,omitempty"`
+	UpdatedBy            *int32 `json:"updated_by,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -348,7 +348,7 @@ func (o *GetAdditionalDiscountsResponseDataInner) SetUpdatedBy(v int32) {
 }
 
 func (o GetAdditionalDiscountsResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -456,5 +456,3 @@ func (v *NullableGetAdditionalDiscountsResponseDataInner) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -22,7 +22,7 @@ type AddOrganizationFieldRequestUiVisibilityShowInAddPersonDialog struct {
 	// Whether the field is shown in the add person dialog. Default is false.
 	Show *bool `json:"show,omitempty"`
 	// Display order in the add person dialog. This value is auto-calculated and managed by the system. When show is set to false, order is automatically set to null. When show changes from false to true, order is automatically assigned the next available position.
-	Order NullableInt32 `json:"order,omitempty"`
+	Order                NullableInt32 `json:"order,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -113,6 +113,7 @@ func (o *AddOrganizationFieldRequestUiVisibilityShowInAddPersonDialog) HasOrder(
 func (o *AddOrganizationFieldRequestUiVisibilityShowInAddPersonDialog) SetOrder(v int32) {
 	o.Order.Set(&v)
 }
+
 // SetOrderNil sets the value for Order to be an explicit nil
 func (o *AddOrganizationFieldRequestUiVisibilityShowInAddPersonDialog) SetOrderNil() {
 	o.Order.Set(nil)
@@ -124,7 +125,7 @@ func (o *AddOrganizationFieldRequestUiVisibilityShowInAddPersonDialog) UnsetOrde
 }
 
 func (o AddOrganizationFieldRequestUiVisibilityShowInAddPersonDialog) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -204,5 +205,3 @@ func (v *NullableAddOrganizationFieldRequestUiVisibilityShowInAddPersonDialog) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

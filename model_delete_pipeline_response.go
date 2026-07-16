@@ -20,8 +20,8 @@ var _ MappedNullable = &DeletePipelineResponse{}
 // DeletePipelineResponse struct for DeletePipelineResponse
 type DeletePipelineResponse struct {
 	// If the response is successful or not
-	Success *bool `json:"success,omitempty"`
-	Data *DeletePipelineResponseData `json:"data,omitempty"`
+	Success              *bool                       `json:"success,omitempty"`
+	Data                 *DeletePipelineResponseData `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *DeletePipelineResponse) SetData(v DeletePipelineResponseData) {
 }
 
 func (o DeletePipelineResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +189,3 @@ func (v *NullableDeletePipelineResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

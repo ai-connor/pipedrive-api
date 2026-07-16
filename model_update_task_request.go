@@ -40,7 +40,7 @@ type UpdateTaskRequest struct {
 	// The IDs of users assigned to the task. When set, the `assignee_id` field will be set to the first value in this array, or `null` if empty.
 	AssigneeIds []int32 `json:"assignee_ids,omitempty"`
 	// The priority of the task
-	Priority NullableInt32 `json:"priority,omitempty"`
+	Priority             NullableInt32 `json:"priority,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -159,6 +159,7 @@ func (o *UpdateTaskRequest) HasParentTaskId() bool {
 func (o *UpdateTaskRequest) SetParentTaskId(v int32) {
 	o.ParentTaskId.Set(&v)
 }
+
 // SetParentTaskIdNil sets the value for ParentTaskId to be an explicit nil
 func (o *UpdateTaskRequest) SetParentTaskIdNil() {
 	o.ParentTaskId.Set(nil)
@@ -201,6 +202,7 @@ func (o *UpdateTaskRequest) HasDescription() bool {
 func (o *UpdateTaskRequest) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *UpdateTaskRequest) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -307,6 +309,7 @@ func (o *UpdateTaskRequest) HasDueDate() bool {
 func (o *UpdateTaskRequest) SetDueDate(v string) {
 	o.DueDate.Set(&v)
 }
+
 // SetDueDateNil sets the value for DueDate to be an explicit nil
 func (o *UpdateTaskRequest) SetDueDateNil() {
 	o.DueDate.Set(nil)
@@ -349,6 +352,7 @@ func (o *UpdateTaskRequest) HasStartDate() bool {
 func (o *UpdateTaskRequest) SetStartDate(v string) {
 	o.StartDate.Set(&v)
 }
+
 // SetStartDateNil sets the value for StartDate to be an explicit nil
 func (o *UpdateTaskRequest) SetStartDateNil() {
 	o.StartDate.Set(nil)
@@ -391,6 +395,7 @@ func (o *UpdateTaskRequest) HasAssigneeId() bool {
 func (o *UpdateTaskRequest) SetAssigneeId(v int32) {
 	o.AssigneeId.Set(&v)
 }
+
 // SetAssigneeIdNil sets the value for AssigneeId to be an explicit nil
 func (o *UpdateTaskRequest) SetAssigneeIdNil() {
 	o.AssigneeId.Set(nil)
@@ -465,6 +470,7 @@ func (o *UpdateTaskRequest) HasPriority() bool {
 func (o *UpdateTaskRequest) SetPriority(v int32) {
 	o.Priority.Set(&v)
 }
+
 // SetPriorityNil sets the value for Priority to be an explicit nil
 func (o *UpdateTaskRequest) SetPriorityNil() {
 	o.Priority.Set(nil)
@@ -476,7 +482,7 @@ func (o *UpdateTaskRequest) UnsetPriority() {
 }
 
 func (o UpdateTaskRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -592,5 +598,3 @@ func (v *NullableUpdateTaskRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -26,14 +26,14 @@ type GetProjectSearchResponseAllOfDataItemsInnerItem struct {
 	// The title of the project
 	Title *string `json:"title,omitempty"`
 	// The status of the project
-	Status NullableString `json:"status,omitempty"`
-	Owner *GetProjectSearchResponseAllOfDataItemsInnerItemOwner `json:"owner,omitempty"`
+	Status NullableString                                        `json:"status,omitempty"`
+	Owner  *GetProjectSearchResponseAllOfDataItemsInnerItemOwner `json:"owner,omitempty"`
 	// The ID of the board the project belongs to
-	BoardId NullableInt32 `json:"board_id,omitempty"`
-	Phase NullableGetProjectSearchResponseAllOfDataItemsInnerItemPhase `json:"phase,omitempty"`
-	Person NullableGetProjectSearchResponseAllOfDataItemsInnerItemPerson `json:"person,omitempty"`
+	BoardId      NullableInt32                                                       `json:"board_id,omitempty"`
+	Phase        NullableGetProjectSearchResponseAllOfDataItemsInnerItemPhase        `json:"phase,omitempty"`
+	Person       NullableGetProjectSearchResponseAllOfDataItemsInnerItemPerson       `json:"person,omitempty"`
 	Organization NullableGetProjectSearchResponseAllOfDataItemsInnerItemOrganization `json:"organization,omitempty"`
-	Deal NullableGetProjectSearchResponseAllOfDataItemsInnerItemDeal `json:"deal,omitempty"`
+	Deal         NullableGetProjectSearchResponseAllOfDataItemsInnerItemDeal         `json:"deal,omitempty"`
 	// The number of deals associated with the project
 	DealCount *int32 `json:"deal_count,omitempty"`
 	// The description of the project
@@ -43,7 +43,7 @@ type GetProjectSearchResponseAllOfDataItemsInnerItem struct {
 	// Custom fields
 	CustomFields []string `json:"custom_fields,omitempty"`
 	// An array of notes
-	Notes []string `json:"notes,omitempty"`
+	Notes                []string `json:"notes,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -194,6 +194,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) HasStatus() bool {
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetStatus(v string) {
 	o.Status.Set(&v)
 }
+
 // SetStatusNil sets the value for Status to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetStatusNil() {
 	o.Status.Set(nil)
@@ -268,6 +269,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) HasBoardId() bool {
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetBoardId(v int32) {
 	o.BoardId.Set(&v)
 }
+
 // SetBoardIdNil sets the value for BoardId to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetBoardIdNil() {
 	o.BoardId.Set(nil)
@@ -310,6 +312,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) HasPhase() bool {
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetPhase(v GetProjectSearchResponseAllOfDataItemsInnerItemPhase) {
 	o.Phase.Set(&v)
 }
+
 // SetPhaseNil sets the value for Phase to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetPhaseNil() {
 	o.Phase.Set(nil)
@@ -352,6 +355,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) HasPerson() bool {
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetPerson(v GetProjectSearchResponseAllOfDataItemsInnerItemPerson) {
 	o.Person.Set(&v)
 }
+
 // SetPersonNil sets the value for Person to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetPersonNil() {
 	o.Person.Set(nil)
@@ -394,6 +398,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) HasOrganization() bool
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetOrganization(v GetProjectSearchResponseAllOfDataItemsInnerItemOrganization) {
 	o.Organization.Set(&v)
 }
+
 // SetOrganizationNil sets the value for Organization to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetOrganizationNil() {
 	o.Organization.Set(nil)
@@ -436,6 +441,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) HasDeal() bool {
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetDeal(v GetProjectSearchResponseAllOfDataItemsInnerItemDeal) {
 	o.Deal.Set(&v)
 }
+
 // SetDealNil sets the value for Deal to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetDealNil() {
 	o.Deal.Set(nil)
@@ -510,6 +516,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) HasDescription() bool 
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -552,6 +559,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) HasEndDate() bool {
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetEndDate(v string) {
 	o.EndDate.Set(&v)
 }
+
 // SetEndDateNil sets the value for EndDate to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetEndDateNil() {
 	o.EndDate.Set(nil)
@@ -627,7 +635,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItem) SetNotes(v []string) {
 }
 
 func (o GetProjectSearchResponseAllOfDataItemsInnerItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -759,5 +767,3 @@ func (v *NullableGetProjectSearchResponseAllOfDataItemsInnerItem) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

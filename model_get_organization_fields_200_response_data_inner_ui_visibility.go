@@ -28,10 +28,10 @@ type GetOrganizationFields200ResponseDataInnerUiVisibility struct {
 	// Whether the field is shown in the person details view
 	PersonDetailVisibleFlag *bool `json:"person_detail_visible_flag,omitempty"`
 	// Whether the field is shown in the deal details view
-	DealDetailVisibleFlag *bool `json:"deal_detail_visible_flag,omitempty"`
-	ShowInAddDealDialog *GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog `json:"show_in_add_deal_dialog,omitempty"`
+	DealDetailVisibleFlag *bool                                                                       `json:"deal_detail_visible_flag,omitempty"`
+	ShowInAddDealDialog   *GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog         `json:"show_in_add_deal_dialog,omitempty"`
 	ShowInAddPersonDialog *GetOrganizationFields200ResponseDataInnerUiVisibilityShowInAddPersonDialog `json:"show_in_add_person_dialog,omitempty"`
-	AdditionalProperties map[string]interface{}
+	AdditionalProperties  map[string]interface{}
 }
 
 type _GetOrganizationFields200ResponseDataInnerUiVisibility GetOrganizationFields200ResponseDataInnerUiVisibility
@@ -278,7 +278,7 @@ func (o *GetOrganizationFields200ResponseDataInnerUiVisibility) SetShowInAddPers
 }
 
 func (o GetOrganizationFields200ResponseDataInnerUiVisibility) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -378,5 +378,3 @@ func (v *NullableGetOrganizationFields200ResponseDataInnerUiVisibility) Unmarsha
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,8 +20,8 @@ var _ MappedNullable = &AddPersonField200Response{}
 // AddPersonField200Response struct for AddPersonField200Response
 type AddPersonField200Response struct {
 	// Whether the request was successful
-	Success *bool `json:"success,omitempty"`
-	Data *AddPersonField200ResponseData `json:"data,omitempty"`
+	Success              *bool                          `json:"success,omitempty"`
+	Data                 *AddPersonField200ResponseData `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *AddPersonField200Response) SetData(v AddPersonField200ResponseData) {
 }
 
 func (o AddPersonField200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +189,3 @@ func (v *NullableAddPersonField200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

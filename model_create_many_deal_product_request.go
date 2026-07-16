@@ -21,7 +21,7 @@ var _ MappedNullable = &CreateManyDealProductRequest{}
 // CreateManyDealProductRequest struct for CreateManyDealProductRequest
 type CreateManyDealProductRequest struct {
 	// Array of products to attach to the deal. Each product object may have the following properties.
-	Data []AddDealProductRequest `json:"data"`
+	Data                 []AddDealProductRequest `json:"data"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *CreateManyDealProductRequest) SetData(v []AddDealProductRequest) {
 }
 
 func (o CreateManyDealProductRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *CreateManyDealProductRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,5 +165,3 @@ func (v *NullableCreateManyDealProductRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

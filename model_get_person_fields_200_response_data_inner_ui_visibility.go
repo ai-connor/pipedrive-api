@@ -22,8 +22,8 @@ type GetPersonFields200ResponseDataInnerUiVisibility struct {
 	// Whether the field is shown in the add modal
 	AddVisibleFlag *bool `json:"add_visible_flag,omitempty"`
 	// Whether the field is shown in the details view
-	DetailsVisibleFlag *bool `json:"details_visible_flag,omitempty"`
-	ShowInAddDealDialog *GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog `json:"show_in_add_deal_dialog,omitempty"`
+	DetailsVisibleFlag   *bool                                                               `json:"details_visible_flag,omitempty"`
+	ShowInAddDealDialog  *GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog `json:"show_in_add_deal_dialog,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -143,7 +143,7 @@ func (o *GetPersonFields200ResponseDataInnerUiVisibility) SetShowInAddDealDialog
 }
 
 func (o GetPersonFields200ResponseDataInnerUiVisibility) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +227,3 @@ func (v *NullableGetPersonFields200ResponseDataInnerUiVisibility) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

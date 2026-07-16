@@ -24,7 +24,7 @@ type GetProjectSearchResponseAllOfDataItemsInnerItemOrganization struct {
 	// The name of the organization the project is associated with
 	Name NullableString `json:"name,omitempty"`
 	// The address of the organization the project is associated with
-	Address NullableString `json:"address,omitempty"`
+	Address              NullableString `json:"address,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -111,6 +111,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOrganization) HasName() 
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOrganization) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOrganization) SetNameNil() {
 	o.Name.Set(nil)
@@ -153,6 +154,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOrganization) HasAddress
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOrganization) SetAddress(v string) {
 	o.Address.Set(&v)
 }
+
 // SetAddressNil sets the value for Address to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOrganization) SetAddressNil() {
 	o.Address.Set(nil)
@@ -164,7 +166,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOrganization) UnsetAddre
 }
 
 func (o GetProjectSearchResponseAllOfDataItemsInnerItemOrganization) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -248,5 +250,3 @@ func (v *NullableGetProjectSearchResponseAllOfDataItemsInnerItemOrganization) Un
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,7 +21,7 @@ var _ MappedNullable = &DeleteManyDealProductResponseAdditionalData{}
 type DeleteManyDealProductResponseAdditionalData struct {
 	// Whether there are more products to delete (when the deal has more than 100 products)
 	MoreItemsInCollection *bool `json:"more_items_in_collection,omitempty"`
-	AdditionalProperties map[string]interface{}
+	AdditionalProperties  map[string]interface{}
 }
 
 type _DeleteManyDealProductResponseAdditionalData DeleteManyDealProductResponseAdditionalData
@@ -76,7 +76,7 @@ func (o *DeleteManyDealProductResponseAdditionalData) SetMoreItemsInCollection(v
 }
 
 func (o DeleteManyDealProductResponseAdditionalData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableDeleteManyDealProductResponseAdditionalData) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -22,7 +22,7 @@ type AddManyDealProductResponse struct {
 	// If the response is successful or not
 	Success *bool `json:"success,omitempty"`
 	// Array of created deal products
-	Data []GetDealsProductsResponseDataInner `json:"data,omitempty"`
+	Data                 []GetDealsProductsResponseDataInner `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *AddManyDealProductResponse) SetData(v []GetDealsProductsResponseDataInn
 }
 
 func (o AddManyDealProductResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableAddManyDealProductResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

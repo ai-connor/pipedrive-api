@@ -20,8 +20,8 @@ var _ MappedNullable = &UpdateProductImageResponse{}
 // UpdateProductImageResponse struct for UpdateProductImageResponse
 type UpdateProductImageResponse struct {
 	// If the response is successful or not
-	Success *bool `json:"success,omitempty"`
-	Data *UpdateProductImageResponseData `json:"data,omitempty"`
+	Success              *bool                           `json:"success,omitempty"`
+	Data                 *UpdateProductImageResponseData `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *UpdateProductImageResponse) SetData(v UpdateProductImageResponseData) {
 }
 
 func (o UpdateProductImageResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +189,3 @@ func (v *NullableUpdateProductImageResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

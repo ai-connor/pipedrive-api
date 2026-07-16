@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // DealFieldsAPIService DealFieldsAPI service
 type DealFieldsAPIService service
 
 type DealFieldsAPIAddDealFieldRequest struct {
-	ctx context.Context
-	ApiService *DealFieldsAPIService
+	ctx                 context.Context
+	ApiService          *DealFieldsAPIService
 	addDealFieldRequest *AddDealFieldRequest
 }
 
@@ -43,24 +42,25 @@ AddDealField Create one deal field
 
 Creates a new deal custom field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DealFieldsAPIAddDealFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return DealFieldsAPIAddDealFieldRequest
 */
 func (a *DealFieldsAPIService) AddDealField(ctx context.Context) DealFieldsAPIAddDealFieldRequest {
 	return DealFieldsAPIAddDealFieldRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealField200Response
+//
+//	@return AddDealField200Response
 func (a *DealFieldsAPIService) AddDealFieldExecute(r DealFieldsAPIAddDealFieldRequest) (*AddDealField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealField200Response
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealFieldsAPIService.AddDealField")
@@ -148,9 +148,9 @@ func (a *DealFieldsAPIService) AddDealFieldExecute(r DealFieldsAPIAddDealFieldRe
 }
 
 type DealFieldsAPIAddDealFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *DealFieldsAPIService
-	fieldCode string
+	ctx                             context.Context
+	ApiService                      *DealFieldsAPIService
+	fieldCode                       string
 	addDealFieldOptionsRequestInner *[]AddDealFieldOptionsRequestInner
 }
 
@@ -168,26 +168,27 @@ AddDealFieldOptions Add deal field options in bulk
 
 Adds new options to a deal custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return DealFieldsAPIAddDealFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return DealFieldsAPIAddDealFieldOptionsRequest
 */
 func (a *DealFieldsAPIService) AddDealFieldOptions(ctx context.Context, fieldCode string) DealFieldsAPIAddDealFieldOptionsRequest {
 	return DealFieldsAPIAddDealFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *DealFieldsAPIService) AddDealFieldOptionsExecute(r DealFieldsAPIAddDealFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealFieldsAPIService.AddDealFieldOptions")
@@ -276,9 +277,9 @@ func (a *DealFieldsAPIService) AddDealFieldOptionsExecute(r DealFieldsAPIAddDeal
 }
 
 type DealFieldsAPIDeleteDealFieldRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *DealFieldsAPIService
-	fieldCode string
+	fieldCode  string
 }
 
 func (r DealFieldsAPIDeleteDealFieldRequest) Execute() (*DeleteDealField200Response, *http.Response, error) {
@@ -290,26 +291,27 @@ DeleteDealField Delete one deal field
 
 Marks a custom field as deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return DealFieldsAPIDeleteDealFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return DealFieldsAPIDeleteDealFieldRequest
 */
 func (a *DealFieldsAPIService) DeleteDealField(ctx context.Context, fieldCode string) DealFieldsAPIDeleteDealFieldRequest {
 	return DealFieldsAPIDeleteDealFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteDealField200Response
+//
+//	@return DeleteDealField200Response
 func (a *DealFieldsAPIService) DeleteDealFieldExecute(r DealFieldsAPIDeleteDealFieldRequest) (*DeleteDealField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteDealField200Response
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteDealField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealFieldsAPIService.DeleteDealField")
@@ -393,9 +395,9 @@ func (a *DealFieldsAPIService) DeleteDealFieldExecute(r DealFieldsAPIDeleteDealF
 }
 
 type DealFieldsAPIDeleteDealFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *DealFieldsAPIService
-	fieldCode string
+	ctx                                context.Context
+	ApiService                         *DealFieldsAPIService
+	fieldCode                          string
 	deleteDealFieldOptionsRequestInner *[]DeleteDealFieldOptionsRequestInner
 }
 
@@ -413,26 +415,27 @@ DeleteDealFieldOptions Delete deal field options in bulk
 
 Removes existing options from a deal custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return DealFieldsAPIDeleteDealFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return DealFieldsAPIDeleteDealFieldOptionsRequest
 */
 func (a *DealFieldsAPIService) DeleteDealFieldOptions(ctx context.Context, fieldCode string) DealFieldsAPIDeleteDealFieldOptionsRequest {
 	return DealFieldsAPIDeleteDealFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *DealFieldsAPIService) DeleteDealFieldOptionsExecute(r DealFieldsAPIDeleteDealFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealFieldsAPIService.DeleteDealFieldOptions")
@@ -521,9 +524,9 @@ func (a *DealFieldsAPIService) DeleteDealFieldOptionsExecute(r DealFieldsAPIDele
 }
 
 type DealFieldsAPIGetDealFieldRequest struct {
-	ctx context.Context
-	ApiService *DealFieldsAPIService
-	fieldCode string
+	ctx           context.Context
+	ApiService    *DealFieldsAPIService
+	fieldCode     string
 	includeFields *string
 }
 
@@ -542,26 +545,27 @@ GetDealField Get one deal field
 
 Returns metadata about a specific deal field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return DealFieldsAPIGetDealFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return DealFieldsAPIGetDealFieldRequest
 */
 func (a *DealFieldsAPIService) GetDealField(ctx context.Context, fieldCode string) DealFieldsAPIGetDealFieldRequest {
 	return DealFieldsAPIGetDealFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealField200Response
+//
+//	@return AddDealField200Response
 func (a *DealFieldsAPIService) GetDealFieldExecute(r DealFieldsAPIGetDealFieldRequest) (*AddDealField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealField200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealFieldsAPIService.GetDealField")
@@ -648,11 +652,11 @@ func (a *DealFieldsAPIService) GetDealFieldExecute(r DealFieldsAPIGetDealFieldRe
 }
 
 type DealFieldsAPIGetDealFieldsRequest struct {
-	ctx context.Context
-	ApiService *DealFieldsAPIService
+	ctx           context.Context
+	ApiService    *DealFieldsAPIService
 	includeFields *string
-	limit *int32
-	cursor *string
+	limit         *int32
+	cursor        *string
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
@@ -682,24 +686,25 @@ GetDealFields Get all deal fields
 
 Returns metadata about all deal fields in the company.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DealFieldsAPIGetDealFieldsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return DealFieldsAPIGetDealFieldsRequest
 */
 func (a *DealFieldsAPIService) GetDealFields(ctx context.Context) DealFieldsAPIGetDealFieldsRequest {
 	return DealFieldsAPIGetDealFieldsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetDealFields200Response
+//
+//	@return GetDealFields200Response
 func (a *DealFieldsAPIService) GetDealFieldsExecute(r DealFieldsAPIGetDealFieldsRequest) (*GetDealFields200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetDealFields200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetDealFields200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealFieldsAPIService.GetDealFields")
@@ -791,9 +796,9 @@ func (a *DealFieldsAPIService) GetDealFieldsExecute(r DealFieldsAPIGetDealFields
 }
 
 type DealFieldsAPIUpdateDealFieldRequest struct {
-	ctx context.Context
-	ApiService *DealFieldsAPIService
-	fieldCode string
+	ctx                    context.Context
+	ApiService             *DealFieldsAPIService
+	fieldCode              string
 	updateDealFieldRequest *UpdateDealFieldRequest
 }
 
@@ -811,26 +816,27 @@ UpdateDealField Update one deal field
 
 Updates a deal custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return DealFieldsAPIUpdateDealFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return DealFieldsAPIUpdateDealFieldRequest
 */
 func (a *DealFieldsAPIService) UpdateDealField(ctx context.Context, fieldCode string) DealFieldsAPIUpdateDealFieldRequest {
 	return DealFieldsAPIUpdateDealFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealField200Response
+//
+//	@return AddDealField200Response
 func (a *DealFieldsAPIService) UpdateDealFieldExecute(r DealFieldsAPIUpdateDealFieldRequest) (*AddDealField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealField200Response
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealFieldsAPIService.UpdateDealField")
@@ -919,9 +925,9 @@ func (a *DealFieldsAPIService) UpdateDealFieldExecute(r DealFieldsAPIUpdateDealF
 }
 
 type DealFieldsAPIUpdateDealFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *DealFieldsAPIService
-	fieldCode string
+	ctx                                context.Context
+	ApiService                         *DealFieldsAPIService
+	fieldCode                          string
 	updateDealFieldOptionsRequestInner *[]UpdateDealFieldOptionsRequestInner
 }
 
@@ -939,26 +945,27 @@ UpdateDealFieldOptions Update deal field options in bulk
 
 Updates existing options for a deal custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return DealFieldsAPIUpdateDealFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return DealFieldsAPIUpdateDealFieldOptionsRequest
 */
 func (a *DealFieldsAPIService) UpdateDealFieldOptions(ctx context.Context, fieldCode string) DealFieldsAPIUpdateDealFieldOptionsRequest {
 	return DealFieldsAPIUpdateDealFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *DealFieldsAPIService) UpdateDealFieldOptionsExecute(r DealFieldsAPIUpdateDealFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealFieldsAPIService.UpdateDealFieldOptions")

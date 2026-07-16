@@ -20,9 +20,9 @@ var _ MappedNullable = &GetLeadSearchResponse{}
 // GetLeadSearchResponse struct for GetLeadSearchResponse
 type GetLeadSearchResponse struct {
 	// If the response is successful or not
-	Success *bool `json:"success,omitempty"`
-	Data *GetLeadSearchResponseDataData `json:"data,omitempty"`
-	AdditionalData *GetDealsProductsResponseAdditionalData `json:"additional_data,omitempty"`
+	Success              *bool                                   `json:"success,omitempty"`
+	Data                 *GetLeadSearchResponseDataData          `json:"data,omitempty"`
+	AdditionalData       *GetDealsProductsResponseAdditionalData `json:"additional_data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -142,7 +142,7 @@ func (o *GetLeadSearchResponse) SetAdditionalData(v GetDealsProductsResponseAddi
 }
 
 func (o GetLeadSearchResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -226,5 +226,3 @@ func (v *NullableGetLeadSearchResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

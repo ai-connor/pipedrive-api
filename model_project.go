@@ -56,7 +56,7 @@ type Project struct {
 	// The date and time the project was archived in ISO 8601 format. If not archived, this field is null.
 	ArchiveTime NullableString `json:"archive_time,omitempty"`
 	// An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -527,6 +527,7 @@ func (o *Project) HasHealthStatus() bool {
 func (o *Project) SetHealthStatus(v int32) {
 	o.HealthStatus.Set(&v)
 }
+
 // SetHealthStatusNil sets the value for HealthStatus to be an explicit nil
 func (o *Project) SetHealthStatusNil() {
 	o.HealthStatus.Set(nil)
@@ -665,6 +666,7 @@ func (o *Project) HasArchiveTime() bool {
 func (o *Project) SetArchiveTime(v string) {
 	o.ArchiveTime.Set(&v)
 }
+
 // SetArchiveTimeNil sets the value for ArchiveTime to be an explicit nil
 func (o *Project) SetArchiveTimeNil() {
 	o.ArchiveTime.Set(nil)
@@ -708,7 +710,7 @@ func (o *Project) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o Project) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -856,5 +858,3 @@ func (v *NullableProject) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

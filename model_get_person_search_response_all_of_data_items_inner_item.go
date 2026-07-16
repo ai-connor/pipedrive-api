@@ -30,13 +30,13 @@ type GetPersonSearchResponseAllOfDataItemsInnerItem struct {
 	// An array of email addresses
 	Emails []string `json:"emails,omitempty"`
 	// The visibility of the person
-	VisibleTo *int32 `json:"visible_to,omitempty"`
-	Owner *GetPersonSearchResponseAllOfDataItemsInnerItemOwner `json:"owner,omitempty"`
+	VisibleTo    *int32                                                      `json:"visible_to,omitempty"`
+	Owner        *GetPersonSearchResponseAllOfDataItemsInnerItemOwner        `json:"owner,omitempty"`
 	Organization *GetPersonSearchResponseAllOfDataItemsInnerItemOrganization `json:"organization,omitempty"`
 	// Custom fields
 	CustomFields []string `json:"custom_fields,omitempty"`
 	// An array of notes
-	Notes []string `json:"notes,omitempty"`
+	Notes                []string `json:"notes,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -380,7 +380,7 @@ func (o *GetPersonSearchResponseAllOfDataItemsInnerItem) SetNotes(v []string) {
 }
 
 func (o GetPersonSearchResponseAllOfDataItemsInnerItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -492,5 +492,3 @@ func (v *NullableGetPersonSearchResponseAllOfDataItemsInnerItem) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

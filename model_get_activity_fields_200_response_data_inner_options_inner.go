@@ -29,7 +29,7 @@ type GetActivityFields200ResponseDataInnerOptionsInner struct {
 	// When the option was last updated
 	UpdateTime NullableTime `json:"update_time,omitempty"`
 	// When the option was created
-	AddTime NullableTime `json:"add_time,omitempty"`
+	AddTime              NullableTime `json:"add_time,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -149,6 +149,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasColor() bool {
 func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetColor(v string) {
 	o.Color.Set(&v)
 }
+
 // SetColorNil sets the value for Color to be an explicit nil
 func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetColorNil() {
 	o.Color.Set(nil)
@@ -191,6 +192,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasUpdateTime() bool
 func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetUpdateTime(v time.Time) {
 	o.UpdateTime.Set(&v)
 }
+
 // SetUpdateTimeNil sets the value for UpdateTime to be an explicit nil
 func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetUpdateTimeNil() {
 	o.UpdateTime.Set(nil)
@@ -233,6 +235,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) HasAddTime() bool {
 func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetAddTime(v time.Time) {
 	o.AddTime.Set(&v)
 }
+
 // SetAddTimeNil sets the value for AddTime to be an explicit nil
 func (o *GetActivityFields200ResponseDataInnerOptionsInner) SetAddTimeNil() {
 	o.AddTime.Set(nil)
@@ -244,7 +247,7 @@ func (o *GetActivityFields200ResponseDataInnerOptionsInner) UnsetAddTime() {
 }
 
 func (o GetActivityFields200ResponseDataInnerOptionsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -336,5 +339,3 @@ func (v *NullableGetActivityFields200ResponseDataInnerOptionsInner) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

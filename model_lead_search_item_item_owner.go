@@ -20,7 +20,7 @@ var _ MappedNullable = &LeadSearchItemItemOwner{}
 // LeadSearchItemItemOwner struct for LeadSearchItemItemOwner
 type LeadSearchItemItemOwner struct {
 	// The ID of the owner of the lead
-	Id *int32 `json:"id,omitempty"`
+	Id                   *int32 `json:"id,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *LeadSearchItemItemOwner) SetId(v int32) {
 }
 
 func (o LeadSearchItemItemOwner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableLeadSearchItemItemOwner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

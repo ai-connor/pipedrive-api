@@ -24,7 +24,7 @@ type UpdateInstallmentRequestBody struct {
 	// The installment amount. Must be a positive number (excluding 0).
 	Amount *float32 `json:"amount,omitempty"`
 	// The date on which the installment will be charged. Must be in the format YYYY-MM-DD.
-	BillingDate *string `json:"billing_date,omitempty"`
+	BillingDate          *string `json:"billing_date,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -144,7 +144,7 @@ func (o *UpdateInstallmentRequestBody) SetBillingDate(v string) {
 }
 
 func (o UpdateInstallmentRequestBody) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -228,5 +228,3 @@ func (v *NullableUpdateInstallmentRequestBody) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

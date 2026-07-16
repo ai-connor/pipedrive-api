@@ -24,9 +24,9 @@ type AddDealFieldRequestUiVisibility struct {
 	// Whether the field is shown in the deal details view. Default is true.
 	DetailsVisibleFlag *bool `json:"details_visible_flag,omitempty"`
 	// Whether the field is shown in the project details view when the deal is linked to a project. Default is false.
-	ProjectsDetailVisibleFlag *bool `json:"projects_detail_visible_flag,omitempty"`
-	ShowInPipelines *AddDealFieldRequestUiVisibilityShowInPipelines `json:"show_in_pipelines,omitempty"`
-	AdditionalProperties map[string]interface{}
+	ProjectsDetailVisibleFlag *bool                                           `json:"projects_detail_visible_flag,omitempty"`
+	ShowInPipelines           *AddDealFieldRequestUiVisibilityShowInPipelines `json:"show_in_pipelines,omitempty"`
+	AdditionalProperties      map[string]interface{}
 }
 
 type _AddDealFieldRequestUiVisibility AddDealFieldRequestUiVisibility
@@ -189,7 +189,7 @@ func (o *AddDealFieldRequestUiVisibility) SetShowInPipelines(v AddDealFieldReque
 }
 
 func (o AddDealFieldRequestUiVisibility) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -277,5 +277,3 @@ func (v *NullableAddDealFieldRequestUiVisibility) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

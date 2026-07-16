@@ -22,7 +22,7 @@ type AddProductFieldRequestUiVisibility struct {
 	// Whether the field is shown in the add product modal. Default is false. Cannot be set to false for the 'name' system field.
 	AddVisibleFlag *bool `json:"add_visible_flag,omitempty"`
 	// Whether the field is shown in the product details view. Default is true.
-	DetailsVisibleFlag *bool `json:"details_visible_flag,omitempty"`
+	DetailsVisibleFlag   *bool `json:"details_visible_flag,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -118,7 +118,7 @@ func (o *AddProductFieldRequestUiVisibility) SetDetailsVisibleFlag(v bool) {
 }
 
 func (o AddProductFieldRequestUiVisibility) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,5 +198,3 @@ func (v *NullableAddProductFieldRequestUiVisibility) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

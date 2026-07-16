@@ -22,7 +22,7 @@ type GetProjectSearchResponseAllOfDataItemsInnerItemPerson struct {
 	// The ID of the person the project is associated with
 	Id *int32 `json:"id,omitempty"`
 	// The name of the person the project is associated with
-	Name NullableString `json:"name,omitempty"`
+	Name                 NullableString `json:"name,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,6 +109,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItemPerson) HasName() bool {
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItemPerson) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItemPerson) SetNameNil() {
 	o.Name.Set(nil)
@@ -120,7 +121,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItemPerson) UnsetName() {
 }
 
 func (o GetProjectSearchResponseAllOfDataItemsInnerItemPerson) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -200,5 +201,3 @@ func (v *NullableGetProjectSearchResponseAllOfDataItemsInnerItemPerson) Unmarsha
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -75,14 +75,14 @@ type Deal struct {
 	ChannelId NullableString `json:"channel_id,omitempty"`
 	// The ID of the lead if the deal was converted from a lead. Only included when requested via include_fields parameter.
 	SourceLeadId NullableString `json:"source_lead_id,omitempty"`
-	// Only available in Growth and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal 
+	// Only available in Growth and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal
 	Arr NullableFloat32 `json:"arr,omitempty"`
-	// Only available in Growth and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal 
+	// Only available in Growth and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal
 	Mrr NullableFloat32 `json:"mrr,omitempty"`
-	// Only available in Growth and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal 
+	// Only available in Growth and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal
 	Acv NullableFloat32 `json:"acv,omitempty"`
 	// An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -617,6 +617,7 @@ func (o *Deal) HasProbability() bool {
 func (o *Deal) SetProbability(v float32) {
 	o.Probability.Set(&v)
 }
+
 // SetProbabilityNil sets the value for Probability to be an explicit nil
 func (o *Deal) SetProbabilityNil() {
 	o.Probability.Set(nil)
@@ -659,6 +660,7 @@ func (o *Deal) HasLostReason() bool {
 func (o *Deal) SetLostReason(v string) {
 	o.LostReason.Set(&v)
 }
+
 // SetLostReasonNil sets the value for LostReason to be an explicit nil
 func (o *Deal) SetLostReasonNil() {
 	o.LostReason.Set(nil)
@@ -733,6 +735,7 @@ func (o *Deal) HasCloseTime() bool {
 func (o *Deal) SetCloseTime(v string) {
 	o.CloseTime.Set(&v)
 }
+
 // SetCloseTimeNil sets the value for CloseTime to be an explicit nil
 func (o *Deal) SetCloseTimeNil() {
 	o.CloseTime.Set(nil)
@@ -935,6 +938,7 @@ func (o *Deal) HasOriginId() bool {
 func (o *Deal) SetOriginId(v string) {
 	o.OriginId.Set(&v)
 }
+
 // SetOriginIdNil sets the value for OriginId to be an explicit nil
 func (o *Deal) SetOriginIdNil() {
 	o.OriginId.Set(nil)
@@ -977,6 +981,7 @@ func (o *Deal) HasChannel() bool {
 func (o *Deal) SetChannel(v int32) {
 	o.Channel.Set(&v)
 }
+
 // SetChannelNil sets the value for Channel to be an explicit nil
 func (o *Deal) SetChannelNil() {
 	o.Channel.Set(nil)
@@ -1019,6 +1024,7 @@ func (o *Deal) HasChannelId() bool {
 func (o *Deal) SetChannelId(v string) {
 	o.ChannelId.Set(&v)
 }
+
 // SetChannelIdNil sets the value for ChannelId to be an explicit nil
 func (o *Deal) SetChannelIdNil() {
 	o.ChannelId.Set(nil)
@@ -1061,6 +1067,7 @@ func (o *Deal) HasSourceLeadId() bool {
 func (o *Deal) SetSourceLeadId(v string) {
 	o.SourceLeadId.Set(&v)
 }
+
 // SetSourceLeadIdNil sets the value for SourceLeadId to be an explicit nil
 func (o *Deal) SetSourceLeadIdNil() {
 	o.SourceLeadId.Set(nil)
@@ -1103,6 +1110,7 @@ func (o *Deal) HasArr() bool {
 func (o *Deal) SetArr(v float32) {
 	o.Arr.Set(&v)
 }
+
 // SetArrNil sets the value for Arr to be an explicit nil
 func (o *Deal) SetArrNil() {
 	o.Arr.Set(nil)
@@ -1145,6 +1153,7 @@ func (o *Deal) HasMrr() bool {
 func (o *Deal) SetMrr(v float32) {
 	o.Mrr.Set(&v)
 }
+
 // SetMrrNil sets the value for Mrr to be an explicit nil
 func (o *Deal) SetMrrNil() {
 	o.Mrr.Set(nil)
@@ -1187,6 +1196,7 @@ func (o *Deal) HasAcv() bool {
 func (o *Deal) SetAcv(v float32) {
 	o.Acv.Set(&v)
 }
+
 // SetAcvNil sets the value for Acv to be an explicit nil
 func (o *Deal) SetAcvNil() {
 	o.Acv.Set(nil)
@@ -1230,7 +1240,7 @@ func (o *Deal) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o Deal) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1430,5 +1440,3 @@ func (v *NullableDeal) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

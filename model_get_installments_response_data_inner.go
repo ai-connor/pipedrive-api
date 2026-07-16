@@ -28,7 +28,7 @@ type GetInstallmentsResponseDataInner struct {
 	// The name of installment.
 	Description *string `json:"description,omitempty"`
 	// The ID of the deal the installment was added to.
-	DealId *int32 `json:"deal_id,omitempty"`
+	DealId               *int32 `json:"deal_id,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -212,7 +212,7 @@ func (o *GetInstallmentsResponseDataInner) SetDealId(v int32) {
 }
 
 func (o GetInstallmentsResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -304,5 +304,3 @@ func (v *NullableGetInstallmentsResponseDataInner) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

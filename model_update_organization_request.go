@@ -30,10 +30,10 @@ type UpdateOrganizationRequest struct {
 	// The visibility of the organization
 	VisibleTo *int32 `json:"visible_to,omitempty"`
 	// The IDs of labels assigned to the organization
-	LabelIds []int32 `json:"label_ids,omitempty"`
-	Address *OrganizationItemAddress `json:"address,omitempty"`
+	LabelIds []int32                  `json:"label_ids,omitempty"`
+	Address  *OrganizationItemAddress `json:"address,omitempty"`
 	// An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -313,7 +313,7 @@ func (o *UpdateOrganizationRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o UpdateOrganizationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -417,5 +417,3 @@ func (v *NullableUpdateOrganizationRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

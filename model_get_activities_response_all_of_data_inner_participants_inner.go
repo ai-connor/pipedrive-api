@@ -22,7 +22,7 @@ type GetActivitiesResponseAllOfDataInnerParticipantsInner struct {
 	// The ID of the person
 	PersonId *int32 `json:"person_id,omitempty"`
 	// Whether the person is the primary participant or not
-	Primary *bool `json:"primary,omitempty"`
+	Primary              *bool `json:"primary,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetActivitiesResponseAllOfDataInnerParticipantsInner) SetPrimary(v bool
 }
 
 func (o GetActivitiesResponseAllOfDataInnerParticipantsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetActivitiesResponseAllOfDataInnerParticipantsInner) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

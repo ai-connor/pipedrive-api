@@ -20,9 +20,9 @@ var _ MappedNullable = &AddTaskResponse{}
 // AddTaskResponse struct for AddTaskResponse
 type AddTaskResponse struct {
 	// If the response is successful or not
-	Success *bool `json:"success,omitempty"`
-	Data *GetTasksResponseDataInner `json:"data,omitempty"`
-	AdditionalData map[string]interface{} `json:"additional_data,omitempty"`
+	Success              *bool                      `json:"success,omitempty"`
+	Data                 *GetTasksResponseDataInner `json:"data,omitempty"`
+	AdditionalData       map[string]interface{}     `json:"additional_data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -143,7 +143,7 @@ func (o *AddTaskResponse) SetAdditionalData(v map[string]interface{}) {
 }
 
 func (o AddTaskResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +227,3 @@ func (v *NullableAddTaskResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

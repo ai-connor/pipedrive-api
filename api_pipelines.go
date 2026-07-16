@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // PipelinesAPIService PipelinesAPI service
 type PipelinesAPIService service
 
 type PipelinesAPIAddPipelineRequest struct {
-	ctx context.Context
-	ApiService *PipelinesAPIService
+	ctx                context.Context
+	ApiService         *PipelinesAPIService
 	addPipelineRequest *AddPipelineRequest
 }
 
@@ -43,24 +42,25 @@ AddPipeline Add a new pipeline
 
 Adds a new pipeline.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PipelinesAPIAddPipelineRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return PipelinesAPIAddPipelineRequest
 */
 func (a *PipelinesAPIService) AddPipeline(ctx context.Context) PipelinesAPIAddPipelineRequest {
 	return PipelinesAPIAddPipelineRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertPipelineResponse
+//
+//	@return UpsertPipelineResponse
 func (a *PipelinesAPIService) AddPipelineExecute(r PipelinesAPIAddPipelineRequest) (*UpsertPipelineResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertPipelineResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertPipelineResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelinesAPIService.AddPipeline")
@@ -145,9 +145,9 @@ func (a *PipelinesAPIService) AddPipelineExecute(r PipelinesAPIAddPipelineReques
 }
 
 type PipelinesAPIDeletePipelineRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PipelinesAPIService
-	id int32
+	id         int32
 }
 
 func (r PipelinesAPIDeletePipelineRequest) Execute() (*DeletePipelineResponse, *http.Response, error) {
@@ -159,26 +159,27 @@ DeletePipeline Delete a pipeline
 
 Marks a pipeline as deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the pipeline
- @return PipelinesAPIDeletePipelineRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the pipeline
+	@return PipelinesAPIDeletePipelineRequest
 */
 func (a *PipelinesAPIService) DeletePipeline(ctx context.Context, id int32) PipelinesAPIDeletePipelineRequest {
 	return PipelinesAPIDeletePipelineRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeletePipelineResponse
+//
+//	@return DeletePipelineResponse
 func (a *PipelinesAPIService) DeletePipelineExecute(r PipelinesAPIDeletePipelineRequest) (*DeletePipelineResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeletePipelineResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeletePipelineResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelinesAPIService.DeletePipeline")
@@ -262,9 +263,9 @@ func (a *PipelinesAPIService) DeletePipelineExecute(r PipelinesAPIDeletePipeline
 }
 
 type PipelinesAPIGetPipelineRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PipelinesAPIService
-	id int32
+	id         int32
 }
 
 func (r PipelinesAPIGetPipelineRequest) Execute() (*UpsertPipelineResponse, *http.Response, error) {
@@ -276,26 +277,27 @@ GetPipeline Get one pipeline
 
 Returns data about a specific pipeline.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the pipeline
- @return PipelinesAPIGetPipelineRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the pipeline
+	@return PipelinesAPIGetPipelineRequest
 */
 func (a *PipelinesAPIService) GetPipeline(ctx context.Context, id int32) PipelinesAPIGetPipelineRequest {
 	return PipelinesAPIGetPipelineRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertPipelineResponse
+//
+//	@return UpsertPipelineResponse
 func (a *PipelinesAPIService) GetPipelineExecute(r PipelinesAPIGetPipelineRequest) (*UpsertPipelineResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertPipelineResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertPipelineResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelinesAPIService.GetPipeline")
@@ -379,12 +381,12 @@ func (a *PipelinesAPIService) GetPipelineExecute(r PipelinesAPIGetPipelineReques
 }
 
 type PipelinesAPIGetPipelinesRequest struct {
-	ctx context.Context
-	ApiService *PipelinesAPIService
-	sortBy *string
+	ctx           context.Context
+	ApiService    *PipelinesAPIService
+	sortBy        *string
 	sortDirection *string
-	limit *int32
-	cursor *string
+	limit         *int32
+	cursor        *string
 }
 
 // The field to sort by. Supported fields: &#x60;id&#x60;, &#x60;update_time&#x60;, &#x60;add_time&#x60;.
@@ -420,24 +422,25 @@ GetPipelines Get all pipelines
 
 Returns data about all pipelines.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PipelinesAPIGetPipelinesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return PipelinesAPIGetPipelinesRequest
 */
 func (a *PipelinesAPIService) GetPipelines(ctx context.Context) PipelinesAPIGetPipelinesRequest {
 	return PipelinesAPIGetPipelinesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetPipelinesResponse
+//
+//	@return GetPipelinesResponse
 func (a *PipelinesAPIService) GetPipelinesExecute(r PipelinesAPIGetPipelinesRequest) (*GetPipelinesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetPipelinesResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetPipelinesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelinesAPIService.GetPipelines")
@@ -454,16 +457,16 @@ func (a *PipelinesAPIService) GetPipelinesExecute(r PipelinesAPIGetPipelinesRequ
 	if r.sortBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "form", "")
 	} else {
-        var defaultValue string = "id"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
-        r.sortBy = &defaultValue
+		var defaultValue string = "id"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
+		r.sortBy = &defaultValue
 	}
 	if r.sortDirection != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")
 	} else {
-        var defaultValue string = "asc"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
-        r.sortDirection = &defaultValue
+		var defaultValue string = "asc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
+		r.sortDirection = &defaultValue
 	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
@@ -540,9 +543,9 @@ func (a *PipelinesAPIService) GetPipelinesExecute(r PipelinesAPIGetPipelinesRequ
 }
 
 type PipelinesAPIUpdatePipelineRequest struct {
-	ctx context.Context
-	ApiService *PipelinesAPIService
-	id int32
+	ctx                   context.Context
+	ApiService            *PipelinesAPIService
+	id                    int32
 	updatePipelineRequest *UpdatePipelineRequest
 }
 
@@ -560,26 +563,27 @@ UpdatePipeline Update a pipeline
 
 Updates the properties of a pipeline.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the pipeline
- @return PipelinesAPIUpdatePipelineRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the pipeline
+	@return PipelinesAPIUpdatePipelineRequest
 */
 func (a *PipelinesAPIService) UpdatePipeline(ctx context.Context, id int32) PipelinesAPIUpdatePipelineRequest {
 	return PipelinesAPIUpdatePipelineRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertPipelineResponse
+//
+//	@return UpsertPipelineResponse
 func (a *PipelinesAPIService) UpdatePipelineExecute(r PipelinesAPIUpdatePipelineRequest) (*UpsertPipelineResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertPipelineResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertPipelineResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PipelinesAPIService.UpdatePipeline")

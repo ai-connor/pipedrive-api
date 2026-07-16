@@ -19,14 +19,13 @@ import (
 	"strings"
 )
 
-
 // ProjectTemplatesAPIService ProjectTemplatesAPI service
 type ProjectTemplatesAPIService service
 
 type ProjectTemplatesAPIGetProjectTemplateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectTemplatesAPIService
-	id int32
+	id         int32
 }
 
 func (r ProjectTemplatesAPIGetProjectTemplateRequest) Execute() (*GetProjectTemplateResponse, *http.Response, error) {
@@ -38,26 +37,27 @@ GetProjectTemplate Get details of a template
 
 Returns the details of a specific project template.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the project template
- @return ProjectTemplatesAPIGetProjectTemplateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the project template
+	@return ProjectTemplatesAPIGetProjectTemplateRequest
 */
 func (a *ProjectTemplatesAPIService) GetProjectTemplate(ctx context.Context, id int32) ProjectTemplatesAPIGetProjectTemplateRequest {
 	return ProjectTemplatesAPIGetProjectTemplateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetProjectTemplateResponse
+//
+//	@return GetProjectTemplateResponse
 func (a *ProjectTemplatesAPIService) GetProjectTemplateExecute(r ProjectTemplatesAPIGetProjectTemplateRequest) (*GetProjectTemplateResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProjectTemplateResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProjectTemplateResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTemplatesAPIService.GetProjectTemplate")
@@ -141,10 +141,10 @@ func (a *ProjectTemplatesAPIService) GetProjectTemplateExecute(r ProjectTemplate
 }
 
 type ProjectTemplatesAPIGetProjectTemplatesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectTemplatesAPIService
-	cursor *string
-	limit *int32
+	cursor     *string
+	limit      *int32
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -168,24 +168,25 @@ GetProjectTemplates Get all project templates
 
 Returns all not deleted project templates.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProjectTemplatesAPIGetProjectTemplatesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProjectTemplatesAPIGetProjectTemplatesRequest
 */
 func (a *ProjectTemplatesAPIService) GetProjectTemplates(ctx context.Context) ProjectTemplatesAPIGetProjectTemplatesRequest {
 	return ProjectTemplatesAPIGetProjectTemplatesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetProjectTemplatesResponse
+//
+//	@return GetProjectTemplatesResponse
 func (a *ProjectTemplatesAPIService) GetProjectTemplatesExecute(r ProjectTemplatesAPIGetProjectTemplatesRequest) (*GetProjectTemplatesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProjectTemplatesResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProjectTemplatesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTemplatesAPIService.GetProjectTemplates")

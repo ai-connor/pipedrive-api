@@ -20,7 +20,7 @@ var _ MappedNullable = &GetDealsProductsResponseAdditionalData{}
 // GetDealsProductsResponseAdditionalData Pagination related data
 type GetDealsProductsResponseAdditionalData struct {
 	// The first item on the next page. The value of the `next_cursor` field will be `null` if you have reached the end of the dataset and there’s no more pages to be returned.
-	NextCursor *string `json:"next_cursor,omitempty"`
+	NextCursor           *string `json:"next_cursor,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *GetDealsProductsResponseAdditionalData) SetNextCursor(v string) {
 }
 
 func (o GetDealsProductsResponseAdditionalData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableGetDealsProductsResponseAdditionalData) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

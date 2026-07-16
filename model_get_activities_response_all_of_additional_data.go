@@ -20,7 +20,7 @@ var _ MappedNullable = &GetActivitiesResponseAllOfAdditionalData{}
 // GetActivitiesResponseAllOfAdditionalData The additional data of the list
 type GetActivitiesResponseAllOfAdditionalData struct {
 	// The first item on the next page. The value of the `next_cursor` field will be `null` if you have reached the end of the dataset and there’s no more pages to be returned.
-	NextCursor *string `json:"next_cursor,omitempty"`
+	NextCursor           *string `json:"next_cursor,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *GetActivitiesResponseAllOfAdditionalData) SetNextCursor(v string) {
 }
 
 func (o GetActivitiesResponseAllOfAdditionalData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableGetActivitiesResponseAllOfAdditionalData) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

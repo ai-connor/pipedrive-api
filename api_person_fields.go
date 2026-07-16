@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // PersonFieldsAPIService PersonFieldsAPI service
 type PersonFieldsAPIService service
 
 type PersonFieldsAPIAddPersonFieldRequest struct {
-	ctx context.Context
-	ApiService *PersonFieldsAPIService
+	ctx                   context.Context
+	ApiService            *PersonFieldsAPIService
 	addPersonFieldRequest *AddPersonFieldRequest
 }
 
@@ -43,24 +42,25 @@ AddPersonField Create one person field
 
 Creates a new person custom field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PersonFieldsAPIAddPersonFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return PersonFieldsAPIAddPersonFieldRequest
 */
 func (a *PersonFieldsAPIService) AddPersonField(ctx context.Context) PersonFieldsAPIAddPersonFieldRequest {
 	return PersonFieldsAPIAddPersonFieldRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AddPersonField200Response
+//
+//	@return AddPersonField200Response
 func (a *PersonFieldsAPIService) AddPersonFieldExecute(r PersonFieldsAPIAddPersonFieldRequest) (*AddPersonField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddPersonField200Response
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddPersonField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonFieldsAPIService.AddPersonField")
@@ -148,9 +148,9 @@ func (a *PersonFieldsAPIService) AddPersonFieldExecute(r PersonFieldsAPIAddPerso
 }
 
 type PersonFieldsAPIAddPersonFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *PersonFieldsAPIService
-	fieldCode string
+	ctx                             context.Context
+	ApiService                      *PersonFieldsAPIService
+	fieldCode                       string
 	addDealFieldOptionsRequestInner *[]AddDealFieldOptionsRequestInner
 }
 
@@ -168,26 +168,27 @@ AddPersonFieldOptions Add person field options in bulk
 
 Adds new options to a person custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return PersonFieldsAPIAddPersonFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return PersonFieldsAPIAddPersonFieldOptionsRequest
 */
 func (a *PersonFieldsAPIService) AddPersonFieldOptions(ctx context.Context, fieldCode string) PersonFieldsAPIAddPersonFieldOptionsRequest {
 	return PersonFieldsAPIAddPersonFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *PersonFieldsAPIService) AddPersonFieldOptionsExecute(r PersonFieldsAPIAddPersonFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonFieldsAPIService.AddPersonFieldOptions")
@@ -276,9 +277,9 @@ func (a *PersonFieldsAPIService) AddPersonFieldOptionsExecute(r PersonFieldsAPIA
 }
 
 type PersonFieldsAPIDeletePersonFieldRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PersonFieldsAPIService
-	fieldCode string
+	fieldCode  string
 }
 
 func (r PersonFieldsAPIDeletePersonFieldRequest) Execute() (*DeletePersonField200Response, *http.Response, error) {
@@ -290,26 +291,27 @@ DeletePersonField Delete one person field
 
 Marks a custom field as deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return PersonFieldsAPIDeletePersonFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return PersonFieldsAPIDeletePersonFieldRequest
 */
 func (a *PersonFieldsAPIService) DeletePersonField(ctx context.Context, fieldCode string) PersonFieldsAPIDeletePersonFieldRequest {
 	return PersonFieldsAPIDeletePersonFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return DeletePersonField200Response
+//
+//	@return DeletePersonField200Response
 func (a *PersonFieldsAPIService) DeletePersonFieldExecute(r PersonFieldsAPIDeletePersonFieldRequest) (*DeletePersonField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeletePersonField200Response
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeletePersonField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonFieldsAPIService.DeletePersonField")
@@ -393,9 +395,9 @@ func (a *PersonFieldsAPIService) DeletePersonFieldExecute(r PersonFieldsAPIDelet
 }
 
 type PersonFieldsAPIDeletePersonFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *PersonFieldsAPIService
-	fieldCode string
+	ctx                                context.Context
+	ApiService                         *PersonFieldsAPIService
+	fieldCode                          string
 	deleteDealFieldOptionsRequestInner *[]DeleteDealFieldOptionsRequestInner
 }
 
@@ -413,26 +415,27 @@ DeletePersonFieldOptions Delete person field options in bulk
 
 Removes existing options from a person custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return PersonFieldsAPIDeletePersonFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return PersonFieldsAPIDeletePersonFieldOptionsRequest
 */
 func (a *PersonFieldsAPIService) DeletePersonFieldOptions(ctx context.Context, fieldCode string) PersonFieldsAPIDeletePersonFieldOptionsRequest {
 	return PersonFieldsAPIDeletePersonFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *PersonFieldsAPIService) DeletePersonFieldOptionsExecute(r PersonFieldsAPIDeletePersonFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonFieldsAPIService.DeletePersonFieldOptions")
@@ -521,9 +524,9 @@ func (a *PersonFieldsAPIService) DeletePersonFieldOptionsExecute(r PersonFieldsA
 }
 
 type PersonFieldsAPIGetPersonFieldRequest struct {
-	ctx context.Context
-	ApiService *PersonFieldsAPIService
-	fieldCode string
+	ctx           context.Context
+	ApiService    *PersonFieldsAPIService
+	fieldCode     string
 	includeFields *string
 }
 
@@ -542,26 +545,27 @@ GetPersonField Get one person field
 
 Returns metadata about a specific person field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return PersonFieldsAPIGetPersonFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return PersonFieldsAPIGetPersonFieldRequest
 */
 func (a *PersonFieldsAPIService) GetPersonField(ctx context.Context, fieldCode string) PersonFieldsAPIGetPersonFieldRequest {
 	return PersonFieldsAPIGetPersonFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddPersonField200Response
+//
+//	@return AddPersonField200Response
 func (a *PersonFieldsAPIService) GetPersonFieldExecute(r PersonFieldsAPIGetPersonFieldRequest) (*AddPersonField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddPersonField200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddPersonField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonFieldsAPIService.GetPersonField")
@@ -648,11 +652,11 @@ func (a *PersonFieldsAPIService) GetPersonFieldExecute(r PersonFieldsAPIGetPerso
 }
 
 type PersonFieldsAPIGetPersonFieldsRequest struct {
-	ctx context.Context
-	ApiService *PersonFieldsAPIService
+	ctx           context.Context
+	ApiService    *PersonFieldsAPIService
 	includeFields *string
-	limit *int32
-	cursor *string
+	limit         *int32
+	cursor        *string
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
@@ -682,24 +686,25 @@ GetPersonFields Get all person fields
 
 Returns metadata about all person fields in the company.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PersonFieldsAPIGetPersonFieldsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return PersonFieldsAPIGetPersonFieldsRequest
 */
 func (a *PersonFieldsAPIService) GetPersonFields(ctx context.Context) PersonFieldsAPIGetPersonFieldsRequest {
 	return PersonFieldsAPIGetPersonFieldsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetPersonFields200Response
+//
+//	@return GetPersonFields200Response
 func (a *PersonFieldsAPIService) GetPersonFieldsExecute(r PersonFieldsAPIGetPersonFieldsRequest) (*GetPersonFields200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetPersonFields200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetPersonFields200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonFieldsAPIService.GetPersonFields")
@@ -791,9 +796,9 @@ func (a *PersonFieldsAPIService) GetPersonFieldsExecute(r PersonFieldsAPIGetPers
 }
 
 type PersonFieldsAPIUpdatePersonFieldRequest struct {
-	ctx context.Context
-	ApiService *PersonFieldsAPIService
-	fieldCode string
+	ctx                      context.Context
+	ApiService               *PersonFieldsAPIService
+	fieldCode                string
 	updatePersonFieldRequest *UpdatePersonFieldRequest
 }
 
@@ -811,26 +816,27 @@ UpdatePersonField Update one person field
 
 Updates a person custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return PersonFieldsAPIUpdatePersonFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return PersonFieldsAPIUpdatePersonFieldRequest
 */
 func (a *PersonFieldsAPIService) UpdatePersonField(ctx context.Context, fieldCode string) PersonFieldsAPIUpdatePersonFieldRequest {
 	return PersonFieldsAPIUpdatePersonFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddPersonField200Response
+//
+//	@return AddPersonField200Response
 func (a *PersonFieldsAPIService) UpdatePersonFieldExecute(r PersonFieldsAPIUpdatePersonFieldRequest) (*AddPersonField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddPersonField200Response
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddPersonField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonFieldsAPIService.UpdatePersonField")
@@ -919,9 +925,9 @@ func (a *PersonFieldsAPIService) UpdatePersonFieldExecute(r PersonFieldsAPIUpdat
 }
 
 type PersonFieldsAPIUpdatePersonFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *PersonFieldsAPIService
-	fieldCode string
+	ctx                                context.Context
+	ApiService                         *PersonFieldsAPIService
+	fieldCode                          string
 	updateDealFieldOptionsRequestInner *[]UpdateDealFieldOptionsRequestInner
 }
 
@@ -939,26 +945,27 @@ UpdatePersonFieldOptions Update person field options in bulk
 
 Updates existing options for a person custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return PersonFieldsAPIUpdatePersonFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return PersonFieldsAPIUpdatePersonFieldOptionsRequest
 */
 func (a *PersonFieldsAPIService) UpdatePersonFieldOptions(ctx context.Context, fieldCode string) PersonFieldsAPIUpdatePersonFieldOptionsRequest {
 	return PersonFieldsAPIUpdatePersonFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *PersonFieldsAPIService) UpdatePersonFieldOptionsExecute(r PersonFieldsAPIUpdatePersonFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonFieldsAPIService.UpdatePersonFieldOptions")

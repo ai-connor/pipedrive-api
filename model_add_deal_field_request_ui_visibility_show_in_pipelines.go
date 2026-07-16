@@ -22,7 +22,7 @@ type AddDealFieldRequestUiVisibilityShowInPipelines struct {
 	// When true, the field is visible in all pipelines. When false, visibility is controlled by pipeline_ids. Default is true.
 	ShowInAll *bool `json:"show_in_all,omitempty"`
 	// Array of pipeline IDs where the field should be visible. Only used when show_in_all is false. Must reference valid, active pipelines.
-	PipelineIds []int32 `json:"pipeline_ids,omitempty"`
+	PipelineIds          []int32 `json:"pipeline_ids,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -114,7 +114,7 @@ func (o *AddDealFieldRequestUiVisibilityShowInPipelines) SetPipelineIds(v []int3
 }
 
 func (o AddDealFieldRequestUiVisibilityShowInPipelines) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableAddDealFieldRequestUiVisibilityShowInPipelines) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

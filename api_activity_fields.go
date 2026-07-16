@@ -19,14 +19,13 @@ import (
 	"strings"
 )
 
-
 // ActivityFieldsAPIService ActivityFieldsAPI service
 type ActivityFieldsAPIService service
 
 type ActivityFieldsAPIGetActivityFieldRequest struct {
-	ctx context.Context
-	ApiService *ActivityFieldsAPIService
-	fieldCode string
+	ctx           context.Context
+	ApiService    *ActivityFieldsAPIService
+	fieldCode     string
 	includeFields *string
 }
 
@@ -45,26 +44,27 @@ GetActivityField Get one activity field
 
 Returns metadata about a specific activity field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return ActivityFieldsAPIGetActivityFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return ActivityFieldsAPIGetActivityFieldRequest
 */
 func (a *ActivityFieldsAPIService) GetActivityField(ctx context.Context, fieldCode string) ActivityFieldsAPIGetActivityFieldRequest {
 	return ActivityFieldsAPIGetActivityFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return GetActivityField200Response
+//
+//	@return GetActivityField200Response
 func (a *ActivityFieldsAPIService) GetActivityFieldExecute(r ActivityFieldsAPIGetActivityFieldRequest) (*GetActivityField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetActivityField200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetActivityField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivityFieldsAPIService.GetActivityField")
@@ -151,11 +151,11 @@ func (a *ActivityFieldsAPIService) GetActivityFieldExecute(r ActivityFieldsAPIGe
 }
 
 type ActivityFieldsAPIGetActivityFieldsRequest struct {
-	ctx context.Context
-	ApiService *ActivityFieldsAPIService
+	ctx           context.Context
+	ApiService    *ActivityFieldsAPIService
 	includeFields *string
-	limit *int32
-	cursor *string
+	limit         *int32
+	cursor        *string
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
@@ -185,24 +185,25 @@ GetActivityFields Get all activity fields
 
 Returns metadata about all activity fields in the company.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ActivityFieldsAPIGetActivityFieldsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ActivityFieldsAPIGetActivityFieldsRequest
 */
 func (a *ActivityFieldsAPIService) GetActivityFields(ctx context.Context) ActivityFieldsAPIGetActivityFieldsRequest {
 	return ActivityFieldsAPIGetActivityFieldsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetActivityFields200Response
+//
+//	@return GetActivityFields200Response
 func (a *ActivityFieldsAPIService) GetActivityFieldsExecute(r ActivityFieldsAPIGetActivityFieldsRequest) (*GetActivityFields200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetActivityFields200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetActivityFields200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivityFieldsAPIService.GetActivityFields")

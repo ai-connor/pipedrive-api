@@ -26,7 +26,7 @@ type FollowerChangelogItem struct {
 	// The ID of the user who was following the entity
 	FollowerUserId *int32 `json:"follower_user_id,omitempty"`
 	// The time at which the change happened
-	Time *string `json:"time,omitempty"`
+	Time                 *string `json:"time,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -178,7 +178,7 @@ func (o *FollowerChangelogItem) SetTime(v string) {
 }
 
 func (o FollowerChangelogItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,5 +266,3 @@ func (v *NullableFollowerChangelogItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

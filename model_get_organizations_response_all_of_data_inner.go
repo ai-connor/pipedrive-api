@@ -32,8 +32,8 @@ type GetOrganizationsResponseAllOfDataInner struct {
 	// Whether the organization is deleted or not
 	IsDeleted *bool `json:"is_deleted,omitempty"`
 	// The visibility of the organization
-	VisibleTo *int32 `json:"visible_to,omitempty"`
-	Address *OrganizationItemAddress `json:"address,omitempty"`
+	VisibleTo *int32                   `json:"visible_to,omitempty"`
+	Address   *OrganizationItemAddress `json:"address,omitempty"`
 	// The IDs of labels assigned to the organization
 	LabelIds []int32 `json:"label_ids,omitempty"`
 	// The website of the organization
@@ -47,7 +47,7 @@ type GetOrganizationsResponseAllOfDataInner struct {
 	// The number of employees in the organization
 	EmployeeCount NullableInt32 `json:"employee_count,omitempty"`
 	// An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -390,6 +390,7 @@ func (o *GetOrganizationsResponseAllOfDataInner) HasWebsite() bool {
 func (o *GetOrganizationsResponseAllOfDataInner) SetWebsite(v string) {
 	o.Website.Set(&v)
 }
+
 // SetWebsiteNil sets the value for Website to be an explicit nil
 func (o *GetOrganizationsResponseAllOfDataInner) SetWebsiteNil() {
 	o.Website.Set(nil)
@@ -432,6 +433,7 @@ func (o *GetOrganizationsResponseAllOfDataInner) HasLinkedin() bool {
 func (o *GetOrganizationsResponseAllOfDataInner) SetLinkedin(v string) {
 	o.Linkedin.Set(&v)
 }
+
 // SetLinkedinNil sets the value for Linkedin to be an explicit nil
 func (o *GetOrganizationsResponseAllOfDataInner) SetLinkedinNil() {
 	o.Linkedin.Set(nil)
@@ -474,6 +476,7 @@ func (o *GetOrganizationsResponseAllOfDataInner) HasIndustry() bool {
 func (o *GetOrganizationsResponseAllOfDataInner) SetIndustry(v int32) {
 	o.Industry.Set(&v)
 }
+
 // SetIndustryNil sets the value for Industry to be an explicit nil
 func (o *GetOrganizationsResponseAllOfDataInner) SetIndustryNil() {
 	o.Industry.Set(nil)
@@ -516,6 +519,7 @@ func (o *GetOrganizationsResponseAllOfDataInner) HasAnnualRevenue() bool {
 func (o *GetOrganizationsResponseAllOfDataInner) SetAnnualRevenue(v int32) {
 	o.AnnualRevenue.Set(&v)
 }
+
 // SetAnnualRevenueNil sets the value for AnnualRevenue to be an explicit nil
 func (o *GetOrganizationsResponseAllOfDataInner) SetAnnualRevenueNil() {
 	o.AnnualRevenue.Set(nil)
@@ -558,6 +562,7 @@ func (o *GetOrganizationsResponseAllOfDataInner) HasEmployeeCount() bool {
 func (o *GetOrganizationsResponseAllOfDataInner) SetEmployeeCount(v int32) {
 	o.EmployeeCount.Set(&v)
 }
+
 // SetEmployeeCountNil sets the value for EmployeeCount to be an explicit nil
 func (o *GetOrganizationsResponseAllOfDataInner) SetEmployeeCountNil() {
 	o.EmployeeCount.Set(nil)
@@ -601,7 +606,7 @@ func (o *GetOrganizationsResponseAllOfDataInner) SetCustomFields(v map[string]in
 }
 
 func (o GetOrganizationsResponseAllOfDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -733,5 +738,3 @@ func (v *NullableGetOrganizationsResponseAllOfDataInner) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

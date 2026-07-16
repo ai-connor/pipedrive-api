@@ -20,7 +20,7 @@ var _ MappedNullable = &GetProductSearchResponseAllOfData{}
 // GetProductSearchResponseAllOfData struct for GetProductSearchResponseAllOfData
 type GetProductSearchResponseAllOfData struct {
 	// The array of found items
-	Items []GetProductSearchResponseAllOfDataItemsInner `json:"items,omitempty"`
+	Items                []GetProductSearchResponseAllOfDataItemsInner `json:"items,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *GetProductSearchResponseAllOfData) SetItems(v []GetProductSearchRespons
 }
 
 func (o GetProductSearchResponseAllOfData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableGetProductSearchResponseAllOfData) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

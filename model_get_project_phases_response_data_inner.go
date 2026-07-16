@@ -30,7 +30,7 @@ type GetProjectPhasesResponseDataInner struct {
 	// The creation date and time of the phase in ISO 8601 format
 	AddTime *string `json:"add_time,omitempty"`
 	// The update date and time of the phase in ISO 8601 format
-	UpdateTime *string `json:"update_time,omitempty"`
+	UpdateTime           *string `json:"update_time,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -246,7 +246,7 @@ func (o *GetProjectPhasesResponseDataInner) SetUpdateTime(v string) {
 }
 
 func (o GetProjectPhasesResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -342,5 +342,3 @@ func (v *NullableGetProjectPhasesResponseDataInner) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

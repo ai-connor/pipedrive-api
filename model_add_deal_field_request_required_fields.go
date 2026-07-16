@@ -24,7 +24,7 @@ type AddDealFieldRequestRequiredFields struct {
 	// Array of deal stage IDs where this field is required. Must reference valid, active deal stages. Empty array when enabled is false. The stages must be in pipelines where this field is visible (show_in_pipelines).
 	StageIds []int32 `json:"stage_ids,omitempty"`
 	// Pipeline-specific status requirements for when deals are won or lost. Keys are pipeline IDs (as strings), values are arrays of status strings ('won', 'lost'). Example - {\"1\":[\"won\",\"lost\"],\"2\":[\"won\"]} means the field is required when marking deals as won or lost in pipeline 1, and only when won in pipeline 2. Must reference valid, active pipelines.
-	Statuses *map[string][]string `json:"statuses,omitempty"`
+	Statuses             *map[string][]string `json:"statuses,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -148,7 +148,7 @@ func (o *AddDealFieldRequestRequiredFields) SetStatuses(v map[string][]string) {
 }
 
 func (o AddDealFieldRequestRequiredFields) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -232,5 +232,3 @@ func (v *NullableAddDealFieldRequestRequiredFields) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

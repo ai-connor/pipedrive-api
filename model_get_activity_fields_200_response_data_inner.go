@@ -33,9 +33,9 @@ type GetActivityFields200ResponseDataInner struct {
 	// Whether this is a user-created custom field
 	IsCustomField bool `json:"is_custom_field"`
 	// Whether this field is not returned by default in entity responses
-	IsOptionalResponseField bool `json:"is_optional_response_field"`
-	UiVisibility *GetActivityFields200ResponseDataInnerUiVisibility `json:"ui_visibility,omitempty"`
-	AdditionalProperties map[string]interface{}
+	IsOptionalResponseField bool                                               `json:"is_optional_response_field"`
+	UiVisibility            *GetActivityFields200ResponseDataInnerUiVisibility `json:"ui_visibility,omitempty"`
+	AdditionalProperties    map[string]interface{}
 }
 
 type _GetActivityFields200ResponseDataInner GetActivityFields200ResponseDataInner
@@ -281,7 +281,7 @@ func (o *GetActivityFields200ResponseDataInner) SetUiVisibility(v GetActivityFie
 }
 
 func (o GetActivityFields200ResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -329,10 +329,10 @@ func (o *GetActivityFields200ResponseDataInner) UnmarshalJSON(data []byte) (err 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -400,5 +400,3 @@ func (v *NullableGetActivityFields200ResponseDataInner) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

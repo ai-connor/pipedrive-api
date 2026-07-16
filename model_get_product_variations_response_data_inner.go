@@ -26,7 +26,7 @@ type GetProductVariationsResponseDataInner struct {
 	// The ID of the product
 	ProductId *int32 `json:"product_id,omitempty"`
 	// Array of objects, each containing: product_variation_id (number), currency (string), price (number), cost (number), direct_cost (number) , notes (string)
-	Prices []map[string]interface{} `json:"prices,omitempty"`
+	Prices               []map[string]interface{} `json:"prices,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -178,7 +178,7 @@ func (o *GetProductVariationsResponseDataInner) SetPrices(v []map[string]interfa
 }
 
 func (o GetProductVariationsResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,5 +266,3 @@ func (v *NullableGetProductVariationsResponseDataInner) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

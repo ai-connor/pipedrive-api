@@ -29,7 +29,7 @@ type AddStageRequest struct {
 	// Whether deals in this stage can become rotten
 	IsDealRotEnabled *bool `json:"is_deal_rot_enabled,omitempty"`
 	// The number of days the deals not updated in this stage would become rotten. Applies only if the `is_deal_rot_enabled` is set.
-	DaysToRotten *int32 `json:"days_to_rotten,omitempty"`
+	DaysToRotten         *int32 `json:"days_to_rotten,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -199,7 +199,7 @@ func (o *AddStageRequest) SetDaysToRotten(v int32) {
 }
 
 func (o AddStageRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -241,10 +241,10 @@ func (o *AddStageRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -309,5 +309,3 @@ func (v *NullableAddStageRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

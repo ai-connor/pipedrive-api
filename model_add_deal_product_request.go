@@ -32,7 +32,7 @@ type AddDealProductRequest struct {
 	Comments *string `json:"comments,omitempty"`
 	// The value of the discount. The `discount_type` field can be used to specify whether the value is an amount or a percentage
 	Discount *float32 `json:"discount,omitempty"`
-	// Whether this product is enabled for the deal  Not possible to disable the product if the deal has installments associated and the product is the last one enabled  Not possible to enable the product if the deal has installments associated and the product is recurring 
+	// Whether this product is enabled for the deal  Not possible to disable the product if the deal has installments associated and the product is the last one enabled  Not possible to enable the product if the deal has installments associated and the product is recurring
 	IsEnabled *bool `json:"is_enabled,omitempty"`
 	// The tax option to be applied to the products. When using `inclusive`, the tax percentage will already be included in the price. When using `exclusive`, the tax will not be included in the price. When using `none`, no tax will be added. Use the `tax` field for defining the tax percentage amount. By default, the user setting value for tax options will be used. Changing this in one product affects the rest of the products attached to the deal
 	TaxMethod *string `json:"tax_method,omitempty"`
@@ -40,12 +40,12 @@ type AddDealProductRequest struct {
 	DiscountType *string `json:"discount_type,omitempty"`
 	// The ID of the product variation
 	ProductVariationId NullableInt32 `json:"product_variation_id,omitempty"`
-	// Only available in Growth and above plans  How often a customer is billed for access to a service or product  To set `billing_frequency` different than `one-time`, the deal must not have installments associated  A deal can have up to 20 products attached with `billing_frequency` different than `one-time` 
+	// Only available in Growth and above plans  How often a customer is billed for access to a service or product  To set `billing_frequency` different than `one-time`, the deal must not have installments associated  A deal can have up to 20 products attached with `billing_frequency` different than `one-time`
 	BillingFrequency *string `json:"billing_frequency,omitempty"`
-	// Only available in Growth and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208 
+	// Only available in Growth and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208
 	BillingFrequencyCycles NullableInt32 `json:"billing_frequency_cycles,omitempty"`
-	// Only available in Growth and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future 
-	BillingStartDate NullableString `json:"billing_start_date,omitempty"`
+	// Only available in Growth and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future
+	BillingStartDate     NullableString `json:"billing_start_date,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -387,6 +387,7 @@ func (o *AddDealProductRequest) HasProductVariationId() bool {
 func (o *AddDealProductRequest) SetProductVariationId(v int32) {
 	o.ProductVariationId.Set(&v)
 }
+
 // SetProductVariationIdNil sets the value for ProductVariationId to be an explicit nil
 func (o *AddDealProductRequest) SetProductVariationIdNil() {
 	o.ProductVariationId.Set(nil)
@@ -461,6 +462,7 @@ func (o *AddDealProductRequest) HasBillingFrequencyCycles() bool {
 func (o *AddDealProductRequest) SetBillingFrequencyCycles(v int32) {
 	o.BillingFrequencyCycles.Set(&v)
 }
+
 // SetBillingFrequencyCyclesNil sets the value for BillingFrequencyCycles to be an explicit nil
 func (o *AddDealProductRequest) SetBillingFrequencyCyclesNil() {
 	o.BillingFrequencyCycles.Set(nil)
@@ -503,6 +505,7 @@ func (o *AddDealProductRequest) HasBillingStartDate() bool {
 func (o *AddDealProductRequest) SetBillingStartDate(v string) {
 	o.BillingStartDate.Set(&v)
 }
+
 // SetBillingStartDateNil sets the value for BillingStartDate to be an explicit nil
 func (o *AddDealProductRequest) SetBillingStartDateNil() {
 	o.BillingStartDate.Set(nil)
@@ -514,7 +517,7 @@ func (o *AddDealProductRequest) UnsetBillingStartDate() {
 }
 
 func (o AddDealProductRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -579,10 +582,10 @@ func (o *AddDealProductRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -655,5 +658,3 @@ func (v *NullableAddDealProductRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

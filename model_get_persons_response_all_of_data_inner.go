@@ -46,7 +46,7 @@ type GetPersonsResponseAllOfDataInner struct {
 	// The IDs of labels assigned to the person
 	LabelIds []int32 `json:"label_ids,omitempty"`
 	// The ID of the picture associated with the person
-	PictureId *int32 `json:"picture_id,omitempty"`
+	PictureId     *int32                                         `json:"picture_id,omitempty"`
 	PostalAddress *GetPersonsResponseAllOfDataInnerPostalAddress `json:"postal_address,omitempty"`
 	// Contact sync notes of the person, maximum 10 000 characters, included if contact sync is enabled for the company
 	Notes *string `json:"notes,omitempty"`
@@ -57,7 +57,7 @@ type GetPersonsResponseAllOfDataInner struct {
 	// The job title of the person, included if contact sync is enabled for the company
 	JobTitle *string `json:"job_title,omitempty"`
 	// An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -721,7 +721,7 @@ func (o *GetPersonsResponseAllOfDataInner) SetCustomFields(v map[string]interfac
 }
 
 func (o GetPersonsResponseAllOfDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -873,5 +873,3 @@ func (v *NullableGetPersonsResponseAllOfDataInner) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

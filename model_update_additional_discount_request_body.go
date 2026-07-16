@@ -24,7 +24,7 @@ type UpdateAdditionalDiscountRequestBody struct {
 	// The discount amount. Must be a positive number (excluding 0).
 	Amount *float32 `json:"amount,omitempty"`
 	// Determines whether the discount is applied as a percentage or a fixed amount.
-	Type *string `json:"type,omitempty"`
+	Type                 *string `json:"type,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -144,7 +144,7 @@ func (o *UpdateAdditionalDiscountRequestBody) SetType(v string) {
 }
 
 func (o UpdateAdditionalDiscountRequestBody) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -228,5 +228,3 @@ func (v *NullableUpdateAdditionalDiscountRequestBody) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // ActivitiesAPIService ActivitiesAPI service
 type ActivitiesAPIService service
 
 type ActivitiesAPIAddActivityRequest struct {
-	ctx context.Context
-	ApiService *ActivitiesAPIService
+	ctx                context.Context
+	ApiService         *ActivitiesAPIService
 	addActivityRequest *AddActivityRequest
 }
 
@@ -43,24 +42,25 @@ AddActivity Add a new activity
 
 Adds a new activity.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ActivitiesAPIAddActivityRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ActivitiesAPIAddActivityRequest
 */
 func (a *ActivitiesAPIService) AddActivity(ctx context.Context) ActivitiesAPIAddActivityRequest {
 	return ActivitiesAPIAddActivityRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertActivityResponse
+//
+//	@return UpsertActivityResponse
 func (a *ActivitiesAPIService) AddActivityExecute(r ActivitiesAPIAddActivityRequest) (*UpsertActivityResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertActivityResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertActivityResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivitiesAPIService.AddActivity")
@@ -145,9 +145,9 @@ func (a *ActivitiesAPIService) AddActivityExecute(r ActivitiesAPIAddActivityRequ
 }
 
 type ActivitiesAPIDeleteActivityRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ActivitiesAPIService
-	id int32
+	id         int32
 }
 
 func (r ActivitiesAPIDeleteActivityRequest) Execute() (*DeleteActivityResponse, *http.Response, error) {
@@ -159,26 +159,27 @@ DeleteActivity Delete an activity
 
 Marks an activity as deleted. After 30 days, the activity will be permanently deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the activity
- @return ActivitiesAPIDeleteActivityRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the activity
+	@return ActivitiesAPIDeleteActivityRequest
 */
 func (a *ActivitiesAPIService) DeleteActivity(ctx context.Context, id int32) ActivitiesAPIDeleteActivityRequest {
 	return ActivitiesAPIDeleteActivityRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteActivityResponse
+//
+//	@return DeleteActivityResponse
 func (a *ActivitiesAPIService) DeleteActivityExecute(r ActivitiesAPIDeleteActivityRequest) (*DeleteActivityResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteActivityResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteActivityResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivitiesAPIService.DeleteActivity")
@@ -262,23 +263,23 @@ func (a *ActivitiesAPIService) DeleteActivityExecute(r ActivitiesAPIDeleteActivi
 }
 
 type ActivitiesAPIGetActivitiesRequest struct {
-	ctx context.Context
-	ApiService *ActivitiesAPIService
-	filterId *int32
-	ids *string
-	ownerId *int32
-	dealId *int32
-	leadId *string
-	personId *int32
-	orgId *int32
-	done *bool
-	updatedSince *string
-	updatedUntil *string
-	sortBy *string
+	ctx           context.Context
+	ApiService    *ActivitiesAPIService
+	filterId      *int32
+	ids           *string
+	ownerId       *int32
+	dealId        *int32
+	leadId        *string
+	personId      *int32
+	orgId         *int32
+	done          *bool
+	updatedSince  *string
+	updatedUntil  *string
+	sortBy        *string
 	sortDirection *string
 	includeFields *string
-	limit *int32
-	cursor *string
+	limit         *int32
+	cursor        *string
 }
 
 // If supplied, only activities matching the specified filter are returned
@@ -380,24 +381,25 @@ GetActivities Get all activities
 
 Returns data about all activities.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ActivitiesAPIGetActivitiesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ActivitiesAPIGetActivitiesRequest
 */
 func (a *ActivitiesAPIService) GetActivities(ctx context.Context) ActivitiesAPIGetActivitiesRequest {
 	return ActivitiesAPIGetActivitiesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetActivitiesResponse
+//
+//	@return GetActivitiesResponse
 func (a *ActivitiesAPIService) GetActivitiesExecute(r ActivitiesAPIGetActivitiesRequest) (*GetActivitiesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetActivitiesResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetActivitiesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivitiesAPIService.GetActivities")
@@ -444,16 +446,16 @@ func (a *ActivitiesAPIService) GetActivitiesExecute(r ActivitiesAPIGetActivities
 	if r.sortBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "form", "")
 	} else {
-        var defaultValue string = "id"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
-        r.sortBy = &defaultValue
+		var defaultValue string = "id"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
+		r.sortBy = &defaultValue
 	}
 	if r.sortDirection != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")
 	} else {
-        var defaultValue string = "asc"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
-        r.sortDirection = &defaultValue
+		var defaultValue string = "asc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
+		r.sortDirection = &defaultValue
 	}
 	if r.includeFields != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_fields", r.includeFields, "form", "")
@@ -533,9 +535,9 @@ func (a *ActivitiesAPIService) GetActivitiesExecute(r ActivitiesAPIGetActivities
 }
 
 type ActivitiesAPIGetActivityRequest struct {
-	ctx context.Context
-	ApiService *ActivitiesAPIService
-	id int32
+	ctx           context.Context
+	ApiService    *ActivitiesAPIService
+	id            int32
 	includeFields *string
 }
 
@@ -554,26 +556,27 @@ GetActivity Get details of an activity
 
 Returns the details of a specific activity.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the activity
- @return ActivitiesAPIGetActivityRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the activity
+	@return ActivitiesAPIGetActivityRequest
 */
 func (a *ActivitiesAPIService) GetActivity(ctx context.Context, id int32) ActivitiesAPIGetActivityRequest {
 	return ActivitiesAPIGetActivityRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertActivityResponse
+//
+//	@return UpsertActivityResponse
 func (a *ActivitiesAPIService) GetActivityExecute(r ActivitiesAPIGetActivityRequest) (*UpsertActivityResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertActivityResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertActivityResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivitiesAPIService.GetActivity")
@@ -660,9 +663,9 @@ func (a *ActivitiesAPIService) GetActivityExecute(r ActivitiesAPIGetActivityRequ
 }
 
 type ActivitiesAPIUpdateActivityRequest struct {
-	ctx context.Context
-	ApiService *ActivitiesAPIService
-	id int32
+	ctx                context.Context
+	ApiService         *ActivitiesAPIService
+	id                 int32
 	addActivityRequest *AddActivityRequest
 }
 
@@ -680,26 +683,27 @@ UpdateActivity Update an activity
 
 Updates the properties of an activity.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the activity
- @return ActivitiesAPIUpdateActivityRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the activity
+	@return ActivitiesAPIUpdateActivityRequest
 */
 func (a *ActivitiesAPIService) UpdateActivity(ctx context.Context, id int32) ActivitiesAPIUpdateActivityRequest {
 	return ActivitiesAPIUpdateActivityRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertActivityResponse
+//
+//	@return UpsertActivityResponse
 func (a *ActivitiesAPIService) UpdateActivityExecute(r ActivitiesAPIUpdateActivityRequest) (*UpsertActivityResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertActivityResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertActivityResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActivitiesAPIService.UpdateActivity")

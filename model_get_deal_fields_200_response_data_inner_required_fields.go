@@ -24,7 +24,7 @@ type GetDealFields200ResponseDataInnerRequiredFields struct {
 	// Array of stage IDs where the field is required
 	StageIds []int32 `json:"stage_ids,omitempty"`
 	// Pipeline-specific status requirements, mapping pipeline ID to array of statuses
-	Statuses *map[string][]string `json:"statuses,omitempty"`
+	Statuses             *map[string][]string `json:"statuses,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -144,7 +144,7 @@ func (o *GetDealFields200ResponseDataInnerRequiredFields) SetStatuses(v map[stri
 }
 
 func (o GetDealFields200ResponseDataInnerRequiredFields) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -228,5 +228,3 @@ func (v *NullableGetDealFields200ResponseDataInnerRequiredFields) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

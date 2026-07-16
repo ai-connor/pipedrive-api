@@ -24,7 +24,7 @@ type GetPersonsResponseAllOfDataInnerPhonesInner struct {
 	// Whether the phone number is primary or not
 	Primary *bool `json:"primary,omitempty"`
 	// The phone number classification label
-	Label *string `json:"label,omitempty"`
+	Label                *string `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -144,7 +144,7 @@ func (o *GetPersonsResponseAllOfDataInnerPhonesInner) SetLabel(v string) {
 }
 
 func (o GetPersonsResponseAllOfDataInnerPhonesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -228,5 +228,3 @@ func (v *NullableGetPersonsResponseAllOfDataInnerPhonesInner) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -24,7 +24,7 @@ type GetActivityFields200ResponseDataInnerSubfieldsInner struct {
 	// The subfield display name
 	FieldName *string `json:"field_name,omitempty"`
 	// The subfield type
-	FieldType *string `json:"field_type,omitempty"`
+	FieldType            *string `json:"field_type,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -144,7 +144,7 @@ func (o *GetActivityFields200ResponseDataInnerSubfieldsInner) SetFieldType(v str
 }
 
 func (o GetActivityFields200ResponseDataInnerSubfieldsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -228,5 +228,3 @@ func (v *NullableGetActivityFields200ResponseDataInnerSubfieldsInner) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

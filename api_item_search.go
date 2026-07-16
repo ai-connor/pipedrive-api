@@ -18,21 +18,20 @@ import (
 	"net/url"
 )
 
-
 // ItemSearchAPIService ItemSearchAPI service
 type ItemSearchAPIService service
 
 type ItemSearchAPISearchItemRequest struct {
-	ctx context.Context
-	ApiService *ItemSearchAPIService
-	term *string
-	itemTypes *string
-	fields *string
+	ctx                   context.Context
+	ApiService            *ItemSearchAPIService
+	term                  *string
+	itemTypes             *string
+	fields                *string
 	searchForRelatedItems *bool
-	exactMatch *bool
-	includeFields *string
-	limit *int32
-	cursor *string
+	exactMatch            *bool
+	includeFields         *string
+	limit                 *int32
+	cursor                *string
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -92,24 +91,25 @@ SearchItem Perform a search from multiple item types
 
 Performs a search from your choice of item types and fields.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ItemSearchAPISearchItemRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ItemSearchAPISearchItemRequest
 */
 func (a *ItemSearchAPIService) SearchItem(ctx context.Context) ItemSearchAPISearchItemRequest {
 	return ItemSearchAPISearchItemRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetItemSearchResponse
+//
+//	@return GetItemSearchResponse
 func (a *ItemSearchAPIService) SearchItemExecute(r ItemSearchAPISearchItemRequest) (*GetItemSearchResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetItemSearchResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetItemSearchResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemSearchAPIService.SearchItem")
@@ -217,14 +217,14 @@ func (a *ItemSearchAPIService) SearchItemExecute(r ItemSearchAPISearchItemReques
 }
 
 type ItemSearchAPISearchItemByFieldRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ItemSearchAPIService
-	term *string
+	term       *string
 	entityType *string
-	field *string
-	match *string
-	limit *int32
-	cursor *string
+	field      *string
+	match      *string
+	limit      *int32
+	cursor     *string
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if &#x60;match&#x60; is &#x60;exact&#x60;). Please note that the search term has to be URL encoded.
@@ -272,24 +272,25 @@ SearchItemByField Perform a search using a specific field from an item type
 
 Performs a search from the values of a specific field. Results can either be the distinct values of the field (useful for searching autocomplete field values), or the IDs of actual items (deals, leads, persons, organizations or products).
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ItemSearchAPISearchItemByFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ItemSearchAPISearchItemByFieldRequest
 */
 func (a *ItemSearchAPIService) SearchItemByField(ctx context.Context) ItemSearchAPISearchItemByFieldRequest {
 	return ItemSearchAPISearchItemByFieldRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetItemSearchFieldResponse
+//
+//	@return GetItemSearchFieldResponse
 func (a *ItemSearchAPIService) SearchItemByFieldExecute(r ItemSearchAPISearchItemByFieldRequest) (*GetItemSearchFieldResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetItemSearchFieldResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetItemSearchFieldResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ItemSearchAPIService.SearchItemByField")
@@ -317,9 +318,9 @@ func (a *ItemSearchAPIService) SearchItemByFieldExecute(r ItemSearchAPISearchIte
 	if r.match != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "match", r.match, "form", "")
 	} else {
-        var defaultValue string = "exact"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "match", defaultValue, "form", "")
-        r.match = &defaultValue
+		var defaultValue string = "exact"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "match", defaultValue, "form", "")
+		r.match = &defaultValue
 	}
 	parameterAddToHeaderOrQuery(localVarQueryParams, "field", r.field, "form", "")
 	if r.limit != nil {

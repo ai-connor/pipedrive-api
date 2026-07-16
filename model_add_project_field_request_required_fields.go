@@ -20,7 +20,7 @@ var _ MappedNullable = &AddProjectFieldRequestRequiredFields{}
 // AddProjectFieldRequestRequiredFields Required fields configuration for marking the field as mandatory when interacted with in the Pipedrive web UI.
 type AddProjectFieldRequestRequiredFields struct {
 	// Whether the field is required. When false, the field is optional. When true, the field is required when creating or updating projects. Default is false.
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled              *bool `json:"enabled,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -80,7 +80,7 @@ func (o *AddProjectFieldRequestRequiredFields) SetEnabled(v bool) {
 }
 
 func (o AddProjectFieldRequestRequiredFields) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -156,5 +156,3 @@ func (v *NullableAddProjectFieldRequestRequiredFields) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

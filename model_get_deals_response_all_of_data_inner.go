@@ -75,14 +75,14 @@ type GetDealsResponseAllOfDataInner struct {
 	ChannelId NullableString `json:"channel_id,omitempty"`
 	// The ID of the lead if the deal was converted from a lead. Only included when requested via include_fields parameter.
 	SourceLeadId NullableString `json:"source_lead_id,omitempty"`
-	// Only available in Growth and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal 
+	// Only available in Growth and above plans  The Annual Recurring Revenue of the deal  Null if there are no products attached to the deal
 	Arr NullableFloat32 `json:"arr,omitempty"`
-	// Only available in Growth and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal 
+	// Only available in Growth and above plans  The Monthly Recurring Revenue of the deal  Null if there are no products attached to the deal
 	Mrr NullableFloat32 `json:"mrr,omitempty"`
-	// Only available in Growth and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal 
+	// Only available in Growth and above plans  The Annual Contract Value of the deal  Null if there are no products attached to the deal
 	Acv NullableFloat32 `json:"acv,omitempty"`
 	// An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -617,6 +617,7 @@ func (o *GetDealsResponseAllOfDataInner) HasProbability() bool {
 func (o *GetDealsResponseAllOfDataInner) SetProbability(v float32) {
 	o.Probability.Set(&v)
 }
+
 // SetProbabilityNil sets the value for Probability to be an explicit nil
 func (o *GetDealsResponseAllOfDataInner) SetProbabilityNil() {
 	o.Probability.Set(nil)
@@ -659,6 +660,7 @@ func (o *GetDealsResponseAllOfDataInner) HasLostReason() bool {
 func (o *GetDealsResponseAllOfDataInner) SetLostReason(v string) {
 	o.LostReason.Set(&v)
 }
+
 // SetLostReasonNil sets the value for LostReason to be an explicit nil
 func (o *GetDealsResponseAllOfDataInner) SetLostReasonNil() {
 	o.LostReason.Set(nil)
@@ -733,6 +735,7 @@ func (o *GetDealsResponseAllOfDataInner) HasCloseTime() bool {
 func (o *GetDealsResponseAllOfDataInner) SetCloseTime(v string) {
 	o.CloseTime.Set(&v)
 }
+
 // SetCloseTimeNil sets the value for CloseTime to be an explicit nil
 func (o *GetDealsResponseAllOfDataInner) SetCloseTimeNil() {
 	o.CloseTime.Set(nil)
@@ -935,6 +938,7 @@ func (o *GetDealsResponseAllOfDataInner) HasOriginId() bool {
 func (o *GetDealsResponseAllOfDataInner) SetOriginId(v string) {
 	o.OriginId.Set(&v)
 }
+
 // SetOriginIdNil sets the value for OriginId to be an explicit nil
 func (o *GetDealsResponseAllOfDataInner) SetOriginIdNil() {
 	o.OriginId.Set(nil)
@@ -977,6 +981,7 @@ func (o *GetDealsResponseAllOfDataInner) HasChannel() bool {
 func (o *GetDealsResponseAllOfDataInner) SetChannel(v int32) {
 	o.Channel.Set(&v)
 }
+
 // SetChannelNil sets the value for Channel to be an explicit nil
 func (o *GetDealsResponseAllOfDataInner) SetChannelNil() {
 	o.Channel.Set(nil)
@@ -1019,6 +1024,7 @@ func (o *GetDealsResponseAllOfDataInner) HasChannelId() bool {
 func (o *GetDealsResponseAllOfDataInner) SetChannelId(v string) {
 	o.ChannelId.Set(&v)
 }
+
 // SetChannelIdNil sets the value for ChannelId to be an explicit nil
 func (o *GetDealsResponseAllOfDataInner) SetChannelIdNil() {
 	o.ChannelId.Set(nil)
@@ -1061,6 +1067,7 @@ func (o *GetDealsResponseAllOfDataInner) HasSourceLeadId() bool {
 func (o *GetDealsResponseAllOfDataInner) SetSourceLeadId(v string) {
 	o.SourceLeadId.Set(&v)
 }
+
 // SetSourceLeadIdNil sets the value for SourceLeadId to be an explicit nil
 func (o *GetDealsResponseAllOfDataInner) SetSourceLeadIdNil() {
 	o.SourceLeadId.Set(nil)
@@ -1103,6 +1110,7 @@ func (o *GetDealsResponseAllOfDataInner) HasArr() bool {
 func (o *GetDealsResponseAllOfDataInner) SetArr(v float32) {
 	o.Arr.Set(&v)
 }
+
 // SetArrNil sets the value for Arr to be an explicit nil
 func (o *GetDealsResponseAllOfDataInner) SetArrNil() {
 	o.Arr.Set(nil)
@@ -1145,6 +1153,7 @@ func (o *GetDealsResponseAllOfDataInner) HasMrr() bool {
 func (o *GetDealsResponseAllOfDataInner) SetMrr(v float32) {
 	o.Mrr.Set(&v)
 }
+
 // SetMrrNil sets the value for Mrr to be an explicit nil
 func (o *GetDealsResponseAllOfDataInner) SetMrrNil() {
 	o.Mrr.Set(nil)
@@ -1187,6 +1196,7 @@ func (o *GetDealsResponseAllOfDataInner) HasAcv() bool {
 func (o *GetDealsResponseAllOfDataInner) SetAcv(v float32) {
 	o.Acv.Set(&v)
 }
+
 // SetAcvNil sets the value for Acv to be an explicit nil
 func (o *GetDealsResponseAllOfDataInner) SetAcvNil() {
 	o.Acv.Set(nil)
@@ -1230,7 +1240,7 @@ func (o *GetDealsResponseAllOfDataInner) SetCustomFields(v map[string]interface{
 }
 
 func (o GetDealsResponseAllOfDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1430,5 +1440,3 @@ func (v *NullableGetDealsResponseAllOfDataInner) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

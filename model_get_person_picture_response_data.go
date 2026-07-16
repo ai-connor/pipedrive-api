@@ -30,8 +30,8 @@ type GetPersonPictureResponseData struct {
 	// Whether the picture is active or not.
 	ActiveFlag *bool `json:"active_flag,omitempty"`
 	// The file size in bytes.
-	FileSize *int32 `json:"file_size,omitempty"`
-	Pictures *GetPersonPictureResponseDataPictures `json:"pictures,omitempty"`
+	FileSize             *int32                                `json:"file_size,omitempty"`
+	Pictures             *GetPersonPictureResponseDataPictures `json:"pictures,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -279,7 +279,7 @@ func (o *GetPersonPictureResponseData) SetPictures(v GetPersonPictureResponseDat
 }
 
 func (o GetPersonPictureResponseData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -379,5 +379,3 @@ func (v *NullableGetPersonPictureResponseData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

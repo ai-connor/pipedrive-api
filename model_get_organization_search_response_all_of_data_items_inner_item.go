@@ -28,12 +28,12 @@ type GetOrganizationSearchResponseAllOfDataItemsInnerItem struct {
 	// The address of the organization
 	Address *string `json:"address,omitempty"`
 	// The visibility of the organization
-	VisibleTo *int32 `json:"visible_to,omitempty"`
-	Owner *GetDealSearchResponseAllOfDataItemsInnerItemOwner `json:"owner,omitempty"`
+	VisibleTo *int32                                             `json:"visible_to,omitempty"`
+	Owner     *GetDealSearchResponseAllOfDataItemsInnerItemOwner `json:"owner,omitempty"`
 	// Custom fields
 	CustomFields []string `json:"custom_fields,omitempty"`
 	// An array of notes
-	Notes []string `json:"notes,omitempty"`
+	Notes                []string `json:"notes,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -313,7 +313,7 @@ func (o *GetOrganizationSearchResponseAllOfDataItemsInnerItem) SetNotes(v []stri
 }
 
 func (o GetOrganizationSearchResponseAllOfDataItemsInnerItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -417,5 +417,3 @@ func (v *NullableGetOrganizationSearchResponseAllOfDataItemsInnerItem) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

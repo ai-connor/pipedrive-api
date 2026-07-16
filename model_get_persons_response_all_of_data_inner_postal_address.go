@@ -38,7 +38,7 @@ type GetPersonsResponseAllOfDataInnerPostalAddress struct {
 	// Subpremise (e.g. apartment/suite number) of the person
 	Subpremise *string `json:"subpremise,omitempty"`
 	// Postal code of the person
-	PostalCode *string `json:"postal_code,omitempty"`
+	PostalCode           *string `json:"postal_code,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -382,7 +382,7 @@ func (o *GetPersonsResponseAllOfDataInnerPostalAddress) SetPostalCode(v string) 
 }
 
 func (o GetPersonsResponseAllOfDataInnerPostalAddress) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -494,5 +494,3 @@ func (v *NullableGetPersonsResponseAllOfDataInnerPostalAddress) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

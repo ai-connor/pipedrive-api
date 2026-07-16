@@ -35,11 +35,11 @@ type GetDealFields200ResponseDataInner struct {
 	// Whether this is a user-created custom field
 	IsCustomField bool `json:"is_custom_field"`
 	// Whether this field is not returned by default in entity responses
-	IsOptionalResponseField bool `json:"is_optional_response_field"`
-	UiVisibility *GetDealFields200ResponseDataInnerUiVisibility `json:"ui_visibility,omitempty"`
-	ImportantFields *GetDealFields200ResponseDataInnerImportantFields `json:"important_fields,omitempty"`
-	RequiredFields *GetDealFields200ResponseDataInnerRequiredFields `json:"required_fields,omitempty"`
-	AdditionalProperties map[string]interface{}
+	IsOptionalResponseField bool                                              `json:"is_optional_response_field"`
+	UiVisibility            *GetDealFields200ResponseDataInnerUiVisibility    `json:"ui_visibility,omitempty"`
+	ImportantFields         *GetDealFields200ResponseDataInnerImportantFields `json:"important_fields,omitempty"`
+	RequiredFields          *GetDealFields200ResponseDataInnerRequiredFields  `json:"required_fields,omitempty"`
+	AdditionalProperties    map[string]interface{}
 }
 
 type _GetDealFields200ResponseDataInner GetDealFields200ResponseDataInner
@@ -374,7 +374,7 @@ func (o *GetDealFields200ResponseDataInner) SetRequiredFields(v GetDealFields200
 }
 
 func (o GetDealFields200ResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -430,10 +430,10 @@ func (o *GetDealFields200ResponseDataInner) UnmarshalJSON(data []byte) (err erro
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -504,5 +504,3 @@ func (v *NullableGetDealFields200ResponseDataInner) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -28,10 +28,10 @@ type GetProductSearchResponseAllOfDataItemsInnerItem struct {
 	// The code of the product
 	Code *int32 `json:"code,omitempty"`
 	// The visibility of the product
-	VisibleTo *int32 `json:"visible_to,omitempty"`
-	Owner *GetProductSearchResponseAllOfDataItemsInnerItemOwner `json:"owner,omitempty"`
+	VisibleTo *int32                                                `json:"visible_to,omitempty"`
+	Owner     *GetProductSearchResponseAllOfDataItemsInnerItemOwner `json:"owner,omitempty"`
 	// The custom fields
-	CustomFields []string `json:"custom_fields,omitempty"`
+	CustomFields         []string `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -279,7 +279,7 @@ func (o *GetProductSearchResponseAllOfDataItemsInnerItem) SetCustomFields(v []st
 }
 
 func (o GetProductSearchResponseAllOfDataItemsInnerItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -379,5 +379,3 @@ func (v *NullableGetProductSearchResponseAllOfDataItemsInnerItem) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

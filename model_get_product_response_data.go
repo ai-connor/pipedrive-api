@@ -32,18 +32,18 @@ type GetProductResponseData struct {
 	// Whether this product will be marked as deleted or not
 	IsDeleted *bool `json:"is_deleted,omitempty"`
 	// Whether this product can be added to a deal or not
-	IsLinkable *bool `json:"is_linkable,omitempty"`
-	VisibleTo *float32 `json:"visible_to,omitempty"`
+	IsLinkable *bool    `json:"is_linkable,omitempty"`
+	VisibleTo  *float32 `json:"visible_to,omitempty"`
 	// Information about the Pipedrive user who owns the product
 	OwnerId *int32 `json:"owner_id,omitempty"`
 	// An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
 	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	// Only available in Growth and above plans  How often a customer is billed for access to a service or product 
+	// Only available in Growth and above plans  How often a customer is billed for access to a service or product
 	BillingFrequency *string `json:"billing_frequency,omitempty"`
-	// Only available in Growth and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208 
+	// Only available in Growth and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208
 	BillingFrequencyCycles NullableInt32 `json:"billing_frequency_cycles,omitempty"`
 	// Array of objects, each containing: product_id (number), currency (string), price (number), cost (number), direct_cost (number | null), notes (string)
-	Prices []map[string]interface{} `json:"prices,omitempty"`
+	Prices               []map[string]interface{} `json:"prices,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -466,6 +466,7 @@ func (o *GetProductResponseData) HasBillingFrequencyCycles() bool {
 func (o *GetProductResponseData) SetBillingFrequencyCycles(v int32) {
 	o.BillingFrequencyCycles.Set(&v)
 }
+
 // SetBillingFrequencyCyclesNil sets the value for BillingFrequencyCycles to be an explicit nil
 func (o *GetProductResponseData) SetBillingFrequencyCyclesNil() {
 	o.BillingFrequencyCycles.Set(nil)
@@ -509,7 +510,7 @@ func (o *GetProductResponseData) SetPrices(v []map[string]interface{}) {
 }
 
 func (o GetProductResponseData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -633,5 +634,3 @@ func (v *NullableGetProductResponseData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

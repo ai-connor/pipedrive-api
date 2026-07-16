@@ -20,7 +20,7 @@ var _ MappedNullable = &GetProjectSearchResponseAllOfDataItemsInnerItemOwner{}
 // GetProjectSearchResponseAllOfDataItemsInnerItemOwner struct for GetProjectSearchResponseAllOfDataItemsInnerItemOwner
 type GetProjectSearchResponseAllOfDataItemsInnerItemOwner struct {
 	// The ID of the owner of the project
-	Id NullableInt32 `json:"id,omitempty"`
+	Id                   NullableInt32 `json:"id,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,6 +75,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOwner) HasId() bool {
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOwner) SetId(v int32) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOwner) SetIdNil() {
 	o.Id.Set(nil)
@@ -86,7 +87,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItemOwner) UnsetId() {
 }
 
 func (o GetProjectSearchResponseAllOfDataItemsInnerItemOwner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -162,5 +163,3 @@ func (v *NullableGetProjectSearchResponseAllOfDataItemsInnerItemOwner) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

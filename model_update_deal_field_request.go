@@ -20,12 +20,12 @@ var _ MappedNullable = &UpdateDealFieldRequest{}
 // UpdateDealFieldRequest struct for UpdateDealFieldRequest
 type UpdateDealFieldRequest struct {
 	// Field name
-	FieldName *string `json:"field_name,omitempty"`
-	UiVisibility *AddDealFieldRequestUiVisibility `json:"ui_visibility,omitempty"`
+	FieldName       *string                             `json:"field_name,omitempty"`
+	UiVisibility    *AddDealFieldRequestUiVisibility    `json:"ui_visibility,omitempty"`
 	ImportantFields *AddDealFieldRequestImportantFields `json:"important_fields,omitempty"`
-	RequiredFields *AddDealFieldRequestRequiredFields `json:"required_fields,omitempty"`
+	RequiredFields  *AddDealFieldRequestRequiredFields  `json:"required_fields,omitempty"`
 	// Field description
-	Description NullableString `json:"description,omitempty"`
+	Description          NullableString `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -208,6 +208,7 @@ func (o *UpdateDealFieldRequest) HasDescription() bool {
 func (o *UpdateDealFieldRequest) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *UpdateDealFieldRequest) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -219,7 +220,7 @@ func (o *UpdateDealFieldRequest) UnsetDescription() {
 }
 
 func (o UpdateDealFieldRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -311,5 +312,3 @@ func (v *NullableUpdateDealFieldRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
