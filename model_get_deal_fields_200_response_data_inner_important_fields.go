@@ -22,7 +22,7 @@ type GetDealFields200ResponseDataInnerImportantFields struct {
 	// Whether the field is marked as important
 	Enabled *bool `json:"enabled,omitempty"`
 	// Array of stage IDs where the field is important
-	StageIds []int32 `json:"stage_ids,omitempty"`
+	StageIds             []int32 `json:"stage_ids,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetDealFields200ResponseDataInnerImportantFields) SetStageIds(v []int32
 }
 
 func (o GetDealFields200ResponseDataInnerImportantFields) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetDealFields200ResponseDataInnerImportantFields) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

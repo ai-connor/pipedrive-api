@@ -22,7 +22,7 @@ type GetFollowersResponseAllOfDataInner struct {
 	// The ID of the user following the entity
 	UserId *int32 `json:"user_id,omitempty"`
 	// The add time of the following
-	AddTime *string `json:"add_time,omitempty"`
+	AddTime              *string `json:"add_time,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetFollowersResponseAllOfDataInner) SetAddTime(v string) {
 }
 
 func (o GetFollowersResponseAllOfDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetFollowersResponseAllOfDataInner) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

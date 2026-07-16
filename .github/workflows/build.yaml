@@ -20,7 +20,7 @@ jobs:
           npm install @openapitools/openapi-generator-cli -g
 
       - name: Validate OpenAPI Spec
-        run: openapi-generator-cli validate -i _pipedrive-api.json
+        run: openapi-generator-cli validate -i _pipedrive-api.yaml
 
       - name: Build Go project
         run: go build ./...

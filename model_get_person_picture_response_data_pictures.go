@@ -22,7 +22,7 @@ type GetPersonPictureResponseDataPictures struct {
 	// The URL of the 128x128 picture.
 	Var128 *string `json:"128,omitempty"`
 	// The URL of the 512x512 picture.
-	Var512 *string `json:"512,omitempty"`
+	Var512               *string `json:"512,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetPersonPictureResponseDataPictures) SetVar512(v string) {
 }
 
 func (o GetPersonPictureResponseDataPictures) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetPersonPictureResponseDataPictures) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

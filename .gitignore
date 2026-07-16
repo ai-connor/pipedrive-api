@@ -22,3 +22,6 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# OpenAPI Generator CLI local version cache
+openapitools.json

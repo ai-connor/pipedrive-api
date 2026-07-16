@@ -30,7 +30,7 @@ type GetProjectChangelogResponseDataInner struct {
 	// A map of field keys to their previous values before the change
 	OldValues map[string]interface{} `json:"old_values,omitempty"`
 	// The ID of the user who made the change
-	ActorUserId *int32 `json:"actor_user_id,omitempty"`
+	ActorUserId          *int32 `json:"actor_user_id,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -85,6 +85,7 @@ func (o *GetProjectChangelogResponseDataInner) HasChangeSource() bool {
 func (o *GetProjectChangelogResponseDataInner) SetChangeSource(v string) {
 	o.ChangeSource.Set(&v)
 }
+
 // SetChangeSourceNil sets the value for ChangeSource to be an explicit nil
 func (o *GetProjectChangelogResponseDataInner) SetChangeSourceNil() {
 	o.ChangeSource.Set(nil)
@@ -127,6 +128,7 @@ func (o *GetProjectChangelogResponseDataInner) HasChangeSourceUserAgent() bool {
 func (o *GetProjectChangelogResponseDataInner) SetChangeSourceUserAgent(v string) {
 	o.ChangeSourceUserAgent.Set(&v)
 }
+
 // SetChangeSourceUserAgentNil sets the value for ChangeSourceUserAgent to be an explicit nil
 func (o *GetProjectChangelogResponseDataInner) SetChangeSourceUserAgentNil() {
 	o.ChangeSourceUserAgent.Set(nil)
@@ -266,7 +268,7 @@ func (o *GetProjectChangelogResponseDataInner) SetActorUserId(v int32) {
 }
 
 func (o GetProjectChangelogResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -362,5 +364,3 @@ func (v *NullableGetProjectChangelogResponseDataInner) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

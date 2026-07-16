@@ -21,7 +21,7 @@ var _ MappedNullable = &AddConvertDealToLeadResponseData{}
 // AddConvertDealToLeadResponseData An object containing conversion job id that performs the conversion
 type AddConvertDealToLeadResponseData struct {
 	// The ID of the conversion job that can be used to retrieve conversion status and details. The ID has UUID format.
-	ConversionId string `json:"conversion_id"`
+	ConversionId         string `json:"conversion_id"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *AddConvertDealToLeadResponseData) SetConversionId(v string) {
 }
 
 func (o AddConvertDealToLeadResponseData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *AddConvertDealToLeadResponseData) UnmarshalJSON(data []byte) (err error
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,5 +165,3 @@ func (v *NullableAddConvertDealToLeadResponseData) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

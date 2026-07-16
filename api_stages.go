@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // StagesAPIService StagesAPI service
 type StagesAPIService service
 
 type StagesAPIAddStageRequest struct {
-	ctx context.Context
-	ApiService *StagesAPIService
+	ctx             context.Context
+	ApiService      *StagesAPIService
 	addStageRequest *AddStageRequest
 }
 
@@ -43,24 +42,25 @@ AddStage Add a new stage
 
 Adds a new stage, returns the ID upon success.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return StagesAPIAddStageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return StagesAPIAddStageRequest
 */
 func (a *StagesAPIService) AddStage(ctx context.Context) StagesAPIAddStageRequest {
 	return StagesAPIAddStageRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertStageResponse
+//
+//	@return UpsertStageResponse
 func (a *StagesAPIService) AddStageExecute(r StagesAPIAddStageRequest) (*UpsertStageResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertStageResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertStageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StagesAPIService.AddStage")
@@ -145,9 +145,9 @@ func (a *StagesAPIService) AddStageExecute(r StagesAPIAddStageRequest) (*UpsertS
 }
 
 type StagesAPIDeleteStageRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *StagesAPIService
-	id int32
+	id         int32
 }
 
 func (r StagesAPIDeleteStageRequest) Execute() (*DeleteStageResponse, *http.Response, error) {
@@ -159,26 +159,27 @@ DeleteStage Delete a stage
 
 Marks a stage as deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the stage
- @return StagesAPIDeleteStageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the stage
+	@return StagesAPIDeleteStageRequest
 */
 func (a *StagesAPIService) DeleteStage(ctx context.Context, id int32) StagesAPIDeleteStageRequest {
 	return StagesAPIDeleteStageRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteStageResponse
+//
+//	@return DeleteStageResponse
 func (a *StagesAPIService) DeleteStageExecute(r StagesAPIDeleteStageRequest) (*DeleteStageResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteStageResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteStageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StagesAPIService.DeleteStage")
@@ -262,9 +263,9 @@ func (a *StagesAPIService) DeleteStageExecute(r StagesAPIDeleteStageRequest) (*D
 }
 
 type StagesAPIGetStageRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *StagesAPIService
-	id int32
+	id         int32
 }
 
 func (r StagesAPIGetStageRequest) Execute() (*UpsertStageResponse, *http.Response, error) {
@@ -276,26 +277,27 @@ GetStage Get one stage
 
 Returns data about a specific stage.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the stage
- @return StagesAPIGetStageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the stage
+	@return StagesAPIGetStageRequest
 */
 func (a *StagesAPIService) GetStage(ctx context.Context, id int32) StagesAPIGetStageRequest {
 	return StagesAPIGetStageRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertStageResponse
+//
+//	@return UpsertStageResponse
 func (a *StagesAPIService) GetStageExecute(r StagesAPIGetStageRequest) (*UpsertStageResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertStageResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertStageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StagesAPIService.GetStage")
@@ -379,13 +381,13 @@ func (a *StagesAPIService) GetStageExecute(r StagesAPIGetStageRequest) (*UpsertS
 }
 
 type StagesAPIGetStagesRequest struct {
-	ctx context.Context
-	ApiService *StagesAPIService
-	pipelineId *int32
-	sortBy *string
+	ctx           context.Context
+	ApiService    *StagesAPIService
+	pipelineId    *int32
+	sortBy        *string
 	sortDirection *string
-	limit *int32
-	cursor *string
+	limit         *int32
+	cursor        *string
 }
 
 // The ID of the pipeline to fetch stages for. If omitted, stages for all pipelines will be fetched.
@@ -427,24 +429,25 @@ GetStages Get all stages
 
 Returns data about all stages.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return StagesAPIGetStagesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return StagesAPIGetStagesRequest
 */
 func (a *StagesAPIService) GetStages(ctx context.Context) StagesAPIGetStagesRequest {
 	return StagesAPIGetStagesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetStagesResponse
+//
+//	@return GetStagesResponse
 func (a *StagesAPIService) GetStagesExecute(r StagesAPIGetStagesRequest) (*GetStagesResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetStagesResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetStagesResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StagesAPIService.GetStages")
@@ -464,16 +467,16 @@ func (a *StagesAPIService) GetStagesExecute(r StagesAPIGetStagesRequest) (*GetSt
 	if r.sortBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "form", "")
 	} else {
-        var defaultValue string = "id"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
-        r.sortBy = &defaultValue
+		var defaultValue string = "id"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
+		r.sortBy = &defaultValue
 	}
 	if r.sortDirection != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")
 	} else {
-        var defaultValue string = "asc"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
-        r.sortDirection = &defaultValue
+		var defaultValue string = "asc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
+		r.sortDirection = &defaultValue
 	}
 	if r.limit != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
@@ -550,9 +553,9 @@ func (a *StagesAPIService) GetStagesExecute(r StagesAPIGetStagesRequest) (*GetSt
 }
 
 type StagesAPIUpdateStageRequest struct {
-	ctx context.Context
-	ApiService *StagesAPIService
-	id int32
+	ctx                context.Context
+	ApiService         *StagesAPIService
+	id                 int32
 	updateStageRequest *UpdateStageRequest
 }
 
@@ -570,26 +573,27 @@ UpdateStage Update stage details
 
 Updates the properties of a stage.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the stage
- @return StagesAPIUpdateStageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the stage
+	@return StagesAPIUpdateStageRequest
 */
 func (a *StagesAPIService) UpdateStage(ctx context.Context, id int32) StagesAPIUpdateStageRequest {
 	return StagesAPIUpdateStageRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertStageResponse
+//
+//	@return UpsertStageResponse
 func (a *StagesAPIService) UpdateStageExecute(r StagesAPIUpdateStageRequest) (*UpsertStageResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertStageResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertStageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StagesAPIService.UpdateStage")

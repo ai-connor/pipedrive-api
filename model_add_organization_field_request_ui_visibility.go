@@ -22,10 +22,10 @@ type AddOrganizationFieldRequestUiVisibility struct {
 	// Whether the field is shown in the add organization modal. Default is false. Cannot be set to false for the 'name' system field.
 	AddVisibleFlag *bool `json:"add_visible_flag,omitempty"`
 	// Whether the field is shown in the organization details view. Default is true.
-	DetailsVisibleFlag *bool `json:"details_visible_flag,omitempty"`
-	ShowInAddDealDialog *AddOrganizationFieldRequestUiVisibilityShowInAddDealDialog `json:"show_in_add_deal_dialog,omitempty"`
+	DetailsVisibleFlag    *bool                                                         `json:"details_visible_flag,omitempty"`
+	ShowInAddDealDialog   *AddOrganizationFieldRequestUiVisibilityShowInAddDealDialog   `json:"show_in_add_deal_dialog,omitempty"`
 	ShowInAddPersonDialog *AddOrganizationFieldRequestUiVisibilityShowInAddPersonDialog `json:"show_in_add_person_dialog,omitempty"`
-	AdditionalProperties map[string]interface{}
+	AdditionalProperties  map[string]interface{}
 }
 
 type _AddOrganizationFieldRequestUiVisibility AddOrganizationFieldRequestUiVisibility
@@ -184,7 +184,7 @@ func (o *AddOrganizationFieldRequestUiVisibility) SetShowInAddPersonDialog(v Add
 }
 
 func (o AddOrganizationFieldRequestUiVisibility) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -272,5 +272,3 @@ func (v *NullableAddOrganizationFieldRequestUiVisibility) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

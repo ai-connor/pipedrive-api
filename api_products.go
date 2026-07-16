@@ -16,17 +16,16 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
+	"strings"
 )
-
 
 // ProductsAPIService ProductsAPI service
 type ProductsAPIService service
 
 type ProductsAPIAddProductRequest struct {
-	ctx context.Context
-	ApiService *ProductsAPIService
+	ctx               context.Context
+	ApiService        *ProductsAPIService
 	addProductRequest *AddProductRequest
 }
 
@@ -44,24 +43,25 @@ AddProduct Add a product
 
 Adds a new product to the Products inventory. For more information, see the tutorial for <a href="https://pipedrive.readme.io/docs/adding-a-product" target="_blank" rel="noopener noreferrer">adding a product</a>.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductsAPIAddProductRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProductsAPIAddProductRequest
 */
 func (a *ProductsAPIService) AddProduct(ctx context.Context) ProductsAPIAddProductRequest {
 	return ProductsAPIAddProductRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetProductResponse
+//
+//	@return GetProductResponse
 func (a *ProductsAPIService) AddProductExecute(r ProductsAPIAddProductRequest) (*GetProductResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProductResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProductResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.AddProduct")
@@ -146,9 +146,9 @@ func (a *ProductsAPIService) AddProductExecute(r ProductsAPIAddProductRequest) (
 }
 
 type ProductsAPIAddProductFollowerRequest struct {
-	ctx context.Context
-	ApiService *ProductsAPIService
-	id int32
+	ctx                    context.Context
+	ApiService             *ProductsAPIService
+	id                     int32
 	addDealFollowerRequest *AddDealFollowerRequest
 }
 
@@ -166,26 +166,27 @@ AddProductFollower Add a follower to a product
 
 Adds a user as a follower to the product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIAddProductFollowerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIAddProductFollowerRequest
 */
 func (a *ProductsAPIService) AddProductFollower(ctx context.Context, id int32) ProductsAPIAddProductFollowerRequest {
 	return ProductsAPIAddProductFollowerRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AddFollowerResponse
+//
+//	@return AddFollowerResponse
 func (a *ProductsAPIService) AddProductFollowerExecute(r ProductsAPIAddProductFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddFollowerResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddFollowerResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.AddProductFollower")
@@ -271,9 +272,9 @@ func (a *ProductsAPIService) AddProductFollowerExecute(r ProductsAPIAddProductFo
 }
 
 type ProductsAPIAddProductVariationRequest struct {
-	ctx context.Context
-	ApiService *ProductsAPIService
-	id int32
+	ctx                        context.Context
+	ApiService                 *ProductsAPIService
+	id                         int32
 	addProductVariationRequest *AddProductVariationRequest
 }
 
@@ -291,26 +292,27 @@ AddProductVariation Add a product variation
 
 Adds a new product variation.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIAddProductVariationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIAddProductVariationRequest
 */
 func (a *ProductsAPIService) AddProductVariation(ctx context.Context, id int32) ProductsAPIAddProductVariationRequest {
 	return ProductsAPIAddProductVariationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetProductVariationResponse
+//
+//	@return GetProductVariationResponse
 func (a *ProductsAPIService) AddProductVariationExecute(r ProductsAPIAddProductVariationRequest) (*GetProductVariationResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProductVariationResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProductVariationResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.AddProductVariation")
@@ -396,9 +398,9 @@ func (a *ProductsAPIService) AddProductVariationExecute(r ProductsAPIAddProductV
 }
 
 type ProductsAPIDeleteProductRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProductsAPIDeleteProductRequest) Execute() (*DeleteProductResponse, *http.Response, error) {
@@ -410,26 +412,27 @@ DeleteProduct Delete a product
 
 Marks a product as deleted. After 30 days, the product will be permanently deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIDeleteProductRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIDeleteProductRequest
 */
 func (a *ProductsAPIService) DeleteProduct(ctx context.Context, id int32) ProductsAPIDeleteProductRequest {
 	return ProductsAPIDeleteProductRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteProductResponse
+//
+//	@return DeleteProductResponse
 func (a *ProductsAPIService) DeleteProductExecute(r ProductsAPIDeleteProductRequest) (*DeleteProductResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteProductResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteProductResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.DeleteProduct")
@@ -513,9 +516,9 @@ func (a *ProductsAPIService) DeleteProductExecute(r ProductsAPIDeleteProductRequ
 }
 
 type ProductsAPIDeleteProductFollowerRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
+	id         int32
 	followerId int32
 }
 
@@ -528,28 +531,29 @@ DeleteProductFollower Delete a follower from a product
 
 Deletes a user follower from the product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @param followerId The ID of the following user
- @return ProductsAPIDeleteProductFollowerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@param followerId The ID of the following user
+	@return ProductsAPIDeleteProductFollowerRequest
 */
 func (a *ProductsAPIService) DeleteProductFollower(ctx context.Context, id int32, followerId int32) ProductsAPIDeleteProductFollowerRequest {
 	return ProductsAPIDeleteProductFollowerRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 		followerId: followerId,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteFollowerResponse
+//
+//	@return DeleteFollowerResponse
 func (a *ProductsAPIService) DeleteProductFollowerExecute(r ProductsAPIDeleteProductFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteFollowerResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteFollowerResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.DeleteProductFollower")
@@ -634,9 +638,9 @@ func (a *ProductsAPIService) DeleteProductFollowerExecute(r ProductsAPIDeletePro
 }
 
 type ProductsAPIDeleteProductImageRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProductsAPIDeleteProductImageRequest) Execute() (*DeleteProductImageResponse, *http.Response, error) {
@@ -648,26 +652,27 @@ DeleteProductImage Delete an image of a product
 
 Deletes the image of a product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIDeleteProductImageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIDeleteProductImageRequest
 */
 func (a *ProductsAPIService) DeleteProductImage(ctx context.Context, id int32) ProductsAPIDeleteProductImageRequest {
 	return ProductsAPIDeleteProductImageRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteProductImageResponse
+//
+//	@return DeleteProductImageResponse
 func (a *ProductsAPIService) DeleteProductImageExecute(r ProductsAPIDeleteProductImageRequest) (*DeleteProductImageResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteProductImageResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteProductImageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.DeleteProductImage")
@@ -751,9 +756,9 @@ func (a *ProductsAPIService) DeleteProductImageExecute(r ProductsAPIDeleteProduc
 }
 
 type ProductsAPIDeleteProductVariationRequest struct {
-	ctx context.Context
-	ApiService *ProductsAPIService
-	id int32
+	ctx                context.Context
+	ApiService         *ProductsAPIService
+	id                 int32
 	productVariationId int32
 }
 
@@ -766,28 +771,29 @@ DeleteProductVariation Delete a product variation
 
 Deletes a product variation.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @param productVariationId The ID of the product variation
- @return ProductsAPIDeleteProductVariationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@param productVariationId The ID of the product variation
+	@return ProductsAPIDeleteProductVariationRequest
 */
 func (a *ProductsAPIService) DeleteProductVariation(ctx context.Context, id int32, productVariationId int32) ProductsAPIDeleteProductVariationRequest {
 	return ProductsAPIDeleteProductVariationRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:         a,
+		ctx:                ctx,
+		id:                 id,
 		productVariationId: productVariationId,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteProductVariationResponse
+//
+//	@return DeleteProductVariationResponse
 func (a *ProductsAPIService) DeleteProductVariationExecute(r ProductsAPIDeleteProductVariationRequest) (*DeleteProductVariationResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteProductVariationResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteProductVariationResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.DeleteProductVariation")
@@ -872,9 +878,9 @@ func (a *ProductsAPIService) DeleteProductVariationExecute(r ProductsAPIDeletePr
 }
 
 type ProductsAPIDuplicateProductRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProductsAPIDuplicateProductRequest) Execute() (*GetProductResponse, *http.Response, error) {
@@ -886,26 +892,27 @@ DuplicateProduct Duplicate a product
 
 Creates a duplicate of an existing product including all variations, prices, and custom fields.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIDuplicateProductRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIDuplicateProductRequest
 */
 func (a *ProductsAPIService) DuplicateProduct(ctx context.Context, id int32) ProductsAPIDuplicateProductRequest {
 	return ProductsAPIDuplicateProductRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetProductResponse
+//
+//	@return GetProductResponse
 func (a *ProductsAPIService) DuplicateProductExecute(r ProductsAPIDuplicateProductRequest) (*GetProductResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProductResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProductResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.DuplicateProduct")
@@ -989,9 +996,9 @@ func (a *ProductsAPIService) DuplicateProductExecute(r ProductsAPIDuplicateProdu
 }
 
 type ProductsAPIGetProductRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProductsAPIGetProductRequest) Execute() (*GetProductResponse, *http.Response, error) {
@@ -1003,26 +1010,27 @@ GetProduct Get one product
 
 Returns data about a specific product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIGetProductRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIGetProductRequest
 */
 func (a *ProductsAPIService) GetProduct(ctx context.Context, id int32) ProductsAPIGetProductRequest {
 	return ProductsAPIGetProductRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetProductResponse
+//
+//	@return GetProductResponse
 func (a *ProductsAPIService) GetProductExecute(r ProductsAPIGetProductRequest) (*GetProductResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProductResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProductResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.GetProduct")
@@ -1106,11 +1114,11 @@ func (a *ProductsAPIService) GetProductExecute(r ProductsAPIGetProductRequest) (
 }
 
 type ProductsAPIGetProductFollowersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
-	limit *int32
-	cursor *string
+	id         int32
+	limit      *int32
+	cursor     *string
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -1134,26 +1142,27 @@ GetProductFollowers List followers of a product
 
 Lists users who are following the product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIGetProductFollowersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIGetProductFollowersRequest
 */
 func (a *ProductsAPIService) GetProductFollowers(ctx context.Context, id int32) ProductsAPIGetProductFollowersRequest {
 	return ProductsAPIGetProductFollowersRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetFollowersResponse
+//
+//	@return GetFollowersResponse
 func (a *ProductsAPIService) GetProductFollowersExecute(r ProductsAPIGetProductFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFollowersResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetFollowersResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.GetProductFollowers")
@@ -1243,11 +1252,11 @@ func (a *ProductsAPIService) GetProductFollowersExecute(r ProductsAPIGetProductF
 }
 
 type ProductsAPIGetProductFollowersChangelogRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
-	limit *int32
-	cursor *string
+	id         int32
+	limit      *int32
+	cursor     *string
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -1271,26 +1280,27 @@ GetProductFollowersChangelog List followers changelog of a product
 
 Lists changelogs about users have followed the product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIGetProductFollowersChangelogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIGetProductFollowersChangelogRequest
 */
 func (a *ProductsAPIService) GetProductFollowersChangelog(ctx context.Context, id int32) ProductsAPIGetProductFollowersChangelogRequest {
 	return ProductsAPIGetProductFollowersChangelogRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetFollowerChangelogsResponse
+//
+//	@return GetFollowerChangelogsResponse
 func (a *ProductsAPIService) GetProductFollowersChangelogExecute(r ProductsAPIGetProductFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFollowerChangelogsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetFollowerChangelogsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.GetProductFollowersChangelog")
@@ -1380,9 +1390,9 @@ func (a *ProductsAPIService) GetProductFollowersChangelogExecute(r ProductsAPIGe
 }
 
 type ProductsAPIGetProductImageRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProductsAPIGetProductImageRequest) Execute() (*GetProductImageResponse, *http.Response, error) {
@@ -1394,26 +1404,27 @@ GetProductImage Get image of a product
 
 Retrieves the image of a product. The public URL has a limited lifetime of 7 days.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIGetProductImageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIGetProductImageRequest
 */
 func (a *ProductsAPIService) GetProductImage(ctx context.Context, id int32) ProductsAPIGetProductImageRequest {
 	return ProductsAPIGetProductImageRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetProductImageResponse
+//
+//	@return GetProductImageResponse
 func (a *ProductsAPIService) GetProductImageExecute(r ProductsAPIGetProductImageRequest) (*GetProductImageResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProductImageResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProductImageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.GetProductImage")
@@ -1497,11 +1508,11 @@ func (a *ProductsAPIService) GetProductImageExecute(r ProductsAPIGetProductImage
 }
 
 type ProductsAPIGetProductVariationsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
-	cursor *string
-	limit *int32
+	id         int32
+	cursor     *string
+	limit      *int32
 }
 
 // For pagination, the marker (an opaque string value) representing the first item on the next page
@@ -1525,26 +1536,27 @@ GetProductVariations Get all product variations
 
 Returns data about all product variations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIGetProductVariationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIGetProductVariationsRequest
 */
 func (a *ProductsAPIService) GetProductVariations(ctx context.Context, id int32) ProductsAPIGetProductVariationsRequest {
 	return ProductsAPIGetProductVariationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetProductVariationsResponse
+//
+//	@return GetProductVariationsResponse
 func (a *ProductsAPIService) GetProductVariationsExecute(r ProductsAPIGetProductVariationsRequest) (*GetProductVariationsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProductVariationsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProductVariationsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.GetProductVariations")
@@ -1634,16 +1646,16 @@ func (a *ProductsAPIService) GetProductVariationsExecute(r ProductsAPIGetProduct
 }
 
 type ProductsAPIGetProductsRequest struct {
-	ctx context.Context
-	ApiService *ProductsAPIService
-	ownerId *int32
-	ids *string
-	filterId *int32
-	cursor *string
-	limit *int32
-	sortBy *string
+	ctx           context.Context
+	ApiService    *ProductsAPIService
+	ownerId       *int32
+	ids           *string
+	filterId      *int32
+	cursor        *string
+	limit         *int32
+	sortBy        *string
 	sortDirection *string
-	customFields *string
+	customFields  *string
 }
 
 // If supplied, only products owned by the given user will be returned
@@ -1703,24 +1715,25 @@ GetProducts Get all products
 
 Returns data about all products.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductsAPIGetProductsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProductsAPIGetProductsRequest
 */
 func (a *ProductsAPIService) GetProducts(ctx context.Context) ProductsAPIGetProductsRequest {
 	return ProductsAPIGetProductsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetProductsResponse
+//
+//	@return GetProductsResponse
 func (a *ProductsAPIService) GetProductsExecute(r ProductsAPIGetProductsRequest) (*GetProductsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProductsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProductsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.GetProducts")
@@ -1752,16 +1765,16 @@ func (a *ProductsAPIService) GetProductsExecute(r ProductsAPIGetProductsRequest)
 	if r.sortBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "form", "")
 	} else {
-        var defaultValue string = "id"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
-        r.sortBy = &defaultValue
+		var defaultValue string = "id"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
+		r.sortBy = &defaultValue
 	}
 	if r.sortDirection != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")
 	} else {
-        var defaultValue string = "asc"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
-        r.sortDirection = &defaultValue
+		var defaultValue string = "asc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
+		r.sortDirection = &defaultValue
 	}
 	if r.customFields != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "custom_fields", r.customFields, "form", "")
@@ -1835,14 +1848,14 @@ func (a *ProductsAPIService) GetProductsExecute(r ProductsAPIGetProductsRequest)
 }
 
 type ProductsAPISearchProductsRequest struct {
-	ctx context.Context
-	ApiService *ProductsAPIService
-	term *string
-	fields *string
-	exactMatch *bool
+	ctx           context.Context
+	ApiService    *ProductsAPIService
+	term          *string
+	fields        *string
+	exactMatch    *bool
 	includeFields *string
-	limit *int32
-	cursor *string
+	limit         *int32
+	cursor        *string
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -1890,24 +1903,25 @@ SearchProducts Search products
 
 Searches all products by name, code and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProductsAPISearchProductsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProductsAPISearchProductsRequest
 */
 func (a *ProductsAPIService) SearchProducts(ctx context.Context) ProductsAPISearchProductsRequest {
 	return ProductsAPISearchProductsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetProductSearchResponse
+//
+//	@return GetProductSearchResponse
 func (a *ProductsAPIService) SearchProductsExecute(r ProductsAPISearchProductsRequest) (*GetProductSearchResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProductSearchResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProductSearchResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.SearchProducts")
@@ -2009,9 +2023,9 @@ func (a *ProductsAPIService) SearchProductsExecute(r ProductsAPISearchProductsRe
 }
 
 type ProductsAPIUpdateProductRequest struct {
-	ctx context.Context
-	ApiService *ProductsAPIService
-	id int32
+	ctx                  context.Context
+	ApiService           *ProductsAPIService
+	id                   int32
 	updateProductRequest *UpdateProductRequest
 }
 
@@ -2029,26 +2043,27 @@ UpdateProduct Update a product
 
 Updates product data.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIUpdateProductRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIUpdateProductRequest
 */
 func (a *ProductsAPIService) UpdateProduct(ctx context.Context, id int32) ProductsAPIUpdateProductRequest {
 	return ProductsAPIUpdateProductRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpdateProductResponse
+//
+//	@return UpdateProductResponse
 func (a *ProductsAPIService) UpdateProductExecute(r ProductsAPIUpdateProductRequest) (*UpdateProductResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpdateProductResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpdateProductResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.UpdateProduct")
@@ -2134,10 +2149,10 @@ func (a *ProductsAPIService) UpdateProductExecute(r ProductsAPIUpdateProductRequ
 }
 
 type ProductsAPIUpdateProductImageRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
-	data *os.File
+	id         int32
+	data       *os.File
 }
 
 // One image supplied in the multipart/form-data encoding
@@ -2155,26 +2170,27 @@ UpdateProductImage Update an image for a product
 
 Updates the image of a product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIUpdateProductImageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIUpdateProductImageRequest
 */
 func (a *ProductsAPIService) UpdateProductImage(ctx context.Context, id int32) ProductsAPIUpdateProductImageRequest {
 	return ProductsAPIUpdateProductImageRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpdateProductImageResponse
+//
+//	@return UpdateProductImageResponse
 func (a *ProductsAPIService) UpdateProductImageExecute(r ProductsAPIUpdateProductImageRequest) (*UpdateProductImageResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpdateProductImageResponse
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpdateProductImageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.UpdateProductImage")
@@ -2210,8 +2226,8 @@ func (a *ProductsAPIService) UpdateProductImageExecute(r ProductsAPIUpdateProduc
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	var dataLocalVarFormFileName string
-	var dataLocalVarFileName     string
-	var dataLocalVarFileBytes    []byte
+	var dataLocalVarFileName string
+	var dataLocalVarFileBytes []byte
 
 	dataLocalVarFormFileName = "data"
 	dataLocalVarFile := r.data
@@ -2276,10 +2292,10 @@ func (a *ProductsAPIService) UpdateProductImageExecute(r ProductsAPIUpdateProduc
 }
 
 type ProductsAPIUpdateProductVariationRequest struct {
-	ctx context.Context
-	ApiService *ProductsAPIService
-	id int32
-	productVariationId int32
+	ctx                           context.Context
+	ApiService                    *ProductsAPIService
+	id                            int32
+	productVariationId            int32
 	updateProductVariationRequest *UpdateProductVariationRequest
 }
 
@@ -2297,28 +2313,29 @@ UpdateProductVariation Update a product variation
 
 Updates product variation data.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @param productVariationId The ID of the product variation
- @return ProductsAPIUpdateProductVariationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@param productVariationId The ID of the product variation
+	@return ProductsAPIUpdateProductVariationRequest
 */
 func (a *ProductsAPIService) UpdateProductVariation(ctx context.Context, id int32, productVariationId int32) ProductsAPIUpdateProductVariationRequest {
 	return ProductsAPIUpdateProductVariationRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:         a,
+		ctx:                ctx,
+		id:                 id,
 		productVariationId: productVariationId,
 	}
 }
 
 // Execute executes the request
-//  @return GetProductVariationResponse
+//
+//	@return GetProductVariationResponse
 func (a *ProductsAPIService) UpdateProductVariationExecute(r ProductsAPIUpdateProductVariationRequest) (*GetProductVariationResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProductVariationResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProductVariationResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.UpdateProductVariation")
@@ -2405,10 +2422,10 @@ func (a *ProductsAPIService) UpdateProductVariationExecute(r ProductsAPIUpdatePr
 }
 
 type ProductsAPIUploadProductImageRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProductsAPIService
-	id int32
-	data *os.File
+	id         int32
+	data       *os.File
 }
 
 // One image supplied in the multipart/form-data encoding
@@ -2426,26 +2443,27 @@ UploadProductImage Upload an image for a product
 
 Uploads an image for a product.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the product
- @return ProductsAPIUploadProductImageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the product
+	@return ProductsAPIUploadProductImageRequest
 */
 func (a *ProductsAPIService) UploadProductImage(ctx context.Context, id int32) ProductsAPIUploadProductImageRequest {
 	return ProductsAPIUploadProductImageRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AddProductImageResponse
+//
+//	@return AddProductImageResponse
 func (a *ProductsAPIService) UploadProductImageExecute(r ProductsAPIUploadProductImageRequest) (*AddProductImageResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddProductImageResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddProductImageResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProductsAPIService.UploadProductImage")
@@ -2481,8 +2499,8 @@ func (a *ProductsAPIService) UploadProductImageExecute(r ProductsAPIUploadProduc
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	var dataLocalVarFormFileName string
-	var dataLocalVarFileName     string
-	var dataLocalVarFileBytes    []byte
+	var dataLocalVarFileName string
+	var dataLocalVarFileBytes []byte
 
 	dataLocalVarFormFileName = "data"
 	dataLocalVarFile := r.data

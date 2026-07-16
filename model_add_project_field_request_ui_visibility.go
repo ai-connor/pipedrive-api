@@ -22,7 +22,7 @@ type AddProjectFieldRequestUiVisibility struct {
 	// Whether the field is shown in the add project modal. Default is false.
 	AddVisibleFlag *bool `json:"add_visible_flag,omitempty"`
 	// Whether the field is shown in the project details view. Default is true.
-	DetailsVisibleFlag *bool `json:"details_visible_flag,omitempty"`
+	DetailsVisibleFlag   *bool `json:"details_visible_flag,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -118,7 +118,7 @@ func (o *AddProjectFieldRequestUiVisibility) SetDetailsVisibleFlag(v bool) {
 }
 
 func (o AddProjectFieldRequestUiVisibility) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,5 +198,3 @@ func (v *NullableAddProjectFieldRequestUiVisibility) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -28,7 +28,7 @@ type GetProjectBoardsResponseDataInner struct {
 	// The creation date and time of the board in ISO 8601 format
 	AddTime *string `json:"add_time,omitempty"`
 	// The update date and time of the board in ISO 8601 format
-	UpdateTime *string `json:"update_time,omitempty"`
+	UpdateTime           *string `json:"update_time,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -212,7 +212,7 @@ func (o *GetProjectBoardsResponseDataInner) SetUpdateTime(v string) {
 }
 
 func (o GetProjectBoardsResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -304,5 +304,3 @@ func (v *NullableGetProjectBoardsResponseDataInner) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

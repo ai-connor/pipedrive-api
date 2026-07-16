@@ -22,7 +22,7 @@ type GetDealSearchResponseAllOfDataItemsInnerItemStage struct {
 	// The ID of the stage of the deal
 	Id *int32 `json:"id,omitempty"`
 	// The name of the stage of the deal
-	Name *string `json:"name,omitempty"`
+	Name                 *string `json:"name,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetDealSearchResponseAllOfDataItemsInnerItemStage) SetName(v string) {
 }
 
 func (o GetDealSearchResponseAllOfDataItemsInnerItemStage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetDealSearchResponseAllOfDataItemsInnerItemStage) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

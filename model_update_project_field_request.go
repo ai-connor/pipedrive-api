@@ -20,10 +20,10 @@ var _ MappedNullable = &UpdateProjectFieldRequest{}
 // UpdateProjectFieldRequest struct for UpdateProjectFieldRequest
 type UpdateProjectFieldRequest struct {
 	// Field name
-	FieldName *string `json:"field_name,omitempty"`
-	UiVisibility *AddProjectFieldRequestUiVisibility `json:"ui_visibility,omitempty"`
-	ImportantFields *AddProjectFieldRequestImportantFields `json:"important_fields,omitempty"`
-	RequiredFields *AddProjectFieldRequestRequiredFields `json:"required_fields,omitempty"`
+	FieldName            *string                                `json:"field_name,omitempty"`
+	UiVisibility         *AddProjectFieldRequestUiVisibility    `json:"ui_visibility,omitempty"`
+	ImportantFields      *AddProjectFieldRequestImportantFields `json:"important_fields,omitempty"`
+	RequiredFields       *AddProjectFieldRequestRequiredFields  `json:"required_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -175,7 +175,7 @@ func (o *UpdateProjectFieldRequest) SetRequiredFields(v AddProjectFieldRequestRe
 }
 
 func (o UpdateProjectFieldRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -263,5 +263,3 @@ func (v *NullableUpdateProjectFieldRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

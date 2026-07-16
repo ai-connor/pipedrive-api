@@ -19,9 +19,9 @@ var _ MappedNullable = &GetProjectChangelogResponse{}
 
 // GetProjectChangelogResponse struct for GetProjectChangelogResponse
 type GetProjectChangelogResponse struct {
-	Success *bool `json:"success,omitempty"`
-	Data []GetProjectChangelogResponseDataInner `json:"data,omitempty"`
-	AdditionalData *GetActivitiesResponseAllOfAdditionalData `json:"additional_data,omitempty"`
+	Success              *bool                                     `json:"success,omitempty"`
+	Data                 []GetProjectChangelogResponseDataInner    `json:"data,omitempty"`
+	AdditionalData       *GetActivitiesResponseAllOfAdditionalData `json:"additional_data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -141,7 +141,7 @@ func (o *GetProjectChangelogResponse) SetAdditionalData(v GetActivitiesResponseA
 }
 
 func (o GetProjectChangelogResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -225,5 +225,3 @@ func (v *NullableGetProjectChangelogResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

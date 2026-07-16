@@ -22,8 +22,8 @@ type GetOrganizationsResponse struct {
 	// If the response is successful or not
 	Success *bool `json:"success,omitempty"`
 	// Organizations array
-	Data []GetOrganizationsResponseAllOfDataInner `json:"data,omitempty"`
-	AdditionalData *GetActivitiesResponseAllOfAdditionalData `json:"additional_data,omitempty"`
+	Data                 []GetOrganizationsResponseAllOfDataInner  `json:"data,omitempty"`
+	AdditionalData       *GetActivitiesResponseAllOfAdditionalData `json:"additional_data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -143,7 +143,7 @@ func (o *GetOrganizationsResponse) SetAdditionalData(v GetActivitiesResponseAllO
 }
 
 func (o GetOrganizationsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +227,3 @@ func (v *NullableGetOrganizationsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

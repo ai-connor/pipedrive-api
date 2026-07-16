@@ -20,9 +20,9 @@ var _ MappedNullable = &GetProjectFields200Response{}
 // GetProjectFields200Response struct for GetProjectFields200Response
 type GetProjectFields200Response struct {
 	// Whether the request was successful
-	Success *bool `json:"success,omitempty"`
-	Data []GetProjectFields200ResponseDataInner `json:"data,omitempty"`
-	AdditionalData *GetActivityFields200ResponseAdditionalData `json:"additional_data,omitempty"`
+	Success              *bool                                       `json:"success,omitempty"`
+	Data                 []GetProjectFields200ResponseDataInner      `json:"data,omitempty"`
+	AdditionalData       *GetActivityFields200ResponseAdditionalData `json:"additional_data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -142,7 +142,7 @@ func (o *GetProjectFields200Response) SetAdditionalData(v GetActivityFields200Re
 }
 
 func (o GetProjectFields200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -226,5 +226,3 @@ func (v *NullableGetProjectFields200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

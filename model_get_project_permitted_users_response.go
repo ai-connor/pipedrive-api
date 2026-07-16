@@ -22,7 +22,7 @@ type GetProjectPermittedUsersResponse struct {
 	// If the response is successful or not
 	Success *bool `json:"success,omitempty"`
 	// The list of permitted user IDs
-	Data []int32 `json:"data,omitempty"`
+	Data                 []int32 `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetProjectPermittedUsersResponse) SetData(v []int32) {
 }
 
 func (o GetProjectPermittedUsersResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetProjectPermittedUsersResponse) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

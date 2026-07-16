@@ -19,16 +19,15 @@ import (
 	"strings"
 )
 
-
 // UsersAPIService UsersAPI service
 type UsersAPIService service
 
 type UsersAPIGetUserFollowersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *UsersAPIService
-	id int32
-	limit *int32
-	cursor *string
+	id         int32
+	limit      *int32
+	cursor     *string
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -52,26 +51,27 @@ GetUserFollowers List followers of a user
 
 Lists users who are following the user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the user
- @return UsersAPIGetUserFollowersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the user
+	@return UsersAPIGetUserFollowersRequest
 */
 func (a *UsersAPIService) GetUserFollowers(ctx context.Context, id int32) UsersAPIGetUserFollowersRequest {
 	return UsersAPIGetUserFollowersRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetFollowersResponse
+//
+//	@return GetFollowersResponse
 func (a *UsersAPIService) GetUserFollowersExecute(r UsersAPIGetUserFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFollowersResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetFollowersResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UsersAPIService.GetUserFollowers")

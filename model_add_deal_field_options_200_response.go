@@ -19,9 +19,9 @@ var _ MappedNullable = &AddDealFieldOptions200Response{}
 
 // AddDealFieldOptions200Response struct for AddDealFieldOptions200Response
 type AddDealFieldOptions200Response struct {
-	Success *bool `json:"success,omitempty"`
-	Data []AddDealFieldOptions200ResponseDataInner `json:"data,omitempty"`
-	AdditionalData map[string]interface{} `json:"additional_data,omitempty"`
+	Success              *bool                                     `json:"success,omitempty"`
+	Data                 []AddDealFieldOptions200ResponseDataInner `json:"data,omitempty"`
+	AdditionalData       map[string]interface{}                    `json:"additional_data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -142,7 +142,7 @@ func (o *AddDealFieldOptions200Response) SetAdditionalData(v map[string]interfac
 }
 
 func (o AddDealFieldOptions200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -226,5 +226,3 @@ func (v *NullableAddDealFieldOptions200Response) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

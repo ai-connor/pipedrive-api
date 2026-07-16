@@ -60,7 +60,7 @@ type UpdateDealRequest struct {
 	// The IDs of labels assigned to the deal
 	LabelIds []int32 `json:"label_ids,omitempty"`
 	// An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -499,6 +499,7 @@ func (o *UpdateDealRequest) HasProbability() bool {
 func (o *UpdateDealRequest) SetProbability(v float32) {
 	o.Probability.Set(&v)
 }
+
 // SetProbabilityNil sets the value for Probability to be an explicit nil
 func (o *UpdateDealRequest) SetProbabilityNil() {
 	o.Probability.Set(nil)
@@ -541,6 +542,7 @@ func (o *UpdateDealRequest) HasLostReason() bool {
 func (o *UpdateDealRequest) SetLostReason(v string) {
 	o.LostReason.Set(&v)
 }
+
 // SetLostReasonNil sets the value for LostReason to be an explicit nil
 func (o *UpdateDealRequest) SetLostReasonNil() {
 	o.LostReason.Set(nil)
@@ -615,6 +617,7 @@ func (o *UpdateDealRequest) HasCloseTime() bool {
 func (o *UpdateDealRequest) SetCloseTime(v string) {
 	o.CloseTime.Set(&v)
 }
+
 // SetCloseTimeNil sets the value for CloseTime to be an explicit nil
 func (o *UpdateDealRequest) SetCloseTimeNil() {
 	o.CloseTime.Set(nil)
@@ -786,7 +789,7 @@ func (o *UpdateDealRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o UpdateDealRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -942,5 +945,3 @@ func (v *NullableUpdateDealRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

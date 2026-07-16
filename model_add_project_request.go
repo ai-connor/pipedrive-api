@@ -49,7 +49,7 @@ type AddProjectRequest struct {
 	// The ID of the template the project will be based on. Only used when creating a new project.
 	TemplateId *int32 `json:"template_id,omitempty"`
 	// An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -546,7 +546,7 @@ func (o *AddProjectRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o AddProjectRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -619,10 +619,10 @@ func (o *AddProjectRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -697,5 +697,3 @@ func (v *NullableAddProjectRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

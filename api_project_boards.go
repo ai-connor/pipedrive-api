@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // ProjectBoardsAPIService ProjectBoardsAPI service
 type ProjectBoardsAPIService service
 
 type ProjectBoardsAPIAddProjectBoardRequest struct {
-	ctx context.Context
-	ApiService *ProjectBoardsAPIService
+	ctx                    context.Context
+	ApiService             *ProjectBoardsAPIService
 	addProjectBoardRequest *AddProjectBoardRequest
 }
 
@@ -43,24 +42,25 @@ AddProjectBoard Add a project board
 
 Adds a new project board.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProjectBoardsAPIAddProjectBoardRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProjectBoardsAPIAddProjectBoardRequest
 */
 func (a *ProjectBoardsAPIService) AddProjectBoard(ctx context.Context) ProjectBoardsAPIAddProjectBoardRequest {
 	return ProjectBoardsAPIAddProjectBoardRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertProjectBoardResponse
+//
+//	@return UpsertProjectBoardResponse
 func (a *ProjectBoardsAPIService) AddProjectBoardExecute(r ProjectBoardsAPIAddProjectBoardRequest) (*UpsertProjectBoardResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertProjectBoardResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertProjectBoardResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectBoardsAPIService.AddProjectBoard")
@@ -148,9 +148,9 @@ func (a *ProjectBoardsAPIService) AddProjectBoardExecute(r ProjectBoardsAPIAddPr
 }
 
 type ProjectBoardsAPIDeleteProjectBoardRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectBoardsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProjectBoardsAPIDeleteProjectBoardRequest) Execute() (*DeleteProjectBoardResponse, *http.Response, error) {
@@ -162,26 +162,27 @@ DeleteProjectBoard Delete a project board
 
 Marks a project board as deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the project board
- @return ProjectBoardsAPIDeleteProjectBoardRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the project board
+	@return ProjectBoardsAPIDeleteProjectBoardRequest
 */
 func (a *ProjectBoardsAPIService) DeleteProjectBoard(ctx context.Context, id int32) ProjectBoardsAPIDeleteProjectBoardRequest {
 	return ProjectBoardsAPIDeleteProjectBoardRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteProjectBoardResponse
+//
+//	@return DeleteProjectBoardResponse
 func (a *ProjectBoardsAPIService) DeleteProjectBoardExecute(r ProjectBoardsAPIDeleteProjectBoardRequest) (*DeleteProjectBoardResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteProjectBoardResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteProjectBoardResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectBoardsAPIService.DeleteProjectBoard")
@@ -265,9 +266,9 @@ func (a *ProjectBoardsAPIService) DeleteProjectBoardExecute(r ProjectBoardsAPIDe
 }
 
 type ProjectBoardsAPIGetProjectsBoardRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectBoardsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProjectBoardsAPIGetProjectsBoardRequest) Execute() (*UpsertProjectBoardResponse, *http.Response, error) {
@@ -279,26 +280,27 @@ GetProjectsBoard Get details of a project board
 
 Returns the details of a specific project board.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the project board
- @return ProjectBoardsAPIGetProjectsBoardRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the project board
+	@return ProjectBoardsAPIGetProjectsBoardRequest
 */
 func (a *ProjectBoardsAPIService) GetProjectsBoard(ctx context.Context, id int32) ProjectBoardsAPIGetProjectsBoardRequest {
 	return ProjectBoardsAPIGetProjectsBoardRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertProjectBoardResponse
+//
+//	@return UpsertProjectBoardResponse
 func (a *ProjectBoardsAPIService) GetProjectsBoardExecute(r ProjectBoardsAPIGetProjectsBoardRequest) (*UpsertProjectBoardResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertProjectBoardResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertProjectBoardResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectBoardsAPIService.GetProjectsBoard")
@@ -382,7 +384,7 @@ func (a *ProjectBoardsAPIService) GetProjectsBoardExecute(r ProjectBoardsAPIGetP
 }
 
 type ProjectBoardsAPIGetProjectsBoardsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectBoardsAPIService
 }
 
@@ -395,24 +397,25 @@ GetProjectsBoards Get all project boards
 
 Returns all active project boards.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProjectBoardsAPIGetProjectsBoardsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProjectBoardsAPIGetProjectsBoardsRequest
 */
 func (a *ProjectBoardsAPIService) GetProjectsBoards(ctx context.Context) ProjectBoardsAPIGetProjectsBoardsRequest {
 	return ProjectBoardsAPIGetProjectsBoardsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetProjectBoardsResponse
+//
+//	@return GetProjectBoardsResponse
 func (a *ProjectBoardsAPIService) GetProjectsBoardsExecute(r ProjectBoardsAPIGetProjectsBoardsRequest) (*GetProjectBoardsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProjectBoardsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProjectBoardsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectBoardsAPIService.GetProjectsBoards")
@@ -495,9 +498,9 @@ func (a *ProjectBoardsAPIService) GetProjectsBoardsExecute(r ProjectBoardsAPIGet
 }
 
 type ProjectBoardsAPIUpdateProjectBoardRequest struct {
-	ctx context.Context
-	ApiService *ProjectBoardsAPIService
-	id int32
+	ctx                       context.Context
+	ApiService                *ProjectBoardsAPIService
+	id                        int32
 	updateProjectBoardRequest *UpdateProjectBoardRequest
 }
 
@@ -515,26 +518,27 @@ UpdateProjectBoard Update a project board
 
 Updates the properties of a project board.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the project board
- @return ProjectBoardsAPIUpdateProjectBoardRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the project board
+	@return ProjectBoardsAPIUpdateProjectBoardRequest
 */
 func (a *ProjectBoardsAPIService) UpdateProjectBoard(ctx context.Context, id int32) ProjectBoardsAPIUpdateProjectBoardRequest {
 	return ProjectBoardsAPIUpdateProjectBoardRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertProjectBoardResponse
+//
+//	@return UpsertProjectBoardResponse
 func (a *ProjectBoardsAPIService) UpdateProjectBoardExecute(r ProjectBoardsAPIUpdateProjectBoardRequest) (*UpsertProjectBoardResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertProjectBoardResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertProjectBoardResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectBoardsAPIService.UpdateProjectBoard")

@@ -23,9 +23,9 @@ type GetConvertResponse struct {
 	// The description of the error
 	Error *string `json:"error,omitempty"`
 	// A message describing how to solve the problem
-	ErrorInfo *string `json:"error_info,omitempty"`
-	Data map[string]interface{} `json:"data,omitempty"`
-	AdditionalData map[string]interface{} `json:"additional_data,omitempty"`
+	ErrorInfo            *string                `json:"error_info,omitempty"`
+	Data                 map[string]interface{} `json:"data,omitempty"`
+	AdditionalData       map[string]interface{} `json:"additional_data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -211,7 +211,7 @@ func (o *GetConvertResponse) SetAdditionalData(v map[string]interface{}) {
 }
 
 func (o GetConvertResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,5 +303,3 @@ func (v *NullableGetConvertResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

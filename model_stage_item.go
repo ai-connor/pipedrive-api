@@ -38,7 +38,7 @@ type StageItem struct {
 	// The stage creation time
 	AddTime *string `json:"add_time,omitempty"`
 	// The stage update time
-	UpdateTime *string `json:"update_time,omitempty"`
+	UpdateTime           *string `json:"update_time,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -317,6 +317,7 @@ func (o *StageItem) HasDaysToRotten() bool {
 func (o *StageItem) SetDaysToRotten(v int32) {
 	o.DaysToRotten.Set(&v)
 }
+
 // SetDaysToRottenNil sets the value for DaysToRotten to be an explicit nil
 func (o *StageItem) SetDaysToRottenNil() {
 	o.DaysToRotten.Set(nil)
@@ -392,7 +393,7 @@ func (o *StageItem) SetUpdateTime(v string) {
 }
 
 func (o StageItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -504,5 +505,3 @@ func (v *NullableStageItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -55,12 +55,12 @@ type GetDealsProductsResponseDataInner struct {
 	TaxMethod *string `json:"tax_method,omitempty"`
 	// Whether this product is enabled for the deal
 	IsEnabled *bool `json:"is_enabled,omitempty"`
-	// Only available in Growth and above plans  How often a customer is billed for access to a service or product  To set `billing_frequency` different than `one-time`, the deal must not have installments associated  A deal can have up to 20 products attached with `billing_frequency` different than `one-time` 
+	// Only available in Growth and above plans  How often a customer is billed for access to a service or product  To set `billing_frequency` different than `one-time`, the deal must not have installments associated  A deal can have up to 20 products attached with `billing_frequency` different than `one-time`
 	BillingFrequency *string `json:"billing_frequency,omitempty"`
-	// Only available in Growth and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208 
+	// Only available in Growth and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208
 	BillingFrequencyCycles NullableInt32 `json:"billing_frequency_cycles,omitempty"`
-	// Only available in Growth and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future 
-	BillingStartDate NullableString `json:"billing_start_date,omitempty"`
+	// Only available in Growth and above plans  The billing start date. Must be between 10 years in the past and 10 years in the future
+	BillingStartDate     NullableString `json:"billing_start_date,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -323,6 +323,7 @@ func (o *GetDealsProductsResponseDataInner) HasProductVariationId() bool {
 func (o *GetDealsProductsResponseDataInner) SetProductVariationId(v int32) {
 	o.ProductVariationId.Set(&v)
 }
+
 // SetProductVariationIdNil sets the value for ProductVariationId to be an explicit nil
 func (o *GetDealsProductsResponseDataInner) SetProductVariationIdNil() {
 	o.ProductVariationId.Set(nil)
@@ -365,6 +366,7 @@ func (o *GetDealsProductsResponseDataInner) HasOrderNr() bool {
 func (o *GetDealsProductsResponseDataInner) SetOrderNr(v int32) {
 	o.OrderNr.Set(&v)
 }
+
 // SetOrderNrNil sets the value for OrderNr to be an explicit nil
 func (o *GetDealsProductsResponseDataInner) SetOrderNrNil() {
 	o.OrderNr.Set(nil)
@@ -759,6 +761,7 @@ func (o *GetDealsProductsResponseDataInner) HasBillingFrequencyCycles() bool {
 func (o *GetDealsProductsResponseDataInner) SetBillingFrequencyCycles(v int32) {
 	o.BillingFrequencyCycles.Set(&v)
 }
+
 // SetBillingFrequencyCyclesNil sets the value for BillingFrequencyCycles to be an explicit nil
 func (o *GetDealsProductsResponseDataInner) SetBillingFrequencyCyclesNil() {
 	o.BillingFrequencyCycles.Set(nil)
@@ -801,6 +804,7 @@ func (o *GetDealsProductsResponseDataInner) HasBillingStartDate() bool {
 func (o *GetDealsProductsResponseDataInner) SetBillingStartDate(v string) {
 	o.BillingStartDate.Set(&v)
 }
+
 // SetBillingStartDateNil sets the value for BillingStartDate to be an explicit nil
 func (o *GetDealsProductsResponseDataInner) SetBillingStartDateNil() {
 	o.BillingStartDate.Set(nil)
@@ -812,7 +816,7 @@ func (o *GetDealsProductsResponseDataInner) UnsetBillingStartDate() {
 }
 
 func (o GetDealsProductsResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -968,5 +972,3 @@ func (v *NullableGetDealsProductsResponseDataInner) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

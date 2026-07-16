@@ -56,8 +56,8 @@ type ActivityItem struct {
 	// Whether the activity is marked as done or not
 	Done *bool `json:"done,omitempty"`
 	// The date and time when the activity was marked as done
-	MarkedAsDoneTime *string `json:"marked_as_done_time,omitempty"`
-	Location *GetActivitiesResponseAllOfDataInnerLocation `json:"location,omitempty"`
+	MarkedAsDoneTime *string                                      `json:"marked_as_done_time,omitempty"`
+	Location         *GetActivitiesResponseAllOfDataInnerLocation `json:"location,omitempty"`
 	// The participants of the activity
 	Participants []GetActivitiesResponseAllOfDataInnerParticipantsInner `json:"participants,omitempty"`
 	// The attendees of the activity
@@ -73,7 +73,7 @@ type ActivityItem struct {
 	// The priority of the activity. Mappable to a specific string using activityFields API.
 	Priority *int32 `json:"priority,omitempty"`
 	// The note of the activity
-	Note *string `json:"note,omitempty"`
+	Note                 *string `json:"note,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -993,7 +993,7 @@ func (o *ActivityItem) SetNote(v string) {
 }
 
 func (o ActivityItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1177,5 +1177,3 @@ func (v *NullableActivityItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

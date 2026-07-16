@@ -22,8 +22,8 @@ type GetProductsResponse struct {
 	// If the response is successful or not
 	Success *bool `json:"success,omitempty"`
 	// Array containing data for all products
-	Data []GetProductResponse `json:"data,omitempty"`
-	AdditionalData *GetDealsProductsResponseAdditionalData `json:"additional_data,omitempty"`
+	Data                 []GetProductResponse                    `json:"data,omitempty"`
+	AdditionalData       *GetDealsProductsResponseAdditionalData `json:"additional_data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -143,7 +143,7 @@ func (o *GetProductsResponse) SetAdditionalData(v GetDealsProductsResponseAdditi
 }
 
 func (o GetProductsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +227,3 @@ func (v *NullableGetProductsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

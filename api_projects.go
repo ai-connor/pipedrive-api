@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // ProjectsAPIService ProjectsAPI service
 type ProjectsAPIService service
 
 type ProjectsAPIAddProjectRequest struct {
-	ctx context.Context
-	ApiService *ProjectsAPIService
+	ctx               context.Context
+	ApiService        *ProjectsAPIService
 	addProjectRequest *AddProjectRequest
 }
 
@@ -43,24 +42,25 @@ AddProject Add a project
 
 Adds a new project. Custom fields should be wrapped in the `custom_fields` object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProjectsAPIAddProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProjectsAPIAddProjectRequest
 */
 func (a *ProjectsAPIService) AddProject(ctx context.Context) ProjectsAPIAddProjectRequest {
 	return ProjectsAPIAddProjectRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertProjectResponse
+//
+//	@return UpsertProjectResponse
 func (a *ProjectsAPIService) AddProjectExecute(r ProjectsAPIAddProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertProjectResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertProjectResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.AddProject")
@@ -148,9 +148,9 @@ func (a *ProjectsAPIService) AddProjectExecute(r ProjectsAPIAddProjectRequest) (
 }
 
 type ProjectsAPIArchiveProjectRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProjectsAPIArchiveProjectRequest) Execute() (*UpsertProjectResponse, *http.Response, error) {
@@ -162,26 +162,27 @@ ArchiveProject Archive a project
 
 Archives a project.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the project
- @return ProjectsAPIArchiveProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the project
+	@return ProjectsAPIArchiveProjectRequest
 */
 func (a *ProjectsAPIService) ArchiveProject(ctx context.Context, id int32) ProjectsAPIArchiveProjectRequest {
 	return ProjectsAPIArchiveProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertProjectResponse
+//
+//	@return UpsertProjectResponse
 func (a *ProjectsAPIService) ArchiveProjectExecute(r ProjectsAPIArchiveProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertProjectResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertProjectResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.ArchiveProject")
@@ -265,9 +266,9 @@ func (a *ProjectsAPIService) ArchiveProjectExecute(r ProjectsAPIArchiveProjectRe
 }
 
 type ProjectsAPIDeleteProjectRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProjectsAPIDeleteProjectRequest) Execute() (*DeleteProjectResponse, *http.Response, error) {
@@ -279,26 +280,27 @@ DeleteProject Delete a project
 
 Marks a project as deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the project
- @return ProjectsAPIDeleteProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the project
+	@return ProjectsAPIDeleteProjectRequest
 */
 func (a *ProjectsAPIService) DeleteProject(ctx context.Context, id int32) ProjectsAPIDeleteProjectRequest {
 	return ProjectsAPIDeleteProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteProjectResponse
+//
+//	@return DeleteProjectResponse
 func (a *ProjectsAPIService) DeleteProjectExecute(r ProjectsAPIDeleteProjectRequest) (*DeleteProjectResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteProjectResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteProjectResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.DeleteProject")
@@ -382,13 +384,13 @@ func (a *ProjectsAPIService) DeleteProjectExecute(r ProjectsAPIDeleteProjectRequ
 }
 
 type ProjectsAPIGetArchivedProjectsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectsAPIService
-	filterId *int32
-	status *string
-	phaseId *int32
-	limit *int32
-	cursor *string
+	filterId   *int32
+	status     *string
+	phaseId    *int32
+	limit      *int32
+	cursor     *string
 }
 
 // If supplied, only projects matching the specified filter are returned
@@ -430,24 +432,25 @@ GetArchivedProjects Get all archived projects
 
 Returns all archived projects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProjectsAPIGetArchivedProjectsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProjectsAPIGetArchivedProjectsRequest
 */
 func (a *ProjectsAPIService) GetArchivedProjects(ctx context.Context) ProjectsAPIGetArchivedProjectsRequest {
 	return ProjectsAPIGetArchivedProjectsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetProjectsResponse
+//
+//	@return GetProjectsResponse
 func (a *ProjectsAPIService) GetArchivedProjectsExecute(r ProjectsAPIGetArchivedProjectsRequest) (*GetProjectsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProjectsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProjectsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetArchivedProjects")
@@ -545,9 +548,9 @@ func (a *ProjectsAPIService) GetArchivedProjectsExecute(r ProjectsAPIGetArchived
 }
 
 type ProjectsAPIGetProjectRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProjectsAPIGetProjectRequest) Execute() (*UpsertProjectResponse, *http.Response, error) {
@@ -559,26 +562,27 @@ GetProject Get details of a project
 
 Returns the details of a specific project. Custom fields appear as keys inside the `custom_fields` object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the project
- @return ProjectsAPIGetProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the project
+	@return ProjectsAPIGetProjectRequest
 */
 func (a *ProjectsAPIService) GetProject(ctx context.Context, id int32) ProjectsAPIGetProjectRequest {
 	return ProjectsAPIGetProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertProjectResponse
+//
+//	@return UpsertProjectResponse
 func (a *ProjectsAPIService) GetProjectExecute(r ProjectsAPIGetProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertProjectResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertProjectResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetProject")
@@ -662,11 +666,11 @@ func (a *ProjectsAPIService) GetProjectExecute(r ProjectsAPIGetProjectRequest) (
 }
 
 type ProjectsAPIGetProjectChangelogRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectsAPIService
-	id int32
-	limit *int32
-	cursor *string
+	id         int32
+	limit      *int32
+	cursor     *string
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -690,26 +694,27 @@ GetProjectChangelog List updates about project field values
 
 Lists updates about field values of a project.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the project
- @return ProjectsAPIGetProjectChangelogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the project
+	@return ProjectsAPIGetProjectChangelogRequest
 */
 func (a *ProjectsAPIService) GetProjectChangelog(ctx context.Context, id int32) ProjectsAPIGetProjectChangelogRequest {
 	return ProjectsAPIGetProjectChangelogRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetProjectChangelogResponse
+//
+//	@return GetProjectChangelogResponse
 func (a *ProjectsAPIService) GetProjectChangelogExecute(r ProjectsAPIGetProjectChangelogRequest) (*GetProjectChangelogResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProjectChangelogResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProjectChangelogResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetProjectChangelog")
@@ -799,9 +804,9 @@ func (a *ProjectsAPIService) GetProjectChangelogExecute(r ProjectsAPIGetProjectC
 }
 
 type ProjectsAPIGetProjectUsersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectsAPIService
-	id int32
+	id         int32
 }
 
 func (r ProjectsAPIGetProjectUsersRequest) Execute() (*GetProjectPermittedUsersResponse, *http.Response, error) {
@@ -813,26 +818,27 @@ GetProjectUsers List permitted users
 
 Lists the users permitted to access a project.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the project
- @return ProjectsAPIGetProjectUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the project
+	@return ProjectsAPIGetProjectUsersRequest
 */
 func (a *ProjectsAPIService) GetProjectUsers(ctx context.Context, id int32) ProjectsAPIGetProjectUsersRequest {
 	return ProjectsAPIGetProjectUsersRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetProjectPermittedUsersResponse
+//
+//	@return GetProjectPermittedUsersResponse
 func (a *ProjectsAPIService) GetProjectUsersExecute(r ProjectsAPIGetProjectUsersRequest) (*GetProjectPermittedUsersResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProjectPermittedUsersResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProjectPermittedUsersResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetProjectUsers")
@@ -916,16 +922,16 @@ func (a *ProjectsAPIService) GetProjectUsersExecute(r ProjectsAPIGetProjectUsers
 }
 
 type ProjectsAPIGetProjectsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *ProjectsAPIService
-	filterId *int32
-	status *string
-	phaseId *int32
-	dealId *int32
-	personId *int32
-	orgId *int32
-	limit *int32
-	cursor *string
+	filterId   *int32
+	status     *string
+	phaseId    *int32
+	dealId     *int32
+	personId   *int32
+	orgId      *int32
+	limit      *int32
+	cursor     *string
 }
 
 // If supplied, only projects matching the specified filter are returned
@@ -985,24 +991,25 @@ GetProjects Get all projects
 
 Returns all non-archived projects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProjectsAPIGetProjectsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProjectsAPIGetProjectsRequest
 */
 func (a *ProjectsAPIService) GetProjects(ctx context.Context) ProjectsAPIGetProjectsRequest {
 	return ProjectsAPIGetProjectsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetProjectsResponse
+//
+//	@return GetProjectsResponse
 func (a *ProjectsAPIService) GetProjectsExecute(r ProjectsAPIGetProjectsRequest) (*GetProjectsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProjectsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProjectsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetProjects")
@@ -1109,15 +1116,15 @@ func (a *ProjectsAPIService) GetProjectsExecute(r ProjectsAPIGetProjectsRequest)
 }
 
 type ProjectsAPISearchProjectsRequest struct {
-	ctx context.Context
-	ApiService *ProjectsAPIService
-	term *string
-	fields *string
-	exactMatch *bool
-	personId *int32
+	ctx            context.Context
+	ApiService     *ProjectsAPIService
+	term           *string
+	fields         *string
+	exactMatch     *bool
+	personId       *int32
 	organizationId *int32
-	limit *int32
-	cursor *string
+	limit          *int32
+	cursor         *string
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -1171,24 +1178,25 @@ SearchProjects Search projects
 
 Searches all projects by title, description, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope. Found projects can be filtered by person ID or organization ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ProjectsAPISearchProjectsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ProjectsAPISearchProjectsRequest
 */
 func (a *ProjectsAPIService) SearchProjects(ctx context.Context) ProjectsAPISearchProjectsRequest {
 	return ProjectsAPISearchProjectsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetProjectSearchResponse
+//
+//	@return GetProjectSearchResponse
 func (a *ProjectsAPIService) SearchProjectsExecute(r ProjectsAPISearchProjectsRequest) (*GetProjectSearchResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetProjectSearchResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetProjectSearchResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.SearchProjects")
@@ -1293,9 +1301,9 @@ func (a *ProjectsAPIService) SearchProjectsExecute(r ProjectsAPISearchProjectsRe
 }
 
 type ProjectsAPIUpdateProjectRequest struct {
-	ctx context.Context
-	ApiService *ProjectsAPIService
-	id int32
+	ctx                  context.Context
+	ApiService           *ProjectsAPIService
+	id                   int32
 	updateProjectRequest *UpdateProjectRequest
 }
 
@@ -1313,26 +1321,27 @@ UpdateProject Update a project
 
 Updates the properties of a project.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the project
- @return ProjectsAPIUpdateProjectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the project
+	@return ProjectsAPIUpdateProjectRequest
 */
 func (a *ProjectsAPIService) UpdateProject(ctx context.Context, id int32) ProjectsAPIUpdateProjectRequest {
 	return ProjectsAPIUpdateProjectRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertProjectResponse
+//
+//	@return UpsertProjectResponse
 func (a *ProjectsAPIService) UpdateProjectExecute(r ProjectsAPIUpdateProjectRequest) (*UpsertProjectResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertProjectResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertProjectResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.UpdateProject")

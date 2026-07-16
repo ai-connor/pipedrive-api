@@ -20,8 +20,8 @@ var _ MappedNullable = &LeadSearchItem{}
 // LeadSearchItem struct for LeadSearchItem
 type LeadSearchItem struct {
 	// Search result relevancy
-	ResultScore *float32 `json:"result_score,omitempty"`
-	Item *LeadSearchItemItem `json:"item,omitempty"`
+	ResultScore          *float32            `json:"result_score,omitempty"`
+	Item                 *LeadSearchItemItem `json:"item,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *LeadSearchItem) SetItem(v LeadSearchItemItem) {
 }
 
 func (o LeadSearchItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +189,3 @@ func (v *NullableLeadSearchItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

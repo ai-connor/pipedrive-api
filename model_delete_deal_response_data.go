@@ -20,7 +20,7 @@ var _ MappedNullable = &DeleteDealResponseData{}
 // DeleteDealResponseData struct for DeleteDealResponseData
 type DeleteDealResponseData struct {
 	// Deleted deal ID
-	Id *int32 `json:"id,omitempty"`
+	Id                   *int32 `json:"id,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *DeleteDealResponseData) SetId(v int32) {
 }
 
 func (o DeleteDealResponseData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableDeleteDealResponseData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

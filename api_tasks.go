@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // TasksAPIService TasksAPI service
 type TasksAPIService service
 
 type TasksAPIAddTaskRequest struct {
-	ctx context.Context
-	ApiService *TasksAPIService
+	ctx            context.Context
+	ApiService     *TasksAPIService
 	addTaskRequest *AddTaskRequest
 }
 
@@ -43,24 +42,25 @@ AddTask Add a task
 
 Adds a new task.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TasksAPIAddTaskRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return TasksAPIAddTaskRequest
 */
 func (a *TasksAPIService) AddTask(ctx context.Context) TasksAPIAddTaskRequest {
 	return TasksAPIAddTaskRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AddTaskResponse
+//
+//	@return AddTaskResponse
 func (a *TasksAPIService) AddTaskExecute(r TasksAPIAddTaskRequest) (*AddTaskResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddTaskResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddTaskResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.AddTask")
@@ -148,9 +148,9 @@ func (a *TasksAPIService) AddTaskExecute(r TasksAPIAddTaskRequest) (*AddTaskResp
 }
 
 type TasksAPIDeleteTaskRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *TasksAPIService
-	id int32
+	id         int32
 }
 
 func (r TasksAPIDeleteTaskRequest) Execute() (*DeleteTaskResponse, *http.Response, error) {
@@ -162,26 +162,27 @@ DeleteTask Delete a task
 
 Marks a task as deleted. If the task has subtasks, those will also be deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the task
- @return TasksAPIDeleteTaskRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the task
+	@return TasksAPIDeleteTaskRequest
 */
 func (a *TasksAPIService) DeleteTask(ctx context.Context, id int32) TasksAPIDeleteTaskRequest {
 	return TasksAPIDeleteTaskRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteTaskResponse
+//
+//	@return DeleteTaskResponse
 func (a *TasksAPIService) DeleteTaskExecute(r TasksAPIDeleteTaskRequest) (*DeleteTaskResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteTaskResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteTaskResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.DeleteTask")
@@ -265,9 +266,9 @@ func (a *TasksAPIService) DeleteTaskExecute(r TasksAPIDeleteTaskRequest) (*Delet
 }
 
 type TasksAPIGetTaskRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *TasksAPIService
-	id int32
+	id         int32
 }
 
 func (r TasksAPIGetTaskRequest) Execute() (*GetTaskResponse, *http.Response, error) {
@@ -279,26 +280,27 @@ GetTask Get details of a task
 
 Returns the details of a specific task.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the task
- @return TasksAPIGetTaskRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the task
+	@return TasksAPIGetTaskRequest
 */
 func (a *TasksAPIService) GetTask(ctx context.Context, id int32) TasksAPIGetTaskRequest {
 	return TasksAPIGetTaskRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetTaskResponse
+//
+//	@return GetTaskResponse
 func (a *TasksAPIService) GetTaskExecute(r TasksAPIGetTaskRequest) (*GetTaskResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetTaskResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetTaskResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.GetTask")
@@ -382,14 +384,14 @@ func (a *TasksAPIService) GetTaskExecute(r TasksAPIGetTaskRequest) (*GetTaskResp
 }
 
 type TasksAPIGetTasksRequest struct {
-	ctx context.Context
-	ApiService *TasksAPIService
-	cursor *string
-	limit *int32
-	isDone *bool
-	isMilestone *bool
-	assigneeId *int32
-	projectId *int32
+	ctx          context.Context
+	ApiService   *TasksAPIService
+	cursor       *string
+	limit        *int32
+	isDone       *bool
+	isMilestone  *bool
+	assigneeId   *int32
+	projectId    *int32
 	parentTaskId *string
 }
 
@@ -444,24 +446,25 @@ GetTasks Get all tasks
 
 Returns all tasks.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return TasksAPIGetTasksRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return TasksAPIGetTasksRequest
 */
 func (a *TasksAPIService) GetTasks(ctx context.Context) TasksAPIGetTasksRequest {
 	return TasksAPIGetTasksRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetTasksResponse
+//
+//	@return GetTasksResponse
 func (a *TasksAPIService) GetTasksExecute(r TasksAPIGetTasksRequest) (*GetTasksResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetTasksResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetTasksResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.GetTasks")
@@ -565,9 +568,9 @@ func (a *TasksAPIService) GetTasksExecute(r TasksAPIGetTasksRequest) (*GetTasksR
 }
 
 type TasksAPIUpdateTaskRequest struct {
-	ctx context.Context
-	ApiService *TasksAPIService
-	id int32
+	ctx               context.Context
+	ApiService        *TasksAPIService
+	id                int32
 	updateTaskRequest *UpdateTaskRequest
 }
 
@@ -585,26 +588,27 @@ UpdateTask Update a task
 
 Updates a task.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the task
- @return TasksAPIUpdateTaskRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the task
+	@return TasksAPIUpdateTaskRequest
 */
 func (a *TasksAPIService) UpdateTask(ctx context.Context, id int32) TasksAPIUpdateTaskRequest {
 	return TasksAPIUpdateTaskRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpdateTaskResponse
+//
+//	@return UpdateTaskResponse
 func (a *TasksAPIService) UpdateTaskExecute(r TasksAPIUpdateTaskRequest) (*UpdateTaskResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpdateTaskResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpdateTaskResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TasksAPIService.UpdateTask")

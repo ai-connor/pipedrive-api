@@ -20,8 +20,8 @@ var _ MappedNullable = &GetProjectSearchResponseAllOfDataItemsInner{}
 // GetProjectSearchResponseAllOfDataItemsInner struct for GetProjectSearchResponseAllOfDataItemsInner
 type GetProjectSearchResponseAllOfDataItemsInner struct {
 	// Search result relevancy
-	ResultScore *float32 `json:"result_score,omitempty"`
-	Item *GetProjectSearchResponseAllOfDataItemsInnerItem `json:"item,omitempty"`
+	ResultScore          *float32                                         `json:"result_score,omitempty"`
+	Item                 *GetProjectSearchResponseAllOfDataItemsInnerItem `json:"item,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInner) SetItem(v GetProjectSearch
 }
 
 func (o GetProjectSearchResponseAllOfDataItemsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +189,3 @@ func (v *NullableGetProjectSearchResponseAllOfDataItemsInner) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

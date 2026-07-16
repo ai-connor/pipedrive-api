@@ -30,7 +30,7 @@ type GetActivitiesResponseAllOfDataInnerAttendeesInner struct {
 	// The ID of the person if the attendee has a person record
 	PersonId *int32 `json:"person_id,omitempty"`
 	// The ID of the user if the attendee is a user
-	UserId *int32 `json:"user_id,omitempty"`
+	UserId               *int32 `json:"user_id,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -246,7 +246,7 @@ func (o *GetActivitiesResponseAllOfDataInnerAttendeesInner) SetUserId(v int32) {
 }
 
 func (o GetActivitiesResponseAllOfDataInnerAttendeesInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -342,5 +342,3 @@ func (v *NullableGetActivitiesResponseAllOfDataInnerAttendeesInner) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

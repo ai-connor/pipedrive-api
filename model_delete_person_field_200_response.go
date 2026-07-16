@@ -20,8 +20,8 @@ var _ MappedNullable = &DeletePersonField200Response{}
 // DeletePersonField200Response struct for DeletePersonField200Response
 type DeletePersonField200Response struct {
 	// Whether the request was successful
-	Success *bool `json:"success,omitempty"`
-	Data *DeletePersonField200ResponseData `json:"data,omitempty"`
+	Success              *bool                             `json:"success,omitempty"`
+	Data                 *DeletePersonField200ResponseData `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *DeletePersonField200Response) SetData(v DeletePersonField200ResponseDat
 }
 
 func (o DeletePersonField200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +189,3 @@ func (v *NullableDeletePersonField200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

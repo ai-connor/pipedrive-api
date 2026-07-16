@@ -33,11 +33,11 @@ type GetPersonFields200ResponseDataInner struct {
 	// Whether this is a user-created custom field
 	IsCustomField bool `json:"is_custom_field"`
 	// Whether this field is not returned by default in entity responses
-	IsOptionalResponseField bool `json:"is_optional_response_field"`
-	UiVisibility *GetPersonFields200ResponseDataInnerUiVisibility `json:"ui_visibility,omitempty"`
-	ImportantFields *GetPersonFields200ResponseDataInnerImportantFields `json:"important_fields,omitempty"`
-	RequiredFields *GetPersonFields200ResponseDataInnerRequiredFields `json:"required_fields,omitempty"`
-	AdditionalProperties map[string]interface{}
+	IsOptionalResponseField bool                                                `json:"is_optional_response_field"`
+	UiVisibility            *GetPersonFields200ResponseDataInnerUiVisibility    `json:"ui_visibility,omitempty"`
+	ImportantFields         *GetPersonFields200ResponseDataInnerImportantFields `json:"important_fields,omitempty"`
+	RequiredFields          *GetPersonFields200ResponseDataInnerRequiredFields  `json:"required_fields,omitempty"`
+	AdditionalProperties    map[string]interface{}
 }
 
 type _GetPersonFields200ResponseDataInner GetPersonFields200ResponseDataInner
@@ -347,7 +347,7 @@ func (o *GetPersonFields200ResponseDataInner) SetRequiredFields(v GetPersonField
 }
 
 func (o GetPersonFields200ResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -401,10 +401,10 @@ func (o *GetPersonFields200ResponseDataInner) UnmarshalJSON(data []byte) (err er
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -474,5 +474,3 @@ func (v *NullableGetPersonFields200ResponseDataInner) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

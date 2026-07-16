@@ -26,7 +26,7 @@ type UpdateProductImageResponseData struct {
 	// The ID of the company
 	CompanyId *string `json:"company_id,omitempty"`
 	// The date of image upload.
-	AddTime *string `json:"add_time,omitempty"`
+	AddTime              *string `json:"add_time,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -178,7 +178,7 @@ func (o *UpdateProductImageResponseData) SetAddTime(v string) {
 }
 
 func (o UpdateProductImageResponseData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,5 +266,3 @@ func (v *NullableUpdateProductImageResponseData) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

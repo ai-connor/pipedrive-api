@@ -1501,7 +1501,6 @@ paths:
                             type: object
                             properties:
                               id:
-                                type: [string, integer]
                                 description: The option ID
                               label:
                                 type: string
@@ -6096,7 +6095,6 @@ paths:
                             type: object
                             properties:
                               id:
-                                type: [string, integer]
                                 description: The option ID
                               label:
                                 type: string
@@ -9285,7 +9283,6 @@ paths:
                             type: object
                             properties:
                               id:
-                                type: [string, integer]
                                 description: The option ID
                               label:
                                 type: string

@@ -25,7 +25,7 @@ type AddProjectPhaseRequest struct {
 	// The ID of the project board to add the phase to
 	BoardId int32 `json:"board_id"`
 	// The order of the phase within its board. Must be between 1 and the total number of phases on the board + 1.
-	OrderNr *int32 `json:"order_nr,omitempty"`
+	OrderNr              *int32 `json:"order_nr,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -131,7 +131,7 @@ func (o *AddProjectPhaseRequest) SetOrderNr(v int32) {
 }
 
 func (o AddProjectPhaseRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -167,10 +167,10 @@ func (o *AddProjectPhaseRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -233,5 +233,3 @@ func (v *NullableAddProjectPhaseRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

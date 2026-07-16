@@ -22,7 +22,7 @@ type GetAdditionalDiscountsResponse struct {
 	// If the response is successful or not
 	Success *bool `json:"success,omitempty"`
 	// Array containing data for all discounts added to a deal
-	Data []GetAdditionalDiscountsResponseDataInner `json:"data,omitempty"`
+	Data                 []GetAdditionalDiscountsResponseDataInner `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetAdditionalDiscountsResponse) SetData(v []GetAdditionalDiscountsRespo
 }
 
 func (o GetAdditionalDiscountsResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetAdditionalDiscountsResponse) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

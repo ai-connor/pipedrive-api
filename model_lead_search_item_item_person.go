@@ -22,7 +22,7 @@ type LeadSearchItemItemPerson struct {
 	// The ID of the person the lead is associated with
 	Id *int32 `json:"id,omitempty"`
 	// The name of the person the lead is associated with
-	Name *string `json:"name,omitempty"`
+	Name                 *string `json:"name,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *LeadSearchItemItemPerson) SetName(v string) {
 }
 
 func (o LeadSearchItemItemPerson) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableLeadSearchItemItemPerson) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,7 +20,7 @@ var _ MappedNullable = &DeleteInstallmentResponseData{}
 // DeleteInstallmentResponseData struct for DeleteInstallmentResponseData
 type DeleteInstallmentResponseData struct {
 	// The ID of the installment that was deleted from the deal
-	Id *int32 `json:"id,omitempty"`
+	Id                   *int32 `json:"id,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *DeleteInstallmentResponseData) SetId(v int32) {
 }
 
 func (o DeleteInstallmentResponseData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableDeleteInstallmentResponseData) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -22,7 +22,7 @@ type GetPersonSearchResponseAllOfDataItemsInnerItemOrganization struct {
 	// The ID of the organization the person is associated with
 	Id *int32 `json:"id,omitempty"`
 	// The name of the organization the person is associated with
-	Name *string `json:"name,omitempty"`
+	Name                 *string `json:"name,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetPersonSearchResponseAllOfDataItemsInnerItemOrganization) SetName(v s
 }
 
 func (o GetPersonSearchResponseAllOfDataItemsInnerItemOrganization) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetPersonSearchResponseAllOfDataItemsInnerItemOrganization) Unm
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

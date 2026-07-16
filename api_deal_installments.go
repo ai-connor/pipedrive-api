@@ -16,18 +16,17 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
 )
-
 
 // DealInstallmentsAPIService DealInstallmentsAPI service
 type DealInstallmentsAPIService service
 
 type DealInstallmentsAPIDeleteInstallmentRequest struct {
-	ctx context.Context
-	ApiService *DealInstallmentsAPIService
-	id int32
+	ctx           context.Context
+	ApiService    *DealInstallmentsAPIService
+	id            int32
 	installmentId int32
 }
 
@@ -42,29 +41,29 @@ Removes an installment from a deal.
 
 Only available in Growth and above plans.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the deal
- @param installmentId The ID of the installment
- @return DealInstallmentsAPIDeleteInstallmentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the deal
+	@param installmentId The ID of the installment
+	@return DealInstallmentsAPIDeleteInstallmentRequest
 */
 func (a *DealInstallmentsAPIService) DeleteInstallment(ctx context.Context, id int32, installmentId int32) DealInstallmentsAPIDeleteInstallmentRequest {
 	return DealInstallmentsAPIDeleteInstallmentRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:    a,
+		ctx:           ctx,
+		id:            id,
 		installmentId: installmentId,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteInstallmentResponse
+//
+//	@return DeleteInstallmentResponse
 func (a *DealInstallmentsAPIService) DeleteInstallmentExecute(r DealInstallmentsAPIDeleteInstallmentRequest) (*DeleteInstallmentResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteInstallmentResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteInstallmentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealInstallmentsAPIService.DeleteInstallment")
@@ -149,12 +148,12 @@ func (a *DealInstallmentsAPIService) DeleteInstallmentExecute(r DealInstallments
 }
 
 type DealInstallmentsAPIGetInstallmentsRequest struct {
-	ctx context.Context
-	ApiService *DealInstallmentsAPIService
-	dealIds *[]int32
-	cursor *string
-	limit *int32
-	sortBy *string
+	ctx           context.Context
+	ApiService    *DealInstallmentsAPIService
+	dealIds       *[]int32
+	cursor        *string
+	limit         *int32
+	sortBy        *string
 	sortDirection *string
 }
 
@@ -199,25 +198,25 @@ Lists installments attached to a list of deals.
 
 Only available in Growth and above plans.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return DealInstallmentsAPIGetInstallmentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return DealInstallmentsAPIGetInstallmentsRequest
 */
 func (a *DealInstallmentsAPIService) GetInstallments(ctx context.Context) DealInstallmentsAPIGetInstallmentsRequest {
 	return DealInstallmentsAPIGetInstallmentsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetInstallmentsResponse
+//
+//	@return GetInstallmentsResponse
 func (a *DealInstallmentsAPIService) GetInstallmentsExecute(r DealInstallmentsAPIGetInstallmentsRequest) (*GetInstallmentsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetInstallmentsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetInstallmentsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealInstallmentsAPIService.GetInstallments")
@@ -254,16 +253,16 @@ func (a *DealInstallmentsAPIService) GetInstallmentsExecute(r DealInstallmentsAP
 	if r.sortBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "form", "")
 	} else {
-        var defaultValue string = "id"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
-        r.sortBy = &defaultValue
+		var defaultValue string = "id"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
+		r.sortBy = &defaultValue
 	}
 	if r.sortDirection != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")
 	} else {
-        var defaultValue string = "asc"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
-        r.sortDirection = &defaultValue
+		var defaultValue string = "asc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
+		r.sortDirection = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -334,9 +333,9 @@ func (a *DealInstallmentsAPIService) GetInstallmentsExecute(r DealInstallmentsAP
 }
 
 type DealInstallmentsAPIPostInstallmentRequest struct {
-	ctx context.Context
-	ApiService *DealInstallmentsAPIService
-	id int32
+	ctx                       context.Context
+	ApiService                *DealInstallmentsAPIService
+	id                        int32
 	addInstallmentRequestBody *AddInstallmentRequestBody
 }
 
@@ -354,32 +353,32 @@ PostInstallment Add an installment to a deal
 
 Adds an installment to a deal.
 
-An installment can only be added if the deal includes at least one one-time product. 
+An installment can only be added if the deal includes at least one one-time product.
 If the deal contains at least one recurring product, adding installments is not allowed.
 
 Only available in Growth and above plans.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the deal
- @return DealInstallmentsAPIPostInstallmentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the deal
+	@return DealInstallmentsAPIPostInstallmentRequest
 */
 func (a *DealInstallmentsAPIService) PostInstallment(ctx context.Context, id int32) DealInstallmentsAPIPostInstallmentRequest {
 	return DealInstallmentsAPIPostInstallmentRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AddAInstallmentResponse
+//
+//	@return AddAInstallmentResponse
 func (a *DealInstallmentsAPIService) PostInstallmentExecute(r DealInstallmentsAPIPostInstallmentRequest) (*AddAInstallmentResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddAInstallmentResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddAInstallmentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealInstallmentsAPIService.PostInstallment")
@@ -465,10 +464,10 @@ func (a *DealInstallmentsAPIService) PostInstallmentExecute(r DealInstallmentsAP
 }
 
 type DealInstallmentsAPIUpdateInstallmentRequest struct {
-	ctx context.Context
-	ApiService *DealInstallmentsAPIService
-	id int32
-	installmentId int32
+	ctx                          context.Context
+	ApiService                   *DealInstallmentsAPIService
+	id                           int32
+	installmentId                int32
 	updateInstallmentRequestBody *UpdateInstallmentRequestBody
 }
 
@@ -488,29 +487,29 @@ Edits an installment added to a deal.
 
 Only available in Growth and above plans.
 
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the deal
- @param installmentId The ID of the installment
- @return DealInstallmentsAPIUpdateInstallmentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the deal
+	@param installmentId The ID of the installment
+	@return DealInstallmentsAPIUpdateInstallmentRequest
 */
 func (a *DealInstallmentsAPIService) UpdateInstallment(ctx context.Context, id int32, installmentId int32) DealInstallmentsAPIUpdateInstallmentRequest {
 	return DealInstallmentsAPIUpdateInstallmentRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:    a,
+		ctx:           ctx,
+		id:            id,
 		installmentId: installmentId,
 	}
 }
 
 // Execute executes the request
-//  @return UpdateInstallmentResponse
+//
+//	@return UpdateInstallmentResponse
 func (a *DealInstallmentsAPIService) UpdateInstallmentExecute(r DealInstallmentsAPIUpdateInstallmentRequest) (*UpdateInstallmentResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpdateInstallmentResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpdateInstallmentResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DealInstallmentsAPIService.UpdateInstallment")

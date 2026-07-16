@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // OrganizationsAPIService OrganizationsAPI service
 type OrganizationsAPIService service
 
 type OrganizationsAPIAddOrganizationRequest struct {
-	ctx context.Context
-	ApiService *OrganizationsAPIService
+	ctx                    context.Context
+	ApiService             *OrganizationsAPIService
 	addOrganizationRequest *AddOrganizationRequest
 }
 
@@ -43,24 +42,25 @@ AddOrganization Add a new organization
 
 Adds a new organization.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrganizationsAPIAddOrganizationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrganizationsAPIAddOrganizationRequest
 */
 func (a *OrganizationsAPIService) AddOrganization(ctx context.Context) OrganizationsAPIAddOrganizationRequest {
 	return OrganizationsAPIAddOrganizationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertOrganizationResponse
+//
+//	@return UpsertOrganizationResponse
 func (a *OrganizationsAPIService) AddOrganizationExecute(r OrganizationsAPIAddOrganizationRequest) (*UpsertOrganizationResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertOrganizationResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertOrganizationResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AddOrganization")
@@ -145,9 +145,9 @@ func (a *OrganizationsAPIService) AddOrganizationExecute(r OrganizationsAPIAddOr
 }
 
 type OrganizationsAPIAddOrganizationFollowerRequest struct {
-	ctx context.Context
-	ApiService *OrganizationsAPIService
-	id int32
+	ctx                    context.Context
+	ApiService             *OrganizationsAPIService
+	id                     int32
 	addDealFollowerRequest *AddDealFollowerRequest
 }
 
@@ -165,26 +165,27 @@ AddOrganizationFollower Add a follower to an organization
 
 Adds a user as a follower to the organization.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the organization
- @return OrganizationsAPIAddOrganizationFollowerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the organization
+	@return OrganizationsAPIAddOrganizationFollowerRequest
 */
 func (a *OrganizationsAPIService) AddOrganizationFollower(ctx context.Context, id int32) OrganizationsAPIAddOrganizationFollowerRequest {
 	return OrganizationsAPIAddOrganizationFollowerRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AddFollowerResponse
+//
+//	@return AddFollowerResponse
 func (a *OrganizationsAPIService) AddOrganizationFollowerExecute(r OrganizationsAPIAddOrganizationFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddFollowerResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddFollowerResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.AddOrganizationFollower")
@@ -270,9 +271,9 @@ func (a *OrganizationsAPIService) AddOrganizationFollowerExecute(r Organizations
 }
 
 type OrganizationsAPIDeleteOrganizationRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *OrganizationsAPIService
-	id int32
+	id         int32
 }
 
 func (r OrganizationsAPIDeleteOrganizationRequest) Execute() (*DeleteOrganizationResponse, *http.Response, error) {
@@ -284,26 +285,27 @@ DeleteOrganization Delete a organization
 
 Marks a organization as deleted. After 30 days, the organization will be permanently deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the organization
- @return OrganizationsAPIDeleteOrganizationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the organization
+	@return OrganizationsAPIDeleteOrganizationRequest
 */
 func (a *OrganizationsAPIService) DeleteOrganization(ctx context.Context, id int32) OrganizationsAPIDeleteOrganizationRequest {
 	return OrganizationsAPIDeleteOrganizationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteOrganizationResponse
+//
+//	@return DeleteOrganizationResponse
 func (a *OrganizationsAPIService) DeleteOrganizationExecute(r OrganizationsAPIDeleteOrganizationRequest) (*DeleteOrganizationResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteOrganizationResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteOrganizationResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.DeleteOrganization")
@@ -387,9 +389,9 @@ func (a *OrganizationsAPIService) DeleteOrganizationExecute(r OrganizationsAPIDe
 }
 
 type OrganizationsAPIDeleteOrganizationFollowerRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *OrganizationsAPIService
-	id int32
+	id         int32
 	followerId int32
 }
 
@@ -402,28 +404,29 @@ DeleteOrganizationFollower Delete a follower from an organization
 
 Deletes a user follower from the organization.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the organization
- @param followerId The ID of the following user
- @return OrganizationsAPIDeleteOrganizationFollowerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the organization
+	@param followerId The ID of the following user
+	@return OrganizationsAPIDeleteOrganizationFollowerRequest
 */
 func (a *OrganizationsAPIService) DeleteOrganizationFollower(ctx context.Context, id int32, followerId int32) OrganizationsAPIDeleteOrganizationFollowerRequest {
 	return OrganizationsAPIDeleteOrganizationFollowerRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 		followerId: followerId,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteFollowerResponse
+//
+//	@return DeleteFollowerResponse
 func (a *OrganizationsAPIService) DeleteOrganizationFollowerExecute(r OrganizationsAPIDeleteOrganizationFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteFollowerResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteFollowerResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.DeleteOrganizationFollower")
@@ -508,13 +511,13 @@ func (a *OrganizationsAPIService) DeleteOrganizationFollowerExecute(r Organizati
 }
 
 type OrganizationsAPIGetOrganizationRequest struct {
-	ctx context.Context
-	ApiService *OrganizationsAPIService
-	id int32
-	includeFields *string
-	customFields *string
+	ctx                 context.Context
+	ApiService          *OrganizationsAPIService
+	id                  int32
+	includeFields       *string
+	customFields        *string
 	includeOptionLabels *bool
-	includeLabels *bool
+	includeLabels       *bool
 }
 
 // Optional comma separated string array of additional fields to include
@@ -550,26 +553,27 @@ GetOrganization Get details of a organization
 
 Returns the details of a specific organization.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the organization
- @return OrganizationsAPIGetOrganizationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the organization
+	@return OrganizationsAPIGetOrganizationRequest
 */
 func (a *OrganizationsAPIService) GetOrganization(ctx context.Context, id int32) OrganizationsAPIGetOrganizationRequest {
 	return OrganizationsAPIGetOrganizationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertOrganizationResponse
+//
+//	@return UpsertOrganizationResponse
 func (a *OrganizationsAPIService) GetOrganizationExecute(r OrganizationsAPIGetOrganizationRequest) (*UpsertOrganizationResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertOrganizationResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertOrganizationResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.GetOrganization")
@@ -665,11 +669,11 @@ func (a *OrganizationsAPIService) GetOrganizationExecute(r OrganizationsAPIGetOr
 }
 
 type OrganizationsAPIGetOrganizationFollowersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *OrganizationsAPIService
-	id int32
-	limit *int32
-	cursor *string
+	id         int32
+	limit      *int32
+	cursor     *string
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -693,26 +697,27 @@ GetOrganizationFollowers List followers of an organization
 
 Lists users who are following the organization.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the organization
- @return OrganizationsAPIGetOrganizationFollowersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the organization
+	@return OrganizationsAPIGetOrganizationFollowersRequest
 */
 func (a *OrganizationsAPIService) GetOrganizationFollowers(ctx context.Context, id int32) OrganizationsAPIGetOrganizationFollowersRequest {
 	return OrganizationsAPIGetOrganizationFollowersRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetFollowersResponse
+//
+//	@return GetFollowersResponse
 func (a *OrganizationsAPIService) GetOrganizationFollowersExecute(r OrganizationsAPIGetOrganizationFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFollowersResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetFollowersResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.GetOrganizationFollowers")
@@ -802,11 +807,11 @@ func (a *OrganizationsAPIService) GetOrganizationFollowersExecute(r Organization
 }
 
 type OrganizationsAPIGetOrganizationFollowersChangelogRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *OrganizationsAPIService
-	id int32
-	limit *int32
-	cursor *string
+	id         int32
+	limit      *int32
+	cursor     *string
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -830,26 +835,27 @@ GetOrganizationFollowersChangelog List followers changelog of an organization
 
 Lists changelogs about users have followed the organization.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the organization
- @return OrganizationsAPIGetOrganizationFollowersChangelogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the organization
+	@return OrganizationsAPIGetOrganizationFollowersChangelogRequest
 */
 func (a *OrganizationsAPIService) GetOrganizationFollowersChangelog(ctx context.Context, id int32) OrganizationsAPIGetOrganizationFollowersChangelogRequest {
 	return OrganizationsAPIGetOrganizationFollowersChangelogRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetFollowerChangelogsResponse
+//
+//	@return GetFollowerChangelogsResponse
 func (a *OrganizationsAPIService) GetOrganizationFollowersChangelogExecute(r OrganizationsAPIGetOrganizationFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFollowerChangelogsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetFollowerChangelogsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.GetOrganizationFollowersChangelog")
@@ -939,21 +945,21 @@ func (a *OrganizationsAPIService) GetOrganizationFollowersChangelogExecute(r Org
 }
 
 type OrganizationsAPIGetOrganizationsRequest struct {
-	ctx context.Context
-	ApiService *OrganizationsAPIService
-	filterId *int32
-	ids *string
-	ownerId *int32
-	updatedSince *string
-	updatedUntil *string
-	sortBy *string
-	sortDirection *string
-	includeFields *string
-	customFields *string
+	ctx                 context.Context
+	ApiService          *OrganizationsAPIService
+	filterId            *int32
+	ids                 *string
+	ownerId             *int32
+	updatedSince        *string
+	updatedUntil        *string
+	sortBy              *string
+	sortDirection       *string
+	includeFields       *string
+	customFields        *string
 	includeOptionLabels *bool
-	includeLabels *bool
-	limit *int32
-	cursor *string
+	includeLabels       *bool
+	limit               *int32
+	cursor              *string
 }
 
 // If supplied, only organizations matching the specified filter are returned
@@ -1043,24 +1049,25 @@ GetOrganizations Get all organizations
 
 Returns data about all organizations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrganizationsAPIGetOrganizationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrganizationsAPIGetOrganizationsRequest
 */
 func (a *OrganizationsAPIService) GetOrganizations(ctx context.Context) OrganizationsAPIGetOrganizationsRequest {
 	return OrganizationsAPIGetOrganizationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetOrganizationsResponse
+//
+//	@return GetOrganizationsResponse
 func (a *OrganizationsAPIService) GetOrganizationsExecute(r OrganizationsAPIGetOrganizationsRequest) (*GetOrganizationsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetOrganizationsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetOrganizationsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.GetOrganizations")
@@ -1092,16 +1099,16 @@ func (a *OrganizationsAPIService) GetOrganizationsExecute(r OrganizationsAPIGetO
 	if r.sortBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "form", "")
 	} else {
-        var defaultValue string = "id"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
-        r.sortBy = &defaultValue
+		var defaultValue string = "id"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
+		r.sortBy = &defaultValue
 	}
 	if r.sortDirection != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")
 	} else {
-        var defaultValue string = "asc"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
-        r.sortDirection = &defaultValue
+		var defaultValue string = "asc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
+		r.sortDirection = &defaultValue
 	}
 	if r.includeFields != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_fields", r.includeFields, "form", "")
@@ -1190,13 +1197,13 @@ func (a *OrganizationsAPIService) GetOrganizationsExecute(r OrganizationsAPIGetO
 }
 
 type OrganizationsAPISearchOrganizationRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *OrganizationsAPIService
-	term *string
-	fields *string
+	term       *string
+	fields     *string
 	exactMatch *bool
-	limit *int32
-	cursor *string
+	limit      *int32
+	cursor     *string
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -1238,24 +1245,25 @@ SearchOrganization Search organizations
 
 Searches all organizations by name, address, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrganizationsAPISearchOrganizationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrganizationsAPISearchOrganizationRequest
 */
 func (a *OrganizationsAPIService) SearchOrganization(ctx context.Context) OrganizationsAPISearchOrganizationRequest {
 	return OrganizationsAPISearchOrganizationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetOrganizationSearchResponse
+//
+//	@return GetOrganizationSearchResponse
 func (a *OrganizationsAPIService) SearchOrganizationExecute(r OrganizationsAPISearchOrganizationRequest) (*GetOrganizationSearchResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetOrganizationSearchResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetOrganizationSearchResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.SearchOrganization")
@@ -1354,9 +1362,9 @@ func (a *OrganizationsAPIService) SearchOrganizationExecute(r OrganizationsAPISe
 }
 
 type OrganizationsAPIUpdateOrganizationRequest struct {
-	ctx context.Context
-	ApiService *OrganizationsAPIService
-	id int32
+	ctx                       context.Context
+	ApiService                *OrganizationsAPIService
+	id                        int32
 	updateOrganizationRequest *UpdateOrganizationRequest
 }
 
@@ -1374,26 +1382,27 @@ UpdateOrganization Update a organization
 
 Updates the properties of a organization.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the organization
- @return OrganizationsAPIUpdateOrganizationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the organization
+	@return OrganizationsAPIUpdateOrganizationRequest
 */
 func (a *OrganizationsAPIService) UpdateOrganization(ctx context.Context, id int32) OrganizationsAPIUpdateOrganizationRequest {
 	return OrganizationsAPIUpdateOrganizationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertOrganizationResponse
+//
+//	@return UpsertOrganizationResponse
 func (a *OrganizationsAPIService) UpdateOrganizationExecute(r OrganizationsAPIUpdateOrganizationRequest) (*UpsertOrganizationResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertOrganizationResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertOrganizationResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationsAPIService.UpdateOrganization")

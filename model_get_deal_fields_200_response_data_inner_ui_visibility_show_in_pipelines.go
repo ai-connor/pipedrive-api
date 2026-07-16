@@ -22,7 +22,7 @@ type GetDealFields200ResponseDataInnerUiVisibilityShowInPipelines struct {
 	// Whether the field is shown in all pipelines
 	ShowInAll *bool `json:"show_in_all,omitempty"`
 	// Specific pipeline IDs where the field is shown (if show_in_all is false)
-	PipelineIds []int32 `json:"pipeline_ids,omitempty"`
+	PipelineIds          []int32 `json:"pipeline_ids,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetDealFields200ResponseDataInnerUiVisibilityShowInPipelines) SetPipeli
 }
 
 func (o GetDealFields200ResponseDataInnerUiVisibilityShowInPipelines) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetDealFields200ResponseDataInnerUiVisibilityShowInPipelines) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

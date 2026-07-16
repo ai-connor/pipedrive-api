@@ -35,17 +35,17 @@ type AddProductRequest struct {
 	// The ID of the user who will be marked as the owner of this product. When omitted, the authorized user ID will be used
 	OwnerId *int32 `json:"owner_id,omitempty"`
 	// Whether this product can be added to a deal or not
-	IsLinkable *bool `json:"is_linkable,omitempty"`
-	VisibleTo *float32 `json:"visible_to,omitempty"`
+	IsLinkable *bool    `json:"is_linkable,omitempty"`
+	VisibleTo  *float32 `json:"visible_to,omitempty"`
 	// An array of objects, each containing: `currency` (string), `price` (number), `cost` (number, optional), `direct_cost` (number, optional). Note that there can only be one price per product per currency. When `prices` is omitted altogether, a default price of 0 and the user's default currency will be assigned.
 	Prices []map[string]interface{} `json:"prices,omitempty"`
 	// An object where each key represents a custom field. All custom fields are referenced as randomly generated 40-character hashes. To clear a custom field value, set it to `null`. For multi-option fields (field type `set`), use `null` to clear the selection — sending an empty array `[]` is not supported and will result in a validation error.
 	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	// Only available in Growth and above plans  How often a customer is billed for access to a service or product 
+	// Only available in Growth and above plans  How often a customer is billed for access to a service or product
 	BillingFrequency *string `json:"billing_frequency,omitempty"`
-	// Only available in Growth and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208 
+	// Only available in Growth and above plans  The number of times the billing frequency repeats for a product in a deal  When `billing_frequency` is set to `one-time`, this field must be `null`  When `billing_frequency` is set to `weekly`, this field cannot be `null`  For all the other values of `billing_frequency`, `null` represents a product billed indefinitely  Must be a positive integer less or equal to 208
 	BillingFrequencyCycles NullableInt32 `json:"billing_frequency_cycles,omitempty"`
-	AdditionalProperties map[string]interface{}
+	AdditionalProperties   map[string]interface{}
 }
 
 type _AddProductRequest AddProductRequest
@@ -488,6 +488,7 @@ func (o *AddProductRequest) HasBillingFrequencyCycles() bool {
 func (o *AddProductRequest) SetBillingFrequencyCycles(v int32) {
 	o.BillingFrequencyCycles.Set(&v)
 }
+
 // SetBillingFrequencyCyclesNil sets the value for BillingFrequencyCycles to be an explicit nil
 func (o *AddProductRequest) SetBillingFrequencyCyclesNil() {
 	o.BillingFrequencyCycles.Set(nil)
@@ -499,7 +500,7 @@ func (o *AddProductRequest) UnsetBillingFrequencyCycles() {
 }
 
 func (o AddProductRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -566,10 +567,10 @@ func (o *AddProductRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -642,5 +643,3 @@ func (v *NullableAddProductRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

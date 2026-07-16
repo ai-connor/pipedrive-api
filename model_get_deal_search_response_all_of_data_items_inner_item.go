@@ -32,17 +32,17 @@ type GetDealSearchResponseAllOfDataItemsInnerItem struct {
 	// The status of the deal
 	Status *string `json:"status,omitempty"`
 	// The visibility of the deal
-	VisibleTo *int32 `json:"visible_to,omitempty"`
-	Owner *GetDealSearchResponseAllOfDataItemsInnerItemOwner `json:"owner,omitempty"`
-	Stage *GetDealSearchResponseAllOfDataItemsInnerItemStage `json:"stage,omitempty"`
-	Person NullableGetDealSearchResponseAllOfDataItemsInnerItemPerson `json:"person,omitempty"`
+	VisibleTo    *int32                                                           `json:"visible_to,omitempty"`
+	Owner        *GetDealSearchResponseAllOfDataItemsInnerItemOwner               `json:"owner,omitempty"`
+	Stage        *GetDealSearchResponseAllOfDataItemsInnerItemStage               `json:"stage,omitempty"`
+	Person       NullableGetDealSearchResponseAllOfDataItemsInnerItemPerson       `json:"person,omitempty"`
 	Organization NullableGetDealSearchResponseAllOfDataItemsInnerItemOrganization `json:"organization,omitempty"`
 	// Custom fields
 	CustomFields []string `json:"custom_fields,omitempty"`
 	// An array of notes
 	Notes []string `json:"notes,omitempty"`
 	// A flag indicating whether the deal is archived or not
-	IsArchived *bool `json:"is_archived,omitempty"`
+	IsArchived           *bool `json:"is_archived,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -385,6 +385,7 @@ func (o *GetDealSearchResponseAllOfDataItemsInnerItem) HasPerson() bool {
 func (o *GetDealSearchResponseAllOfDataItemsInnerItem) SetPerson(v GetDealSearchResponseAllOfDataItemsInnerItemPerson) {
 	o.Person.Set(&v)
 }
+
 // SetPersonNil sets the value for Person to be an explicit nil
 func (o *GetDealSearchResponseAllOfDataItemsInnerItem) SetPersonNil() {
 	o.Person.Set(nil)
@@ -427,6 +428,7 @@ func (o *GetDealSearchResponseAllOfDataItemsInnerItem) HasOrganization() bool {
 func (o *GetDealSearchResponseAllOfDataItemsInnerItem) SetOrganization(v GetDealSearchResponseAllOfDataItemsInnerItemOrganization) {
 	o.Organization.Set(&v)
 }
+
 // SetOrganizationNil sets the value for Organization to be an explicit nil
 func (o *GetDealSearchResponseAllOfDataItemsInnerItem) SetOrganizationNil() {
 	o.Organization.Set(nil)
@@ -534,7 +536,7 @@ func (o *GetDealSearchResponseAllOfDataItemsInnerItem) SetIsArchived(v bool) {
 }
 
 func (o GetDealSearchResponseAllOfDataItemsInnerItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -662,5 +664,3 @@ func (v *NullableGetDealSearchResponseAllOfDataItemsInnerItem) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

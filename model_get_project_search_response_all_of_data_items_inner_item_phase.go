@@ -22,7 +22,7 @@ type GetProjectSearchResponseAllOfDataItemsInnerItemPhase struct {
 	// The ID of the phase
 	Id *int32 `json:"id,omitempty"`
 	// The name of the phase
-	Name *string `json:"name,omitempty"`
+	Name                 *string `json:"name,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetProjectSearchResponseAllOfDataItemsInnerItemPhase) SetName(v string)
 }
 
 func (o GetProjectSearchResponseAllOfDataItemsInnerItemPhase) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetProjectSearchResponseAllOfDataItemsInnerItemPhase) Unmarshal
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

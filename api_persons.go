@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // PersonsAPIService PersonsAPI service
 type PersonsAPIService service
 
 type PersonsAPIAddPersonRequest struct {
-	ctx context.Context
-	ApiService *PersonsAPIService
+	ctx              context.Context
+	ApiService       *PersonsAPIService
 	addPersonRequest *AddPersonRequest
 }
 
@@ -43,24 +42,25 @@ AddPerson Add a new person
 
 Adds a new person. If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PersonsAPIAddPersonRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return PersonsAPIAddPersonRequest
 */
 func (a *PersonsAPIService) AddPerson(ctx context.Context) PersonsAPIAddPersonRequest {
 	return PersonsAPIAddPersonRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertPersonResponse
+//
+//	@return UpsertPersonResponse
 func (a *PersonsAPIService) AddPersonExecute(r PersonsAPIAddPersonRequest) (*UpsertPersonResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertPersonResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertPersonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.AddPerson")
@@ -145,9 +145,9 @@ func (a *PersonsAPIService) AddPersonExecute(r PersonsAPIAddPersonRequest) (*Ups
 }
 
 type PersonsAPIAddPersonFollowerRequest struct {
-	ctx context.Context
-	ApiService *PersonsAPIService
-	id int32
+	ctx                    context.Context
+	ApiService             *PersonsAPIService
+	id                     int32
 	addDealFollowerRequest *AddDealFollowerRequest
 }
 
@@ -165,26 +165,27 @@ AddPersonFollower Add a follower to a person
 
 Adds a user as a follower to the person.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the person
- @return PersonsAPIAddPersonFollowerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the person
+	@return PersonsAPIAddPersonFollowerRequest
 */
 func (a *PersonsAPIService) AddPersonFollower(ctx context.Context, id int32) PersonsAPIAddPersonFollowerRequest {
 	return PersonsAPIAddPersonFollowerRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AddFollowerResponse
+//
+//	@return AddFollowerResponse
 func (a *PersonsAPIService) AddPersonFollowerExecute(r PersonsAPIAddPersonFollowerRequest) (*AddFollowerResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddFollowerResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddFollowerResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.AddPersonFollower")
@@ -270,9 +271,9 @@ func (a *PersonsAPIService) AddPersonFollowerExecute(r PersonsAPIAddPersonFollow
 }
 
 type PersonsAPIDeletePersonRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PersonsAPIService
-	id int32
+	id         int32
 }
 
 func (r PersonsAPIDeletePersonRequest) Execute() (*DeletePersonResponse, *http.Response, error) {
@@ -284,26 +285,27 @@ DeletePerson Delete a person
 
 Marks a person as deleted. After 30 days, the person will be permanently deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the person
- @return PersonsAPIDeletePersonRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the person
+	@return PersonsAPIDeletePersonRequest
 */
 func (a *PersonsAPIService) DeletePerson(ctx context.Context, id int32) PersonsAPIDeletePersonRequest {
 	return PersonsAPIDeletePersonRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return DeletePersonResponse
+//
+//	@return DeletePersonResponse
 func (a *PersonsAPIService) DeletePersonExecute(r PersonsAPIDeletePersonRequest) (*DeletePersonResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeletePersonResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeletePersonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.DeletePerson")
@@ -387,9 +389,9 @@ func (a *PersonsAPIService) DeletePersonExecute(r PersonsAPIDeletePersonRequest)
 }
 
 type PersonsAPIDeletePersonFollowerRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PersonsAPIService
-	id int32
+	id         int32
 	followerId int32
 }
 
@@ -402,28 +404,29 @@ DeletePersonFollower Delete a follower from a person
 
 Deletes a user follower from the person.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the person
- @param followerId The ID of the following user
- @return PersonsAPIDeletePersonFollowerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the person
+	@param followerId The ID of the following user
+	@return PersonsAPIDeletePersonFollowerRequest
 */
 func (a *PersonsAPIService) DeletePersonFollower(ctx context.Context, id int32, followerId int32) PersonsAPIDeletePersonFollowerRequest {
 	return PersonsAPIDeletePersonFollowerRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 		followerId: followerId,
 	}
 }
 
 // Execute executes the request
-//  @return DeleteFollowerResponse
+//
+//	@return DeleteFollowerResponse
 func (a *PersonsAPIService) DeletePersonFollowerExecute(r PersonsAPIDeletePersonFollowerRequest) (*DeleteFollowerResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeleteFollowerResponse
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeleteFollowerResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.DeletePersonFollower")
@@ -508,13 +511,13 @@ func (a *PersonsAPIService) DeletePersonFollowerExecute(r PersonsAPIDeletePerson
 }
 
 type PersonsAPIGetPersonRequest struct {
-	ctx context.Context
-	ApiService *PersonsAPIService
-	id int32
-	includeFields *string
-	customFields *string
+	ctx                 context.Context
+	ApiService          *PersonsAPIService
+	id                  int32
+	includeFields       *string
+	customFields        *string
 	includeOptionLabels *bool
-	includeLabels *bool
+	includeLabels       *bool
 }
 
 // Optional comma separated string array of additional fields to include. &#x60;marketing_status&#x60; and &#x60;doi_status&#x60; can only be included if the company has marketing app enabled.
@@ -550,26 +553,27 @@ GetPerson Get details of a person
 
 Returns the details of a specific person. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the person
- @return PersonsAPIGetPersonRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the person
+	@return PersonsAPIGetPersonRequest
 */
 func (a *PersonsAPIService) GetPerson(ctx context.Context, id int32) PersonsAPIGetPersonRequest {
 	return PersonsAPIGetPersonRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertPersonResponse
+//
+//	@return UpsertPersonResponse
 func (a *PersonsAPIService) GetPersonExecute(r PersonsAPIGetPersonRequest) (*UpsertPersonResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertPersonResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertPersonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.GetPerson")
@@ -665,11 +669,11 @@ func (a *PersonsAPIService) GetPersonExecute(r PersonsAPIGetPersonRequest) (*Ups
 }
 
 type PersonsAPIGetPersonFollowersRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PersonsAPIService
-	id int32
-	limit *int32
-	cursor *string
+	id         int32
+	limit      *int32
+	cursor     *string
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -693,26 +697,27 @@ GetPersonFollowers List followers of a person
 
 Lists users who are following the person.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the person
- @return PersonsAPIGetPersonFollowersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the person
+	@return PersonsAPIGetPersonFollowersRequest
 */
 func (a *PersonsAPIService) GetPersonFollowers(ctx context.Context, id int32) PersonsAPIGetPersonFollowersRequest {
 	return PersonsAPIGetPersonFollowersRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetFollowersResponse
+//
+//	@return GetFollowersResponse
 func (a *PersonsAPIService) GetPersonFollowersExecute(r PersonsAPIGetPersonFollowersRequest) (*GetFollowersResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFollowersResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetFollowersResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.GetPersonFollowers")
@@ -802,11 +807,11 @@ func (a *PersonsAPIService) GetPersonFollowersExecute(r PersonsAPIGetPersonFollo
 }
 
 type PersonsAPIGetPersonFollowersChangelogRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PersonsAPIService
-	id int32
-	limit *int32
-	cursor *string
+	id         int32
+	limit      *int32
+	cursor     *string
 }
 
 // For pagination, the limit of entries to be returned. If not provided, 100 items will be returned. Please note that a maximum value of 500 is allowed.
@@ -830,26 +835,27 @@ GetPersonFollowersChangelog List followers changelog of a person
 
 Lists changelogs about users have followed the person.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the person
- @return PersonsAPIGetPersonFollowersChangelogRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the person
+	@return PersonsAPIGetPersonFollowersChangelogRequest
 */
 func (a *PersonsAPIService) GetPersonFollowersChangelog(ctx context.Context, id int32) PersonsAPIGetPersonFollowersChangelogRequest {
 	return PersonsAPIGetPersonFollowersChangelogRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetFollowerChangelogsResponse
+//
+//	@return GetFollowerChangelogsResponse
 func (a *PersonsAPIService) GetPersonFollowersChangelogExecute(r PersonsAPIGetPersonFollowersChangelogRequest) (*GetFollowerChangelogsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetFollowerChangelogsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetFollowerChangelogsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.GetPersonFollowersChangelog")
@@ -939,9 +945,9 @@ func (a *PersonsAPIService) GetPersonFollowersChangelogExecute(r PersonsAPIGetPe
 }
 
 type PersonsAPIGetPersonPictureRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PersonsAPIService
-	id int32
+	id         int32
 }
 
 func (r PersonsAPIGetPersonPictureRequest) Execute() (*GetPersonPictureResponse, *http.Response, error) {
@@ -953,26 +959,27 @@ GetPersonPicture Get picture of a person
 
 Returns the picture associated with a person. The picture URLs include both 128x128 and 512x512 pixel versions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the person
- @return PersonsAPIGetPersonPictureRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the person
+	@return PersonsAPIGetPersonPictureRequest
 */
 func (a *PersonsAPIService) GetPersonPicture(ctx context.Context, id int32) PersonsAPIGetPersonPictureRequest {
 	return PersonsAPIGetPersonPictureRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return GetPersonPictureResponse
+//
+//	@return GetPersonPictureResponse
 func (a *PersonsAPIService) GetPersonPictureExecute(r PersonsAPIGetPersonPictureRequest) (*GetPersonPictureResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetPersonPictureResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetPersonPictureResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.GetPersonPicture")
@@ -1056,23 +1063,23 @@ func (a *PersonsAPIService) GetPersonPictureExecute(r PersonsAPIGetPersonPicture
 }
 
 type PersonsAPIGetPersonsRequest struct {
-	ctx context.Context
-	ApiService *PersonsAPIService
-	filterId *int32
-	ids *string
-	ownerId *int32
-	orgId *int32
-	dealId *int32
-	updatedSince *string
-	updatedUntil *string
-	sortBy *string
-	sortDirection *string
-	includeFields *string
-	customFields *string
+	ctx                 context.Context
+	ApiService          *PersonsAPIService
+	filterId            *int32
+	ids                 *string
+	ownerId             *int32
+	orgId               *int32
+	dealId              *int32
+	updatedSince        *string
+	updatedUntil        *string
+	sortBy              *string
+	sortDirection       *string
+	includeFields       *string
+	customFields        *string
 	includeOptionLabels *bool
-	includeLabels *bool
-	limit *int32
-	cursor *string
+	includeLabels       *bool
+	limit               *int32
+	cursor              *string
 }
 
 // If supplied, only persons matching the specified filter are returned
@@ -1174,24 +1181,25 @@ GetPersons Get all persons
 
 Returns data about all persons. Fields `ims`, `postal_address`, `notes`, `birthday`, and `job_title` are only included if contact sync is enabled for the company.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PersonsAPIGetPersonsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return PersonsAPIGetPersonsRequest
 */
 func (a *PersonsAPIService) GetPersons(ctx context.Context) PersonsAPIGetPersonsRequest {
 	return PersonsAPIGetPersonsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetPersonsResponse
+//
+//	@return GetPersonsResponse
 func (a *PersonsAPIService) GetPersonsExecute(r PersonsAPIGetPersonsRequest) (*GetPersonsResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetPersonsResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetPersonsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.GetPersons")
@@ -1229,16 +1237,16 @@ func (a *PersonsAPIService) GetPersonsExecute(r PersonsAPIGetPersonsRequest) (*G
 	if r.sortBy != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", r.sortBy, "form", "")
 	} else {
-        var defaultValue string = "id"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
-        r.sortBy = &defaultValue
+		var defaultValue string = "id"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_by", defaultValue, "form", "")
+		r.sortBy = &defaultValue
 	}
 	if r.sortDirection != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", r.sortDirection, "form", "")
 	} else {
-        var defaultValue string = "asc"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
-        r.sortDirection = &defaultValue
+		var defaultValue string = "asc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort_direction", defaultValue, "form", "")
+		r.sortDirection = &defaultValue
 	}
 	if r.includeFields != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_fields", r.includeFields, "form", "")
@@ -1327,15 +1335,15 @@ func (a *PersonsAPIService) GetPersonsExecute(r PersonsAPIGetPersonsRequest) (*G
 }
 
 type PersonsAPISearchPersonsRequest struct {
-	ctx context.Context
-	ApiService *PersonsAPIService
-	term *string
-	fields *string
-	exactMatch *bool
+	ctx            context.Context
+	ApiService     *PersonsAPIService
+	term           *string
+	fields         *string
+	exactMatch     *bool
 	organizationId *int32
-	includeFields *string
-	limit *int32
-	cursor *string
+	includeFields  *string
+	limit          *int32
+	cursor         *string
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -1389,24 +1397,25 @@ SearchPersons Search persons
 
 Searches all persons by name, email, phone, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope. Found persons can be filtered by organization ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return PersonsAPISearchPersonsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return PersonsAPISearchPersonsRequest
 */
 func (a *PersonsAPIService) SearchPersons(ctx context.Context) PersonsAPISearchPersonsRequest {
 	return PersonsAPISearchPersonsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetPersonSearchResponse
+//
+//	@return GetPersonSearchResponse
 func (a *PersonsAPIService) SearchPersonsExecute(r PersonsAPISearchPersonsRequest) (*GetPersonSearchResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetPersonSearchResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetPersonSearchResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.SearchPersons")
@@ -1511,9 +1520,9 @@ func (a *PersonsAPIService) SearchPersonsExecute(r PersonsAPISearchPersonsReques
 }
 
 type PersonsAPIUpdatePersonRequest struct {
-	ctx context.Context
-	ApiService *PersonsAPIService
-	id int32
+	ctx              context.Context
+	ApiService       *PersonsAPIService
+	id               int32
 	addPersonRequest *AddPersonRequest
 }
 
@@ -1531,26 +1540,27 @@ UpdatePerson Update a person
 
 Updates the properties of a person. <br>If the company uses the [Campaigns product](https://pipedrive.readme.io/docs/campaigns-in-pipedrive-api), then this endpoint will also accept and return the `marketing_status` field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the person
- @return PersonsAPIUpdatePersonRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the person
+	@return PersonsAPIUpdatePersonRequest
 */
 func (a *PersonsAPIService) UpdatePerson(ctx context.Context, id int32) PersonsAPIUpdatePersonRequest {
 	return PersonsAPIUpdatePersonRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return UpsertPersonResponse
+//
+//	@return UpsertPersonResponse
 func (a *PersonsAPIService) UpdatePersonExecute(r PersonsAPIUpdatePersonRequest) (*UpsertPersonResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpsertPersonResponse
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpsertPersonResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PersonsAPIService.UpdatePerson")

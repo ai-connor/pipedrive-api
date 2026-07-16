@@ -20,7 +20,7 @@ var _ MappedNullable = &GetPersonFields200ResponseDataInnerRequiredFields{}
 // GetPersonFields200ResponseDataInnerRequiredFields Required fields configuration
 type GetPersonFields200ResponseDataInnerRequiredFields struct {
 	// Whether the field is required
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled              *bool `json:"enabled,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *GetPersonFields200ResponseDataInnerRequiredFields) SetEnabled(v bool) {
 }
 
 func (o GetPersonFields200ResponseDataInnerRequiredFields) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableGetPersonFields200ResponseDataInnerRequiredFields) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

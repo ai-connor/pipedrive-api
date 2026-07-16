@@ -22,7 +22,7 @@ type GetItemSearchResponseDataData struct {
 	// The array of found items
 	Items []ItemSearchItem `json:"items,omitempty"`
 	// The array of related items if `search_for_related_items` was enabled
-	RelatedItems []ItemSearchItem `json:"related_items,omitempty"`
+	RelatedItems         []ItemSearchItem `json:"related_items,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetItemSearchResponseDataData) SetRelatedItems(v []ItemSearchItem) {
 }
 
 func (o GetItemSearchResponseDataData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetItemSearchResponseDataData) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

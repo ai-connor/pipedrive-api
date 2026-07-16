@@ -19,13 +19,12 @@ import (
 	"strings"
 )
 
-
 // OrganizationFieldsAPIService OrganizationFieldsAPI service
 type OrganizationFieldsAPIService service
 
 type OrganizationFieldsAPIAddOrganizationFieldRequest struct {
-	ctx context.Context
-	ApiService *OrganizationFieldsAPIService
+	ctx                         context.Context
+	ApiService                  *OrganizationFieldsAPIService
 	addOrganizationFieldRequest *AddOrganizationFieldRequest
 }
 
@@ -43,24 +42,25 @@ AddOrganizationField Create one organization field
 
 Creates a new organization custom field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrganizationFieldsAPIAddOrganizationFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrganizationFieldsAPIAddOrganizationFieldRequest
 */
 func (a *OrganizationFieldsAPIService) AddOrganizationField(ctx context.Context) OrganizationFieldsAPIAddOrganizationFieldRequest {
 	return OrganizationFieldsAPIAddOrganizationFieldRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AddOrganizationField200Response
+//
+//	@return AddOrganizationField200Response
 func (a *OrganizationFieldsAPIService) AddOrganizationFieldExecute(r OrganizationFieldsAPIAddOrganizationFieldRequest) (*AddOrganizationField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddOrganizationField200Response
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddOrganizationField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationFieldsAPIService.AddOrganizationField")
@@ -148,9 +148,9 @@ func (a *OrganizationFieldsAPIService) AddOrganizationFieldExecute(r Organizatio
 }
 
 type OrganizationFieldsAPIAddOrganizationFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *OrganizationFieldsAPIService
-	fieldCode string
+	ctx                             context.Context
+	ApiService                      *OrganizationFieldsAPIService
+	fieldCode                       string
 	addDealFieldOptionsRequestInner *[]AddDealFieldOptionsRequestInner
 }
 
@@ -168,26 +168,27 @@ AddOrganizationFieldOptions Add organization field options in bulk
 
 Adds new options to an organization custom field that supports options (enum or set field types). This operation is atomic - all options are added or none are added. Returns only the newly added options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return OrganizationFieldsAPIAddOrganizationFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return OrganizationFieldsAPIAddOrganizationFieldOptionsRequest
 */
 func (a *OrganizationFieldsAPIService) AddOrganizationFieldOptions(ctx context.Context, fieldCode string) OrganizationFieldsAPIAddOrganizationFieldOptionsRequest {
 	return OrganizationFieldsAPIAddOrganizationFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *OrganizationFieldsAPIService) AddOrganizationFieldOptionsExecute(r OrganizationFieldsAPIAddOrganizationFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationFieldsAPIService.AddOrganizationFieldOptions")
@@ -276,9 +277,9 @@ func (a *OrganizationFieldsAPIService) AddOrganizationFieldOptionsExecute(r Orga
 }
 
 type OrganizationFieldsAPIDeleteOrganizationFieldRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *OrganizationFieldsAPIService
-	fieldCode string
+	fieldCode  string
 }
 
 func (r OrganizationFieldsAPIDeleteOrganizationFieldRequest) Execute() (*DeletePersonField200Response, *http.Response, error) {
@@ -290,26 +291,27 @@ DeleteOrganizationField Delete one organization field
 
 Marks a custom field as deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return OrganizationFieldsAPIDeleteOrganizationFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return OrganizationFieldsAPIDeleteOrganizationFieldRequest
 */
 func (a *OrganizationFieldsAPIService) DeleteOrganizationField(ctx context.Context, fieldCode string) OrganizationFieldsAPIDeleteOrganizationFieldRequest {
 	return OrganizationFieldsAPIDeleteOrganizationFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return DeletePersonField200Response
+//
+//	@return DeletePersonField200Response
 func (a *OrganizationFieldsAPIService) DeleteOrganizationFieldExecute(r OrganizationFieldsAPIDeleteOrganizationFieldRequest) (*DeletePersonField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeletePersonField200Response
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeletePersonField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationFieldsAPIService.DeleteOrganizationField")
@@ -393,9 +395,9 @@ func (a *OrganizationFieldsAPIService) DeleteOrganizationFieldExecute(r Organiza
 }
 
 type OrganizationFieldsAPIDeleteOrganizationFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *OrganizationFieldsAPIService
-	fieldCode string
+	ctx                                context.Context
+	ApiService                         *OrganizationFieldsAPIService
+	fieldCode                          string
 	deleteDealFieldOptionsRequestInner *[]DeleteDealFieldOptionsRequestInner
 }
 
@@ -413,26 +415,27 @@ DeleteOrganizationFieldOptions Delete organization field options in bulk
 
 Removes existing options from an organization custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the deleted options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return OrganizationFieldsAPIDeleteOrganizationFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return OrganizationFieldsAPIDeleteOrganizationFieldOptionsRequest
 */
 func (a *OrganizationFieldsAPIService) DeleteOrganizationFieldOptions(ctx context.Context, fieldCode string) OrganizationFieldsAPIDeleteOrganizationFieldOptionsRequest {
 	return OrganizationFieldsAPIDeleteOrganizationFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *OrganizationFieldsAPIService) DeleteOrganizationFieldOptionsExecute(r OrganizationFieldsAPIDeleteOrganizationFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationFieldsAPIService.DeleteOrganizationFieldOptions")
@@ -521,9 +524,9 @@ func (a *OrganizationFieldsAPIService) DeleteOrganizationFieldOptionsExecute(r O
 }
 
 type OrganizationFieldsAPIGetOrganizationFieldRequest struct {
-	ctx context.Context
-	ApiService *OrganizationFieldsAPIService
-	fieldCode string
+	ctx           context.Context
+	ApiService    *OrganizationFieldsAPIService
+	fieldCode     string
 	includeFields *string
 }
 
@@ -542,26 +545,27 @@ GetOrganizationField Get one organization field
 
 Returns metadata about a specific organization field.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return OrganizationFieldsAPIGetOrganizationFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return OrganizationFieldsAPIGetOrganizationFieldRequest
 */
 func (a *OrganizationFieldsAPIService) GetOrganizationField(ctx context.Context, fieldCode string) OrganizationFieldsAPIGetOrganizationFieldRequest {
 	return OrganizationFieldsAPIGetOrganizationFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddOrganizationField200Response
+//
+//	@return AddOrganizationField200Response
 func (a *OrganizationFieldsAPIService) GetOrganizationFieldExecute(r OrganizationFieldsAPIGetOrganizationFieldRequest) (*AddOrganizationField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddOrganizationField200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddOrganizationField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationFieldsAPIService.GetOrganizationField")
@@ -648,11 +652,11 @@ func (a *OrganizationFieldsAPIService) GetOrganizationFieldExecute(r Organizatio
 }
 
 type OrganizationFieldsAPIGetOrganizationFieldsRequest struct {
-	ctx context.Context
-	ApiService *OrganizationFieldsAPIService
+	ctx           context.Context
+	ApiService    *OrganizationFieldsAPIService
 	includeFields *string
-	limit *int32
-	cursor *string
+	limit         *int32
+	cursor        *string
 }
 
 // Optional comma separated string array of additional data namespaces to include in response
@@ -682,24 +686,25 @@ GetOrganizationFields Get all organization fields
 
 Returns metadata about all organization fields in the company.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return OrganizationFieldsAPIGetOrganizationFieldsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return OrganizationFieldsAPIGetOrganizationFieldsRequest
 */
 func (a *OrganizationFieldsAPIService) GetOrganizationFields(ctx context.Context) OrganizationFieldsAPIGetOrganizationFieldsRequest {
 	return OrganizationFieldsAPIGetOrganizationFieldsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetOrganizationFields200Response
+//
+//	@return GetOrganizationFields200Response
 func (a *OrganizationFieldsAPIService) GetOrganizationFieldsExecute(r OrganizationFieldsAPIGetOrganizationFieldsRequest) (*GetOrganizationFields200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetOrganizationFields200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetOrganizationFields200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationFieldsAPIService.GetOrganizationFields")
@@ -791,9 +796,9 @@ func (a *OrganizationFieldsAPIService) GetOrganizationFieldsExecute(r Organizati
 }
 
 type OrganizationFieldsAPIUpdateOrganizationFieldRequest struct {
-	ctx context.Context
-	ApiService *OrganizationFieldsAPIService
-	fieldCode string
+	ctx                            context.Context
+	ApiService                     *OrganizationFieldsAPIService
+	fieldCode                      string
 	updateOrganizationFieldRequest *UpdateOrganizationFieldRequest
 }
 
@@ -811,26 +816,27 @@ UpdateOrganizationField Update one organization field
 
 Updates an organization custom field. The field_code and field_type cannot be changed. At least one field must be provided in the request body.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return OrganizationFieldsAPIUpdateOrganizationFieldRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return OrganizationFieldsAPIUpdateOrganizationFieldRequest
 */
 func (a *OrganizationFieldsAPIService) UpdateOrganizationField(ctx context.Context, fieldCode string) OrganizationFieldsAPIUpdateOrganizationFieldRequest {
 	return OrganizationFieldsAPIUpdateOrganizationFieldRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddOrganizationField200Response
+//
+//	@return AddOrganizationField200Response
 func (a *OrganizationFieldsAPIService) UpdateOrganizationFieldExecute(r OrganizationFieldsAPIUpdateOrganizationFieldRequest) (*AddOrganizationField200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddOrganizationField200Response
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddOrganizationField200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationFieldsAPIService.UpdateOrganizationField")
@@ -919,9 +925,9 @@ func (a *OrganizationFieldsAPIService) UpdateOrganizationFieldExecute(r Organiza
 }
 
 type OrganizationFieldsAPIUpdateOrganizationFieldOptionsRequest struct {
-	ctx context.Context
-	ApiService *OrganizationFieldsAPIService
-	fieldCode string
+	ctx                                context.Context
+	ApiService                         *OrganizationFieldsAPIService
+	fieldCode                          string
 	updateDealFieldOptionsRequestInner *[]UpdateDealFieldOptionsRequestInner
 }
 
@@ -939,26 +945,27 @@ UpdateOrganizationFieldOptions Update organization field options in bulk
 
 Updates existing options for an organization custom field. This operation is atomic and fails if any of the specified option IDs do not exist. Returns only the updated options.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fieldCode The unique code identifying the field
- @return OrganizationFieldsAPIUpdateOrganizationFieldOptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fieldCode The unique code identifying the field
+	@return OrganizationFieldsAPIUpdateOrganizationFieldOptionsRequest
 */
 func (a *OrganizationFieldsAPIService) UpdateOrganizationFieldOptions(ctx context.Context, fieldCode string) OrganizationFieldsAPIUpdateOrganizationFieldOptionsRequest {
 	return OrganizationFieldsAPIUpdateOrganizationFieldOptionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		fieldCode: fieldCode,
+		ctx:        ctx,
+		fieldCode:  fieldCode,
 	}
 }
 
 // Execute executes the request
-//  @return AddDealFieldOptions200Response
+//
+//	@return AddDealFieldOptions200Response
 func (a *OrganizationFieldsAPIService) UpdateOrganizationFieldOptionsExecute(r OrganizationFieldsAPIUpdateOrganizationFieldOptionsRequest) (*AddDealFieldOptions200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddDealFieldOptions200Response
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddDealFieldOptions200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrganizationFieldsAPIService.UpdateOrganizationFieldOptions")

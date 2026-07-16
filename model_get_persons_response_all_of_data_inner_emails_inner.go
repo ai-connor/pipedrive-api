@@ -24,7 +24,7 @@ type GetPersonsResponseAllOfDataInnerEmailsInner struct {
 	// Whether the email is primary or not
 	Primary *bool `json:"primary,omitempty"`
 	// The email address classification label
-	Label *string `json:"label,omitempty"`
+	Label                *string `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -144,7 +144,7 @@ func (o *GetPersonsResponseAllOfDataInnerEmailsInner) SetLabel(v string) {
 }
 
 func (o GetPersonsResponseAllOfDataInnerEmailsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -228,5 +228,3 @@ func (v *NullableGetPersonsResponseAllOfDataInnerEmailsInner) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

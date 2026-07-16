@@ -38,7 +38,7 @@ type GetActivitiesResponseAllOfDataInnerLocation struct {
 	// Subpremise (e.g. apartment/suite number) of the activity
 	Subpremise *string `json:"subpremise,omitempty"`
 	// Postal code of the activity
-	PostalCode *string `json:"postal_code,omitempty"`
+	PostalCode           *string `json:"postal_code,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -382,7 +382,7 @@ func (o *GetActivitiesResponseAllOfDataInnerLocation) SetPostalCode(v string) {
 }
 
 func (o GetActivitiesResponseAllOfDataInnerLocation) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -494,5 +494,3 @@ func (v *NullableGetActivitiesResponseAllOfDataInnerLocation) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

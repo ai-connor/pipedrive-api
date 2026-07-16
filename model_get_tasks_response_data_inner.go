@@ -48,7 +48,7 @@ type GetTasksResponseDataInner struct {
 	// The update date and time of the task in ISO 8601 format
 	UpdateTime *string `json:"update_time,omitempty"`
 	// The date and time the task was marked as done in ISO 8601 format
-	MarkedAsDoneTime NullableString `json:"marked_as_done_time,omitempty"`
+	MarkedAsDoneTime     NullableString `json:"marked_as_done_time,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -199,6 +199,7 @@ func (o *GetTasksResponseDataInner) HasDescription() bool {
 func (o *GetTasksResponseDataInner) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *GetTasksResponseDataInner) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -337,6 +338,7 @@ func (o *GetTasksResponseDataInner) HasDueDate() bool {
 func (o *GetTasksResponseDataInner) SetDueDate(v string) {
 	o.DueDate.Set(&v)
 }
+
 // SetDueDateNil sets the value for DueDate to be an explicit nil
 func (o *GetTasksResponseDataInner) SetDueDateNil() {
 	o.DueDate.Set(nil)
@@ -379,6 +381,7 @@ func (o *GetTasksResponseDataInner) HasStartDate() bool {
 func (o *GetTasksResponseDataInner) SetStartDate(v string) {
 	o.StartDate.Set(&v)
 }
+
 // SetStartDateNil sets the value for StartDate to be an explicit nil
 func (o *GetTasksResponseDataInner) SetStartDateNil() {
 	o.StartDate.Set(nil)
@@ -421,6 +424,7 @@ func (o *GetTasksResponseDataInner) HasParentTaskId() bool {
 func (o *GetTasksResponseDataInner) SetParentTaskId(v int32) {
 	o.ParentTaskId.Set(&v)
 }
+
 // SetParentTaskIdNil sets the value for ParentTaskId to be an explicit nil
 func (o *GetTasksResponseDataInner) SetParentTaskIdNil() {
 	o.ParentTaskId.Set(nil)
@@ -495,6 +499,7 @@ func (o *GetTasksResponseDataInner) HasPriority() bool {
 func (o *GetTasksResponseDataInner) SetPriority(v int32) {
 	o.Priority.Set(&v)
 }
+
 // SetPriorityNil sets the value for Priority to be an explicit nil
 func (o *GetTasksResponseDataInner) SetPriorityNil() {
 	o.Priority.Set(nil)
@@ -601,6 +606,7 @@ func (o *GetTasksResponseDataInner) HasMarkedAsDoneTime() bool {
 func (o *GetTasksResponseDataInner) SetMarkedAsDoneTime(v string) {
 	o.MarkedAsDoneTime.Set(&v)
 }
+
 // SetMarkedAsDoneTimeNil sets the value for MarkedAsDoneTime to be an explicit nil
 func (o *GetTasksResponseDataInner) SetMarkedAsDoneTimeNil() {
 	o.MarkedAsDoneTime.Set(nil)
@@ -612,7 +618,7 @@ func (o *GetTasksResponseDataInner) UnsetMarkedAsDoneTime() {
 }
 
 func (o GetTasksResponseDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -744,5 +750,3 @@ func (v *NullableGetTasksResponseDataInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

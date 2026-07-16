@@ -22,7 +22,7 @@ type UpdateProjectBoardRequest struct {
 	// The name of the project board
 	Name *string `json:"name,omitempty"`
 	// The order of the board. Must be between 1 and the total number of boards + 1.
-	OrderNr *int32 `json:"order_nr,omitempty"`
+	OrderNr              *int32 `json:"order_nr,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *UpdateProjectBoardRequest) SetOrderNr(v int32) {
 }
 
 func (o UpdateProjectBoardRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableUpdateProjectBoardRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

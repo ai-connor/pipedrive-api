@@ -32,7 +32,7 @@ type ProjectTemplate struct {
 	// The creation date and time of the project template in ISO 8601 format
 	AddTime *string `json:"add_time,omitempty"`
 	// The update date and time of the project template in ISO 8601 format
-	UpdateTime *string `json:"update_time,omitempty"`
+	UpdateTime           *string `json:"update_time,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -280,7 +280,7 @@ func (o *ProjectTemplate) SetUpdateTime(v string) {
 }
 
 func (o ProjectTemplate) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -380,5 +380,3 @@ func (v *NullableProjectTemplate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

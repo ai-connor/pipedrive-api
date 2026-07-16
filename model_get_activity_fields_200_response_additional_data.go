@@ -20,7 +20,7 @@ var _ MappedNullable = &GetActivityFields200ResponseAdditionalData{}
 // GetActivityFields200ResponseAdditionalData struct for GetActivityFields200ResponseAdditionalData
 type GetActivityFields200ResponseAdditionalData struct {
 	// Base64url-encoded cursor for fetching the next page of results, null if no more pages
-	NextCursor NullableString `json:"next_cursor,omitempty"`
+	NextCursor           NullableString `json:"next_cursor,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,6 +75,7 @@ func (o *GetActivityFields200ResponseAdditionalData) HasNextCursor() bool {
 func (o *GetActivityFields200ResponseAdditionalData) SetNextCursor(v string) {
 	o.NextCursor.Set(&v)
 }
+
 // SetNextCursorNil sets the value for NextCursor to be an explicit nil
 func (o *GetActivityFields200ResponseAdditionalData) SetNextCursorNil() {
 	o.NextCursor.Set(nil)
@@ -86,7 +87,7 @@ func (o *GetActivityFields200ResponseAdditionalData) UnsetNextCursor() {
 }
 
 func (o GetActivityFields200ResponseAdditionalData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -162,5 +163,3 @@ func (v *NullableGetActivityFields200ResponseAdditionalData) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

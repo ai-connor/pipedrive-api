@@ -20,7 +20,7 @@ var _ MappedNullable = &GetDealSearchResponseAllOfDataItemsInnerItemOwner{}
 // GetDealSearchResponseAllOfDataItemsInnerItemOwner struct for GetDealSearchResponseAllOfDataItemsInnerItemOwner
 type GetDealSearchResponseAllOfDataItemsInnerItemOwner struct {
 	// The ID of the owner of the deal
-	Id *int32 `json:"id,omitempty"`
+	Id                   *int32 `json:"id,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,7 @@ func (o *GetDealSearchResponseAllOfDataItemsInnerItemOwner) SetId(v int32) {
 }
 
 func (o GetDealSearchResponseAllOfDataItemsInnerItemOwner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,5 +152,3 @@ func (v *NullableGetDealSearchResponseAllOfDataItemsInnerItemOwner) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -23,7 +23,7 @@ type AddProjectBoardRequest struct {
 	// The name of the project board
 	Name string `json:"name"`
 	// The order of the board. Must be between 1 and the total number of boards + 1.
-	OrderNr *int32 `json:"order_nr,omitempty"`
+	OrderNr              *int32 `json:"order_nr,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -104,7 +104,7 @@ func (o *AddProjectBoardRequest) SetOrderNr(v int32) {
 }
 
 func (o AddProjectBoardRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -138,10 +138,10 @@ func (o *AddProjectBoardRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -203,5 +203,3 @@ func (v *NullableAddProjectBoardRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -22,7 +22,7 @@ type GetProjectFields200ResponseDataInnerUiVisibility struct {
 	// Whether the field is shown in the add modal
 	AddVisibleFlag *bool `json:"add_visible_flag,omitempty"`
 	// Whether the field is shown in the details view
-	DetailsVisibleFlag *bool `json:"details_visible_flag,omitempty"`
+	DetailsVisibleFlag   *bool `json:"details_visible_flag,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *GetProjectFields200ResponseDataInnerUiVisibility) SetDetailsVisibleFlag
 }
 
 func (o GetProjectFields200ResponseDataInnerUiVisibility) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableGetProjectFields200ResponseDataInnerUiVisibility) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -28,7 +28,7 @@ type UpdateStageRequest struct {
 	// Whether deals in this stage can become rotten
 	IsDealRotEnabled *bool `json:"is_deal_rot_enabled,omitempty"`
 	// The number of days the deals not updated in this stage would become rotten. Applies only if the `is_deal_rot_enabled` is set.
-	DaysToRotten *int32 `json:"days_to_rotten,omitempty"`
+	DaysToRotten         *int32 `json:"days_to_rotten,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -212,7 +212,7 @@ func (o *UpdateStageRequest) SetDaysToRotten(v int32) {
 }
 
 func (o UpdateStageRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -304,5 +304,3 @@ func (v *NullableUpdateStageRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

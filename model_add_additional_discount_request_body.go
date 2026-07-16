@@ -25,7 +25,7 @@ type AddAdditionalDiscountRequestBody struct {
 	// The discount amount. Must be a positive number (excluding 0).
 	Amount float32 `json:"amount"`
 	// Determines whether the discount is applied as a percentage or a fixed amount.
-	Type string `json:"type"`
+	Type                 string `json:"type"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -124,7 +124,7 @@ func (o *AddAdditionalDiscountRequestBody) SetType(v string) {
 }
 
 func (o AddAdditionalDiscountRequestBody) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,10 +159,10 @@ func (o *AddAdditionalDiscountRequestBody) UnmarshalJSON(data []byte) (err error
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -225,5 +225,3 @@ func (v *NullableAddAdditionalDiscountRequestBody) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

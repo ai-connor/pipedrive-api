@@ -23,7 +23,7 @@ type UpdatePipelineRequest struct {
 	Name *string `json:"name,omitempty"`
 	// Whether deal probability is disabled or enabled for this pipeline
 	IsDealProbabilityEnabled *bool `json:"is_deal_probability_enabled,omitempty"`
-	AdditionalProperties map[string]interface{}
+	AdditionalProperties     map[string]interface{}
 }
 
 type _UpdatePipelineRequest UpdatePipelineRequest
@@ -114,7 +114,7 @@ func (o *UpdatePipelineRequest) SetIsDealProbabilityEnabled(v bool) {
 }
 
 func (o UpdatePipelineRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableUpdatePipelineRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -32,7 +32,7 @@ type GetPipelinesResponseAllOfDataInner struct {
 	// The pipeline creation time
 	AddTime *string `json:"add_time,omitempty"`
 	// The pipeline update time
-	UpdateTime *string `json:"update_time,omitempty"`
+	UpdateTime           *string `json:"update_time,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -280,7 +280,7 @@ func (o *GetPipelinesResponseAllOfDataInner) SetUpdateTime(v string) {
 }
 
 func (o GetPipelinesResponseAllOfDataInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -380,5 +380,3 @@ func (v *NullableGetPipelinesResponseAllOfDataInner) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

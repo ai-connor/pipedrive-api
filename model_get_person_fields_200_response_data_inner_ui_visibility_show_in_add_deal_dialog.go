@@ -22,7 +22,7 @@ type GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog struct {
 	// Whether the field is shown in the add deal dialog
 	Show *bool `json:"show,omitempty"`
 	// Display order in the add deal dialog (null if not shown)
-	Order NullableInt32 `json:"order,omitempty"`
+	Order                NullableInt32 `json:"order,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,6 +109,7 @@ func (o *GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog) Has
 func (o *GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog) SetOrder(v int32) {
 	o.Order.Set(&v)
 }
+
 // SetOrderNil sets the value for Order to be an explicit nil
 func (o *GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog) SetOrderNil() {
 	o.Order.Set(nil)
@@ -120,7 +121,7 @@ func (o *GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog) Uns
 }
 
 func (o GetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDialog) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -200,5 +201,3 @@ func (v *NullableGetPersonFields200ResponseDataInnerUiVisibilityShowInAddDealDia
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

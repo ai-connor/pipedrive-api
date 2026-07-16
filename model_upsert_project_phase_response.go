@@ -20,8 +20,8 @@ var _ MappedNullable = &UpsertProjectPhaseResponse{}
 // UpsertProjectPhaseResponse struct for UpsertProjectPhaseResponse
 type UpsertProjectPhaseResponse struct {
 	// If the response is successful or not
-	Success *bool `json:"success,omitempty"`
-	Data *GetProjectPhasesResponseDataInner `json:"data,omitempty"`
+	Success              *bool                              `json:"success,omitempty"`
+	Data                 *GetProjectPhasesResponseDataInner `json:"data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,7 @@ func (o *UpsertProjectPhaseResponse) SetData(v GetProjectPhasesResponseDataInner
 }
 
 func (o UpsertProjectPhaseResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +189,3 @@ func (v *NullableUpsertProjectPhaseResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

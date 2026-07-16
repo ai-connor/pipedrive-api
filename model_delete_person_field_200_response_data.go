@@ -34,7 +34,7 @@ type DeletePersonField200ResponseData struct {
 	IsCustomField bool `json:"is_custom_field"`
 	// Whether this field is not returned by default in entity responses
 	IsOptionalResponseField bool `json:"is_optional_response_field"`
-	AdditionalProperties map[string]interface{}
+	AdditionalProperties    map[string]interface{}
 }
 
 type _DeletePersonField200ResponseData DeletePersonField200ResponseData
@@ -248,7 +248,7 @@ func (o *DeletePersonField200ResponseData) SetIsOptionalResponseField(v bool) {
 }
 
 func (o DeletePersonField200ResponseData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -293,10 +293,10 @@ func (o *DeletePersonField200ResponseData) UnmarshalJSON(data []byte) (err error
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -363,5 +363,3 @@ func (v *NullableDeletePersonField200ResponseData) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

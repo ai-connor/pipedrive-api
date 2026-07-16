@@ -44,7 +44,7 @@ type AddActivityRequest struct {
 	// Whether the activity marks the assignee as busy or not in their calendar
 	Busy *bool `json:"busy,omitempty"`
 	// Whether the activity is marked as done or not
-	Done *bool `json:"done,omitempty"`
+	Done     *bool                                        `json:"done,omitempty"`
 	Location *GetActivitiesResponseAllOfDataInnerLocation `json:"location,omitempty"`
 	// The participants of the activity
 	Participants []GetActivitiesResponseAllOfDataInnerParticipantsInner `json:"participants,omitempty"`
@@ -55,7 +55,7 @@ type AddActivityRequest struct {
 	// The priority of the activity. Mappable to a specific string using activityFields API.
 	Priority *int32 `json:"priority,omitempty"`
 	// The note of the activity
-	Note *string `json:"note,omitempty"`
+	Note                 *string `json:"note,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -687,7 +687,7 @@ func (o *AddActivityRequest) SetNote(v string) {
 }
 
 func (o AddActivityRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -835,5 +835,3 @@ func (v *NullableAddActivityRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

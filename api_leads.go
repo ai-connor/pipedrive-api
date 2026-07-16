@@ -19,14 +19,13 @@ import (
 	"strings"
 )
 
-
 // LeadsAPIService LeadsAPI service
 type LeadsAPIService service
 
 type LeadsAPIConvertLeadToDealRequest struct {
-	ctx context.Context
-	ApiService *LeadsAPIService
-	id string
+	ctx                      context.Context
+	ApiService               *LeadsAPIService
+	id                       string
 	convertLeadToDealRequest *ConvertLeadToDealRequest
 }
 
@@ -44,26 +43,27 @@ ConvertLeadToDeal Convert a lead to a deal
 
 Initiates a conversion of a lead to a deal. The return value is an ID of a job that was assigned to perform the conversion. Related entities (notes, files, emails, activities, ...) are transferred during the process to the target entity. If the conversion is successful, the lead is marked as deleted. To retrieve the created entity ID and the result of the conversion, call the <a href="https://developers.pipedrive.com/docs/api/v1/Leads#getLeadConversionStatus">/api/v2/leads/{lead_id}/convert/status/{conversion_id}</a> endpoint.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of the lead to convert
- @return LeadsAPIConvertLeadToDealRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of the lead to convert
+	@return LeadsAPIConvertLeadToDealRequest
 */
 func (a *LeadsAPIService) ConvertLeadToDeal(ctx context.Context, id string) LeadsAPIConvertLeadToDealRequest {
 	return LeadsAPIConvertLeadToDealRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AddConvertLeadToDealResponse
+//
+//	@return AddConvertLeadToDealResponse
 func (a *LeadsAPIService) ConvertLeadToDealExecute(r LeadsAPIConvertLeadToDealRequest) (*AddConvertLeadToDealResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AddConvertLeadToDealResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AddConvertLeadToDealResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LeadsAPIService.ConvertLeadToDeal")
@@ -140,8 +140,8 @@ func (a *LeadsAPIService) ConvertLeadToDealExecute(r LeadsAPIConvertLeadToDealRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -159,9 +159,9 @@ func (a *LeadsAPIService) ConvertLeadToDealExecute(r LeadsAPIConvertLeadToDealRe
 }
 
 type LeadsAPIGetLeadConversionStatusRequest struct {
-	ctx context.Context
-	ApiService *LeadsAPIService
-	id string
+	ctx          context.Context
+	ApiService   *LeadsAPIService
+	id           string
 	conversionId string
 }
 
@@ -174,28 +174,29 @@ GetLeadConversionStatus Get Lead conversion status
 
 Returns data about the conversion. Status is always present and its value (not_started, running, completed, failed, rejected) represents the current state of the conversion. Deal ID is only present if the conversion was successfully finished. This data is only temporary and removed after a few days.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The ID of a lead
- @param conversionId The ID of the conversion
- @return LeadsAPIGetLeadConversionStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The ID of a lead
+	@param conversionId The ID of the conversion
+	@return LeadsAPIGetLeadConversionStatusRequest
 */
 func (a *LeadsAPIService) GetLeadConversionStatus(ctx context.Context, id string, conversionId string) LeadsAPIGetLeadConversionStatusRequest {
 	return LeadsAPIGetLeadConversionStatusRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ApiService:   a,
+		ctx:          ctx,
+		id:           id,
 		conversionId: conversionId,
 	}
 }
 
 // Execute executes the request
-//  @return GetConvertResponse1
+//
+//	@return GetConvertResponse1
 func (a *LeadsAPIService) GetLeadConversionStatusExecute(r LeadsAPIGetLeadConversionStatusRequest) (*GetConvertResponse1, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetConvertResponse1
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetConvertResponse1
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LeadsAPIService.GetLeadConversionStatus")
@@ -271,8 +272,8 @@ func (a *LeadsAPIService) GetLeadConversionStatusExecute(r LeadsAPIGetLeadConver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -290,16 +291,16 @@ func (a *LeadsAPIService) GetLeadConversionStatusExecute(r LeadsAPIGetLeadConver
 }
 
 type LeadsAPISearchLeadsRequest struct {
-	ctx context.Context
-	ApiService *LeadsAPIService
-	term *string
-	fields *string
-	exactMatch *bool
-	personId *int32
+	ctx            context.Context
+	ApiService     *LeadsAPIService
+	term           *string
+	fields         *string
+	exactMatch     *bool
+	personId       *int32
 	organizationId *int32
-	includeFields *string
-	limit *int32
-	cursor *string
+	includeFields  *string
+	limit          *int32
+	cursor         *string
 }
 
 // The search term to look for. Minimum 2 characters (or 1 if using &#x60;exact_match&#x60;). Please note that the search term has to be URL encoded.
@@ -359,24 +360,25 @@ SearchLeads Search leads
 
 Searches all leads by title, notes and/or custom fields. This endpoint is a wrapper of <a href="https://developers.pipedrive.com/docs/api/v1/ItemSearch#searchItem">/v1/itemSearch</a> with a narrower OAuth scope. Found leads can be filtered by the person ID and the organization ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return LeadsAPISearchLeadsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return LeadsAPISearchLeadsRequest
 */
 func (a *LeadsAPIService) SearchLeads(ctx context.Context) LeadsAPISearchLeadsRequest {
 	return LeadsAPISearchLeadsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GetLeadSearchResponse
+//
+//	@return GetLeadSearchResponse
 func (a *LeadsAPIService) SearchLeadsExecute(r LeadsAPISearchLeadsRequest) (*GetLeadSearchResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GetLeadSearchResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GetLeadSearchResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "LeadsAPIService.SearchLeads")

@@ -22,7 +22,7 @@ type AddOrganizationFieldRequestImportantFields struct {
 	// Whether the field is marked as important. When false, the field is not highlighted. When true with empty stage_ids, the field is important everywhere. When true with specific stage_ids, the field is important only at those deal stages. Default is false.
 	Enabled *bool `json:"enabled,omitempty"`
 	// Array of deal stage IDs where this organization field should be highlighted as important. Must reference valid, active deal stages. Empty array when enabled is false.
-	StageIds []int32 `json:"stage_ids,omitempty"`
+	StageIds             []int32 `json:"stage_ids,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -114,7 +114,7 @@ func (o *AddOrganizationFieldRequestImportantFields) SetStageIds(v []int32) {
 }
 
 func (o AddOrganizationFieldRequestImportantFields) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableAddOrganizationFieldRequestImportantFields) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

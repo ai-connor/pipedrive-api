@@ -21,7 +21,7 @@ var _ MappedNullable = &AddDealFollowerRequest{}
 // AddDealFollowerRequest struct for AddDealFollowerRequest
 type AddDealFollowerRequest struct {
 	// The ID of the user to add as a follower
-	UserId int32 `json:"user_id"`
+	UserId               int32 `json:"user_id"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,7 @@ func (o *AddDealFollowerRequest) SetUserId(v int32) {
 }
 
 func (o AddDealFollowerRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -101,10 +101,10 @@ func (o *AddDealFollowerRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,5 +165,3 @@ func (v *NullableAddDealFollowerRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
